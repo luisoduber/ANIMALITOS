@@ -1,0 +1,761 @@
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.Cache
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csprojResolveAssemblyReference.cache
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_recuperar_clave.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.xml
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\rpt_ticket_venta.cs
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\rpt_ticket_venta.rpt
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\rpt_cuadre_diario.rpt
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\rpt_cuadre_diario.cs
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\rpt_imp_prueba.rpt
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\rpt_imp_prueba.cs
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\FlashControlV71.dll
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ShockwaveFlashObjects.dll
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\CrystalDecisions.Shared.dll
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\CrystalDecisions.Windows.Forms.dll
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+D:\GRUPOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csprojResolveAssemblyReference.cache
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_recuperar_clave.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.Cache
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\rpt_imp_prueba.rpt
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\rpt_cuadre_diario.rpt
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\rpt_ticket_venta.rpt
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\rpt_imp_prueba.cs
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\rpt_cuadre_diario.cs
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\rpt_ticket_venta.cs
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\CrystalDecisions.ReportSource.dll
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\CrystalDecisions.Shared.dll
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\CrystalDecisions.Windows.Forms.dll
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\FlashControlV71.dll
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ShockwaveFlashObjects.dll
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.xml
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+J:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.xml
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_recuperar_clave.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.Cache
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csprojResolveAssemblyReference.cache
+G:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket_taq.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.xml
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket_taq.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_recuperar_clave.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.Cache
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\VENTAS_LOTERIA\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.xml
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csprojResolveAssemblyReference.cache
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket_taq.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_recuperar_clave.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.Cache
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+D:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.AssemblyReference.cache
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket_taq.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_recuperar_clave.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.cache
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CoreCompileInputs.cache
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Ubiety.Dns.Core.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ZstdNet.dll
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.xml
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.xml
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.pdb
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.xml
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.xml
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.xml
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.xml
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.xml
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.xml
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.xml
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+E:\SISTEMAS DESARROLLADOS\LUIS ODUBER\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CopyComplete
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Ubiety.Dns.Core.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ZstdNet.dll
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.xml
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.xml
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.pdb
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.xml
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.xml
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.xml
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.xml
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.xml
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.xml
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.xml
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.AssemblyReference.cache
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket_taq.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_recuperar_clave.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.cache
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CoreCompileInputs.cache
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CopyComplete
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+H:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Ubiety.Dns.Core.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\ZstdNet.dll
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.xml
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.xml
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.pdb
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.xml
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.xml
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.xml
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.xml
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.xml
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.xml
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.xml
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.AssemblyReference.cache
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket_taq.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_recuperar_clave.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.cache
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CoreCompileInputs.cache
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CopyComplete
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+J:\ANIMALITO\LOTERIA\VERSION--113\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Ubiety.Dns.Core.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ZstdNet.dll
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.xml
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.xml
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.pdb
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.xml
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.xml
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.xml
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.xml
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.xml
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.xml
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.xml
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.AssemblyReference.cache
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket_taq.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_recuperar_clave.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.cache
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CoreCompileInputs.cache
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CopyComplete
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+J:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket_taq.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_recuperar_clave.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.cache
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CoreCompileInputs.cache
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Ubiety.Dns.Core.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ZstdNet.dll
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.xml
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.pdb
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.xml
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.xml
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.xml
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.xml
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.xml
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.xml
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.xml
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CopyComplete
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+H:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.AssemblyReference.cache
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Ubiety.Dns.Core.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ZstdNet.dll
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.xml
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.pdb
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.xml
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.xml
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.xml
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.xml
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.xml
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.xml
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.xml
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.AssemblyReference.cache
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket_taq.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_recuperar_clave.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.cache
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CoreCompileInputs.cache
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CopyComplete
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+I:\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Ubiety.Dns.Core.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ZstdNet.dll
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.xml
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.xml
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.pdb
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.xml
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.xml
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.xml
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.xml
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.xml
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.xml
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.xml
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.AssemblyReference.cache
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket_taq.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.cache
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CoreCompileInputs.cache
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CopyComplete
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frmMenOpe.resources
+G:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frmContVent.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.config
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.application
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.exe
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ventas_loteria.pdb
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Data.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Crypto.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.pdb
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Google.Protobuf.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\K4os.Hash.xxHash.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\MySql.Data.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Buffers.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Memory.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.AssemblyReference.cache
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frmMenOpe.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frmContVent.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket_taq.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_anular_ticket.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cambio_clave.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_config_impresora.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_grupos_usuarios.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_login.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_menu_operaciones.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_proc_result_loteria.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_ventas.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq_gral.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_cuadre_taq.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.cache
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CoreCompileInputs.cache
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.application
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\obj\x86\Debug\ventas_l.94258B2D.Up2Date
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Cryptography.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.IO.Pipelines.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Numerics.Vectors.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\ZstdSharp.dll
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\BouncyCastle.Cryptography.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.IO.Pipelines.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Numerics.Vectors.xml
+D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Threading.Tasks.Extensions.xml
