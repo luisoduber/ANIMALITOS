@@ -202,7 +202,54 @@ public string rsGrup1(string prmUrl, string prmIdLot,
              break;
         }
     }
-            return result;
+    return result;
+}
+public string rsGrup2(string prmUrl, string prmIdLot,
+                            string prmIdSort, string prmNombLot,
+                            string prmHoraSortBus)
+{ 
+    var htmlDoc = web.Load(prmUrl);
+    var node = htmlDoc.DocumentNode.SelectNodes("//div[@class='circle-legend']");
+    string result = "";
+    string rsAni="";
+    string nombAni="";
+    string prmNombLotPw="";
+    string[] rsDat = new string[6];
+    string rsDatLot="";
+    
+    foreach (var node1 in node)
+    {
+        var h4Nod=node1.SelectNodes("./h4");
+        var h5Nod=node1.SelectNodes("./h5");
+
+        rsDatLot = h4Nod[0].InnerText.ToString().Trim(); 
+        rsDatLot += "/"+ h5Nod[0].InnerText.ToString().Trim(); 
+        rsDatLot = rsDatLot.Replace(" ", "/");
+        rsDat=rsDatLot.Split('/');
+
+        rsAni=rsDat[0].ToString();
+        nombAni=rsDat[1].ToString();
+        prmNombLotPw = rsDat[2].ToString();
+        prmNombLotPw+= " "+rsDat[3].ToString();
+        prmNombLotPw+= " " + rsDat[4].ToString().Substring(0,2).ToLower();
+        prmHoraLot=rsDat[5].ToString();
+
+        //MessageBox.Show(prmNombLot+"   "+ prmHoraSortBus  +"   " + rsAni + "   " + prmNombLotPw + "   " + prmHoraLot);
+        if ((prmNombLotPw.ToLower() == prmNombLot) && (prmHoraLot == prmHoraSortBus))
+        {
+            //VERIFICA SI HAY RESULTADO EN LA LOTERIA SI NO VIENE VACIO
+            if (!string.IsNullOrEmpty(rsAni))
+            {
+                result += prmIdLot + "-";
+                result += prmIdSort + "-";
+                result += rsAni;
+                result += "-" + nombAni;
+                result += " " + prmHoraSortBus;
+            }
+             break;
+        }
+    }
+    return result;
 }
 public string result_grupo2(string prmUrl, string prmIdLotBus,
                             string prmIdSorBus, string prmHoraSortBus,
@@ -259,8 +306,9 @@ public string result_grupo2(string prmUrl, string prmIdLotBus,
         try
         {
             var urlGrup1= @"https://www.tuazar.com/loteria/animalitos/resultados/";
+            var urlGrup2= @"https://loteriadehoy.com/animalito/lottoactivordominicana/resultados/";
             var urlRA = @"https://www.ruletactiva.com.ve/";
-      
+
             string idLotBus="";
             string idSortBus="";
 
@@ -271,8 +319,7 @@ public string result_grupo2(string prmUrl, string prmIdLotBus,
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "SP_bus_sorteos_proc_result_auto";
             MySqlDataReader dr = cmd.ExecuteReader();
-
-                string rsLot = "";
+            string rsLot = "";
 
             while (dr.Read())
             {
@@ -299,6 +346,20 @@ public string result_grupo2(string prmUrl, string prmIdLotBus,
                     else
                     {
                         rsLot=rsGrup1(urlGrup1,idLotBus,idSortBus,nombLotBus,horaSortBus);
+                        if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
+                    }
+                }
+                else if ((idLotBus == "14"))
+                {
+                    if (string.IsNullOrEmpty(rsGan))
+                    {
+                        rsGan += rsGrup2(urlGrup2,idLotBus,idSortBus,
+                                         nombLotBus,horaSortBus);
+                    }
+                    else
+                    {
+                        rsLot= rsGrup2(urlGrup2,idLotBus,idSortBus,
+                                            nombLotBus,horaSortBus);
                         if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
                     }
                 }

@@ -1885,10 +1885,10 @@ namespace ventas_loteria
                 command.Connection = clsMet.cn_bd;
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = "SP_act_result_loteria";
-                command.Parameters.AddWithValue("prm_id_det_jug", prmIdDetJug);
-                command.Parameters.AddWithValue("prm_id_loteria", prmIdLot);
-                command.Parameters.AddWithValue("prm_id_sorteos", prmIdSort);
-                command.Parameters.AddWithValue("prm_result_lot", prmResultLot);
+                command.Parameters.AddWithValue("prmIdDetJug", prmIdDetJug);
+                command.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                command.Parameters.AddWithValue("prmIdSort", prmIdSort);
+                command.Parameters.AddWithValue("prmRsLot", prmResultLot);
                 MySqlDataReader dr = command.ExecuteReader();
                 dr.Read();
 
