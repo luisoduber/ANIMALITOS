@@ -231,8 +231,9 @@ public string rsGrup2(string prmUrl, string prmIdLot,
         nombAni=rsDat[1].ToString();
         prmNombLotPw = rsDat[2].ToString();
         prmNombLotPw+= " "+rsDat[3].ToString();
-        prmNombLotPw+= " " + rsDat[4].ToString().Substring(0,2).ToLower();
-        prmHoraLot=rsDat[5].ToString();
+        prmNombLotPw+= " " + rsDat[4].ToString().Substring(0,2);
+        prmNombLotPw= prmNombLotPw.ToLower();
+        prmHoraLot =rsDat[5].ToString();
 
         //MessageBox.Show(prmNombLot+"   "+ prmHoraSortBus  +"   " + rsAni + "   " + prmNombLotPw + "   " + prmHoraLot);
         if ((prmNombLotPw.ToLower() == prmNombLot) && (prmHoraLot == prmHoraSortBus))
@@ -243,7 +244,7 @@ public string rsGrup2(string prmUrl, string prmIdLot,
                 result += prmIdLot + "-";
                 result += prmIdSort + "-";
                 result += rsAni;
-                result += "-" + nombAni;
+                result += "-" + prmNombLotPw;
                 result += " " + prmHoraSortBus;
             }
              break;

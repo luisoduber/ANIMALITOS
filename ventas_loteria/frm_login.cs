@@ -43,21 +43,32 @@ namespace ventas_loteria
             //clsMet.cadena_conexion = Settings.Default.cadCnBd;
             // clsMet.cadena_conexion = clsMet.descifrar(Settings.Default.cadCnBd, clsMet.clave_ed);
             //MessageBox.Show(clsMet.descifrar(clsMet.cadena_conexion, clsMet.clave_ed));
-
             //clsMet.cadena_conexion = "Server=localhost;port=3306;Database=loterias; Uid=grupodab_prog;Pwd='root';";
             clsMet.cadena_conexion = "Server=68.178.200.104;port=8689;Database=loterias; Uid=grupodab_prog;Pwd='NeM{.B2kP.@FkgZt{4x$[#s,GY&j4+F%';";
 
             this.Text = "Autenticación Usuario...";
             btn_recordar_clave.FlatAppearance.BorderSize = 0;
-            txtUsuario.Focus();
 
             rsPrmGral = objLog.busPrmGral();
             clsMet.cant_dia_cad_ticket = Convert.ToInt32(rsPrmGral[0].ToString());
             clsMet.nota_msj_ticket = rsPrmGral[1].ToString();
 
+            if (Settings.Default.chkLog == true)
+            {
+                chkRecord.Checked = true;
+                txtUsuario.Text = Settings.Default.usuario;
+                txtClave.Text = Settings.Default.clave;
+                txtClave.Focus();
+            }
+            else if (Settings.Default.chkLog == false)
+            {
+                chkRecord.Checked = false;
+                txtUsuario.Text = "";
+                txtClave.Text = "";
+                txtUsuario.Focus();
+            }
             /*  System.Deployment.Application.ApplicationDeployment
               ad = System.Deployment.Application.ApplicationDeployment.CurrentDeployment;
-
                clsMet.version_pro = "Versión:" + ad.CurrentVersion.ToString();*/
         }
 
@@ -137,7 +148,7 @@ namespace ventas_loteria
 
         private void frm_login_Activated(object sender, EventArgs e)
         {
-            txtUsuario.Focus();
+          
         }
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
@@ -212,6 +223,7 @@ namespace ventas_loteria
                     else
                     {
                         //Activo
+                        recuerdame();
                         this.Hide();
                         objFrmMenOpe.Show();
                     }
@@ -320,6 +332,7 @@ namespace ventas_loteria
                         else
                         {
                             //Activo
+                            recuerdame();
                             this.Hide();
                             objFrmMenOpe.Show();
                         }
