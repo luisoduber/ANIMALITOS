@@ -782,19 +782,19 @@ namespace ventas_loteria
             return rsDat;
         }
 
-        public DataTable busLotProcResult()
+        public DataTable busLotProcRs()
         {
-            DataTable dt = new DataTable("busLotProcResult");
+            DataTable dt = new DataTable("busLotProcRs");
             MySqlDataAdapter da;
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd = new MySqlCommand();
             try
             {
                 clsMet.conectar();
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "SP_bus_sorteos_proc_result";
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_bus_sorteos_proc_result";
 
-                da = new MySqlDataAdapter(command);
+                da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
             }
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
@@ -2005,8 +2005,8 @@ namespace ventas_loteria
             finally { clsMet.Desconectar(); }
             return dt;
         }
-        public DataTable busTotCuadreGrupoTaqFiltro(int prm_id_grupo, int prm_id_usuario,
-                                                string prm_fecha_ini,string prm_fecha_fin)
+        public DataTable busTotCuadreGrupoTaqFiltro(int prmIdGrup, int prmIdUsu,
+                                                string prmFechIni,string prmFechFin)
         {
             DataTable dt = new DataTable("busTotCuadreGrupoTaqFiltro");
             MySqlDataAdapter da;
@@ -2017,10 +2017,10 @@ namespace ventas_loteria
                 command.Connection = clsMet.cn_bd;
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = "SP_bus_totales_grupo_taq_Xfiltro";
-                command.Parameters.AddWithValue("prm_id_grupo", prm_id_grupo);
-                command.Parameters.AddWithValue("prm_id_usuario", prm_id_usuario);
-                command.Parameters.AddWithValue("prm_fecha_ini", prm_fecha_ini);
-                command.Parameters.AddWithValue("prm_fecha_fin", prm_fecha_fin);
+                command.Parameters.AddWithValue("prm_id_grupo", prmIdGrup);
+                command.Parameters.AddWithValue("prm_id_usuario", prmIdUsu);
+                command.Parameters.AddWithValue("prm_fecha_ini", prmFechIni);
+                command.Parameters.AddWithValue("prm_fecha_fin", prmFechFin);
                 
                 da = new MySqlDataAdapter(command);
                 da.Fill(dt);
@@ -2326,6 +2326,47 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             finally { clsMet.Desconectar(); }
             return dt;
+        }
+        public DataTable busLimTaq(int prmIdGrup)
+        {
+            DataTable dt = new DataTable("busLimTaq");
+            MySqlDataAdapter da;
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                clsMet.conectar();
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "spListLimTaq";
+                cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
+            finally { clsMet.Desconectar(); }
+            return dt;
+        }
+        public string actLimTaq(int prmIdGrup, int prmIdTaq,
+                                string prmMmaxAn)
+        {
+
+            string rsDat = "";
+
+            clsMet.conectar();
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "spActLimTaq";
+                cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                cmd.Parameters.AddWithValue("prmIdTaq", prmIdTaq);
+                cmd.Parameters.AddWithValue("prmMmaxAn", prmMmaxAn);
+                rsDat = cmd.ExecuteNonQuery() > 0 ? "true" : "false";
+            }
+            catch (Exception ex) { rsDat = ex.Message; }
+            finally { clsMet.Desconectar(); }
+            return rsDat;
         }
 
     }

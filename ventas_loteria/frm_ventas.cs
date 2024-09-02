@@ -765,6 +765,7 @@ private void btn_imprimir_ticket_Click(object sender, EventArgs e)
     Boolean rsProces;
     string codJug= "",  nombProd = "";
     string nombLot = "", nombSort = "";
+    double mJugBd= 0;
     DateTime fechaHoraVerf, horaSortJug;
     string[] rsDat = new string[7];
     int rsVerfJug, rsVerfTiempo;
@@ -847,18 +848,44 @@ private void btn_imprimir_ticket_Click(object sender, EventArgs e)
                 cmdDetTck.Parameters.AddWithValue("prmIdSort", idSort);
                 cmdDetTck.Parameters.AddWithValue("prmCodJug", codJug);
                 cmdDetTck.Parameters.AddWithValue("prmMonto", Convert.ToString(mJug).Replace(",", "."));
-                rsDat3 = cmdDetTck.ExecuteNonQuery().ToString();
+                MySqlDataReader drDetTck = cmdDetTck.ExecuteReader();
+                //rsDat3 = cmdDetTck.ExecuteNonQuery().ToString();
+                drDetTck.Read();
+                rsDat3=drDetTck["prmGrd"].ToString();
+                mJugBd =Convert.ToDouble(drDetTck["prmMonto"].ToString());
+                drDetTck.Close();
                 cmdDetTck.Parameters.Clear();
-                 
+
                 if (Convert.ToInt16(rsDat3) == 0) 
                 {
                     msjInf = "El producto:\"" + codJug +" - "+ nombProd + "\"";
                     msjInf += " se encuentra bloqueado.";
                     msjInf += " para la loteria:\"" + nombLot + "\"";
-                    MessageBox.Show(msjInf.ToUpper(),"Bloqueado.");
+                    MessageBox.Show(msjInf.ToUpper(), " ¡ Bloqueado !");
                     dgvJug.Rows.RemoveAt(c); c--;
                 }
-                else if (Convert.ToInt16(rsDat3) == 1) { cont++; }      
+                else if (Convert.ToInt16(rsDat3) == 1) 
+                { 
+                    msjInf = "El cupo para el producto:\"" + codJug +" - "+ nombProd + "\"";
+                    msjInf += " se encuentra agotado.";
+                    msjInf += " para la loteria:\"" + nombLot + "\"";
+                    MessageBox.Show(msjInf.ToUpper(), "¡ Cupo Agotado !");
+                    dgvJug.Rows.RemoveAt(c); c--;
+
+                }      
+                else if (Convert.ToInt16(rsDat3) == 2) 
+                { 
+                     if (mJug != mJugBd) 
+                     { 
+                        dgvJug.Rows[c].Cells[4].Value= mJugBd.ToString("N2"); ;
+                        msjInf = "El cupo disponible para el ";
+                        msjInf +="producto:\"" + codJug +" - "+ nombProd + "\"";
+                        msjInf += " es de:"+ mJugBd;
+                        msjInf += " para la loteria:\"" + nombLot + "\"";
+                        MessageBox.Show(msjInf, "¡ Cupo Disponible !"); 
+                     }
+                    cont++; 
+                }      
             }
             else if (rsVerfJug >= 0)
             {

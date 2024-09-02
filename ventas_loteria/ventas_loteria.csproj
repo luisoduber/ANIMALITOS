@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Animal Like</ProductName>
     <WebPage>prueba.html</WebPage>
-    <ApplicationRevision>145</ApplicationRevision>
+    <ApplicationRevision>147</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -161,6 +161,12 @@
   <ItemGroup>
     <Compile Include="CLASES\clsMet.cs" />
     <Compile Include="CLASES\crear_ticket.cs" />
+    <Compile Include="frmLimTaq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLimTaq.Designer.cs">
+      <DependentUpon>frmLimTaq.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenOpe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +293,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmLimTaq.resx">
+      <DependentUpon>frmLimTaq.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMenOpe.resx">
       <DependentUpon>frmMenOpe.cs</DependentUpon>
     </EmbeddedResource>

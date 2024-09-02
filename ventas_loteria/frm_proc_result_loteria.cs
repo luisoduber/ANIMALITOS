@@ -489,7 +489,7 @@ public string result_grupo2(string prmUrl, string prmIdLotBus,
     {
         try
         {
-            dtDgvLot = objFunc.busLotProcResult();
+            dtDgvLot = objFunc.busLotProcRs();
             dtcboTipProc = objFunc.busTipProc();
             dtDgvJug = objFunc.busJugPendProc(idGrup);
             idProc = 1;

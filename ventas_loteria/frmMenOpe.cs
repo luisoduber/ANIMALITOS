@@ -41,7 +41,7 @@ namespace ventas_loteria
         private void btnResult_Click(object sender, EventArgs e)
         {
             frm_result_lot frm = new frm_result_lot();
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void btnAnulTck_Click(object sender, EventArgs e)
@@ -53,24 +53,24 @@ namespace ventas_loteria
         private void btnTckTaq_Click(object sender, EventArgs e)
         {
             frm_verf_ticket_taq frm = new frm_verf_ticket_taq();
-            frm.Show();
+            frm.ShowDialog();
         }
         private void btnProcResult_Click(object sender, EventArgs e)
         {
             frm_proc_result_loteria frm = new frm_proc_result_loteria();
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void btnGrupUsu_Click(object sender, EventArgs e)
         {
             frm_grupos_usuarios frm = new frm_grupos_usuarios();
-            frm.Show(); 
+            frm.ShowDialog();
         }
 
         private void btnContVent_Click(object sender, EventArgs e)
         {
             frmContVent frm = new frmContVent();
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void frmMenOpe_KeyPress(object sender, KeyPressEventArgs e)
@@ -93,10 +93,16 @@ namespace ventas_loteria
           
         }
 
+        private void btnLimTaq_Click(object sender, EventArgs e)
+        {
+            frmLimTaq frm = new frmLimTaq();
+            frm.ShowDialog();
+        }
+
         private void btnCuadTaq_Click(object sender, EventArgs e)
         {
             frm_cuadre_taq frm =new frm_cuadre_taq();
-            frm.Show();
+            frm.ShowDialog();
         }
     }
 }

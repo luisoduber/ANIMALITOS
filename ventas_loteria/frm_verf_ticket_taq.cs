@@ -55,7 +55,7 @@ namespace ventas_loteria
         {
             try
             {
-                dtDgvLot = objFunc.busLotProcResult();
+                dtDgvLot = objFunc.busLotProcRs();
                 dtCboTaq = objFunc.busGrupoTaq
                             (Convert.ToInt32(clsMet.idGrup));
 

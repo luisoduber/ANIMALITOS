@@ -39,6 +39,7 @@ namespace ventas_loteria
             this.btnCc = new System.Windows.Forms.Button();
             this.btnResult = new System.Windows.Forms.Button();
             this.btnContVent = new System.Windows.Forms.Button();
+            this.btnLimTaq = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVentas
@@ -169,6 +170,19 @@ namespace ventas_loteria
             this.btnContVent.UseVisualStyleBackColor = false;
             this.btnContVent.Click += new System.EventHandler(this.btnContVent_Click);
             // 
+            // btnLimTaq
+            // 
+            this.btnLimTaq.BackColor = System.Drawing.Color.White;
+            this.btnLimTaq.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimTaq.ForeColor = System.Drawing.Color.Black;
+            this.btnLimTaq.Location = new System.Drawing.Point(479, 166);
+            this.btnLimTaq.Name = "btnLimTaq";
+            this.btnLimTaq.Size = new System.Drawing.Size(120, 120);
+            this.btnLimTaq.TabIndex = 16;
+            this.btnLimTaq.Text = "Limitar Taquilla";
+            this.btnLimTaq.UseVisualStyleBackColor = false;
+            this.btnLimTaq.Click += new System.EventHandler(this.btnLimTaq_Click);
+            // 
             // frmMenOpe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,6 +190,7 @@ namespace ventas_loteria
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(607, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.btnLimTaq);
             this.Controls.Add(this.btnContVent);
             this.Controls.Add(this.btnGrupUsu);
             this.Controls.Add(this.btnCc);
@@ -210,5 +225,6 @@ namespace ventas_loteria
         private System.Windows.Forms.Button btnCc;
         private System.Windows.Forms.Button btnResult;
         private System.Windows.Forms.Button btnContVent;
+        private System.Windows.Forms.Button btnLimTaq;
     }
 }

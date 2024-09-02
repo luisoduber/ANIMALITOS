@@ -86,7 +86,7 @@ private void frm_proc_result_loteria_Load(object sender, EventArgs e)
         {
             dtCboTaq = objFunc.BusTaqContVent(idGrup);
             dtCboDiv = objFunc.busDivisa();
-            dtDgvLot = objFunc.busLotProcResult();
+            dtDgvLot = objFunc.busLotProcRs();
 
             id_proceso = 1;
             work_inicia_frm.CancelAsync();

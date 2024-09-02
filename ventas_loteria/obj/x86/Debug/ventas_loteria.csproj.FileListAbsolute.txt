@@ -838,3 +838,4 @@ F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.application
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_l.94258B2D.Up2Date
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmLimTaq.resources
