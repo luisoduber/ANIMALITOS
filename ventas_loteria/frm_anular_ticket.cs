@@ -17,14 +17,14 @@ namespace ventas_loteria
         }
 
         clsMet objAnulTck = new clsMet();
-        int idStatus = 0;
+        int idStat = 0;
         private void btn_bus_ticket_Click(object sender, EventArgs e)
         {
             Boolean rsValidFrm = true;
             rsValidFrm = validFrm();
-            if (rsValidFrm == true) { detAnulTck(); }
+            if (rsValidFrm == true) { detAnTck(); }
         }
-        public void detAnulTck()
+        public void detAnTck()
         {
             string rsMostInfTck = "";
             string rsMostDetTck = "";
@@ -48,19 +48,19 @@ namespace ventas_loteria
                 nombStatTck = rsDatMostDetTck[1].ToString();
                 mTck = Convert.ToInt64(rsDatMostDetTck[2].ToString());
                 mPag = Convert.ToInt64(rsDatMostDetTck[3].ToString());
-                fechaReg = rsDatMostDetTck[4].ToString().Substring(0, 10);
-                horaReg = rsDatMostDetTck[5].ToString().Substring(0, 5);
-                idStatus = Convert.ToInt32(rsDatMostDetTck[6].ToString());
+                fechaReg = Convert.ToDateTime(rsDatMostDetTck[4]).ToString("dd/MM/yyyy");
+                horaReg = Convert.ToDateTime(rsDatMostDetTck[5]).ToString("hh:mm tt");
+                idStat = Convert.ToInt32(rsDatMostDetTck[6].ToString());
 
-                rsMostDetTck = objAnulTck.SPMostDetTckAnul
-                  (Convert.ToInt64(txt_nro_ticket.Text));
+                rsMostDetTck = objAnulTck.SPMostDetTckAn
+                (Convert.ToInt64(txt_nro_ticket.Text));
 
                 rsDatMostDetTck = rsMostDetTck.Split('?');
                 rtbMostTck.Text = "\n Taquilla: " + nombTaq;
                 rtbMostTck.Text += "\n Ticket: " + txt_nro_ticket.Text;
                 rtbMostTck.Text += "\n Fecha: " + fechaReg;
-                rtbMostTck.Text += "\n  Hora: ";
-                rtbMostTck.Text += Convert.ToDateTime(horaReg).ToString("hh:mm tt");
+                rtbMostTck.Text += "\n Hora: ";
+                rtbMostTck.Text += horaReg.ToUpper();
                 rtbMostTck.Text += "\n Status: " + nombStatTck.ToLower();
                 rtbMostTck.Text += "\n " + rsMostDetTck;
                 rtbMostTck.Text += "-------------------------------------";
@@ -70,7 +70,7 @@ namespace ventas_loteria
                 rtbMostTck.Text += clsMet.cant_dia_cad_ticket + " Dias.";
                 rtbMostTck.Text += "\n Nota: " + clsMet.nota_msj_ticket;
 
-                if (idStatus == 1) { btn_anular_ticket.Enabled = true; }
+                if (idStat == 1) { btn_anular_ticket.Enabled = true; }
                 else { btn_anular_ticket.Enabled = false; }
             }
         }
@@ -86,18 +86,18 @@ namespace ventas_loteria
         {
             try
             {
-                if (idStatus != 1)
+                if (idStat != 1)
                 {
                     MessageBox.Show("El Ticket no se podra anular...", "Verifique.");
                     return;
                 }
                 string rsAnulTck= "";
-                rsAnulTck = objAnulTck.anular_ticket(txt_nro_ticket.Text);
+                rsAnulTck = objAnulTck.anTck(txt_nro_ticket.Text);
 
                 if (Convert.ToInt32(rsAnulTck) > 0)
                 {
                     MessageBox.Show("Ticket anulado correctamente...", "Transsacción Exitosa.");
-                    detAnulTck();
+                    detAnTck();
                     limpFrm();
                 }
             }
@@ -127,10 +127,10 @@ namespace ventas_loteria
         }
         public void limpFrm()
         {
-            idStatus = 0;
+            idStat = 0;
             txt_nro_ticket.Text = "";
             txt_nro_ticket.Focus();
-             btn_anular_ticket.Enabled = false; 
+            btn_anular_ticket.Enabled = false; 
         }
         private void frm_anular_ticket_Load(object sender, EventArgs e)
         {

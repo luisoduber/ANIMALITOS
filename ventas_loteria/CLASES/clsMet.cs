@@ -52,13 +52,16 @@ namespace ventas_loteria
             {
                 if (cn_bd.State == ConnectionState.Closed)
                 {
+
                     cn_bd.ConnectionString = cadena_conexion; cn_bd.Open();
                     id_conexion = 1;
                 }
             }
-            catch (Exception error)
+            catch (Exception ex)
             {
-                msj_error_cn = error.Message;
+                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
+                msj_error_cn = ex.Message;
                 id_conexion = 0;
             }
         }
@@ -241,6 +244,7 @@ namespace ventas_loteria
             }
             catch (Exception ex)
             {
+                MessageBox.Show( ex.Message, "Ver");
                 MessageBox.Show("Ha ocurrido el siguiente error: "+ex.Message,"Verifique");
                 rsPrmGral[0] = ex.Message;
                 rsPrmGral[1] = "";
@@ -793,7 +797,6 @@ namespace ventas_loteria
                 cmd.Connection = clsMet.cn_bd;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "SP_bus_sorteos_proc_result";
-
                 da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
             }
@@ -1277,22 +1280,21 @@ namespace ventas_loteria
             finally { clsMet.Desconectar(); }
             return rsDat;
         }
-        public string verfStatTicket(int prm_id_usuario, string prm_nro_ticket, 
-                                        string prm_nro_serial)
+        public string verfStatTck(int prmIdUsu, string prmNroTck, 
+                                  string prmNroSer)
         {
-           
             string rsDat = "";
             clsMet.conectar();
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd = new MySqlCommand();
             try
             {
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "SP_verf_status_ticket";
-                command.Parameters.AddWithValue("prm_id_usuario", prm_id_usuario);
-                command.Parameters.AddWithValue("prm_nro_ticket", prm_nro_ticket);
-                command.Parameters.AddWithValue("prm_nro_serial", prm_nro_serial);
-                MySqlDataReader dr = command.ExecuteReader();
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_verf_status_ticket";
+                cmd.Parameters.AddWithValue("prm_id_usuario", prmIdUsu);
+                cmd.Parameters.AddWithValue("prm_nro_ticket", prmNroTck);
+                cmd.Parameters.AddWithValue("prm_nro_serial", prmNroSer);
+                MySqlDataReader dr = cmd.ExecuteReader();
                 dr.Read();
 
                 if (dr.HasRows) { rsDat = dr["id_status"].ToString(); }
@@ -1304,26 +1306,25 @@ namespace ventas_loteria
             finally { clsMet.Desconectar(); }
             return rsDat;
         }
-        public string actStatTicket(int prm_id_usuario, string prm_nro_ticket, string prm_nro_serial)
+        public string actStatTck(int prmIdUsu, string prmNroTck, 
+                                string prmNroSer)
         {
             string rsDat = "";
             clsMet.conectar();
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd = new MySqlCommand();
             try
             {
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "SP_act_paga_ticket";
-                command.Parameters.AddWithValue("prm_id_usuario", prm_id_usuario);
-                command.Parameters.AddWithValue("prm_nro_ticket", prm_nro_ticket);
-                command.Parameters.AddWithValue("prm_nro_serial", prm_nro_serial);
-                MySqlDataReader dr = command.ExecuteReader();
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_act_paga_ticket";
+                cmd.Parameters.AddWithValue("prm_id_usuario", prmIdUsu);
+                cmd.Parameters.AddWithValue("prm_nro_ticket", prmNroTck);
+                cmd.Parameters.AddWithValue("prm_nro_serial", prmNroSer);
+                MySqlDataReader dr = cmd.ExecuteReader();
                 dr.Read();
-
                 if (dr.HasRows) {  rsDat = dr["monto_pagado"].ToString();  }
                 else { rsDat = ""; }
                 dr.Close();
-
             }
             catch (Exception ex) { rsDat = ex.Message; }
             finally { clsMet.Desconectar(); }
@@ -1488,19 +1489,18 @@ namespace ventas_loteria
             finally { clsMet.Desconectar(); }
             return rsDat;
         }
-        public string SPMostDetTckAnul(long prmNroTck)
+        public string SPMostDetTckAn(long prmNroTck)
         {
             string rsDat= "";
             clsMet.conectar();
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd = new MySqlCommand();
             try
             {
-
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "SP_bus_mostrar_ticket_det_anular";
-                command.Parameters.AddWithValue("prm_nro_ticket", prmNroTck);
-                MySqlDataReader dr = command.ExecuteReader();
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_bus_mostrar_ticket_det_anular";
+                cmd.Parameters.AddWithValue("prm_nro_ticket", prmNroTck);
+                MySqlDataReader dr = cmd.ExecuteReader();
 
                 string nombLot = "", horaSort = "";
                 string codJug = "", nombProd = "";
@@ -1510,7 +1510,6 @@ namespace ventas_loteria
 
                 while (dr.Read())
                 {
-
                     codJug = dr["codigo_jugada"].ToString().Trim();
                     nombProd = dr["nomb_product"].ToString().Trim();
                     mJug = Convert.ToInt64(dr["monto"].ToString().Trim());
@@ -1518,9 +1517,9 @@ namespace ventas_loteria
                     //MessageBox.Show(id_loteria + "---" + Convert.ToInt32(dr["id_loteria"].ToString()));
                     //MessageBox.Show(id_sorteo + "---" + Convert.ToInt32(dr["id_sorteo"].ToString()));
 
-                    if ((idLot != Convert.ToInt32(dr["id_loteria"].ToString())) || idSort != Convert.ToInt32(dr["id_sorteo"].ToString()))
+                    if ((idLot != Convert.ToInt32(dr["id_loteria"].ToString())) || 
+                        idSort != Convert.ToInt32(dr["id_sorteo"].ToString()))
                     {
-
                         nombLot = dr["nomb_loteria"].ToString();
                         horaSort = dr["hora_sorteo"].ToString();
                         rsDat += "-------------------------------------\n";
@@ -1537,9 +1536,7 @@ namespace ventas_loteria
                     idLot = Convert.ToInt32(dr["id_loteria"].ToString());
                     idSort = Convert.ToInt32(dr["id_sorteo"].ToString());
                 }
-
                 dr.Close();
-
             }
             catch (Exception ex) { rsDat = ex.Message; }
             finally { clsMet.Desconectar(); }
@@ -1717,22 +1714,22 @@ namespace ventas_loteria
             finally { clsMet.Desconectar(); }
             return rsDat;
         }
-        public DataTable busJugProcResult(int prmIdGrup, int prmIdSort,
+        public DataTable busJugProcRs(int prmIdGrup, int prmIdSort,
                                           string prmFecha)
         {
-            DataTable dt = new DataTable("busJugProcResult");
+            DataTable dt = new DataTable("busJugProcRs");
             MySqlDataAdapter da;
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd = new MySqlCommand();
             try
             {
                 clsMet.conectar();
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "SP_bus_jug_proc_result";
-                command.Parameters.AddWithValue("prm_id_grupo", prmIdGrup);
-                command.Parameters.AddWithValue("prm_id_sorteo", prmIdSort);
-                command.Parameters.AddWithValue("prm_fecha", prmFecha);
-                da = new MySqlDataAdapter(command);
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_bus_jug_proc_result";
+                cmd.Parameters.AddWithValue("prm_id_grupo", prmIdGrup);
+                cmd.Parameters.AddWithValue("prm_id_sorteo", prmIdSort);
+                cmd.Parameters.AddWithValue("prm_fecha", prmFecha);
+                da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
             }
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
@@ -1770,18 +1767,18 @@ namespace ventas_loteria
         {
             DataTable dt = new DataTable("busContVentTaq");
             MySqlDataAdapter da;
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd = new MySqlCommand();
             try
             {
                 clsMet.conectar();
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "spContVentTaq";
-                command.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
-                command.Parameters.AddWithValue("prmIdLot", prmIdLot);
-                command.Parameters.AddWithValue("prmIdSort", prmIdSort);
-                command.Parameters.AddWithValue("prmIdTaq", prmIdTaq);
-                da = new MySqlDataAdapter(command);
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "spContVentTaq";
+                cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                cmd.Parameters.AddWithValue("prmIdSort", prmIdSort);
+                cmd.Parameters.AddWithValue("prmIdTaq", prmIdTaq);
+                da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
             }
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
@@ -1792,15 +1789,15 @@ namespace ventas_loteria
         {
             DataTable dt = new DataTable("busJugPendProc");
             MySqlDataAdapter da;
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd = new MySqlCommand();
             try
             {
                 clsMet.conectar();
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "SP_bus_jug_pendient_proc";
-                command.Parameters.AddWithValue("prm_id_grupo", prmIdGrup);
-                da = new MySqlDataAdapter(command);
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_bus_jug_pendient_proc";
+                cmd.Parameters.AddWithValue("prm_id_grupo", prmIdGrup);
+                da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
             }
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
@@ -1852,7 +1849,7 @@ namespace ventas_loteria
             finally { clsMet.Desconectar(); }
             return rsDat;
         }
-        public string grdActResultLot(int prmIdLot, int prmIdSort, 
+        public string grdActRstLot(int prmIdLot, int prmIdSort, 
             string prmResultLot, string prmFechLot)
         {
             string rsDat = "";
@@ -1874,29 +1871,28 @@ namespace ventas_loteria
             finally { clsMet.Desconectar(); }
             return rsDat;
         }
-        public string busProcResultLot(int prmIdDetJug, int prmIdLot,
-                                        int prmIdSort, string prmResultLot)
+        public string busProcRstLot(int prmIdDetJug, int prmIdLot,
+                                        int prmIdSort, string prmRstLot)
         {
             string rsDat = "";
             clsMet.conectar();
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd = new MySqlCommand();
             try
             {
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "SP_act_result_loteria";
-                command.Parameters.AddWithValue("prmIdDetJug", prmIdDetJug);
-                command.Parameters.AddWithValue("prmIdLot", prmIdLot);
-                command.Parameters.AddWithValue("prmIdSort", prmIdSort);
-                command.Parameters.AddWithValue("prmRsLot", prmResultLot);
-                MySqlDataReader dr = command.ExecuteReader();
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_act_result_loteria";
+                cmd.Parameters.AddWithValue("prmIdDetJug", prmIdDetJug);
+                cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                cmd.Parameters.AddWithValue("prmIdSort", prmIdSort);
+                cmd.Parameters.AddWithValue("prmRsLot", prmRstLot);
+                MySqlDataReader dr = cmd.ExecuteReader();
                 dr.Read();
-
                 if (dr.HasRows) { rsDat = dr["status_ticket"].ToString(); }
                 else { rsDat = ""; }
                 dr.Close();
             }
-            catch (Exception ex) { rsDat = ex.Message; }
+            catch (Exception ex) { rsDat = "aaa: -----------> "+ ex.Message; }
             finally { clsMet.Desconectar(); }
             return rsDat;
         }
@@ -2281,46 +2277,40 @@ namespace ventas_loteria
             return dt;
         }
 
-
-        public string anular_ticket(string prm_nro_ticket)
+        public string anTck(string prmNroTck)
         {
-
             string rsDat = "";
             clsMet.conectar();
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd = new MySqlCommand();
             try
             {
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "SP_anula_ticket_admin";
-                command.Parameters.AddWithValue("prm_nro_ticket", prm_nro_ticket);
-
-                rsDat = Convert.ToString(command.ExecuteNonQuery());
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_anula_ticket_admin";
+                cmd.Parameters.AddWithValue("prm_nro_ticket", prmNroTck);
+                rsDat = Convert.ToString(cmd.ExecuteNonQuery());
             }
             catch (Exception ex) { rsDat = ex.Message; }
             finally { clsMet.Desconectar(); }
             return rsDat;
         }
-
-        public DataTable busJugTaq(int prm_id_loteria, int prm_id_sorteo,
-                                    int prm_id_taq, string prm_fecha)
+        public DataTable busJugTaq(int prmIdLot, int prmIdSort,
+                                    int prmIdTaq, string prmFech)
         {
-
-            DataTable dt = new DataTable(" busJugTaq");
+            DataTable dt = new DataTable("busJugTaq");
             MySqlDataAdapter da;
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd= new MySqlCommand();
             try
             {
                 clsMet.conectar();
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "SP_bus_jug_taq";
-                command.Parameters.AddWithValue("prm_id_loteria", prm_id_loteria);
-                command.Parameters.AddWithValue("prm_id_sorteo", prm_id_sorteo);
-                command.Parameters.AddWithValue("prm_id_taq", prm_id_taq);
-                command.Parameters.AddWithValue("prm_fecha", prm_fecha);
-
-                da = new MySqlDataAdapter(command);
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_bus_jug_taq";
+                cmd.Parameters.AddWithValue("prm_id_loteria", prmIdLot);
+                cmd.Parameters.AddWithValue("prm_id_sorteo", prmIdSort);
+                cmd.Parameters.AddWithValue("prm_id_taq", prmIdTaq);
+                cmd.Parameters.AddWithValue("prm_fecha", prmFech);
+                da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
             }
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
@@ -2351,7 +2341,6 @@ namespace ventas_loteria
         {
 
             string rsDat = "";
-
             clsMet.conectar();
             MySqlCommand cmd = new MySqlCommand();
             try
@@ -2367,6 +2356,64 @@ namespace ventas_loteria
             catch (Exception ex) { rsDat = ex.Message; }
             finally { clsMet.Desconectar(); }
             return rsDat;
+        }
+        public DataTable listLotTod()
+        {
+            DataTable dt = new DataTable("listLotTod");
+            MySqlDataAdapter da;
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                clsMet.conectar();
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "spListLotTod";
+                da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
+            finally { clsMet.Desconectar(); }
+            return dt;
+        }
+
+        public DataTable listSortTod(int prmIdLot)
+        {
+            DataTable dt = new DataTable("listSortTod");
+            MySqlDataAdapter da;
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                clsMet.conectar();
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "spListSortTod";
+                cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
+            finally { clsMet.Desconectar(); }
+            return dt;
+        }
+        public DataTable listSortVentTod(int prmIdUsu, int prmIdLot)
+        {
+            DataTable dt = new DataTable("listSortVentTod");
+            MySqlDataAdapter da;
+            MySqlCommand cmd= new MySqlCommand();
+            try
+            {
+                clsMet.conectar();
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "spListSortVentTod";
+                cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
+                cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
+            finally { clsMet.Desconectar(); }
+            return dt;
         }
 
     }

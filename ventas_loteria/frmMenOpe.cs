@@ -99,6 +99,13 @@ namespace ventas_loteria
             frm.ShowDialog();
         }
 
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            frm_ventas frm = new frm_ventas();
+            frm.ShowDialog();
+
+        }
+
         private void btnCuadTaq_Click(object sender, EventArgs e)
         {
             frm_cuadre_taq frm =new frm_cuadre_taq();

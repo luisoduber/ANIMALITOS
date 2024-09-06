@@ -779,7 +779,9 @@ F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\K4os.Hash.xxHash.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
+F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\MySql.Data.dll
+F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\MySqlConnector.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Buffers.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Configuration.ConfigurationManager.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Data.dll
@@ -799,7 +801,9 @@ F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\K4os.Compression.LZ4.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\K4os.Hash.xxHash.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\MySql.Data.xml
+F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\MySqlConnector.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Buffers.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Configuration.ConfigurationManager.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Diagnostics.DiagnosticSource.xml
@@ -809,6 +813,7 @@ F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Numerics.Vectors.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Threading.Tasks.Extensions.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.AssemblyReference.cache
+F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmLimTaq.resources
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmMenOpe.resources
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmContVent.resources
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket_taq.resources
@@ -838,4 +843,3 @@ F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.application
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_l.94258B2D.Up2Date
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
-F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmLimTaq.resources

@@ -109,7 +109,7 @@
             // 
             this.dgvCuadreTaq.BackgroundColor = System.Drawing.Color.White;
             this.dgvCuadreTaq.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvCuadreTaq.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvCuadreTaq.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
