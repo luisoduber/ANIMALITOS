@@ -19,13 +19,14 @@ namespace ventas_loteria
 
         string HoraAct = "", FechaAct = "";
         string[] rsDat = null;
-
-        clsMet objMenOpe = new clsMet();
+        int idPerf = 0;
+        clsMet objMet = new clsMet();
 
         private void frmMenOpe_Load(object sender, EventArgs e)
         {
+            idPerf = Convert.ToInt16(clsMet.idPerf);
             this.Text = "Menu Operaciones";
-            rsDat = objMenOpe.busFechHoraServ();
+            rsDat = objMet.busFechHoraServ();
 
             clsMet.FechaActual = Convert.ToDateTime(rsDat[0].ToString()).ToString("yyyy/MM/dd");
             FechaAct = Convert.ToDateTime(rsDat[0].ToString()).ToString("dd/MM/yyyy");
@@ -104,6 +105,21 @@ namespace ventas_loteria
             frm_ventas frm = new frm_ventas();
             frm.ShowDialog();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmContSort frm = new frmContSort();
+            frm.ShowDialog();
+        }
+
+        private void btnCuadGrup_Click(object sender, EventArgs e)
+        {
+            if (idPerf == 3)
+            {
+                frm_cuadre_taq_gral frm = new frm_cuadre_taq_gral();
+                frm.ShowDialog();
+            }
         }
 
         private void btnCuadTaq_Click(object sender, EventArgs e)

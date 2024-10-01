@@ -378,7 +378,7 @@ namespace ventas_loteria
 
                             dtDgvJug.Rows.Add(fila_dgv);
                             DataView dv = new DataView(dtDgvJug);
-                            dv.Sort = "id_sorteo ASC, id_loteria DESC";
+                            dv.Sort = "id_sorteo ASC, id_loteria DESC, codigo_jugada ASC";
                             dgvJug.DataSource = dv;
                             busMontTotJug();
                         }
@@ -543,12 +543,11 @@ namespace ventas_loteria
         private void btn_pagar_ticket_Click(object sender, EventArgs e)
         {
             Boolean rsValidFrm = true;
-            rsValidFrm = validFrmTick();
+            rsValidFrm = validFrmTck();
             string rsVerfTick = "";
             Boolean rsValidStatTick = true;
 
-            try
-            {
+           
                 if (rsValidStatTick == true)
                 {
                     rsVerfTick = objMet.verfStatTck(
@@ -578,13 +577,9 @@ namespace ventas_loteria
                         }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ha ocurrido el siguiente error: " + ex.Message, " Verifique...");
-            }
+           
         }
-        public Boolean validFrmTick()
+        public Boolean validFrmTck()
         {
             Boolean validar = true;
             if (string.IsNullOrEmpty(txtNroTick.Text))
@@ -641,8 +636,8 @@ namespace ventas_loteria
         private void btn_anular_ticket_Click(object sender, EventArgs e)
         {
             Boolean rsValidFrm = true;
-            rsValidFrm = validFrmTick();
-            string rsVerfTicket = "";
+            rsValidFrm = validFrmTck();
+            string rsVerfTck= "";
             string rsAnulaTick = "";
             string msjInf = "";
             Boolean rsValidStatTick = true;
@@ -651,15 +646,16 @@ namespace ventas_loteria
             {
                 if (rsValidFrm == true)
                 {
-                    rsVerfTicket = objMet.verfStatTck
+                    rsVerfTck = objMet.verfStatTck
                     (Convert.ToInt32(clsMet.idUsu),
                     txtNroTick.Text, txtNroSerial.Text);
 
-                    //MessageBox.Show(rs_verf_ticket_anular);
-                    if (string.IsNullOrEmpty(rsVerfTicket)) rsVerfTicket = "0";
 
-                    rsValidStatTick = validStatTicket
-                    (Convert.ToInt32(rsVerfTicket));
+                    //MessageBox.Show(rs_verf_ticket_anular);
+                    if (string.IsNullOrEmpty(rsVerfTck)) rsVerfTck = "0";
+
+                    rsValidStatTick = validStatTck
+                    (Convert.ToInt32(rsVerfTck));
 
                     if (rsValidStatTick == true)
                     {
@@ -685,34 +681,34 @@ namespace ventas_loteria
                 MessageBox.Show("Ha ocurrido el siguiente error: " + ex.Message, " Verifique...");
             }
         }
-        public Boolean validStatTicket(int prm_id_status_ticket)
+        public Boolean validStatTck(int prmIdStatTck)
         {
             Boolean valida = true;
-            if (prm_id_status_ticket == 0)
+            if (prmIdStatTck == 0)
             {
                 MessageBox.Show("Ticket / serial no existe.", "Verifique.");
                 txtNroSerial.Focus();
                 valida = false;
             }
-            else if (prm_id_status_ticket == 2)
+            else if (prmIdStatTck == 2)
             {
                 MessageBox.Show("Ticket fue anulado.", "Verifique.");
                 txtNroSerial.Focus();
                 valida = false;
             }
-            else if (prm_id_status_ticket == 3)
+            else if (prmIdStatTck == 3)
             {
                 MessageBox.Show("Ticket Perdedor.", "Verifique.");
                 txtNroSerial.Focus();
                 valida = false;
             }
-            else if (prm_id_status_ticket == 4)
+            else if (prmIdStatTck == 4)
             {
                 MessageBox.Show("Ticket Ganador. No Cancelado.", "Verifique.");
                 txtNroSerial.Focus();
                 valida = false;
             }
-            else if (prm_id_status_ticket == 5)
+            else if (prmIdStatTck == 5)
             {
                 MessageBox.Show("Ticket Ganador ya fue cobrado.", "Verifique.");
                 txtNroSerial.Focus();
@@ -723,7 +719,7 @@ namespace ventas_loteria
         private void btn_verf_ticket_Click(object sender, EventArgs e)
         {
             Boolean rsValidFrm = true;
-            rsValidFrm = validFrmTick();
+            rsValidFrm = validFrmTck();
             string rs_verf_exists_ticket = "";
             string msj_info = "";
 
@@ -861,22 +857,31 @@ namespace ventas_loteria
 
                         if (Convert.ToInt16(rsDat3) == 0)
                         {
+                            msjInf = "El sorteo:\"" + nombLot + "\"";
+                            msjInf += " se encuentra bloqueado.";
+                            MessageBox.Show(msjInf.ToUpper(), " ¡ Bloqueado !");
+                            dgvJug.Rows.RemoveAt(c); c--;
+                        }
+
+                        else if (Convert.ToInt16(rsDat3) == 1)
+                        {
                             msjInf = "El producto:\"" + codJug + " - " + nombProd + "\"";
                             msjInf += " se encuentra bloqueado.";
                             msjInf += " para la loteria:\"" + nombLot + "\"";
                             MessageBox.Show(msjInf.ToUpper(), " ¡ Bloqueado !");
                             dgvJug.Rows.RemoveAt(c); c--;
                         }
-                        else if (Convert.ToInt16(rsDat3) == 1)
+                        else if (Convert.ToInt16(rsDat3) == 2)
                         {
-                            msjInf = "El cupo para el producto:\"" + codJug + " - " + nombProd + "\"";
+                            msjInf = "El cupo para el ";
+                            msjInf += "producto:\"" + codJug + " - " + nombProd + "\"";
                             msjInf += " se encuentra agotado.";
                             msjInf += " para la loteria:\"" + nombLot + "\"";
                             MessageBox.Show(msjInf.ToUpper(), "¡ Cupo Agotado !");
                             dgvJug.Rows.RemoveAt(c); c--;
 
                         }
-                        else if (Convert.ToInt16(rsDat3) == 2)
+                        else if (Convert.ToInt16(rsDat3) == 3)
                         {
                             if (mJug != mJugBd)
                             {

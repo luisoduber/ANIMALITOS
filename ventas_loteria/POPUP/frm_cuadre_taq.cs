@@ -44,10 +44,10 @@ namespace ventas_loteria
         {
             try
             {
-                dtDgvCuadreTaq = objCuadreTaq.busTotCuadreGrupoTaq
+                dtDgvCuadreTaq = objCuadreTaq.busTotCuadGrupTaq
                     (Convert.ToInt32(clsMet.idGrup));
 
-                dtCboTaq = objCuadreTaq.busGrupoTaq
+                dtCboTaq = objCuadreTaq.busGrupTaq
                (Convert.ToInt32(clsMet.idGrup));
 
                 dtCboDivisa = objCuadreTaq.busDivisa();
@@ -93,7 +93,7 @@ namespace ventas_loteria
                 return;
             }
 
-            dtDgvCuadreTaq = objCuadreTaq.busTotGrupoTaqXDivisa(
+            dtDgvCuadreTaq = objCuadreTaq.busTotGrupoTaqXDiv(
             Convert.ToInt32(clsMet.idGrup),
             idUsuario,
             idDivisa,
@@ -114,7 +114,7 @@ namespace ventas_loteria
                 return;
             }
 
-            dtDgvCuadreTaq = objCuadreTaq.busTotCuadreGrupoTaqFiltro
+            dtDgvCuadreTaq = objCuadreTaq.busTotCuadGrupTaqFilt
             (Convert.ToInt32(clsMet.idGrup),
             idUsuario,
             Convert.ToDateTime(dtpFechaIni.Text).ToString("yyyy-MM-dd"),
@@ -128,11 +128,6 @@ namespace ventas_loteria
             caracter = Convert.ToChar(e.KeyChar);
             codigo = (int)caracter;
             if (codigo == 27) { this.Close(); }
-        }
-
-        private void dtpFechaIni_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

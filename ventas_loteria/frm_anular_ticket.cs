@@ -18,7 +18,7 @@ namespace ventas_loteria
 
         clsMet objAnulTck = new clsMet();
         int idStat = 0;
-        private void btn_bus_ticket_Click(object sender, EventArgs e)
+        private void btnBusTck_Click(object sender, EventArgs e)
         {
             Boolean rsValidFrm = true;
             rsValidFrm = validFrm();
@@ -35,7 +35,6 @@ namespace ventas_loteria
             long mTck = 0, mPag = 0;
             
             rsMostInfTck = objAnulTck.SPMostInfTck(txt_nro_ticket.Text);
-
             if (string.IsNullOrEmpty(rsMostInfTck))
             {
                 MessageBox.Show("Nro. Ticket: " + txt_nro_ticket.Text + " No existe.", "Verifique.");
@@ -49,18 +48,18 @@ namespace ventas_loteria
                 mTck = Convert.ToInt64(rsDatMostDetTck[2].ToString());
                 mPag = Convert.ToInt64(rsDatMostDetTck[3].ToString());
                 fechaReg = Convert.ToDateTime(rsDatMostDetTck[4]).ToString("dd/MM/yyyy");
-                horaReg = Convert.ToDateTime(rsDatMostDetTck[5]).ToString("hh:mm tt");
+                horaReg = Convert.ToDateTime(rsDatMostDetTck[5].ToString()).ToString("hh:mm tt");
                 idStat = Convert.ToInt32(rsDatMostDetTck[6].ToString());
 
                 rsMostDetTck = objAnulTck.SPMostDetTckAn
                 (Convert.ToInt64(txt_nro_ticket.Text));
 
                 rsDatMostDetTck = rsMostDetTck.Split('?');
-                rtbMostTck.Text = "\n Taquilla: " + nombTaq;
+                rtbMostTck.Text = "\n Taquilla: " + nombTaq.ToUpper();
                 rtbMostTck.Text += "\n Ticket: " + txt_nro_ticket.Text;
                 rtbMostTck.Text += "\n Fecha: " + fechaReg;
                 rtbMostTck.Text += "\n Hora: ";
-                rtbMostTck.Text += horaReg.ToUpper();
+                rtbMostTck.Text += Convert.ToDateTime(horaReg).ToString("hh:mm tt").ToUpper();
                 rtbMostTck.Text += "\n Status: " + nombStatTck.ToLower();
                 rtbMostTck.Text += "\n " + rsMostDetTck;
                 rtbMostTck.Text += "-------------------------------------";
@@ -70,8 +69,8 @@ namespace ventas_loteria
                 rtbMostTck.Text += clsMet.cant_dia_cad_ticket + " Dias.";
                 rtbMostTck.Text += "\n Nota: " + clsMet.nota_msj_ticket;
 
-                if (idStat == 1) { btn_anular_ticket.Enabled = true; }
-                else { btn_anular_ticket.Enabled = false; }
+                if (idStat == 1) { btnAnTck.Enabled = true; }
+                else { btnAnTck.Enabled = false; }
             }
         }
         private void txt_nro_ticket_KeyPress(object sender, KeyPressEventArgs e)
@@ -82,7 +81,7 @@ namespace ventas_loteria
                 else { e.Handled = true; }
 
         }
-        private void btn_anular_ticket_Click(object sender, EventArgs e)
+        private void btnAnTck_Click(object sender, EventArgs e)
         {
             try
             {
@@ -130,12 +129,12 @@ namespace ventas_loteria
             idStat = 0;
             txt_nro_ticket.Text = "";
             txt_nro_ticket.Focus();
-            btn_anular_ticket.Enabled = false; 
+            btnAnTck.Enabled = false; 
         }
         private void frm_anular_ticket_Load(object sender, EventArgs e)
         {
             this.Text = "Anular Ticket Taquilla.";
-            btn_anular_ticket.Enabled = false;
+            btnAnTck.Enabled = false;
         }
 
         private void frm_anular_ticket_KeyPress(object sender, KeyPressEventArgs e)
@@ -147,5 +146,7 @@ namespace ventas_loteria
 
             if (codigo == 27) { this.Close(); }
         }
+
+      
     }
 }

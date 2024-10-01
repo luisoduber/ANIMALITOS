@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.btn_bus_ticket = new System.Windows.Forms.Button();
-            this.btn_anular_ticket = new System.Windows.Forms.Button();
+            this.btnBusTck = new System.Windows.Forms.Button();
+            this.btnAnTck = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_nro_ticket = new System.Windows.Forms.TextBox();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -43,8 +43,8 @@
             // 
             this.groupPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel3.Controls.Add(this.btn_bus_ticket);
-            this.groupPanel3.Controls.Add(this.btn_anular_ticket);
+            this.groupPanel3.Controls.Add(this.btnBusTck);
+            this.groupPanel3.Controls.Add(this.btnAnTck);
             this.groupPanel3.Controls.Add(this.label10);
             this.groupPanel3.Controls.Add(this.txt_nro_ticket);
             this.groupPanel3.DrawTitleBox = false;
@@ -84,31 +84,31 @@
             this.groupPanel3.TabIndex = 198;
             this.groupPanel3.Text = "Verificar";
             // 
-            // btn_bus_ticket
+            // btnBusTck
             // 
-            this.btn_bus_ticket.BackColor = System.Drawing.Color.White;
-            this.btn_bus_ticket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_bus_ticket.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_bus_ticket.Location = new System.Drawing.Point(13, 79);
-            this.btn_bus_ticket.Name = "btn_bus_ticket";
-            this.btn_bus_ticket.Size = new System.Drawing.Size(75, 33);
-            this.btn_bus_ticket.TabIndex = 201;
-            this.btn_bus_ticket.Text = "Buscar";
-            this.btn_bus_ticket.UseVisualStyleBackColor = false;
-            this.btn_bus_ticket.Click += new System.EventHandler(this.btn_bus_ticket_Click);
+            this.btnBusTck.BackColor = System.Drawing.Color.White;
+            this.btnBusTck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBusTck.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBusTck.Location = new System.Drawing.Point(13, 79);
+            this.btnBusTck.Name = "btnBusTck";
+            this.btnBusTck.Size = new System.Drawing.Size(75, 33);
+            this.btnBusTck.TabIndex = 201;
+            this.btnBusTck.Text = "Buscar";
+            this.btnBusTck.UseVisualStyleBackColor = false;
+            this.btnBusTck.Click += new System.EventHandler(this.btnBusTck_Click);
             // 
-            // btn_anular_ticket
+            // btnAnTck
             // 
-            this.btn_anular_ticket.BackColor = System.Drawing.Color.White;
-            this.btn_anular_ticket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_anular_ticket.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_anular_ticket.Location = new System.Drawing.Point(94, 79);
-            this.btn_anular_ticket.Name = "btn_anular_ticket";
-            this.btn_anular_ticket.Size = new System.Drawing.Size(76, 33);
-            this.btn_anular_ticket.TabIndex = 5;
-            this.btn_anular_ticket.Text = "Anular";
-            this.btn_anular_ticket.UseVisualStyleBackColor = false;
-            this.btn_anular_ticket.Click += new System.EventHandler(this.btn_anular_ticket_Click);
+            this.btnAnTck.BackColor = System.Drawing.Color.White;
+            this.btnAnTck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnTck.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnTck.Location = new System.Drawing.Point(94, 79);
+            this.btnAnTck.Name = "btnAnTck";
+            this.btnAnTck.Size = new System.Drawing.Size(76, 33);
+            this.btnAnTck.TabIndex = 5;
+            this.btnAnTck.Text = "Anular";
+            this.btnAnTck.UseVisualStyleBackColor = false;
+            this.btnAnTck.Click += new System.EventHandler(this.btnAnTck_Click);
             // 
             // label10
             // 
@@ -211,10 +211,10 @@
         #endregion
 
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;
-        private System.Windows.Forms.Button btn_anular_ticket;
+        private System.Windows.Forms.Button btnAnTck;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_nro_ticket;
-        private System.Windows.Forms.Button btn_bus_ticket;
+        private System.Windows.Forms.Button btnBusTck;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
         private System.Windows.Forms.RichTextBox rtbMostTck;
     }

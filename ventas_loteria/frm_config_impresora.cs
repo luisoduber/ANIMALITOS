@@ -75,7 +75,7 @@ namespace ventas_loteria
                 //////////////////////////////////////////////////////////////////////////////////////////
 
                 dtCboAnchTck = objConfImp.busAnchTck();
-                dtCboNumLetra = objConfImp.busNumLetra();
+                dtCboNumLetra = objConfImp.busNumLet();
 
                 id_proceso = 1;
                 work_inicia_frm.CancelAsync();

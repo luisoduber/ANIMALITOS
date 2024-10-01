@@ -24,19 +24,19 @@ namespace ventas_loteria
 
         }
 
-        clsMet objLog = new clsMet();
+        clsMet objMet = new clsMet();
         frmMenOpe objFrmMenOpe= new frmMenOpe();
         frm_ventas objFrmventas = new frm_ventas();
 
-        string rsLog;
+        string rsLog= "";
         String[] rsDatLog;
         int idStat=0;
-        string clave;
-        string nombCnRed;
-        string statusCnRed;
+        string clave = "";
+        string nombCnRed="";
+        string statCnRed="";
         string[] rsVerfMac = new string[3];
         string[] rsPrmGral = new string[2];
-        int idStatMac, idUsuMac;
+        int idStatMac=0, idUsuMac=0;
 
         private void frm_login_Load(object sender, EventArgs e)
         {
@@ -49,7 +49,7 @@ namespace ventas_loteria
             this.Text = "Autenticación Usuario...";
             btn_recordar_clave.FlatAppearance.BorderSize = 0;
 
-            rsPrmGral = objLog.busPrmGral();
+            rsPrmGral = objMet.busPrmGral();
             clsMet.cant_dia_cad_ticket = Convert.ToInt32(rsPrmGral[0].ToString());
             clsMet.nota_msj_ticket = rsPrmGral[1].ToString();
 
@@ -127,11 +127,11 @@ namespace ventas_loteria
                         }
 
                         nombCnRed = adaptador.Name.ToString().ToLower().Trim();
-                        statusCnRed = adaptador.OperationalStatus.ToString().ToLower().Trim();
+                        statCnRed = adaptador.OperationalStatus.ToString().ToLower().Trim();
 
-                        if ((!string.IsNullOrEmpty(mac_address)) && (statusCnRed == "up"))
+                        if ((!string.IsNullOrEmpty(mac_address)) && (statCnRed == "up"))
                         {
-                            rsDat = objLog.verfMacTaq(mac_address, prmIdUsuario);
+                            rsDat = objMet.verfMacTaq(mac_address, prmIdUsuario);
                             idStatusMac = Convert.ToInt32(rsDat[1].ToString());
                             if (idStatusMac == 1) { break; }
                         }
@@ -154,7 +154,7 @@ namespace ventas_loteria
         {
             Boolean rsValidFrm = validFrmLog();
             if (rsValidFrm == false) { return; }
-            rsLog = objLog.verfLogUsu(txtUsuario.Text);
+            rsLog = objMet.verfLogUsu(txtUsuario.Text);
             if (clsMet.id_conexion == 0)
             {
                 MessageBox.Show("Error No se a Establecido Conexión Al Servidor.", "verifique.");
@@ -263,7 +263,7 @@ namespace ventas_loteria
                 Boolean rsValidFrm = validFrmLog();
                 if (rsValidFrm == false) { return; }
 
-                rsLog = objLog.verfLogUsu(txtUsuario.Text);
+                rsLog = objMet.verfLogUsu(txtUsuario.Text);
                 if (clsMet.id_conexion == 0)
                 {
                     MessageBox.Show("Error No se a Establecido Conexión Al Servidor.", "verifique.");

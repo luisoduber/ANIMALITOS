@@ -16,29 +16,26 @@ namespace ventas_loteria
             InitializeComponent();
         }
 
-        clsMet obj_cuadre_taq = new clsMet();
-        DataTable dt_dgv_cuadre_taq = new DataTable();
-        DataTable dt_cbo_grupos = new DataTable();
-        DataTable dt_cbo_taquilla = new DataTable();
-        int id_grupos_taq = 0;
-
-        int id_proceso = 0;
+        clsMet objMet = new clsMet();
+        DataTable dtDgvCuad= new DataTable();
+        DataTable dtCboGrup = new DataTable();
+        DataTable dtCboTaq = new DataTable();
+        int idGrup = 0;
+        int idProc = 0;
 
         private void frm_cuadre_taq_gral_Load(object sender, EventArgs e)
         {
-            this.Text = "Cuadre General Taquillas.";
-            this.dgv_cuadre_taq.AllowUserToAddRows = false;
-            this.dgv_cuadre_taq.RowHeadersVisible = false;
+            this.Text = "Cuadre General Taquillas.".ToUpper();
+            this.dgvCuadGrup.AllowUserToAddRows = false;
+            this.dgvCuadGrup.RowHeadersVisible = false;
 
-            this.dtp_fecha_ini.Value =  Convert.ToDateTime(clsMet.FechaActual);
-            this.dtp_fecha_ini.Format = DateTimePickerFormat.Custom;
-            this.dtp_fecha_ini.CustomFormat = "dd-MM-yyyy";
+            this.dtpFechIni.Value =  Convert.ToDateTime(clsMet.FechaActual);
+            this.dtpFechIni.Format = DateTimePickerFormat.Custom;
+            this.dtpFechIni.CustomFormat = "dd-MM-yyyy";
 
-            this.dtp_fecha_fin.Value =  Convert.ToDateTime(clsMet.FechaActual);
-            this.dtp_fecha_fin.Format = DateTimePickerFormat.Custom;
-            this.dtp_fecha_fin.CustomFormat = "dd-MM-yyyy";
-
-            btn_buscar.Enabled = false;
+            this.dtpFechFin.Value =  Convert.ToDateTime(clsMet.FechaActual);
+            this.dtpFechFin.Format = DateTimePickerFormat.Custom;
+            this.dtpFechFin.CustomFormat = "dd-MM-yyyy";
 
             this.work_inicia_frm.DoWork += new System.ComponentModel.DoWorkEventHandler(this.work_inicia_frm_DoWork);
             this.work_inicia_frm.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.work_inicia_frm_OnProgressChanged);
@@ -51,114 +48,69 @@ namespace ventas_loteria
         {
             try
             {
-
-                //dt_dgv_cuadre_taq = obj_cuadre_taq.bus_cuadre_taq
-                //                        (Convert.ToInt32(clsMet.id_grupo));
-
-                dt_cbo_grupos = obj_cuadre_taq.bus_grupos();
-
-                id_proceso = 1;
+                dtCboGrup = objMet.busGrupTod();
+                idProc = 1;
                 work_inicia_frm.CancelAsync();
+                idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0].ToString());
+                dtDgvCuad = objMet.busVentGrupTod
+                (idGrup,
+                Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
+                Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
             }
-            catch (Exception error)
+            catch (Exception ex)
             {
-                id_proceso = 0;
-                MessageBox.Show(error.Message, "Verifique");
+                idProc = 0;
+                MessageBox.Show(ex.Message, "Verifique");
             }
-
         }
 
         private void work_inicia_frm_OnProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-
-
         }
         private void work_inicia_frm_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
-            if (id_proceso == 1)
+            if (idProc == 1)
             {
-
-                //this.dgv_cuadre_taq.DataSource = null;
-                //this.dgv_cuadre_taq.DataSource = dt_dgv_cuadre_taq;
-                //bus_totales_venta();
-
-                this.cbo_grupos.DisplayMember = "nomb_grupo";
-                this.cbo_grupos.ValueMember = "id_grupo";
-                this.cbo_grupos.DataSource = dt_cbo_grupos;
-                
-
+                this.cboGrup.DisplayMember = "nomb_grupo";
+                this.cboGrup.ValueMember = "id_grupo";
+                this.cboGrup.DataSource = dtCboGrup;
+                this.dgvCuadGrup.DataSource = dtDgvCuad;
             }
-
-            else if (id_proceso == 0)
+            else if (idProc == 0)
             {
                 MessageBox.Show("Error verificando licencia", "Verifique.");
-
             }
 
         }
-
-        private void btn_salir_Click(object sender, EventArgs e)
+        private void cboGrup_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.Close();
+
+            idGrup = Convert.ToInt32(cboGrup.SelectedValue.ToString());
+            if (idGrup == 0)
+            {
+                dtDgvCuad = objMet.busVentGrupTod
+                (idGrup,
+                Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
+                Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
+            }
+            else if (idGrup > 0)
+            {
+                dtDgvCuad = objMet.busVentGrup
+                (idGrup,
+                Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
+                Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
+            }
+            this.dgvCuadGrup.DataSource = dtDgvCuad;
         }
 
-        private void btn_buscar_Click(object sender, EventArgs e)
+        private void frm_cuadre_taq_gral_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-            DateTime fecha_ini = dtp_fecha_ini.Value.Date;
-            DateTime fecha_fin = dtp_fecha_fin.Value.Date;
-            int id_usuario = Convert.ToInt32(cbo_taquilla.SelectedValue.ToString());
-            int cant_dif_dias = fecha_ini.CompareTo(fecha_fin);
-
-            if (cant_dif_dias > 0)
-            {
-                MessageBox.Show("Fecha inicial no debe ser mayor a fecha final", "Verifique");
-                return;
-            }
-
-            dt_dgv_cuadre_taq = obj_cuadre_taq.busTotCuadreGrupoTaqFiltro
-                                        (id_grupos_taq,
-                                        id_usuario,
-                                         Convert.ToDateTime(dtp_fecha_ini.Text).ToString("yyyy-MM-dd"),
-                                         Convert.ToDateTime(dtp_fecha_fin.Text).ToString("yyyy-MM-dd")
-                                         );
-
-            this.dgv_cuadre_taq.DataSource = dt_dgv_cuadre_taq;
-        }
-
-        private void cbo_grupos_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-
-            id_grupos_taq = Convert.ToInt32(cbo_grupos.SelectedValue.ToString());
-
-            dt_cbo_grupos = obj_cuadre_taq.bus_ventas_todas_grupos
-                                        (id_grupos_taq,
-                                         Convert.ToDateTime(dtp_fecha_ini.Text).ToString("yyyy-MM-dd"),
-                                        Convert.ToDateTime(dtp_fecha_fin.Text).ToString("yyyy-MM-dd"));
-
-            this.dgv_cuadre_taq.DataSource = dt_cbo_grupos;
-
-            if (id_grupos_taq== 0)
-            {
-                cbo_taquilla.Enabled = false;
-                btn_buscar.Enabled = false;
-            }
-            else if (id_grupos_taq > 0)
-            {
-
-                dt_cbo_taquilla = obj_cuadre_taq.busGrupoTaq
-                                          (id_grupos_taq);
-
-                this.cbo_taquilla.DisplayMember = "nick";
-                this.cbo_taquilla.ValueMember = "id_usuario";
-                this.cbo_taquilla.DataSource = dt_cbo_taquilla;
-
-                cbo_taquilla.Enabled = true;
-                btn_buscar.Enabled = true;
-            }
-
-
+            char caracter;
+            int codigo;
+            caracter = Convert.ToChar(e.KeyChar);
+            codigo = (int)caracter;
+            if (codigo == 27) { this.Close(); }
         }
     }
 }

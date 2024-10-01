@@ -1,8 +1,10 @@
 ﻿using HtmlAgilityPack;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crypto.Tls;
 using System;
 using System.ComponentModel;
 using System.Data;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ventas_loteria
@@ -14,7 +16,7 @@ namespace ventas_loteria
             InitializeComponent();
         }
 
-        clsMet objFunc = new clsMet();
+        clsMet objMet = new clsMet();
         DataTable dtDgvSort = new DataTable();
         DataTable dtCboLot = new DataTable();
         DataTable dtcboTipProc = new DataTable();
@@ -22,14 +24,18 @@ namespace ventas_loteria
         HtmlWeb web = new HtmlWeb();
 
         int idLot = 0, idSort = 0;
-        int idGrup;
+        int idGrup=0;
+        int idPerf = 0;
         string fechLot = "";
         int cantRsCarg = 0;
         int codMaxProd;
-        string msj_proc_result = "";
+        string msjProcRs= "";
         string nombLot = "";
+        string codRsLot = "";
         string nombSort = "";
         int idProc = 0;
+        Boolean ValGrdRs = false;
+        Boolean ValJug = false;
 
         string[] rsNombLot = null;
         string prmNombLot = "";
@@ -47,8 +53,8 @@ namespace ventas_loteria
         string[] prmGrdRs = null;
         string rsGrdRsLot = "";
 
-        int id_det_jug = 0;
-        int nro_ticket = 0;
+        int idDetJug = 0;
+        int nroTck = 0;
         string cod_jug = "";
         long monto_jug = 0;
 
@@ -60,7 +66,7 @@ namespace ventas_loteria
         int rsVerfJugCer = 0;
         private void frm_proc_result_loteria_Load(object sender, EventArgs e)
         {
-            this.Text = "Procesar Resultados...";
+            this.Text = "Procesar Resultados...".ToUpper();
             this.dgvSort.AllowUserToAddRows = false;
             this.dgvSort.RowHeadersVisible = false;
 
@@ -68,74 +74,98 @@ namespace ventas_loteria
             this.dgvJug.RowHeadersVisible = false;
             this.dgvJug.ColumnHeadersVisible = false;
 
+            idPerf = Convert.ToInt16(clsMet.idPerf);
             lblMsjInf.Text = "";
             txtCod.Enabled = false;
             dtpFecha.Enabled = false;
             idGrup = Convert.ToInt32(clsMet.idGrup);
 
-            gb_info_proc_result.Text = "Jug:0. Gan:0. Perd:0...";
+            gbInfProcRs.Text = "Jug:0. Gan:0. Perd:0...";
             gp_cant_jug.Text = "cantidad jugadas: 0";
 
             this.dtpFecha.Value = Convert.ToDateTime(clsMet.FechaActual);
             this.dtpFecha.Format = DateTimePickerFormat.Custom;
             this.dtpFecha.CustomFormat = "dd-MM-yyyy";
 
-            this.work_inicia_frm.DoWork += new System.ComponentModel.DoWorkEventHandler(this.work_inicia_frm_DoWork);
-            this.work_inicia_frm.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.work_inicia_frm_OnProgressChanged);
-            this.work_inicia_frm.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.work_inicia_frm_OnRunWorkerCompleted);
-            this.work_inicia_frm.RunWorkerAsync();
+            this.wkIniFrm.DoWork += new System.ComponentModel.DoWorkEventHandler(this.wkIniFrm_DoWork);
+            this.wkIniFrm.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.wkIniFrm_OnProgressChanged);
+            this.wkIniFrm.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.wkIniFrm_OnRunWorkerCompleted);
+            this.wkIniFrm.RunWorkerAsync();
 
-            this.work_proc_result.DoWork += new System.ComponentModel.DoWorkEventHandler(this.work_proc_result_DoWork);
-            this.work_proc_result.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.work_proc_result_ProgressChanged);
-            this.work_proc_result.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.work_proc_result_OnRunWorkerCompleted);
+            this.wkProcRsMan.DoWork += new System.ComponentModel.DoWorkEventHandler(this.wkProcRsMan_DoWork);
+            this.wkProcRsMan.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.wkProcRsMan_ProgressChanged);
+            this.wkProcRsMan.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.wkProcRsMan_OnRunWorkerCompleted);
 
-            this.work_bus_result_lot.DoWork += new System.ComponentModel.DoWorkEventHandler(this.work_bus_result_lot_DoWork);
-            this.work_bus_result_lot.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.work_bus_result_lot_OnProgressChanged);
-            this.work_bus_result_lot.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.work_bus_result_lot_OnRunWorkerCompleted);
+            this.wkProcRsAut.DoWork += new System.ComponentModel.DoWorkEventHandler(this.wkProcRsAut_DoWork);
+            this.wkProcRsAut.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.wkProcRsAut_OnProgressChanged);
+            this.wkProcRsAut.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.wkProcRsAut_OnRunWorkerCompleted);
         }
-
-        delegate void delCargJug(int prmIdgrup, int prmIdSort,
-                                 string prmCodRs, string prmNombLot);
-        private void cargJug(int prmIdgrup, int prmIdSort,
-                              string prmCodRs, string prmNombLot)
+        private void wkIniFrm_DoWork(object sender, DoWorkEventArgs e)
         {
-            msjInf = "Resultado Nro: \"" + prmCodRs + "\"";
-            gpReult.Text = "Loteria: " + prmNombLot;
-
-            lblMsjInf.Text = msjInf;
-            fechLot = Convert.ToDateTime(dtpFecha.Text).ToString("yyyy-MM-dd");
-
-            //VERIFICA SI HAY JUGADAS Y LAS TRAE AL GRID PARA PROCESARLA
-            dtDgvJug = objFunc.busJugProcRs(prmIdgrup, prmIdSort, fechLot);
-            dgvJug.DataSource = dtDgvJug;
-            gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
-
-            this.pb_info_proc_result.Minimum = 0;
-            this.pb_info_proc_result.Maximum = dgvJug.RowCount - 1;
-            this.pb_info_proc_result.Value = 0;
-            //MessageBox.Show("cargar jugadas: ");
+            try
+            {
+                dtCboLot = objMet.listLotTod();
+                dtDgvSort = objMet.busLotProcRs();
+                dtcboTipProc = objMet.busTipProc();
+                dtDgvJug = objMet.busJugPendProc(idPerf, idGrup);
+                idProc = 1;
+                wkIniFrm.CancelAsync();
+            }
+            catch (Exception ex)
+            {
+                idProc = 0;
+                MessageBox.Show(ex.Message, "Verifique 2");
+            }
         }
+        private void wkIniFrm_OnProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+        }
+        private void wkIniFrm_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (idProc == 1)
+            {
+                dgvSort.DataSource = dtDgvSort;
+                cboTipProc.DisplayMember = "nomb_tipo_proc_datos";
+                cboTipProc.ValueMember = "id_tipo_proc_datos";
+                cboTipProc.DataSource = dtcboTipProc;
 
+                this.cboLot.DisplayMember = "nombLot";
+                this.cboLot.ValueMember = "idLot";
+                this.cboLot.DataSource = dtCboLot;
+
+                dgvJug.DataSource = dtDgvJug;
+                gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
+
+                txtCod.Text = "";
+                txtCod.Enabled = false;
+                dtpFecha.Enabled = false;
+
+                cboTipProc.SelectedValue = 2;
+                timer1.Enabled = true;
+                timer1.Interval = 90000;
+            }
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             txtCod.Text = "";
             txtCod.Enabled = false;
             if (clsMet.id_conexion == 0) { lblMsjInf.Text = clsMet.msj_error_cn; return; }
 
-            if (!this.work_bus_result_lot.IsBusy)
+            if (this.wkProcRsAut.IsBusy == false)
             {
                 gpReult.Text = "Loteria: ";
                 fechLot = Convert.ToDateTime(dtpFecha.Text).ToString("yyyy-MM-dd");
                 lblMsjInf.Text = "Procesando resultados...";
-                this.work_bus_result_lot.RunWorkerAsync();
+                this.wkProcRsAut.RunWorkerAsync();
             }
         }
-        private void work_bus_result_lot_DoWork(object sender, DoWorkEventArgs e)
+        private void wkProcRsAut_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
                 var urlGrup1 = @"https://www.tuazar.com/loteria/animalitos/resultados/";
                 var urlGrup2 = @"https://loteriadehoy.com/animalito/lottoactivordominicana/resultados/";
+                var urlGrup3 = " https://www.tuazar.com/loteria/frutas/resultados/";
                 var urlRA = @"https://www.ruletactiva.com.ve/";
 
                 string idLotBus = "";
@@ -153,9 +183,7 @@ namespace ventas_loteria
                 clsMet.Desconectar();
 
                 string rsLot = "";
-                delCargJug delCarJug = new delCargJug(cargJug);
-
-                //MessageBox.Show(dtInfSort.Rows.Count.ToString());
+                rsGan = "";
                 if (dtInfSort.Rows.Count > 0)
                 {
                     for (int c = 0; c <= dtInfSort.Rows.Count - 1; c++)
@@ -172,7 +200,8 @@ namespace ventas_loteria
                         if ((idLotBus == "1") || (idLotBus == "4") ||
                             (idLotBus == "5") || (idLotBus == "10") ||
                             (idLotBus == "11") || (idLotBus == "12") ||
-                            (idLotBus == "13"))
+                            (idLotBus == "13") || (idLotBus == "16") ||
+                            (idLotBus == "17") || (idLotBus == "18")  )
                         {
                             if (string.IsNullOrEmpty(rsGan))
                             {
@@ -199,6 +228,19 @@ namespace ventas_loteria
                                 if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
                             }
                         }
+                        else if (idLotBus == "15")
+                        {
+                            if (string.IsNullOrEmpty(rsGan))
+                            {
+                                rsGan += rsGrup1(urlGrup3, idLotBus, idSortBus,
+                                                 nombLotBus, horaSortBus);
+                            }
+                            else
+                            {
+                                rsLot = rsGrup1(urlGrup3, idLotBus, idSortBus, nombLotBus, horaSortBus);
+                                if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
+                            }
+                        }
                         /////////////////////////////////////////////////////////////////////////////////////
                         ////////////////////////////////// RULETA ACTIVA ////////////////////////////////////
 
@@ -217,94 +259,142 @@ namespace ventas_loteria
                         }
                     }
                 }
-                ////////////////////////////////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////////////////////////////////
 
-                //MessageBox.Show(rs_ganador);
-                if ((string.IsNullOrEmpty(rsGan)) && (idProc == 1))
-                {
-                    msjInf = "No se encontraron resultados...";
-                }
-                else if (!string.IsNullOrEmpty(rsGan))
-                {
-                    //MessageBox.Show(rsGan);
-                    prmGrdRs = rsGan.Split('/');
-                    rsGan = "";
-                    int contArr = 0;
-
-                    string codRsLot = "";
-                    string[] rsDetLot = null;
-
-                    while (contArr < prmGrdRs.Length)
-                    {
-                        rsDetLot = prmGrdRs[contArr].Split('-');
-                        idLot = Convert.ToInt32(rsDetLot[0].ToString());
-                        idSort = Convert.ToInt32(rsDetLot[1].ToString());
-                        codRsLot = rsDetLot[2].ToString();
-                        nombLot = rsDetLot[3].ToString();
-
-                        if (codRsLot.Length == 1) { if (codRsLot != "0") 
-                         { codRsLot = codRsLot.PadLeft(2, '0'); } }
-                        rsGrdRsLot = objFunc.grdActRstLot(idLot, idSort,
-                                                          codRsLot,fechLot);
-                        if (rsGrdRsLot == "1")
-                        {
-                            object[] prm = new object[] {idGrup,idSort,codRsLot,nombLot};
-                            this.Invoke(delCarJug,prm);
-
-                            if (dgvJug.RowCount > 0)
-                            {
-                                int contRs = 0;
-                                cantRsCarg = dgvJug.RowCount - 1;
-
-                                msj_proc_result = "Jug:0. Gan:0. Perd:0...";
-                                contRegPed = 0;
-                                contRegGan = 0;
-
-                                while (contRs <= cantRsCarg)
-                                {
-                                    id_det_jug = Convert.ToInt32(dgvJug.Rows[contRs].Cells[0].Value.ToString().Trim());
-                                    nro_ticket = Convert.ToInt32(dgvJug.Rows[contRs].Cells[1].Value.ToString().Trim());
-                                    cod_jug = dgvJug.Rows[contRs].Cells[5].Value.ToString().Trim();
-
-                                    rsDat = objFunc.busProcRstLot(id_det_jug, idLot, idSort, codRsLot);
-                                    if (rsDat == "0") { contRegPed++; }
-                                    else if (rsDat == "1") { contRegGan++; }
-                                    msj_proc_result = "Jug:" + dgvJug.RowCount + ". Gan: " + contRegGan;
-                                    msj_proc_result += ". Perd: " + contRegPed + "...";
-                                    work_bus_result_lot.ReportProgress(contRs);
-                                    contRs++;
-                                }
-                            }
-                        }
-                        contArr++;
-                    }
-                }
-                idProc = 1;
-                work_bus_result_lot.CancelAsync();
+                idProc=1;
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
                 idProc = 0;
                 msjInf = ex.Message;
                 MessageBox.Show("Ha ocurrido el siguiente error: " + msjInf, "Verifique 1.");
             }
-        }
-        private void work_bus_result_lot_OnProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            //SELECCIONA LA BARRA COMPLETA
-            dgvJug.CurrentCell = dgvJug.Rows[e.ProgressPercentage].Cells[1];
+            ////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////
 
-            //MUEVE LA BARRA PARA DEPLAZAR LOS REGISTROS
-            dgvJug.FirstDisplayedScrollingRowIndex = e.ProgressPercentage;
-            this.pb_info_proc_result.Value = e.ProgressPercentage;
-            gb_info_proc_result.Text = msj_proc_result;
+            try
+            {
+                if (idProc == 1)
+                {
+                    if (string.IsNullOrEmpty(rsGan))
+                    {
+                        msjInf = "No se encontraron resultados...";
+                    }
+                    else if (!string.IsNullOrEmpty(rsGan))
+                    {
+                        prmGrdRs = rsGan.Split('/');
+                        rsGan = "";
+                        int contArr = 0;
+                        string[] rsDetLot = null;
+   
+                        while (contArr < prmGrdRs.Length)
+                        {
+                            rsDetLot = prmGrdRs[contArr].Split('-');
+                            idLot = Convert.ToInt32(rsDetLot[0].ToString());
+                            idSort = Convert.ToInt32(rsDetLot[1].ToString());
+                            codRsLot = rsDetLot[2].ToString();
+                            nombLot = rsDetLot[3].ToString();
+
+                            if (codRsLot.Length == 1) { if (codRsLot != "0") { codRsLot = codRsLot.PadLeft(2, '0'); } }
+                            rsGrdRsLot = objMet.grdActRstLot(idLot, idSort, codRsLot, fechLot);
+                            Console.WriteLine("qqqq: "+ contArr);
+                            if (rsGrdRsLot == "1"){ ValGrdRs = true; wkProcRsAut.ReportProgress(contArr); }
+                            contArr++;
+                        }
+
+                        ValGrdRs = false;
+                        dtDgvJug = objMet.busJugProcRs(idPerf,idGrup,fechLot);
+                        if (dtDgvJug.Rows.Count > 0)
+                        {
+                            ValJug = true;
+                            int contRs = 0;
+                            cantRsCarg = dtDgvJug.Rows.Count - 1;
+
+                            msjProcRs = "Jug:0. Gan:0. Perd:0...";
+                            contRegPed = 0;
+                            contRegGan = 0;
+
+                           while (contRs <= cantRsCarg)
+                            {
+                                idDetJug = Convert.ToInt32(dtDgvJug.Rows[contRs][0].ToString().Trim());
+                                idLot = Convert.ToInt32(dtDgvJug.Rows[contRs][1].ToString().Trim());
+                                idSort = Convert.ToInt32(dtDgvJug.Rows[contRs][2].ToString().Trim());
+                                nroTck = Convert.ToInt32(dtDgvJug.Rows[contRs][3].ToString().Trim());
+                                cod_jug = dtDgvJug.Rows[contRs][7].ToString().Trim();
+                                codRsLot = dtDgvJug.Rows[contRs][12].ToString().Trim();
+
+                                if (!string.IsNullOrEmpty(codRsLot)){ rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, codRsLot); }
+                                else { rsDat = "0"; Console.WriteLine("hola: " + contRs); }
+
+                                if (rsDat == "0") { contRegPed++; }
+                                else if (rsDat == "1") { contRegGan++; }
+                                msjProcRs = "Jug:" + dtDgvJug.Rows.Count + ". Gan: " + contRegGan;
+                                msjProcRs += ". Perd: " + contRegPed + "...";
+                                Console.WriteLine("cont: "+ contRs);
+                                wkProcRsAut.ReportProgress(contRs);
+                                contRs++;
+                            }
+                            ValJug = false;
+                        }
+                    }
+                    idProc = 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                idProc = 0;
+                msjInf = ex.Message;
+                MessageBox.Show("Ha ocurrido el siguiente error: " + msjInf, "Verifique 2.");
+            }
+            finally 
+            { 
+                e.Cancel = true;
+                wkProcRsAut.CancelAsync();
+            }
         }
-        private void work_bus_result_lot_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void wkProcRsAut_OnProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+
+            if (ValGrdRs == true)
+            {
+                msjInf = "Resultado Nro: \"" + codRsLot + "\"";
+                gpReult.Text = "Loteria: " + nombLot;
+                lblMsjInf.Text = msjInf;
+            }
+
+            if (ValJug == true)
+            {
+                if (Convert.ToInt16(e.ProgressPercentage) == 0)
+                {
+                    if (dtDgvJug.Rows.Count > 0)
+                    {
+                        dgvJug.DataSource = dtDgvJug;
+                        gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
+
+                        pbInfProcRs.Minimum = 0;
+                        pbInfProcRs.Maximum = 0;
+                        pbInfProcRs.Maximum = dtDgvJug.Rows.Count - 1;
+                        pbInfProcRs.Value = 0;
+                    }
+                }
+
+                if (dtDgvJug.Rows.Count > 0)
+                {
+                    Console.WriteLine("pru: "+ e.ProgressPercentage);
+                    dgvJug.CurrentCell = dgvJug.Rows[e.ProgressPercentage].Cells[3];
+                    dgvJug.FirstDisplayedScrollingRowIndex = e.ProgressPercentage;
+                    this.pbInfProcRs.Value = e.ProgressPercentage;
+                    gbInfProcRs.Text = msjProcRs;
+                }
+            }
+        }
+        private void wkProcRsAut_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            //MessageBox.Show(e.Cancelled.ToString());
+            //if (e.Cancelled == true) { MessageBox.Show("cancelado"); }
+            //if (e.Cancelled == false) { MessageBox.Show("no cancelado"); }
             if (idProc == 1)
             {
-                dtDgvJug = objFunc.busJugPendProc(idGrup);
+                dtDgvJug = objMet.busJugPendProc(idPerf, idGrup);
                 dgvJug.DataSource = dtDgvJug;
                 gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
 
@@ -315,54 +405,10 @@ namespace ventas_loteria
             rsGan = "";
             fechLot = "";
         }
-        private void work_inicia_frm_DoWork(object sender, DoWorkEventArgs e)
+       
+        private void wkProcRsMan_DoWork(object sender, DoWorkEventArgs e)
         {
-            try
-            {
-                dtCboLot = objFunc.listLotTod();
-                dtDgvSort = objFunc.busLotProcRs();
-                dtcboTipProc = objFunc.busTipProc();
-                dtDgvJug = objFunc.busJugPendProc(idGrup);
-                idProc = 1;
-                work_inicia_frm.CancelAsync();
-            }
-            catch (Exception ex)
-            {
-                idProc = 0;
-                MessageBox.Show(ex.Message, "Verifique 2");
-            }
-        }
-        private void work_inicia_frm_OnProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-        }
-        private void work_inicia_frm_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (idProc == 1)
-            {
-                dgvSort.DataSource = dtDgvSort;
-                cboTipProc.DisplayMember = "nomb_tipo_proc_datos";
-                cboTipProc.ValueMember = "id_tipo_proc_datos";
-                cboTipProc.DataSource = dtcboTipProc;
-
-                this.cboLot.DisplayMember = "nombLot";
-                this.cboLot.ValueMember = "idLot";
-                this.cboLot.DataSource = dtCboLot;
-
-                dgvJug.DataSource = dtDgvJug;
-                gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
-
-                txtCod.Text = "";
-                txtCod.Enabled = false;
-                dtpFecha.Enabled = false;
-
-                cboTipProc.SelectedValue = 2;
-                timer1.Enabled = true;
-                timer1.Interval = 60000;
-            }
-        }
-        private void work_proc_result_DoWork(object sender, DoWorkEventArgs e)
-        {
-            this.work_proc_result.ReportProgress(0, "");
+            this.wkProcRsMan.ReportProgress(0, "");
             try
             {
                 cont = 0;
@@ -371,27 +417,26 @@ namespace ventas_loteria
 
                 while (cont <= cantRsCarg)
                 {
-                    id_det_jug = Convert.ToInt32(dgvJug.Rows[cont].Cells[0].Value.ToString().Trim());
-                    nro_ticket = Convert.ToInt32(dgvJug.Rows[cont].Cells[1].Value.ToString().Trim());
-                    cod_jug = dgvJug.Rows[cont].Cells[5].Value.ToString().Trim();
-                    rsVerfJugCer = Convert.ToInt32(dgvJug.Rows[cont].Cells[9].Value.ToString().Trim());
+                    idDetJug = Convert.ToInt32(dgvJug.Rows[cont].Cells[0].Value.ToString().Trim());
+                    idLot = Convert.ToInt32(dtDgvJug.Rows[cont][1].ToString().Trim());
+                    idSort = Convert.ToInt32(dtDgvJug.Rows[cont][2].ToString().Trim());
+                    nroTck = Convert.ToInt32(dgvJug.Rows[cont].Cells[3].Value.ToString().Trim());
+                    cod_jug = dgvJug.Rows[cont].Cells[7].Value.ToString().Trim();
+                    rsVerfJugCer = Convert.ToInt32(dgvJug.Rows[cont].Cells[11].Value.ToString().Trim());
 
                     if (rsVerfJugCer == 0)
                     {
-                        rsDat = objFunc.busProcRstLot(id_det_jug, idLot,
-                                                         idSort, txtCod.Text);
-
-                        work_proc_result.ReportProgress(cont);
+                        rsDat = objMet.busProcRsLot(idDetJug, idLot,idSort,txtCod.Text);
+                        wkProcRsMan.ReportProgress(cont);
                         cont++;
-
                         if (rsDat == "0") { contRegPed++; }
                         else if (rsDat == "1") { contRegGan++; }
-                        msj_proc_result = "Jug:" + dgvJug.RowCount;
-                        msj_proc_result += ". Gan: " + contRegGan;
-                        msj_proc_result += ". Perd: " + contRegPed + "...";
+                        msjProcRs = "Jug:" + dgvJug.RowCount;
+                        msjProcRs += ". Gan: " + contRegGan;
+                        msjProcRs += ". Perd: " + contRegPed + "...";
                     }
                 }
-                work_proc_result.CancelAsync();
+                wkProcRsMan.CancelAsync();
                 idProc = 1;
             }
             catch (Exception ex)
@@ -402,26 +447,25 @@ namespace ventas_loteria
                 idProc = 0;
             }
         }
-        private void work_proc_result_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void wkProcRsMan_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             //SELECCIONA LA BARRA COMPLETA
-            dgvJug.CurrentCell = dgvJug.Rows[e.ProgressPercentage].Cells[1];
-
+            dgvJug.CurrentCell = dgvJug.Rows[e.ProgressPercentage].Cells[3];
             //MUEVE LA BARRA PARA DEPLAZAR LOS REGISTROS
             dgvJug.FirstDisplayedScrollingRowIndex = e.ProgressPercentage;
-            this.pb_info_proc_result.Value = e.ProgressPercentage;
-            gb_info_proc_result.Text = msj_proc_result;
+            this.pbInfProcRs.Value = e.ProgressPercentage;
+            gbInfProcRs.Text = msjProcRs;
         }
-        private void work_proc_result_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void wkProcRsMan_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
             if (idProc == 1)
             {
                 lblMsjInf.Text += " Ticket procesados ...";
-                gb_info_proc_result.Text = msj_proc_result;
+                gbInfProcRs.Text = msjProcRs;
                 fechLot = Convert.ToDateTime(dtpFecha.Text).ToString("yyyy-MM-dd");
 
-                dtDgvJug = objFunc.busJugProcRs(idLot, idSort, fechLot);
+                dtDgvJug = objMet.busJugProcRs(idLot, idSort, fechLot);
                 dgvJug.DataSource = dtDgvJug;
                 cboTipProc.SelectedValue = 2;
                 timer1.Enabled = true;
@@ -442,7 +486,7 @@ namespace ventas_loteria
                 idSort = Convert.ToInt32(dgvSort.CurrentRow.Cells[3].Value.ToString());
                 nombSort = dgvSort.CurrentRow.Cells[5].Value.ToString();
 
-                dtDgvJug = objFunc.busJugProcRs(idGrup, idSort, fechLot);
+                dtDgvJug = objMet.busJugProcRsMan(idPerf,idGrup,idSort,fechLot);
                 dgvJug.DataSource = dtDgvJug;
                 gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
 
@@ -497,7 +541,7 @@ namespace ventas_loteria
             else if (idTipPoc == 2)
             {
                 timer1.Enabled = true;
-                dtDgvJug = objFunc.busJugPendProc(idGrup);
+                dtDgvJug = objMet.busJugPendProc(idPerf, idGrup);
                 dgvJug.DataSource = dtDgvJug;
                 gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
 
@@ -538,7 +582,7 @@ namespace ventas_loteria
                     if (MessageBox.Show(msjInf, "Verifique 3.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         fechLot = Convert.ToDateTime(dtpFecha.Text).ToString("yyyy-MM-dd");
-                        rsGrdRsLot = objFunc.grdActRstLot(idLot, idSort,
+                        rsGrdRsLot = objMet.grdActRstLot(idLot, idSort,
                                                           txtCod.Text, fechLot);
 
                         if (rsGrdRsLot == "1")
@@ -550,10 +594,10 @@ namespace ventas_loteria
                         if (dgvJug.RowCount > 0)
                         {
                             cantRsCarg = dgvJug.RowCount - 1;
-                            this.pb_info_proc_result.Minimum = 0;
-                            this.pb_info_proc_result.Maximum = cantRsCarg;
-                            this.pb_info_proc_result.Value = 0;
-                            this.work_proc_result.RunWorkerAsync();
+                            this.pbInfProcRs.Minimum = 0;
+                            this.pbInfProcRs.Maximum = cantRsCarg;
+                            this.pbInfProcRs.Value = 0;
+                            this.wkProcRsMan.RunWorkerAsync();
                         }
 
                     }
@@ -570,11 +614,11 @@ namespace ventas_loteria
             codigo = (int)caracter;
             if (codigo == 27)
             {
-                if (this.work_bus_result_lot.IsBusy)
+                if (this.wkProcRsAut.IsBusy)
                 {
                     msjInf = "Se esta ejecutando el procedimiento asincrono";
-                    msjInf += " para procesar los resultados de manera,";
-                    msjInf += " por favor espere.";
+                    msjInf += " para procesar los resultados, por ";
+                    msjInf += " favor espere.";
                     MessageBox.Show(msjInf, "¡ Espere !");
                 }
                 else { this.Close(); }
@@ -711,8 +755,19 @@ namespace ventas_loteria
         private void cboLot_SelectionChangeCommitted(object sender, EventArgs e)
         {
             idLot = Convert.ToInt16(cboLot.SelectedValue);
-            dtDgvSort = objFunc.listSortTod(idLot);
+            dtDgvSort = objMet.listSortTod(idLot);
             dgvSort.DataSource = dtDgvSort;
+        }
+
+        private void btn_pagar_ticket_Click(object sender, EventArgs e)
+        {
+            if (wkProcRsAut.IsBusy == true) { MessageBox.Show("servicio activo"); }
+        }
+
+        private void btnRs_Click(object sender, EventArgs e)
+        {
+            frm_result_lot frm = new frm_result_lot();
+            frm.ShowDialog();
         }
 
         public string result_grupo2(string prmUrl, string prmIdLotBus,

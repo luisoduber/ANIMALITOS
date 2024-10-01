@@ -21,20 +21,21 @@ namespace ventas_loteria
             InitializeComponent();
         }
 
-        clsMet objFunc = new clsMet();
-        DataTable dtDgvLot = new DataTable();
+        clsMet objMet = new clsMet();
+        DataTable dtDgvSort = new DataTable();
+        DataTable dtCboLot = new DataTable();
         DataTable dtCboTaq = new DataTable();
         DataTable dtDgvDetJug = new DataTable();
 
         int idLot = 0, idSort= 0;
         int idTaq = 0;
         string fechLot = "";
-        int id_proceso = 0;
+        int idProc = 0;
         private void frm_verf_ticket_taq_Load(object sender, EventArgs e)
         {
             this.Text = "Verifica Ticket Taquilla.";
-            this.dgvLot.AllowUserToAddRows = false;
-            this.dgvLot.RowHeadersVisible = false;
+            this.dgvSort.AllowUserToAddRows = false;
+            this.dgvSort.RowHeadersVisible = false;
 
             this.dgvDetJug.AllowUserToAddRows = false;
             this.dgvDetJug.RowHeadersVisible = false;
@@ -55,16 +56,17 @@ namespace ventas_loteria
         {
             try
             {
-                dtDgvLot = objFunc.busLotProcRs();
-                dtCboTaq = objFunc.busGrupoTaq
+                dtCboLot = objMet.listLotTod();
+                dtDgvSort = objMet.busLotProcRs();
+                dtCboTaq = objMet.busGrupTaq
                             (Convert.ToInt32(clsMet.idGrup));
 
-                id_proceso = 1;
+                idProc= 1;
                 work_inicia_frm.CancelAsync();
            }
             catch (Exception ex)
             {
-              id_proceso = 0;
+              idProc = 0;
               MessageBox.Show("Ha ocurrido el siguiente error: "+ex.Message, "Verifique");
             }
         }
@@ -73,25 +75,29 @@ namespace ventas_loteria
         }
         private void work_inicia_frm_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (id_proceso == 1)
+            if (idProc == 1)
             {
-              dgvLot.DataSource = dtDgvLot;
-              this.cboTaq.DisplayMember = "nick";
-              this.cboTaq.ValueMember = "id_usuario";
-              this.cboTaq.DataSource = dtCboTaq;
+                dgvSort.DataSource = dtDgvSort;
+                this.cboTaq.DisplayMember = "nick";
+                this.cboTaq.ValueMember = "id_usuario";
+                this.cboTaq.DataSource = dtCboTaq;
+
+                this.cboLot.DisplayMember = "nombLot";
+                this.cboLot.ValueMember = "idLot";
+                this.cboLot.DataSource = dtCboLot;
             }
         }
-        private void dgvLot_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvSort_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvLot.RowCount > 0)
+            if (dgvSort.RowCount > 0)
             {
                 idTaq = Convert.ToInt32(cboTaq.SelectedValue.ToString());
                 fechLot = Convert.ToDateTime(dtp_fecha.Text).ToString("yyyy-MM-dd");
 
-                idLot = Convert.ToInt32(dgvLot.CurrentRow.Cells[0].Value.ToString());
-                idSort= Convert.ToInt32(dgvLot.CurrentRow.Cells[3].Value.ToString());
+                idLot = Convert.ToInt32(dgvSort.CurrentRow.Cells[0].Value.ToString());
+                idSort= Convert.ToInt32(dgvSort.CurrentRow.Cells[3].Value.ToString());
 
-                dtDgvDetJug = objFunc.busJugTaq(idLot, idSort,idTaq,fechLot);
+                dtDgvDetJug = objMet.busJugTaq(idLot,idSort,idTaq,fechLot);
                 dgvDetJug.DataSource = dtDgvDetJug;
 
                 gp_cant_jug.Text = "Cantidad jugadas: " + dgvDetJug.RowCount;
@@ -110,6 +116,19 @@ namespace ventas_loteria
             caracter = Convert.ToChar(e.KeyChar);
             codigo = (int)caracter;
             if (codigo == 27) { this.Close(); }
+        }
+
+        private void cboLot_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idLot = Convert.ToInt16(cboLot.SelectedValue);
+            dtDgvSort = objMet.listSortTod(idLot);
+            dgvSort.DataSource = dtDgvSort;
+        }
+
+        private void btnRs_Click(object sender, EventArgs e)
+        {
+            frm_result_lot frm = new frm_result_lot();
+            frm.ShowDialog();
         }
         private void txt_codigo_KeyPress(object sender, KeyPressEventArgs e)
         {

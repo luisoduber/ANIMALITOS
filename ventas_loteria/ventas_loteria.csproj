@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Personal\Desktop\ANIMALITOS\</PublishUrl>
+    <PublishUrl>C:\Users\Personal\Desktop\ANIMALITOS\instalador\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Animal Like</ProductName>
     <WebPage>prueba.html</WebPage>
-    <ApplicationRevision>150</ApplicationRevision>
+    <ApplicationRevision>164</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -167,6 +167,12 @@
   <ItemGroup>
     <Compile Include="CLASES\clsMet.cs" />
     <Compile Include="CLASES\crear_ticket.cs" />
+    <Compile Include="frmContSort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContSort.Designer.cs">
+      <DependentUpon>frmContSort.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLimTaq.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +305,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmContSort.resx">
+      <DependentUpon>frmContSort.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLimTaq.resx">
       <DependentUpon>frmLimTaq.cs</DependentUpon>
     </EmbeddedResource>

@@ -36,7 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLimTaq));
-            this.work_inicia_frm = new System.ComponentModel.BackgroundWorker();
             this.gpVentas = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dgvLimTaq = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +44,8 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cboGrup = new System.Windows.Forms.ComboBox();
             this.btnGrd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCupAn = new System.Windows.Forms.TextBox();
@@ -54,15 +55,11 @@
             this.work_proc_result = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.work_bus_result_lot = new System.ComponentModel.BackgroundWorker();
+            this.work_inicia_frm = new System.ComponentModel.BackgroundWorker();
             this.gpVentas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLimTaq)).BeginInit();
             this.groupPanel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // work_inicia_frm
-            // 
-            this.work_inicia_frm.WorkerReportsProgress = true;
-            this.work_inicia_frm.WorkerSupportsCancellation = true;
             // 
             // gpVentas
             // 
@@ -191,6 +188,8 @@
             // 
             this.groupPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.label3);
+            this.groupPanel3.Controls.Add(this.cboGrup);
             this.groupPanel3.Controls.Add(this.btnGrd);
             this.groupPanel3.Controls.Add(this.label2);
             this.groupPanel3.Controls.Add(this.txtCupAn);
@@ -234,6 +233,29 @@
             this.groupPanel3.TabIndex = 212;
             this.groupPanel3.Text = "Registrar Limites";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(14, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 22);
+            this.label3.TabIndex = 215;
+            this.label3.Text = "Grupos";
+            // 
+            // cboGrup
+            // 
+            this.cboGrup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGrup.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboGrup.FormattingEnabled = true;
+            this.cboGrup.Location = new System.Drawing.Point(4, 22);
+            this.cboGrup.Margin = new System.Windows.Forms.Padding(4);
+            this.cboGrup.Name = "cboGrup";
+            this.cboGrup.Size = new System.Drawing.Size(148, 27);
+            this.cboGrup.TabIndex = 214;
+            this.cboGrup.SelectionChangeCommitted += new System.EventHandler(this.cboGrup_SelectionChangeCommitted);
+            // 
             // btnGrd
             // 
             this.btnGrd.BackColor = System.Drawing.Color.Transparent;
@@ -255,18 +277,18 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(200, 0);
+            this.label2.Location = new System.Drawing.Point(312, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 22);
+            this.label2.Size = new System.Drawing.Size(54, 22);
             this.label2.TabIndex = 212;
-            this.label2.Text = "Cupo Animalito";
+            this.label2.Text = "Cupo";
             // 
             // txtCupAn
             // 
-            this.txtCupAn.Location = new System.Drawing.Point(195, 22);
+            this.txtCupAn.Location = new System.Drawing.Point(304, 22);
             this.txtCupAn.MaxLength = 300;
             this.txtCupAn.Name = "txtCupAn";
-            this.txtCupAn.Size = new System.Drawing.Size(181, 29);
+            this.txtCupAn.Size = new System.Drawing.Size(72, 29);
             this.txtCupAn.TabIndex = 211;
             this.txtCupAn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCupAn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCupAn_KeyPress);
@@ -276,10 +298,10 @@
             this.cboTaq.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTaq.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTaq.FormattingEnabled = true;
-            this.cboTaq.Location = new System.Drawing.Point(12, 23);
+            this.cboTaq.Location = new System.Drawing.Point(161, 23);
             this.cboTaq.Margin = new System.Windows.Forms.Padding(4);
             this.cboTaq.Name = "cboTaq";
-            this.cboTaq.Size = new System.Drawing.Size(176, 27);
+            this.cboTaq.Size = new System.Drawing.Size(136, 27);
             this.cboTaq.TabIndex = 208;
             this.cboTaq.SelectionChangeCommitted += new System.EventHandler(this.cboTaq_SelectionChangeCommitted);
             // 
@@ -288,7 +310,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(24, -3);
+            this.label11.Location = new System.Drawing.Point(159, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(84, 22);
             this.label11.TabIndex = 210;
@@ -312,6 +334,11 @@
             // 
             this.work_bus_result_lot.WorkerReportsProgress = true;
             this.work_bus_result_lot.WorkerSupportsCancellation = true;
+            // 
+            // work_inicia_frm
+            // 
+            this.work_inicia_frm.WorkerReportsProgress = true;
+            this.work_inicia_frm.WorkerSupportsCancellation = true;
             // 
             // frmLimTaq
             // 
@@ -341,7 +368,6 @@
         }
 
         #endregion
-        private System.ComponentModel.BackgroundWorker work_inicia_frm;
         private DevComponents.DotNetBar.Controls.GroupPanel gpVentas;
         private System.Windows.Forms.DataGridView dgvLimTaq;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;
@@ -359,5 +385,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button btnGrd;
+        private System.ComponentModel.BackgroundWorker work_inicia_frm;
+        private System.Windows.Forms.ComboBox cboGrup;
+        private System.Windows.Forms.Label label3;
     }
 }

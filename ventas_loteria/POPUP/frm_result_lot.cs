@@ -44,7 +44,7 @@ namespace ventas_loteria
             try
             {
                
-                dtCboLot = objResultLot.busLotResult();
+                dtCboLot = objResultLot.busLotRs();
                 dtDgvResultLot = objResultLot.busResultLot();
 
                 id_proceso = 1;
@@ -62,7 +62,6 @@ namespace ventas_loteria
         }
         private void work_inicia_frm_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-
             if (id_proceso == 1)
             {
                 cboLot.DisplayMember = "nomb_loteria";
@@ -71,12 +70,13 @@ namespace ventas_loteria
                 dgvResultLot.DataSource = dtDgvResultLot;
             }
         }
-        private void btn_buscar_Click(object sender, EventArgs e)
+
+        private void cboLot_SelectionChangeCommitted(object sender, EventArgs e)
         {
             DateTime fecha = dtp_fecha.Value.Date;
             DateTime fechHoy = DateTime.Today;
             int cantDifDias = fecha.CompareTo(fechHoy);
-            int idLot= Convert.ToInt32(cboLot.SelectedValue.ToString());
+            int idLot = Convert.ToInt32(cboLot.SelectedValue.ToString());
 
             if (cantDifDias > 0)
             {
@@ -85,7 +85,7 @@ namespace ventas_loteria
             }
 
             dtDgvResultLot = objResultLot.busResultLotfilt
-                                        (idLot, 
+                                        (idLot,
             Convert.ToDateTime(dtp_fecha.Text).ToString("yyyy-MM-dd"));
             dgvResultLot.DataSource = dtDgvResultLot;
         }
@@ -95,8 +95,15 @@ namespace ventas_loteria
             int codigo;
             caracter = Convert.ToChar(e.KeyChar);
             codigo = (int)caracter;
-
             if (codigo == 27) { this.Close(); }
+        }
+
+        private void cboLot_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+
+
         }
     }
 }

@@ -813,6 +813,7 @@ F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Numerics.Vectors.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Threading.Tasks.Extensions.xml
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.AssemblyReference.cache
+F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmContSort.resources
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmLimTaq.resources
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmMenOpe.resources
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmContVent.resources

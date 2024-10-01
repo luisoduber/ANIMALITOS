@@ -31,7 +31,7 @@ namespace ventas_loteria
         {
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnProcResult = new System.Windows.Forms.Button();
-            this.btnCuadGrupos = new System.Windows.Forms.Button();
+            this.btnCuadGrup = new System.Windows.Forms.Button();
             this.btnTckTaq = new System.Windows.Forms.Button();
             this.btnAnulTck = new System.Windows.Forms.Button();
             this.btnCuadTaq = new System.Windows.Forms.Button();
@@ -40,6 +40,7 @@ namespace ventas_loteria
             this.btnResult = new System.Windows.Forms.Button();
             this.btnContVent = new System.Windows.Forms.Button();
             this.btnLimTaq = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVentas
@@ -47,9 +48,9 @@ namespace ventas_loteria
             this.btnVentas.BackColor = System.Drawing.Color.White;
             this.btnVentas.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.Color.Black;
-            this.btnVentas.Location = new System.Drawing.Point(30, 30);
+            this.btnVentas.Location = new System.Drawing.Point(12, 30);
             this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Size = new System.Drawing.Size(120, 120);
+            this.btnVentas.Size = new System.Drawing.Size(90, 90);
             this.btnVentas.TabIndex = 6;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseVisualStyleBackColor = false;
@@ -60,36 +61,37 @@ namespace ventas_loteria
             this.btnProcResult.BackColor = System.Drawing.Color.White;
             this.btnProcResult.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcResult.ForeColor = System.Drawing.Color.Black;
-            this.btnProcResult.Location = new System.Drawing.Point(180, 30);
+            this.btnProcResult.Location = new System.Drawing.Point(119, 30);
             this.btnProcResult.Name = "btnProcResult";
-            this.btnProcResult.Size = new System.Drawing.Size(120, 120);
+            this.btnProcResult.Size = new System.Drawing.Size(90, 90);
             this.btnProcResult.TabIndex = 7;
-            this.btnProcResult.Text = "Procesar Resultados";
+            this.btnProcResult.Text = "Proc. Ventas";
             this.btnProcResult.UseVisualStyleBackColor = false;
             this.btnProcResult.Click += new System.EventHandler(this.btnProcResult_Click);
             // 
-            // btnCuadGrupos
+            // btnCuadGrup
             // 
-            this.btnCuadGrupos.BackColor = System.Drawing.Color.White;
-            this.btnCuadGrupos.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCuadGrupos.ForeColor = System.Drawing.Color.Black;
-            this.btnCuadGrupos.Location = new System.Drawing.Point(331, 30);
-            this.btnCuadGrupos.Name = "btnCuadGrupos";
-            this.btnCuadGrupos.Size = new System.Drawing.Size(120, 120);
-            this.btnCuadGrupos.TabIndex = 8;
-            this.btnCuadGrupos.Text = "Cuadre Grupos";
-            this.btnCuadGrupos.UseVisualStyleBackColor = false;
+            this.btnCuadGrup.BackColor = System.Drawing.Color.White;
+            this.btnCuadGrup.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCuadGrup.ForeColor = System.Drawing.Color.Black;
+            this.btnCuadGrup.Location = new System.Drawing.Point(224, 30);
+            this.btnCuadGrup.Name = "btnCuadGrup";
+            this.btnCuadGrup.Size = new System.Drawing.Size(90, 90);
+            this.btnCuadGrup.TabIndex = 8;
+            this.btnCuadGrup.Text = "Cuadre Grupos";
+            this.btnCuadGrup.UseVisualStyleBackColor = false;
+            this.btnCuadGrup.Click += new System.EventHandler(this.btnCuadGrup_Click);
             // 
             // btnTckTaq
             // 
             this.btnTckTaq.BackColor = System.Drawing.Color.White;
             this.btnTckTaq.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTckTaq.ForeColor = System.Drawing.Color.Black;
-            this.btnTckTaq.Location = new System.Drawing.Point(331, 166);
+            this.btnTckTaq.Location = new System.Drawing.Point(224, 139);
             this.btnTckTaq.Name = "btnTckTaq";
-            this.btnTckTaq.Size = new System.Drawing.Size(120, 120);
+            this.btnTckTaq.Size = new System.Drawing.Size(90, 90);
             this.btnTckTaq.TabIndex = 11;
-            this.btnTckTaq.Text = "Ticket Taquillas";
+            this.btnTckTaq.Text = "Ticket Taquilla";
             this.btnTckTaq.UseVisualStyleBackColor = false;
             this.btnTckTaq.Click += new System.EventHandler(this.btnTckTaq_Click);
             // 
@@ -98,9 +100,9 @@ namespace ventas_loteria
             this.btnAnulTck.BackColor = System.Drawing.Color.White;
             this.btnAnulTck.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnulTck.ForeColor = System.Drawing.Color.Black;
-            this.btnAnulTck.Location = new System.Drawing.Point(180, 166);
+            this.btnAnulTck.Location = new System.Drawing.Point(119, 139);
             this.btnAnulTck.Name = "btnAnulTck";
-            this.btnAnulTck.Size = new System.Drawing.Size(120, 120);
+            this.btnAnulTck.Size = new System.Drawing.Size(90, 90);
             this.btnAnulTck.TabIndex = 10;
             this.btnAnulTck.Text = "Anular Ticket";
             this.btnAnulTck.UseVisualStyleBackColor = false;
@@ -111,11 +113,11 @@ namespace ventas_loteria
             this.btnCuadTaq.BackColor = System.Drawing.Color.White;
             this.btnCuadTaq.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCuadTaq.ForeColor = System.Drawing.Color.Black;
-            this.btnCuadTaq.Location = new System.Drawing.Point(30, 166);
+            this.btnCuadTaq.Location = new System.Drawing.Point(12, 139);
             this.btnCuadTaq.Name = "btnCuadTaq";
-            this.btnCuadTaq.Size = new System.Drawing.Size(120, 120);
+            this.btnCuadTaq.Size = new System.Drawing.Size(90, 90);
             this.btnCuadTaq.TabIndex = 9;
-            this.btnCuadTaq.Text = "Cuadre Taquillas";
+            this.btnCuadTaq.Text = "Cuadre Taquilla";
             this.btnCuadTaq.UseVisualStyleBackColor = false;
             this.btnCuadTaq.Click += new System.EventHandler(this.btnCuadTaq_Click);
             // 
@@ -124,11 +126,11 @@ namespace ventas_loteria
             this.btnGrupUsu.BackColor = System.Drawing.Color.White;
             this.btnGrupUsu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGrupUsu.ForeColor = System.Drawing.Color.Black;
-            this.btnGrupUsu.Location = new System.Drawing.Point(331, 303);
+            this.btnGrupUsu.Location = new System.Drawing.Point(224, 247);
             this.btnGrupUsu.Name = "btnGrupUsu";
-            this.btnGrupUsu.Size = new System.Drawing.Size(120, 120);
+            this.btnGrupUsu.Size = new System.Drawing.Size(90, 90);
             this.btnGrupUsu.TabIndex = 14;
-            this.btnGrupUsu.Text = "Grupos / Taquillas";
+            this.btnGrupUsu.Text = "Grupos / Taquilla";
             this.btnGrupUsu.UseVisualStyleBackColor = false;
             this.btnGrupUsu.Click += new System.EventHandler(this.btnGrupUsu_Click);
             // 
@@ -137,9 +139,9 @@ namespace ventas_loteria
             this.btnCc.BackColor = System.Drawing.Color.White;
             this.btnCc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCc.ForeColor = System.Drawing.Color.Black;
-            this.btnCc.Location = new System.Drawing.Point(180, 303);
+            this.btnCc.Location = new System.Drawing.Point(119, 247);
             this.btnCc.Name = "btnCc";
-            this.btnCc.Size = new System.Drawing.Size(120, 120);
+            this.btnCc.Size = new System.Drawing.Size(90, 90);
             this.btnCc.TabIndex = 13;
             this.btnCc.Text = "Cambiar Clave";
             this.btnCc.UseVisualStyleBackColor = false;
@@ -150,9 +152,9 @@ namespace ventas_loteria
             this.btnResult.BackColor = System.Drawing.Color.White;
             this.btnResult.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResult.ForeColor = System.Drawing.Color.Black;
-            this.btnResult.Location = new System.Drawing.Point(30, 303);
+            this.btnResult.Location = new System.Drawing.Point(12, 247);
             this.btnResult.Name = "btnResult";
-            this.btnResult.Size = new System.Drawing.Size(120, 120);
+            this.btnResult.Size = new System.Drawing.Size(90, 90);
             this.btnResult.TabIndex = 12;
             this.btnResult.Text = "Resultados";
             this.btnResult.UseVisualStyleBackColor = false;
@@ -163,9 +165,9 @@ namespace ventas_loteria
             this.btnContVent.BackColor = System.Drawing.Color.White;
             this.btnContVent.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContVent.ForeColor = System.Drawing.Color.Black;
-            this.btnContVent.Location = new System.Drawing.Point(479, 30);
+            this.btnContVent.Location = new System.Drawing.Point(332, 30);
             this.btnContVent.Name = "btnContVent";
-            this.btnContVent.Size = new System.Drawing.Size(120, 120);
+            this.btnContVent.Size = new System.Drawing.Size(90, 90);
             this.btnContVent.TabIndex = 15;
             this.btnContVent.Text = "Control Ventas";
             this.btnContVent.UseVisualStyleBackColor = false;
@@ -176,21 +178,35 @@ namespace ventas_loteria
             this.btnLimTaq.BackColor = System.Drawing.Color.White;
             this.btnLimTaq.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimTaq.ForeColor = System.Drawing.Color.Black;
-            this.btnLimTaq.Location = new System.Drawing.Point(479, 166);
+            this.btnLimTaq.Location = new System.Drawing.Point(332, 247);
             this.btnLimTaq.Name = "btnLimTaq";
-            this.btnLimTaq.Size = new System.Drawing.Size(120, 120);
+            this.btnLimTaq.Size = new System.Drawing.Size(90, 90);
             this.btnLimTaq.TabIndex = 16;
             this.btnLimTaq.Text = "Limitar Taquilla";
             this.btnLimTaq.UseVisualStyleBackColor = false;
             this.btnLimTaq.Click += new System.EventHandler(this.btnLimTaq_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(332, 139);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 90);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Control Sorteos";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmMenOpe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(607, 450);
+            this.ClientSize = new System.Drawing.Size(439, 355);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnLimTaq);
             this.Controls.Add(this.btnContVent);
             this.Controls.Add(this.btnGrupUsu);
@@ -199,7 +215,7 @@ namespace ventas_loteria
             this.Controls.Add(this.btnTckTaq);
             this.Controls.Add(this.btnAnulTck);
             this.Controls.Add(this.btnCuadTaq);
-            this.Controls.Add(this.btnCuadGrupos);
+            this.Controls.Add(this.btnCuadGrup);
             this.Controls.Add(this.btnProcResult);
             this.Controls.Add(this.btnVentas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -218,7 +234,7 @@ namespace ventas_loteria
 
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnProcResult;
-        private System.Windows.Forms.Button btnCuadGrupos;
+        private System.Windows.Forms.Button btnCuadGrup;
         private System.Windows.Forms.Button btnTckTaq;
         private System.Windows.Forms.Button btnAnulTck;
         private System.Windows.Forms.Button btnCuadTaq;
@@ -227,5 +243,6 @@ namespace ventas_loteria
         private System.Windows.Forms.Button btnResult;
         private System.Windows.Forms.Button btnContVent;
         private System.Windows.Forms.Button btnLimTaq;
+        private System.Windows.Forms.Button button1;
     }
 }

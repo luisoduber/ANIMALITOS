@@ -28,25 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gp_filtro_result_lot = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.cboLot = new System.Windows.Forms.ComboBox();
-            this.btn_buscar = new System.Windows.Forms.Button();
             this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dgvResultLot = new System.Windows.Forms.DataGridView();
+            this.work_inicia_frm = new System.ComponentModel.BackgroundWorker();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.work_inicia_frm = new System.ComponentModel.BackgroundWorker();
             this.gp_filtro_result_lot.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultLot)).BeginInit();
@@ -58,7 +57,6 @@
             this.gp_filtro_result_lot.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.gp_filtro_result_lot.Controls.Add(this.label1);
             this.gp_filtro_result_lot.Controls.Add(this.cboLot);
-            this.gp_filtro_result_lot.Controls.Add(this.btn_buscar);
             this.gp_filtro_result_lot.Controls.Add(this.dtp_fecha);
             this.gp_filtro_result_lot.Controls.Add(this.label10);
             this.gp_filtro_result_lot.DrawTitleBox = false;
@@ -103,7 +101,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(18, 3);
+            this.label1.Location = new System.Drawing.Point(153, 7);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 22);
@@ -115,28 +113,17 @@
             this.cboLot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLot.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboLot.FormattingEnabled = true;
-            this.cboLot.Location = new System.Drawing.Point(6, 26);
+            this.cboLot.Location = new System.Drawing.Point(141, 30);
             this.cboLot.Name = "cboLot";
-            this.cboLot.Size = new System.Drawing.Size(149, 27);
+            this.cboLot.Size = new System.Drawing.Size(245, 27);
             this.cboLot.TabIndex = 215;
-            // 
-            // btn_buscar
-            // 
-            this.btn_buscar.BackColor = System.Drawing.Color.White;
-            this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_buscar.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_buscar.Location = new System.Drawing.Point(299, 20);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(78, 32);
-            this.btn_buscar.TabIndex = 5;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = false;
-            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
+            this.cboLot.SelectedIndexChanged += new System.EventHandler(this.cboLot_SelectedIndexChanged);
+            this.cboLot.SelectionChangeCommitted += new System.EventHandler(this.cboLot_SelectionChangeCommitted);
             // 
             // dtp_fecha
             // 
             this.dtp_fecha.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp_fecha.Location = new System.Drawing.Point(161, 26);
+            this.dtp_fecha.Location = new System.Drawing.Point(12, 30);
             this.dtp_fecha.Name = "dtp_fecha";
             this.dtp_fecha.Size = new System.Drawing.Size(123, 26);
             this.dtp_fecha.TabIndex = 178;
@@ -147,7 +134,7 @@
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
             this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(170, 3);
+            this.label10.Location = new System.Drawing.Point(21, 7);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 22);
             this.label10.TabIndex = 1;
@@ -203,28 +190,28 @@
             this.dgvResultLot.BackgroundColor = System.Drawing.Color.White;
             this.dgvResultLot.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvResultLot.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvResultLot.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvResultLot.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvResultLot.ColumnHeadersHeight = 35;
             this.dgvResultLot.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(135)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResultLot.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(135)))));
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvResultLot.DefaultCellStyle = dataGridViewCellStyle30;
             this.dgvResultLot.Location = new System.Drawing.Point(6, 3);
             this.dgvResultLot.Name = "dgvResultLot";
             this.dgvResultLot.RowTemplate.Height = 35;
@@ -232,45 +219,46 @@
             this.dgvResultLot.Size = new System.Drawing.Size(435, 339);
             this.dgvResultLot.TabIndex = 194;
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "nomb_loteria";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column1.HeaderText = "Loteria";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 130;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "nomb_sorteo";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column2.HeaderText = "Sorteo";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "cod_result";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column3.HeaderText = "Codigo";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 70;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "nomb_product";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column4.HeaderText = "Producto";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 110;
-            // 
             // work_inicia_frm
             // 
             this.work_inicia_frm.WorkerReportsProgress = true;
             this.work_inicia_frm.WorkerSupportsCancellation = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "nomb_loteria";
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle26;
+            this.Column1.HeaderText = "Loteria";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 180;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "nomb_sorteo";
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle27;
+            this.Column2.HeaderText = "Sorteo";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 80;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "cod_result";
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle28;
+            this.Column3.HeaderText = "Cod.";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 40;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "nomb_product";
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle29;
+            this.Column4.HeaderText = "Producto";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 110;
             // 
             // frm_result_lot
             // 
@@ -301,7 +289,6 @@
         #endregion
 
         private DevComponents.DotNetBar.Controls.GroupPanel gp_filtro_result_lot;
-        private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.DateTimePicker dtp_fecha;
         private System.Windows.Forms.Label label10;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
