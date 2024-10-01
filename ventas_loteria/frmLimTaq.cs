@@ -27,7 +27,7 @@ namespace ventas_loteria
 
         private void frmLimTaq_Load(object sender, EventArgs e)
         {
-            this.Text = "Control Limites Taquillas.";
+            this.Text = "Control Limites Taquillas.".ToUpper();
             this.dgvLimTaq.AllowUserToAddRows = false;
             this.dgvLimTaq.RowHeadersVisible = false;
 

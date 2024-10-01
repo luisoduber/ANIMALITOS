@@ -177,7 +177,7 @@ namespace ventas_loteria
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = clsMet.cn_bd;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SP_bus_sorteos_proc_result_auto";
+                cmd.CommandText = "SPBusSortProcRsAut";
                 da = new MySqlDataAdapter(cmd);
                 da.Fill(dtInfSort);
                 clsMet.Desconectar();
@@ -266,7 +266,7 @@ namespace ventas_loteria
             {
                 idProc = 0;
                 msjInf = ex.Message;
-                MessageBox.Show("Ha ocurrido el siguiente error: " + msjInf, "Verifique 1.");
+                MessageBox.Show("Ha ocurrido el siguiente error: " + msjInf, "Procesa Result.");
             }
             ////////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////////////////
@@ -766,8 +766,18 @@ namespace ventas_loteria
 
         private void btnRs_Click(object sender, EventArgs e)
         {
-            frm_result_lot frm = new frm_result_lot();
-            frm.ShowDialog();
+            if (this.wkProcRsAut.IsBusy)
+            {
+                msjInf = "Se esta ejecutando el procedimiento asincrono";
+                msjInf += " para procesar los resultados, por ";
+                msjInf += " favor espere.";
+                MessageBox.Show(msjInf, "¡ Espere !");
+            }
+            else
+            {
+                frm_result_lot frm = new frm_result_lot();
+                frm.ShowDialog(); this.Close(); 
+            }
         }
 
         public string result_grupo2(string prmUrl, string prmIdLotBus,

@@ -19,6 +19,7 @@ namespace ventas_loteria
         }
 
         clsMet objMet = new clsMet();
+        DataTable dtCboGrup = new DataTable();
         DataTable dtDgvSort = new DataTable();
         DataTable dtCboLot = new DataTable();
         DataTable dtCboTaq = new DataTable();
@@ -29,19 +30,19 @@ namespace ventas_loteria
         string fechLot = "", codProd = "";
         string nombLot = "", nombSort = "";
         string nombTaq = "", msjInf = "";
-        int idProc = 0;
         int idStat = 0, idTaq = 0;
-        int idUsu = 0;
+        int idUsu = 0, idPerf=0;
+        int idProc = 0;
 
         private void frmContSort_Load(object sender, EventArgs e)
         {
-            this.Text = "Control de Sorteos.";
+            this.Text = "Control de Sorteos.".ToUpper();
             this.dgvSort.AllowUserToAddRows = false;
             this.dgvSort.RowHeadersVisible = false;
 
             this.dgvSortBloqII.AllowUserToAddRows = false;
             this.dgvSortBloqII.RowHeadersVisible = false;
-            idGrup = Convert.ToInt32(clsMet.idGrup);
+            idPerf = Convert.ToInt32(clsMet.idPerf);
 
             this.work_inicia_frm.WorkerReportsProgress = true;
             this.work_inicia_frm.WorkerSupportsCancellation = true;
@@ -56,11 +57,10 @@ namespace ventas_loteria
         {
             try
             {
-                dtCboTaq = objMet.BusTaqContVent(idGrup);
+                dtCboGrup = objMet.BusGrup();
                 dtCboLot = objMet.listLotContVent();
                 idLot = Convert.ToInt16(dtCboLot.Rows[0][0]);
                 dtDgvSort = objMet.listSortContVentTod(idLot);
-                dtdgvSortBloqII = objMet.listSortBloq(idLot);
 
                 idProc = 1;
                 work_inicia_frm.CancelAsync();
@@ -72,12 +72,54 @@ namespace ventas_loteria
             }
         }
 
+        private void cboGrup_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idGrup = Convert.ToInt16(cboGrup.SelectedValue);
+            dtCboTaq = objMet.BusTaqContVent(idGrup);
+            dtdgvSortBloqII = objMet.listSortBloq(idGrup, idLot);
+
+            this.cboTaq.DisplayMember = "nick";
+            this.cboTaq.ValueMember = "id_usuario";
+            this.cboTaq.DataSource = dtCboTaq;
+            dgvSortBloqII.DataSource = dtdgvSortBloqII;
+        }
+
+        private void work_inicia_frm_OnProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+        }
+        private void work_inicia_frm_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.cboGrup.DisplayMember = "nombGrup";
+            this.cboGrup.ValueMember = "idGrup";
+            this.cboGrup.DataSource = dtCboGrup;
+
+            if (idPerf == 2)
+            {
+                idGrup = Convert.ToInt32(clsMet.idGrup);
+                cboGrup.Enabled = false;
+                cboGrup.SelectedValue = idGrup;
+            }
+            else if (idPerf == 3) { idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0].ToString()); }
+
+            dtCboTaq = objMet.BusTaqContVent(idGrup);
+            dtdgvSortBloqII = objMet.listSortBloq(idGrup, idLot);
+
+            this.cboTaq.DisplayMember = "nick";
+            this.cboTaq.ValueMember = "id_usuario";
+            this.cboTaq.DataSource = dtCboTaq;
+
+            this.cboLot.DisplayMember = "nombLot";
+            this.cboLot.ValueMember = "idLot";
+            this.cboLot.DataSource = dtCboLot;
+            dgvSort.DataSource = dtDgvSort;
+            dgvSortBloqII.DataSource = dtdgvSortBloqII;
+        }
         private void dgvSortBloqII_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
             if (dgvSortBloqII.RowCount > 0)
             {
-                idGrup = Convert.ToInt32(clsMet.idGrup);
+                idGrup = Convert.ToInt16(cboGrup.SelectedValue);
                 idUsu = Convert.ToInt32(dgvSortBloqII.CurrentRow.Cells[0].Value.ToString());
                 idLot = Convert.ToInt32(dgvSortBloqII.CurrentRow.Cells[1].Value.ToString());
                 idSort = Convert.ToInt32(dgvSortBloqII.CurrentRow.Cells[2].Value.ToString());
@@ -94,39 +136,24 @@ namespace ventas_loteria
 
                 if (MessageBox.Show(msjInf.ToUpper(), "Verifique.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    rsDat = objMet.actStatSort(idGrup, idUsu, idLot, idSort, 2);
+                    rsDat = objMet.actStatSort(idGrup,idUsu,idLot,idSort,2);
                     if (rsDat == "true")
                     {
-                        dtdgvSortBloqII = objMet.listSortBloq(idLot);
+                        dtdgvSortBloqII = objMet.listSortBloq(idGrup,idLot);
                         dgvSortBloqII.DataSource = dtdgvSortBloqII;
                     }
                     else { MessageBox.Show("Ha ocurrido el siguiente error:" + rsDat, "Verifique."); }
                 }
             }
         }
-
-        private void work_inicia_frm_OnProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-        }
-        private void work_inicia_frm_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            this.cboTaq.DisplayMember = "nick";
-            this.cboTaq.ValueMember = "id_usuario";
-            this.cboTaq.DataSource = dtCboTaq;
-
-            this.cboLot.DisplayMember = "nombLot";
-            this.cboLot.ValueMember = "idLot";
-            this.cboLot.DataSource = dtCboLot;
-            dgvSort.DataSource = dtDgvSort;
-            dgvSortBloqII.DataSource = dtdgvSortBloqII;
-        }
         private void dgvSort_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvSort.RowCount > 0)
             {
+                idGrup = Convert.ToInt16(cboGrup.SelectedValue);
                 idLot = Convert.ToInt32(cboLot.SelectedValue);
                 idSort = Convert.ToInt32(dgvSort.CurrentRow.Cells[0].Value.ToString());
-                dtdgvSortBloqII = objMet.listProdSortFilt(idLot, idSort);
+                dtdgvSortBloqII = objMet.listProdSortFilt(idGrup,idLot,idSort);
                 dgvSortBloqII.DataSource = dtdgvSortBloqII;
             }
         }
@@ -134,6 +161,7 @@ namespace ventas_loteria
         {
             if (dgvSort.RowCount > 0)
             {
+                idGrup = Convert.ToInt16(cboGrup.SelectedValue);
                 idUsu = Convert.ToInt32(cboTaq.SelectedValue);
                 idLot = Convert.ToInt32(cboLot.SelectedValue);
                 idSort = Convert.ToInt32(dgvSort.CurrentRow.Cells[0].Value.ToString());
@@ -148,10 +176,10 @@ namespace ventas_loteria
                 if (MessageBox.Show(msjInf.ToUpper(), "Verifique.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     if ((idUsu == 0) && (idSort == 0)) { /*rsDat = objMet.actStatProdTod(idGrup, idLot, codProd, 1);*/ }
-                    else { rsDat = objMet.actStatSort(idGrup, idUsu, idLot, idSort, 1); }
+                    else { rsDat = objMet.actStatSort(idGrup,idUsu,idLot,idSort,1); }
                     if (rsDat == "true")
                     {
-                        dtdgvSortBloqII = objMet.listSortBloq(idLot);
+                        dtdgvSortBloqII = objMet.listSortBloq(idGrup,idLot);
                         dgvSortBloqII.DataSource = dtdgvSortBloqII;
                     }
                     else { MessageBox.Show("Ha ocurrido el siguiente error:" + rsDat, "Verifique."); }
@@ -168,11 +196,12 @@ namespace ventas_loteria
         }
         private void cboLot_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            idGrup = Convert.ToInt16(cboGrup.SelectedValue);
             idLot = Convert.ToInt16(cboLot.SelectedValue);
             dtDgvSort = objMet.listSortContVentTod(idLot);
             dgvSort.DataSource = dtDgvSort;
 
-            dtdgvSortBloqII = objMet.listSortBloq(idLot);
+            dtdgvSortBloqII = objMet.listSortBloq(idGrup,idLot);
             dgvSortBloqII.DataSource = dtdgvSortBloqII;
         }
     }

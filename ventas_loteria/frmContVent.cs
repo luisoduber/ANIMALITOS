@@ -27,11 +27,11 @@ namespace ventas_loteria
         string nombProd = "", msjInf = "";
         int idProc = 0;
         int idStat = 0, idTaq = 0;
-        int idUsu = 0;
+        int idUsu = 0, idPerf = 0;
 
         private void frm_proc_result_loteria_Load(object sender, EventArgs e)
         {
-            this.Text = "Control de Ventas.";
+            this.Text = "Control de Ventas.".ToUpper();
             this.dgvSort.AllowUserToAddRows = false;
             this.dgvSort.RowHeadersVisible = false;
 
@@ -40,7 +40,7 @@ namespace ventas_loteria
 
             this.dgvProd.AllowUserToAddRows = false;
             this.dgvProd.RowHeadersVisible = false;
-            idGrup = Convert.ToInt32(clsMet.idGrup);
+            idPerf = Convert.ToInt32(clsMet.idPerf);
 
             this.work_inicia_frm.DoWork += new System.ComponentModel.DoWorkEventHandler(this.work_inicia_frm_DoWork);
             this.work_inicia_frm.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.work_inicia_frm_OnProgressChanged);
@@ -53,13 +53,11 @@ namespace ventas_loteria
             try
             {
                 dtCboGrup = objMet.BusGrup();
-                dtCboTaq = objMet.BusTaqContVent(idGrup);
                 dtCboLot = objMet.listLotContVent();
                 idLot = Convert.ToInt16(dtCboLot.Rows[0][0]);
                 dtDgvSort = objMet.listSortContVentTod(idLot);
                 dtDgvProd = objMet.busContVentTaq(idLot);
-                dtDgvProdBloq = objMet.listProdBloq(idLot);
-                
+
                 idProc = 1;
                 work_inicia_frm.CancelAsync();
             }
@@ -69,25 +67,44 @@ namespace ventas_loteria
                 MessageBox.Show(ex.Message, "Verifique");
             }
         }
-        private void work_inicia_frm_OnProgressChanged(object sender, ProgressChangedEventArgs e)
+
+        private void cboGrup_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            idGrup = Convert.ToInt16(cboGrup.SelectedValue);
+            dtCboTaq = objMet.BusTaqContVent(idGrup);
+            this.cboTaq.DisplayMember = "nick";
+            this.cboTaq.ValueMember = "id_usuario";
+            this.cboTaq.DataSource = dtCboTaq;
+
+            idLot = Convert.ToInt32(cboLot.SelectedValue);
+            idSort = Convert.ToInt32(dgvSort.CurrentRow.Cells[0].Value.ToString());
+
+            dtDgvProdBloq = objMet.listProdBloqFilt(idGrup, idLot, idSort);
+            dgvProdBloq.DataSource = dtDgvProdBloq;
         }
 
-        private void dgvSort_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void work_inicia_frm_OnProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            if (dgvSort.RowCount > 0)
-            {
-                idLot = Convert.ToInt32(cboLot.SelectedValue);
-                idSort = Convert.ToInt32(dgvSort.CurrentRow.Cells[0].Value.ToString());
-               
-                dtDgvProdBloq = objMet.listProdBloqFilt(idLot,idSort);
-                dgvProdBloq.DataSource = dtDgvProdBloq;
-            }
         }
         private void work_inicia_frm_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (idProc == 1)
             {
+                this.cboGrup.DisplayMember = "nombGrup";
+                this.cboGrup.ValueMember = "idGrup";
+                this.cboGrup.DataSource = dtCboGrup;
+
+                if (idPerf == 2)
+                {
+                    idGrup = Convert.ToInt32(clsMet.idGrup);
+                    cboGrup.Enabled = false;
+                    cboGrup.SelectedValue = idGrup;
+                }
+                else if (idPerf == 3) { idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0].ToString()); }
+
+                dtCboTaq = objMet.BusTaqContVent(idGrup);
+                dtDgvProdBloq = objMet.listProdBloq(idGrup, idLot);
+
                 this.cboTaq.DisplayMember = "nick";
                 this.cboTaq.ValueMember = "id_usuario";
                 this.cboTaq.DataSource = dtCboTaq;
@@ -101,11 +118,24 @@ namespace ventas_loteria
                 dgvProdBloq.DataSource = dtDgvProdBloq;
             }
         }
+
+        private void dgvSort_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvSort.RowCount > 0)
+            {
+                idGrup = Convert.ToInt16(cboGrup.SelectedValue);
+                idLot = Convert.ToInt32(cboLot.SelectedValue);
+                idSort = Convert.ToInt32(dgvSort.CurrentRow.Cells[0].Value.ToString());
+
+                dtDgvProdBloq = objMet.listProdBloqFilt(idGrup, idLot, idSort);
+                dgvProdBloq.DataSource = dtDgvProdBloq;
+            }
+        }
         private void dgvProdBloq_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvProdBloq.RowCount > 0)
             {
-                idGrup = Convert.ToInt32(clsMet.idGrup);
+                idGrup = Convert.ToInt16(cboGrup.SelectedValue);
                 idUsu = Convert.ToInt32(dgvProdBloq.CurrentRow.Cells[0].Value.ToString());
                 idLot = Convert.ToInt32(dgvProdBloq.CurrentRow.Cells[1].Value.ToString());
                 idSort = Convert.ToInt32(dgvProdBloq.CurrentRow.Cells[2].Value.ToString());
@@ -124,7 +154,7 @@ namespace ventas_loteria
                     rsDat = objMet.actStatProd(idGrup, idUsu, idLot, idSort, codProd, 2);
                     if (rsDat == "true")
                     {
-                        dtDgvProdBloq = objMet.listProdBloq(idLot);
+                        dtDgvProdBloq = objMet.listProdBloq(idGrup, idLot);
                         dgvProdBloq.DataSource = dtDgvProdBloq;
                     }
                     else { MessageBox.Show("Ha ocurrido el siguiente error:" + rsDat, "Verifique."); }
@@ -134,6 +164,7 @@ namespace ventas_loteria
 
         private void cboLot_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            idGrup = Convert.ToInt16(cboGrup.SelectedValue);
             idLot = Convert.ToInt16(cboLot.SelectedValue);
             dtDgvSort = objMet.listSortContVentTod(idLot);
             dgvSort.DataSource = dtDgvSort;
@@ -142,7 +173,7 @@ namespace ventas_loteria
             dtDgvProd = objMet.busContVentTaq(idLot);
             dgvProd.DataSource = dtDgvProd;
 
-            dtDgvProdBloq = objMet.listProdBloq(idLot);
+            dtDgvProdBloq = objMet.listProdBloq(idGrup, idLot);
             dgvProdBloq.DataSource = dtDgvProdBloq;
         }
 
@@ -151,7 +182,7 @@ namespace ventas_loteria
             if (dgvProd.RowCount > 0)
             {
                 idUsu = Convert.ToInt16(cboTaq.SelectedValue.ToString());
-                idGrup = Convert.ToInt32(clsMet.idGrup);
+                idGrup = Convert.ToInt16(cboGrup.SelectedValue);
                 idLot = Convert.ToInt32(cboLot.SelectedValue);
                 idSort = Convert.ToInt32(dgvSort.CurrentRow.Cells[0].Value.ToString());
                 codProd = dgvProd.CurrentRow.Cells[0].Value.ToString();
@@ -170,7 +201,7 @@ namespace ventas_loteria
                     else { rsDat = objMet.actStatProd(idGrup, idUsu, idLot, idSort, codProd, 1); }
                     if (rsDat == "true")
                     {
-                        dtDgvProdBloq = objMet.listProdBloq(idLot);
+                        dtDgvProdBloq = objMet.listProdBloq(idGrup, idLot);
                         dgvProdBloq.DataSource = dtDgvProdBloq;
                     }
                     else { MessageBox.Show("Ha ocurrido el siguiente error:" + rsDat, "Verifique."); }

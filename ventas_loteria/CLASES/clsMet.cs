@@ -1764,7 +1764,7 @@ namespace ventas_loteria
             return dt;
         }
 
-        public DataTable listProdBloq(int prmIdLot)
+        public DataTable listProdBloq(int prmIdGrup, int prmIdLot)
         {
             DataTable dt = new DataTable("listProdBloq");
             MySqlDataAdapter da;
@@ -1775,6 +1775,7 @@ namespace ventas_loteria
                 command.Connection = clsMet.cn_bd;
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = "spListProdBloq";
+                command.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
                 command.Parameters.AddWithValue("prmIdLot", prmIdLot);
                 da = new MySqlDataAdapter(command);
                 da.Fill(dt);
@@ -1784,20 +1785,22 @@ namespace ventas_loteria
             return dt;
         }
 
-        public DataTable listProdBloqFilt(int prmIdLot, int prmIdSort)
+        public DataTable listProdBloqFilt(int prmIdGrup, int prmIdLot, 
+                                          int prmIdSort)
         {
             DataTable dt = new DataTable("listProdBloqFilt");
             MySqlDataAdapter da;
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd = new MySqlCommand();
             try
             {
                 clsMet.conectar();
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "spListProdBloqFilt";
-                command.Parameters.AddWithValue("prmIdLot", prmIdLot);
-                command.Parameters.AddWithValue("prmIdSort", prmIdSort);
-                da = new MySqlDataAdapter(command);
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "spListProdBloqFilt";
+                cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                cmd.Parameters.AddWithValue("prmIdSort", prmIdSort);
+                da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
             }
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
@@ -1953,7 +1956,7 @@ namespace ventas_loteria
                 else { rsDat = ""; }
                 dr.Close();
             }
-            catch (Exception ex) { rsDat = ex.Message; }
+            catch (Exception ex) { rsDat = ex.Message; MessageBox.Show(ex.Message,"busProcRsLot"); }
             finally { clsMet.Desconectar(); }
             return rsDat;
         }
@@ -2564,39 +2567,42 @@ namespace ventas_loteria
             finally { clsMet.Desconectar(); }
             return rsDat;
         }
-        public DataTable listSortBloq(int prmIdLot)
+        public DataTable listSortBloq(int prmIdGrup, int prmIdLot)
         {
             DataTable dt = new DataTable("listSortBloq");
             MySqlDataAdapter da;
             clsMet.conectar();
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd = new MySqlCommand();
             try
             {
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "spListSortBloq";
-                command.Parameters.AddWithValue("prmIdLot", prmIdLot);
-                da = new MySqlDataAdapter(command);
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "spListSortBloq";
+                cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
             }
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             finally { clsMet.Desconectar(); }
             return dt;
         }
-        public DataTable listProdSortFilt(int prmIdLot, int prmIdSort)
+        public DataTable listProdSortFilt(int prmIdGrup, int prmIdLot, 
+                                          int prmIdSort)
         {
             DataTable dt = new DataTable("listProdBloqFilt");
             MySqlDataAdapter da;
-            MySqlCommand command = new MySqlCommand();
+            MySqlCommand cmd = new MySqlCommand();
             try
             {
                 clsMet.conectar();
-                command.Connection = clsMet.cn_bd;
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "spListSortBloqFilt";
-                command.Parameters.AddWithValue("prmIdLot", prmIdLot);
-                command.Parameters.AddWithValue("prmIdSort", prmIdSort);
-                da = new MySqlDataAdapter(command);
+                cmd.Connection = clsMet.cn_bd;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "spListSortBloqFilt";
+                cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                cmd.Parameters.AddWithValue("prmIdSort", prmIdSort);
+                da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
             }
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
