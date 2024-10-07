@@ -155,7 +155,7 @@ namespace ventas_loteria
             Boolean rsValidFrm = validFrmLog();
             if (rsValidFrm == false) { return; }
             rsLog = objMet.verfLogUsu(txtUsuario.Text);
-            if (clsMet.id_conexion == 0)
+            if (clsMet.idCn == 0)
             {
                 MessageBox.Show("Error No se a Establecido Conexión Al Servidor.", "verifique.");
                 return;
@@ -264,7 +264,7 @@ namespace ventas_loteria
                 if (rsValidFrm == false) { return; }
 
                 rsLog = objMet.verfLogUsu(txtUsuario.Text);
-                if (clsMet.id_conexion == 0)
+                if (clsMet.idCn == 0)
                 {
                     MessageBox.Show("Error No se a Establecido Conexión Al Servidor.", "verifique.");
                     return;

@@ -1,5 +1,7 @@
 ﻿using HtmlAgilityPack;
 using MySql.Data.MySqlClient;
+using Mysqlx.Session;
+using MySqlX.XDevAPI.Common;
 using Org.BouncyCastle.Crypto.Tls;
 using System;
 using System.ComponentModel;
@@ -76,6 +78,7 @@ namespace ventas_loteria
 
             idPerf = Convert.ToInt16(clsMet.idPerf);
             lblMsjInf.Text = "";
+            lblMsjErr.Text = "";
             txtCod.Enabled = false;
             dtpFecha.Enabled = false;
             idGrup = Convert.ToInt32(clsMet.idGrup);
@@ -99,6 +102,10 @@ namespace ventas_loteria
             this.wkProcRsAut.DoWork += new System.ComponentModel.DoWorkEventHandler(this.wkProcRsAut_DoWork);
             this.wkProcRsAut.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.wkProcRsAut_OnProgressChanged);
             this.wkProcRsAut.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.wkProcRsAut_OnRunWorkerCompleted);
+
+            this.wkProcJugAut.DoWork += new System.ComponentModel.DoWorkEventHandler(this.wkProcJugAut_DoWork);
+            this.wkProcJugAut.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.wkProcJugAut_OnProgressChanged);
+            this.wkProcJugAut.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.wkProcJugAut_OnRunWorkerCompleted);
         }
         private void wkIniFrm_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -149,8 +156,9 @@ namespace ventas_loteria
         {
             txtCod.Text = "";
             txtCod.Enabled = false;
-            if (clsMet.id_conexion == 0) { lblMsjInf.Text = clsMet.msj_error_cn; return; }
+            // if (clsMet.idCn == 0) { lblMsjInf.Text = clsMet.msj_error_cn; return; }
 
+         
             if (this.wkProcRsAut.IsBusy == false)
             {
                 gpReult.Text = "Loteria: ";
@@ -165,7 +173,7 @@ namespace ventas_loteria
             {
                 var urlGrup1 = @"https://www.tuazar.com/loteria/animalitos/resultados/";
                 var urlGrup2 = @"https://loteriadehoy.com/animalito/lottoactivordominicana/resultados/";
-                var urlGrup3 = " https://www.tuazar.com/loteria/frutas/resultados/";
+                var urlGrup3 = @"https://www.tuazar.com/loteria/frutas/resultados/";
                 var urlRA = @"https://www.ruletactiva.com.ve/";
 
                 string idLotBus = "";
@@ -260,134 +268,119 @@ namespace ventas_loteria
                     }
                 }
 
-                idProc=1;
-            }
-            catch (MySqlException ex)
-            {
-                idProc = 0;
-                msjInf = ex.Message;
-                MessageBox.Show("Ha ocurrido el siguiente error: " + msjInf, "Procesa Result.");
-            }
-            ////////////////////////////////////////////////////////////////////////////////
-            ////////////////////////////////////////////////////////////////////////////////
-
-            try
-            {
-                if (idProc == 1)
+                if (string.IsNullOrEmpty(rsGan)) { msjInf = "No se encontraron resultados..."; }
+                else if (!string.IsNullOrEmpty(rsGan))
                 {
-                    if (string.IsNullOrEmpty(rsGan))
+
+                    prmGrdRs = rsGan.Split('/');
+                    rsGan = "";
+                    int contArr = 0;
+                    string[] rsDetLot = null;
+
+                    while (contArr < prmGrdRs.Length)
                     {
-                        msjInf = "No se encontraron resultados...";
+                        rsDetLot = prmGrdRs[contArr].Split('-');
+                        idLot = Convert.ToInt32(rsDetLot[0].ToString());
+                        idSort = Convert.ToInt32(rsDetLot[1].ToString());
+                        codRsLot = rsDetLot[2].ToString();
+                        nombLot = rsDetLot[3].ToString();
+
+                        if (codRsLot.Length == 1) { if (codRsLot != "0") { codRsLot = codRsLot.PadLeft(2, '0'); } }
+                        rsGrdRsLot = objMet.grdActRstLot(idLot, idSort,codRsLot, fechLot);
+                        if (rsGrdRsLot == "1") {  wkProcRsAut.ReportProgress(contArr); }
+                        contArr++;
                     }
-                    else if (!string.IsNullOrEmpty(rsGan))
-                    {
-                        prmGrdRs = rsGan.Split('/');
-                        rsGan = "";
-                        int contArr = 0;
-                        string[] rsDetLot = null;
-   
-                        while (contArr < prmGrdRs.Length)
-                        {
-                            rsDetLot = prmGrdRs[contArr].Split('-');
-                            idLot = Convert.ToInt32(rsDetLot[0].ToString());
-                            idSort = Convert.ToInt32(rsDetLot[1].ToString());
-                            codRsLot = rsDetLot[2].ToString();
-                            nombLot = rsDetLot[3].ToString();
-
-                            if (codRsLot.Length == 1) { if (codRsLot != "0") { codRsLot = codRsLot.PadLeft(2, '0'); } }
-                            rsGrdRsLot = objMet.grdActRstLot(idLot, idSort, codRsLot, fechLot);
-                            Console.WriteLine("qqqq: "+ contArr);
-                            if (rsGrdRsLot == "1"){ ValGrdRs = true; wkProcRsAut.ReportProgress(contArr); }
-                            contArr++;
-                        }
-
-                        ValGrdRs = false;
-                        dtDgvJug = objMet.busJugProcRs(idPerf,idGrup,fechLot);
-                        if (dtDgvJug.Rows.Count > 0)
-                        {
-                            ValJug = true;
-                            int contRs = 0;
-                            cantRsCarg = dtDgvJug.Rows.Count - 1;
-
-                            msjProcRs = "Jug:0. Gan:0. Perd:0...";
-                            contRegPed = 0;
-                            contRegGan = 0;
-
-                           while (contRs <= cantRsCarg)
-                            {
-                                idDetJug = Convert.ToInt32(dtDgvJug.Rows[contRs][0].ToString().Trim());
-                                idLot = Convert.ToInt32(dtDgvJug.Rows[contRs][1].ToString().Trim());
-                                idSort = Convert.ToInt32(dtDgvJug.Rows[contRs][2].ToString().Trim());
-                                nroTck = Convert.ToInt32(dtDgvJug.Rows[contRs][3].ToString().Trim());
-                                cod_jug = dtDgvJug.Rows[contRs][7].ToString().Trim();
-                                codRsLot = dtDgvJug.Rows[contRs][12].ToString().Trim();
-
-                                if (!string.IsNullOrEmpty(codRsLot)){ rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, codRsLot); }
-                                else { rsDat = "0"; Console.WriteLine("hola: " + contRs); }
-
-                                if (rsDat == "0") { contRegPed++; }
-                                else if (rsDat == "1") { contRegGan++; }
-                                msjProcRs = "Jug:" + dtDgvJug.Rows.Count + ". Gan: " + contRegGan;
-                                msjProcRs += ". Perd: " + contRegPed + "...";
-                                Console.WriteLine("cont: "+ contRs);
-                                wkProcRsAut.ReportProgress(contRs);
-                                contRs++;
-                            }
-                            ValJug = false;
-                        }
-                    }
-                    idProc = 1;
                 }
+                idProc = 1;
             }
-            catch (Exception ex)
-            {
-                idProc = 0;
-                msjInf = ex.Message;
-                MessageBox.Show("Ha ocurrido el siguiente error: " + msjInf, "Verifique 2.");
-            }
-            finally 
-            { 
-                e.Cancel = true;
-                wkProcRsAut.CancelAsync();
-            }
+            catch (MySqlException ex) { idProc = 0; msjInf = ex.Message; }
+            finally { e.Cancel = true; wkProcRsAut.CancelAsync(); }
         }
         private void wkProcRsAut_OnProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-
-            if (ValGrdRs == true)
-            {
-                msjInf = "Resultado Nro: \"" + codRsLot + "\"";
-                gpReult.Text = "Loteria: " + nombLot;
-                lblMsjInf.Text = msjInf;
-            }
-
-            if (ValJug == true)
-            {
-                if (Convert.ToInt16(e.ProgressPercentage) == 0)
-                {
-                    if (dtDgvJug.Rows.Count > 0)
-                    {
-                        dgvJug.DataSource = dtDgvJug;
-                        gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
-
-                        pbInfProcRs.Minimum = 0;
-                        pbInfProcRs.Maximum = 0;
-                        pbInfProcRs.Maximum = dtDgvJug.Rows.Count - 1;
-                        pbInfProcRs.Value = 0;
-                    }
-                }
-
-                if (dtDgvJug.Rows.Count > 0)
-                {
-                    Console.WriteLine("pru: "+ e.ProgressPercentage);
-                    dgvJug.CurrentCell = dgvJug.Rows[e.ProgressPercentage].Cells[3];
-                    dgvJug.FirstDisplayedScrollingRowIndex = e.ProgressPercentage;
-                    this.pbInfProcRs.Value = e.ProgressPercentage;
-                    gbInfProcRs.Text = msjProcRs;
-                }
-            }
+            msjInf = "Resultado Nro: \"" + codRsLot + "\"";
+            gpReult.Text = "Loteria: " + nombLot;
+            lblMsjInf.Text = msjInf;
         }
         private void wkProcRsAut_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            //MessageBox.Show(e.Cancelled.ToString());
+            //if (e.Cancelled == true) { MessageBox.Show("cancelado"); }
+            //if (e.Cancelled == false) { MessageBox.Show("no cancelado"); }
+            
+            if (idProc == 1) 
+            { 
+                lblMsjInf.Text = msjInf; lblMsjErr.Text = "";
+                wkProcJugAut.RunWorkerAsync(); 
+            }
+            else if (idProc == 0) { lblMsjErr.Text = msjInf; this.Refresh(); }
+        }
+
+
+        private void wkProcJugAut_DoWork(object sender, DoWorkEventArgs e)
+        {
+          
+            try
+            {
+                dtDgvJug = objMet.busJugProcRs(idPerf, idGrup, fechLot);
+                if (dtDgvJug.Rows.Count > 0)
+                {
+                    int contRs = 0;
+                    cantRsCarg = dtDgvJug.Rows.Count - 1;
+
+                    msjProcRs = "Jug:0. Gan:0. Perd:0...";
+                    contRegPed = 0;
+                    contRegGan = 0;
+
+                    while (contRs <= cantRsCarg)
+                    {
+                        idDetJug = Convert.ToInt32(dtDgvJug.Rows[contRs][0].ToString().Trim());
+                        idLot = Convert.ToInt32(dtDgvJug.Rows[contRs][1].ToString().Trim());
+                        idSort = Convert.ToInt32(dtDgvJug.Rows[contRs][2].ToString().Trim());
+                        nroTck = Convert.ToInt32(dtDgvJug.Rows[contRs][3].ToString().Trim());
+                        cod_jug = dtDgvJug.Rows[contRs][7].ToString().Trim();
+                        codRsLot = dtDgvJug.Rows[contRs][12].ToString().Trim();
+
+                        if (!string.IsNullOrEmpty(codRsLot)) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, codRsLot); }
+                        else { rsDat = "0"; Console.WriteLine("hola: " + contRs); }
+
+                        if (rsDat == "0") { contRegPed++; }
+                        else if (rsDat == "1") { contRegGan++; }
+                        msjProcRs = "Jug:" + dtDgvJug.Rows.Count + ". Gan: " + contRegGan;
+                        msjProcRs += ". Perd: " + contRegPed + "...";
+                        Console.WriteLine("cont: " + contRs);
+                        wkProcJugAut.ReportProgress(contRs);
+                        contRs++;
+                    }
+
+                    idProc = 1;
+                }
+            }
+            catch (Exception ex){ idProc = 0; msjInf = ex.Message; }
+            finally { e.Cancel = true; wkProcJugAut.CancelAsync(); }
+        }
+        private void wkProcJugAut_OnProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+            if (Convert.ToInt16(e.ProgressPercentage) == 0)
+            {
+                dgvJug.DataSource = dtDgvJug;
+                gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
+
+                pbInfProcRs.Minimum = 0;
+                pbInfProcRs.Maximum = 0;
+                pbInfProcRs.Maximum = dtDgvJug.Rows.Count - 1;
+                pbInfProcRs.Value = 0;
+            }
+
+            Console.WriteLine("pru: " + e.ProgressPercentage);
+            dgvJug.CurrentCell = dgvJug.Rows[e.ProgressPercentage].Cells[3];
+            dgvJug.FirstDisplayedScrollingRowIndex = e.ProgressPercentage;
+            this.pbInfProcRs.Value = e.ProgressPercentage;
+            gbInfProcRs.Text = msjProcRs;
+        
+        }
+        private void wkProcJugAut_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             //MessageBox.Show(e.Cancelled.ToString());
             //if (e.Cancelled == true) { MessageBox.Show("cancelado"); }
@@ -399,13 +392,14 @@ namespace ventas_loteria
                 gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
 
                 lblMsjInf.Text = msjInf;
+                lblMsjErr.Text = "";
                 txtCod.Text = "";
             }
-            else if (idProc == 0) { this.Refresh(); }
+            else if (idProc == 0) { lblMsjErr.Text = msjInf; this.Refresh(); }
             rsGan = "";
             fechLot = "";
         }
-       
+
         private void wkProcRsMan_DoWork(object sender, DoWorkEventArgs e)
         {
             this.wkProcRsMan.ReportProgress(0, "");
@@ -551,7 +545,6 @@ namespace ventas_loteria
                 this.dtpFecha.Value = DateTime.Now;
             }
         }
-
         private void txtCod_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Para obligar a que sólo se introduzcan números 
@@ -674,81 +667,90 @@ namespace ventas_loteria
                                     string prmIdSort, string prmNombLot,
                                     string prmHoraSortBus)
         {
-            var htmlDoc = web.Load(prmUrl);
-            var node = htmlDoc.DocumentNode.SelectNodes("//div[@class='col-xs-6 col-sm-3']");
             string result = "";
-            string prmNombLotPw = "";
-
-            foreach (var node1 in node)
+            try
             {
-                prmNombLotPw = node1.ChildNodes[0].InnerHtml.ToString().Replace("<br>", "*");
-                rsNombLot = prmNombLotPw.Split('*');
-                prmHoraLot = node1.ChildNodes[2].InnerText.ToString().Replace("-", "*");
-                rs_rs_lot = prmHoraLot.Split('*');
-                prmHoraLot = node1.ChildNodes[3].InnerText.ToString();
+                var htmlDoc = web.Load(prmUrl);
+                var node = htmlDoc.DocumentNode.SelectNodes("//div[@class='col-xs-6 col-sm-3']");
+                string prmNombLotPw = "";
 
-                if ((rsNombLot[1].ToLower().Trim() == prmNombLot) && (prmHoraLot == prmHoraSortBus))
+                foreach (var node1 in node)
                 {
-                    //VERIFICA SI HAY RESULTADO EN LA LOTERIA SI NO VIENE VACIO
-                    if (!string.IsNullOrEmpty(rs_rs_lot[0].ToString().Trim()))
+                    prmNombLotPw = node1.ChildNodes[0].InnerHtml.ToString().Replace("<br>", "*");
+                    rsNombLot = prmNombLotPw.Split('*');
+                    prmHoraLot = node1.ChildNodes[2].InnerText.ToString().Replace("-", "*");
+                    rs_rs_lot = prmHoraLot.Split('*');
+                    prmHoraLot = node1.ChildNodes[3].InnerText.ToString();
+
+                    if ((rsNombLot[1].ToLower().Trim() == prmNombLot) && (prmHoraLot == prmHoraSortBus))
                     {
-                        result += prmIdLot + "-";
-                        result += prmIdSort + "-";
-                        result += rs_rs_lot[0].ToString().Trim();
-                        result += "-" + rsNombLot[1].ToString();
-                        result += " " + prmHoraSortBus;
+                        //VERIFICA SI HAY RESULTADO EN LA LOTERIA SI NO VIENE VACIO
+                        if (!string.IsNullOrEmpty(rs_rs_lot[0].ToString().Trim()))
+                        {
+                            result += prmIdLot + "-";
+                            result += prmIdSort + "-";
+                            result += rs_rs_lot[0].ToString().Trim();
+                            result += "-" + rsNombLot[1].ToString();
+                            result += " " + prmHoraSortBus;
+                        }
+                        break;
                     }
-                    break;
                 }
             }
+            catch (Exception ex) {msjInf = ex.Message;}
             return result;
         }
         public string rsGrup2(string prmUrl, string prmIdLot,
                                     string prmIdSort, string prmNombLot,
                                     string prmHoraSortBus)
         {
-            var htmlDoc = web.Load(prmUrl);
-            var node = htmlDoc.DocumentNode.SelectNodes("//div[@class='circle-legend']");
             string result = "";
-            string rsAni = "";
-            string nombAni = "";
-            string prmNombLotPw = "";
-            string[] rsDat = new string[6];
-            string rsDatLot = "";
-
-            foreach (var node1 in node)
+            try
             {
-                var h4Nod = node1.SelectNodes("./h4");
-                var h5Nod = node1.SelectNodes("./h5");
+                var htmlDoc = web.Load(prmUrl);
+                var node = htmlDoc.DocumentNode.SelectNodes("//div[@class='circle-legend']");
 
-                rsDatLot = h4Nod[0].InnerText.ToString().Trim();
-                rsDatLot += "/" + h5Nod[0].InnerText.ToString().Trim();
-                rsDatLot = rsDatLot.Replace(" ", "/");
-                rsDat = rsDatLot.Split('/');
+                string rsAni = "";
+                string nombAni = "";
+                string prmNombLotPw = "";
+                string[] rsDat = new string[6];
+                string rsDatLot = "";
 
-                rsAni = rsDat[0].ToString();
-                nombAni = rsDat[1].ToString();
-                prmNombLotPw = rsDat[2].ToString();
-                prmNombLotPw += " " + rsDat[3].ToString();
-                prmNombLotPw += " " + rsDat[4].ToString().Substring(0, 2);
-                prmNombLotPw = prmNombLotPw.ToLower();
-                prmHoraLot = rsDat[5].ToString();
-
-                //MessageBox.Show(prmNombLot+"   "+ prmHoraSortBus  +"   " + rsAni + "   " + prmNombLotPw + "   " + prmHoraLot);
-                if ((prmNombLotPw.ToLower() == prmNombLot) && (prmHoraLot == prmHoraSortBus))
+                foreach (var node1 in node)
                 {
-                    //VERIFICA SI HAY RESULTADO EN LA LOTERIA SI NO VIENE VACIO
-                    if (!string.IsNullOrEmpty(rsAni))
+                    var h4Nod = node1.SelectNodes("./h4");
+                    var h5Nod = node1.SelectNodes("./h5");
+
+                    rsDatLot = h4Nod[0].InnerText.ToString().Trim();
+                    rsDatLot += "/" + h5Nod[0].InnerText.ToString().Trim();
+                    rsDatLot = rsDatLot.Replace(" ", "/");
+                    rsDat = rsDatLot.Split('/');
+
+                    rsAni = rsDat[0].ToString();
+                    nombAni = rsDat[1].ToString();
+                    prmNombLotPw = rsDat[2].ToString();
+                    prmNombLotPw += " " + rsDat[3].ToString();
+                    prmNombLotPw += " " + rsDat[4].ToString().Substring(0, 2);
+                    prmNombLotPw = prmNombLotPw.ToLower();
+                    prmHoraLot = rsDat[5].ToString();
+
+                    //MessageBox.Show(prmNombLot+"   "+ prmHoraSortBus  +"   " + rsAni + "   " + prmNombLotPw + "   " + prmHoraLot);
+                    if ((prmNombLotPw.ToLower() == prmNombLot) && (prmHoraLot == prmHoraSortBus))
                     {
-                        result += prmIdLot + "-";
-                        result += prmIdSort + "-";
-                        result += rsAni;
-                        result += "-" + prmNombLotPw;
-                        result += " " + prmHoraSortBus;
+                        //VERIFICA SI HAY RESULTADO EN LA LOTERIA SI NO VIENE VACIO
+                        if (!string.IsNullOrEmpty(rsAni))
+                        {
+                            result += prmIdLot + "-";
+                            result += prmIdSort + "-";
+                            result += rsAni;
+                            result += "-" + prmNombLotPw;
+                            result += " " + prmHoraSortBus;
+                        }
+                        break;
                     }
-                    break;
                 }
             }
+            catch (Exception ex) {msjInf = ex.Message;}
             return result;
         }
 
@@ -776,7 +778,7 @@ namespace ventas_loteria
             else
             {
                 frm_result_lot frm = new frm_result_lot();
-                frm.ShowDialog(); this.Close(); 
+                frm.ShowDialog();
             }
         }
 

@@ -32,7 +32,7 @@ namespace ventas_loteria
         public static int monto_Xunidad;
         public static int cant_dia_cad_ticket;
         public static string nota_msj_ticket;
-        public static int id_conexion;
+        public static int idCn;
         public static string version_pro = "";
         public static string nomb_perfil;
         public static string clave_ed = "UHSW]s$Q#DiFfV3YB;NzB1yETu2U&5KZ";
@@ -52,17 +52,14 @@ namespace ventas_loteria
             {
                 if (cn_bd.State == ConnectionState.Closed)
                 {
-
                     cn_bd.ConnectionString = cadena_conexion; cn_bd.Open();
-                    id_conexion = 1;
+                    idCn = 1;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                MessageBox.Show(ex.Message);
                 msj_error_cn = ex.Message;
-                id_conexion = 0;
+                idCn = 0;
             }
         }
 
@@ -1936,7 +1933,7 @@ namespace ventas_loteria
             return rsDat;
         }
         public string busProcRsLot(int prmIdDetJug, int prmIdLot,
-                                        int prmIdSort, string prmRstLot)
+                                   int prmIdSort, string prmRstLot)
         {
             string rsDat = "";
             clsMet.conectar();
