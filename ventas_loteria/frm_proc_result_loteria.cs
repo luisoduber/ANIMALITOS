@@ -158,8 +158,7 @@ namespace ventas_loteria
             txtCod.Enabled = false;
             // if (clsMet.idCn == 0) { lblMsjInf.Text = clsMet.msj_error_cn; return; }
 
-         
-            if (this.wkProcRsAut.IsBusy == false)
+            if ((this.wkProcRsAut.IsBusy == false) && (this.wkProcJugAut.IsBusy == false))
             {
                 gpReult.Text = "Loteria: ";
                 fechLot = Convert.ToDateTime(dtpFecha.Text).ToString("yyyy-MM-dd");
@@ -178,100 +177,109 @@ namespace ventas_loteria
 
                 string idLotBus = "";
                 string idSortBus = "";
-
-                clsMet.conectar();
-                DataTable dtInfSort = new DataTable();
-                MySqlDataAdapter da;
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = clsMet.cn_bd;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SPBusSortProcRsAut";
-                da = new MySqlDataAdapter(cmd);
-                da.Fill(dtInfSort);
-                clsMet.Desconectar();
-
                 string rsLot = "";
                 rsGan = "";
-                if (dtInfSort.Rows.Count > 0)
+
+                using (MySqlConnection cnBd = new MySqlConnection())
                 {
-                    for (int c = 0; c <= dtInfSort.Rows.Count - 1; c++)
+                    cnBd.ConnectionString =clsMet.cn; cnBd.Open();
+                    clsMet.idCn = 1;
+
+                    using (MySqlCommand cmd = new MySqlCommand())
                     {
-                        idLotBus = dtInfSort.Rows[c][0].ToString();
-                        idSortBus = dtInfSort.Rows[c][1].ToString();
-                        horaSortBus = Convert.ToDateTime(dtInfSort.Rows[c][2].ToString()).ToString("hh:mm");
-                        nombLotBus = dtInfSort.Rows[c][3].ToString().ToLower();
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "SPBusSortProcRsAut";
 
-                        /////////////////////////////////////////////////////////////////////////////////////
-                        // LOTTO - GRANJITA - LUCKY ANIMAL - LOTTO REY - CHANCE CON ANIMALITOS - ///////////
-                        // GUACHAR ACTIVO - SELVA PLUS /////////
+                        using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                        {
+                            using (DataTable dtInfSort = new DataTable())
+                            {
+                                da.Fill(dtInfSort);
+                                if (dtInfSort.Rows.Count > 0)
+                                {
+                                    for (int c = 0; c <= dtInfSort.Rows.Count - 1; c++)
+                                    {
+                                        idLotBus = dtInfSort.Rows[c][0].ToString();
+                                        idSortBus = dtInfSort.Rows[c][1].ToString();
+                                        horaSortBus = Convert.ToDateTime(dtInfSort.Rows[c][2].ToString()).ToString("hh:mm");
+                                        nombLotBus = dtInfSort.Rows[c][3].ToString().ToLower();
 
-                        if ((idLotBus == "1") || (idLotBus == "4") ||
-                            (idLotBus == "5") || (idLotBus == "10") ||
-                            (idLotBus == "11") || (idLotBus == "12") ||
-                            (idLotBus == "13") || (idLotBus == "16") ||
-                            (idLotBus == "17") || (idLotBus == "18")  )
-                        {
-                            if (string.IsNullOrEmpty(rsGan))
-                            {
-                                rsGan += rsGrup1(urlGrup1, idLotBus, idSortBus,
-                                                 nombLotBus, horaSortBus);
-                            }
-                            else
-                            {
-                                rsLot = rsGrup1(urlGrup1, idLotBus, idSortBus, nombLotBus, horaSortBus);
-                                if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
-                            }
-                        }
-                        else if ((idLotBus == "14"))
-                        {
-                            if (string.IsNullOrEmpty(rsGan))
-                            {
-                                rsGan += rsGrup2(urlGrup2, idLotBus, idSortBus,
-                                                 nombLotBus, horaSortBus);
-                            }
-                            else
-                            {
-                                rsLot = rsGrup2(urlGrup2, idLotBus, idSortBus,
-                                                    nombLotBus, horaSortBus);
-                                if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
-                            }
-                        }
-                        else if (idLotBus == "15")
-                        {
-                            if (string.IsNullOrEmpty(rsGan))
-                            {
-                                rsGan += rsGrup1(urlGrup3, idLotBus, idSortBus,
-                                                 nombLotBus, horaSortBus);
-                            }
-                            else
-                            {
-                                rsLot = rsGrup1(urlGrup3, idLotBus, idSortBus, nombLotBus, horaSortBus);
-                                if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
-                            }
-                        }
-                        /////////////////////////////////////////////////////////////////////////////////////
-                        ////////////////////////////////// RULETA ACTIVA ////////////////////////////////////
+                                        /////////////////////////////////////////////////////////////////////////////////////
+                                        // LOTTO - GRANJITA - LUCKY ANIMAL - LOTTO REY - CHANCE CON ANIMALITOS - ///////////
+                                        // GUACHAR ACTIVO - SELVA PLUS /////////
 
-                        else if ((idLotBus == "8"))
-                        {
-                            if (string.IsNullOrEmpty(rsGan))
-                            {
-                                rsGan += result_grupo2(urlRA, idLotBus, idSortBus,
-                                                           horaSortBus, nombLotBus);
-                            }
-                            else
-                            {
-                                rsGan += "/" + result_grupo2(urlRA, idLotBus, idSortBus,
-                                                              horaSortBus, nombLotBus);
+                                        if ((idLotBus == "1") || (idLotBus == "4") ||
+                                            (idLotBus == "5") || (idLotBus == "10") ||
+                                            (idLotBus == "11") || (idLotBus == "12") ||
+                                            (idLotBus == "13") || (idLotBus == "16") ||
+                                            (idLotBus == "17") || (idLotBus == "18"))
+                                        {
+                                            if (string.IsNullOrEmpty(rsGan))
+                                            {
+                                                rsGan += rsGrup1(urlGrup1, idLotBus, idSortBus,
+                                                                 nombLotBus, horaSortBus);
+                                            }
+                                            else
+                                            {
+                                                rsLot = rsGrup1(urlGrup1, idLotBus, idSortBus, nombLotBus, horaSortBus);
+                                                if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
+                                            }
+                                        }
+                                        else if ((idLotBus == "14"))
+                                        {
+                                            if (string.IsNullOrEmpty(rsGan))
+                                            {
+                                                rsGan += rsGrup2(urlGrup2, idLotBus, idSortBus,
+                                                                 nombLotBus, horaSortBus);
+                                            }
+                                            else
+                                            {
+                                                rsLot = rsGrup2(urlGrup2, idLotBus, idSortBus,
+                                                                    nombLotBus, horaSortBus);
+                                                if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
+                                            }
+                                        }
+                                        else if (idLotBus == "15")
+                                        {
+                                            if (string.IsNullOrEmpty(rsGan))
+                                            {
+                                                rsGan += rsGrup1(urlGrup3, idLotBus, idSortBus,
+                                                                 nombLotBus, horaSortBus);
+                                            }
+                                            else
+                                            {
+                                                rsLot = rsGrup1(urlGrup3, idLotBus, idSortBus, nombLotBus, horaSortBus);
+                                                if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
+                                            }
+                                        }
+                                        /////////////////////////////////////////////////////////////////////////////////////
+                                        ////////////////////////////////// RULETA ACTIVA ////////////////////////////////////
+
+                                        else if ((idLotBus == "8"))
+                                        {
+                                            if (string.IsNullOrEmpty(rsGan))
+                                            {
+                                                rsGan += result_grupo2(urlRA, idLotBus, idSortBus,
+                                                                           horaSortBus, nombLotBus);
+                                            }
+                                            else
+                                            {
+                                                rsGan += "/" + result_grupo2(urlRA, idLotBus, idSortBus,
+                                                                              horaSortBus, nombLotBus);
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
                 }
 
+              
                 if (string.IsNullOrEmpty(rsGan)) { msjInf = "No se encontraron resultados..."; }
                 else if (!string.IsNullOrEmpty(rsGan))
                 {
-
                     prmGrdRs = rsGan.Split('/');
                     rsGan = "";
                     int contArr = 0;
@@ -287,20 +295,24 @@ namespace ventas_loteria
 
                         if (codRsLot.Length == 1) { if (codRsLot != "0") { codRsLot = codRsLot.PadLeft(2, '0'); } }
                         rsGrdRsLot = objMet.grdActRstLot(idLot, idSort,codRsLot, fechLot);
-                        if (rsGrdRsLot == "1") {  wkProcRsAut.ReportProgress(contArr); }
+                        if (rsGrdRsLot == "1") { wkProcRsAut.ReportProgress(contArr); }
                         contArr++;
                     }
                 }
+           
                 idProc = 1;
             }
-            catch (MySqlException ex) { idProc = 0; msjInf = ex.Message; }
+            catch (MySqlException ex) { idProc = 0; msjInf = ex.Message; Console.WriteLine("resultados: " + ex.Message); }
+            catch (Exception ex) { idProc = 0; msjInf = ex.Message; }
             finally { e.Cancel = true; wkProcRsAut.CancelAsync(); }
         }
         private void wkProcRsAut_OnProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+
             msjInf = "Resultado Nro: \"" + codRsLot + "\"";
             gpReult.Text = "Loteria: " + nombLot;
             lblMsjInf.Text = msjInf;
+
         }
         private void wkProcRsAut_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -309,17 +321,17 @@ namespace ventas_loteria
             //if (e.Cancelled == false) { MessageBox.Show("no cancelado"); }
             
             if (idProc == 1) 
-            { 
-                lblMsjInf.Text = msjInf; lblMsjErr.Text = "";
+            {
+                if (string.IsNullOrEmpty(rsGan)) { lblMsjInf.Text = msjInf; }
+                lblMsjErr.Text = "";
                 wkProcJugAut.RunWorkerAsync(); 
             }
-            else if (idProc == 0) { lblMsjErr.Text = msjInf; this.Refresh(); }
+            else if (idProc == 0) { lblMsjErr.Text = "wkProcRsAut: " + msjInf;  }
         }
 
 
         private void wkProcJugAut_DoWork(object sender, DoWorkEventArgs e)
         {
-          
             try
             {
                 dtDgvJug = objMet.busJugProcRs(idPerf, idGrup, fechLot);
@@ -341,9 +353,7 @@ namespace ventas_loteria
                         cod_jug = dtDgvJug.Rows[contRs][7].ToString().Trim();
                         codRsLot = dtDgvJug.Rows[contRs][12].ToString().Trim();
 
-                        if (!string.IsNullOrEmpty(codRsLot)) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, codRsLot); }
-                        else { rsDat = "0"; Console.WriteLine("hola: " + contRs); }
-
+                        rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, codRsLot); 
                         if (rsDat == "0") { contRegPed++; }
                         else if (rsDat == "1") { contRegGan++; }
                         msjProcRs = "Jug:" + dtDgvJug.Rows.Count + ". Gan: " + contRegGan;
@@ -356,7 +366,7 @@ namespace ventas_loteria
                     idProc = 1;
                 }
             }
-            catch (Exception ex){ idProc = 0; msjInf = ex.Message; }
+            catch (Exception ex){ idProc = 0; msjInf = "wkProcJugAut: " +ex.Message; }
             finally { e.Cancel = true; wkProcJugAut.CancelAsync(); }
         }
         private void wkProcJugAut_OnProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -420,7 +430,7 @@ namespace ventas_loteria
 
                     if (rsVerfJugCer == 0)
                     {
-                        rsDat = objMet.busProcRsLot(idDetJug, idLot,idSort,txtCod.Text);
+                        rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, txtCod.Text);
                         wkProcRsMan.ReportProgress(cont);
                         cont++;
                         if (rsDat == "0") { contRegPed++; }
@@ -430,16 +440,16 @@ namespace ventas_loteria
                         msjProcRs += ". Perd: " + contRegPed + "...";
                     }
                 }
-                wkProcRsMan.CancelAsync();
+                
                 idProc = 1;
             }
             catch (Exception ex)
             {
                 string msjErr = "";
                 msjErr = "Ha ocurrido un Error En la Linea: " + dgvJug.RowCount + "---" + ex.Message;
-                MessageBox.Show(msjErr, "Transacción Fallida.");
                 idProc = 0;
             }
+            finally { e.Cancel = true; wkProcRsMan.CancelAsync(); }
         }
         private void wkProcRsMan_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -466,6 +476,10 @@ namespace ventas_loteria
 
                 txtCod.Text = "";
                 txtCod.Enabled = false;
+            }
+            else if (idProc == 0)
+            {
+                lblMsjErr.Text = msjInf;
             }
         }
         private void dgvSort_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -530,11 +544,13 @@ namespace ventas_loteria
                 timer1.Enabled = false;
                 txtCod.Text = "";
                 txtCod.Enabled = true;
+                dtpFecha.Enabled = true;
                 txtCod.Focus();
             }
             else if (idTipPoc == 2)
             {
                 timer1.Enabled = true;
+                dtpFecha.Enabled = false;
                 dtDgvJug = objMet.busJugPendProc(idPerf, idGrup);
                 dgvJug.DataSource = dtDgvJug;
                 gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
