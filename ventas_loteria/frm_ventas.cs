@@ -27,6 +27,7 @@ namespace ventas_loteria
         string nombLot = "", nombSort = "";
         double mTotalJug = 0;
         double mJug = 0;
+        int idPerf=0;
         int id_proceso = 0;
 
         int nroFila = 0;
@@ -67,6 +68,7 @@ namespace ventas_loteria
             dtDgvJug.Columns.Add("nomb_loteria", typeof(string));
 
             idUsu = Convert.ToInt32(clsMet.idUsu);
+            idPerf = Convert.ToInt32(clsMet.idPerf);
             this.KeyPreview = true;
 
             LblNombDivisa.Text = clsMet.NombDivisa.ToUpper();
@@ -100,6 +102,7 @@ namespace ventas_loteria
 
                 id_proceso = 1;
                 work_inicia_frm.CancelAsync();
+                e.Cancel = work_inicia_frm.CancellationPending;
             }
             catch (Exception ex)
             {
@@ -122,15 +125,17 @@ namespace ventas_loteria
                 FechaAct = Convert.ToDateTime(rsDat[0].ToString()).ToString("dd/MM/yyyy");
                 HoraAct = Convert.ToDateTime(rsDat[1].ToString()).ToString("hh:mm:ss");
 
-                this.Text = "Usuario:";
+
+                this.Text = "Usuario:".ToUpper();
                 this.Text += clsMet.nombUsu.ToUpper();
-                this.Text += " - Fecha: ";
+                this.Text += " - Fecha: ".ToUpper();
                 this.Text += FechaAct;
 
                 dgvSort.DataSource = dtDgvSort;
                 horaServ = Convert.ToDateTime(fechaHoraServ);
                 msjInfo = "Hora Cierre: ";
                 msjInfo += Convert.ToDateTime(fechaHoraServ).ToString("hh:mm:ss");
+
                 lblHoraCierre.Text = msjInfo;
                 busCuadDiario();
             }
@@ -191,7 +196,6 @@ namespace ventas_loteria
                         fechaActual = Convert.ToDateTime(horaServ).ToString("yyyyy-MM-dd");
                         fechaActual += " " + dgvSort.Rows[i].Cells[5].Value.ToString();
                         horaSort = Convert.ToDateTime(fechaActual);
-                        codMaxProd = 36;
                         rsVerfSort = DateTime.Compare(horaServ, horaSort);
                         /*
                         string msjInfo = "";
@@ -204,9 +208,10 @@ namespace ventas_loteria
                         {
                             object[] parametros = new object[] { idSort };
                             this.Invoke(delegado, parametros);
+                            //work_proc_sorteos.ReportProgress(idSort);
                         }
                         else { i++; }
-                        work_proc_sorteos.ReportProgress(i);
+                        // work_proc_sorteos.ReportProgress(i);
                     }
                 }
                 idLot = 0; idSort = 0;
@@ -227,12 +232,12 @@ namespace ventas_loteria
                         fechaActual += " " + dgvJug.Rows[c].Cells[1].Value.ToString();
                         horaSortJug = Convert.ToDateTime(fechaActual);
                         rsVerfJug = DateTime.Compare(horaServ, horaSortJug);
-                        /*
-                            string msjInfo = "";
-                            msj_info = "resultado jugada: " + rsVerfJug;
-                            msj_info += " hora servidor: " + hora_server.ToString();
-                            msj_info += " hora jugada: " + hora_sorteo_jug.ToString();
-                            MessageBox.Show(msj_info);*/
+
+                       // string msjInfo = "";
+                        //msj_info = "resultado jugada: " + rsVerfJug;
+                       // msj_info += " hora servidor: " + hora_server.ToString();
+                        //msj_info += " hora jugada: " + hora_sorteo_jug.ToString();
+                       // MessageBox.Show(msj_info);
 
                         if (rsVerfJug >= 0)
                         {
@@ -245,13 +250,18 @@ namespace ventas_loteria
                 }
                 idLot = 0; idSort = 0;
                 id_proceso = 1;
-                work_inicia_frm.CancelAsync();
+               
             }
-            catch (Exception ex) { id_proceso = 0; MessageBox.Show("Ha Ocurrido el siguiente error: " + ex.Message, "Verifique."); }
+            catch (Exception ex) { id_proceso = 0; MessageBox.Show("Ha Ocurrido el siguiente error 2: " + ex.Message, "Verifique 5."); }
+            finally
+            {
+                work_proc_sorteos.CancelAsync();
+                e.Cancel = work_proc_sorteos.CancellationPending;
+            }
         }
         private void work_proc_sorteos_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            lblHoraCierre.Text = msjInfo;
+
         }
         private void work_proc_sorteos_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -282,7 +292,7 @@ namespace ventas_loteria
 
                 int v1 = 0, v2 = 0;
                 string c1 = "";
-                Boolean validar = true;
+                Boolean valid= true;
 
                 foreach (DataGridViewRow row in dgvSort.Rows)
                 {
@@ -293,65 +303,81 @@ namespace ventas_loteria
                         nombLot = ""; abrevLot = "";
                         idLot = Convert.ToInt32(row.Cells[1].Value.ToString());
                         idSort = Convert.ToInt32(row.Cells[2].Value.ToString());
+                        codMaxProd= Convert.ToInt32(row.Cells[3].Value.ToString());
                         nombLot = row.Cells[4].Value.ToString();
                         horaSortJug = Convert.ToDateTime(row.Cells[5].Value.ToString());
                         abrevLot = row.Cells[7].Value.ToString();
 
-                        if (dgvJug.RowCount == 0)
+                        // MessageBox.Show(codMaxProd.ToString());
+                        if (Convert.ToInt32(txtCodigo.Text) <= codMaxProd)
                         {
-                            if (Convert.ToInt32(clsMet.montMaxTck) < Convert.ToInt32(txtMonto.Text))
+                            if (dgvJug.RowCount == 0)
                             {
-                                msjInfo = "El maximo por ticket es de: ";
-                                msjInfo += clsMet.montMaxTck.ToString("N2");
-                                MessageBox.Show(msjInfo, "Verifique.");
-                                txtMonto.Focus();
-                                validar = false;
-                            }
-                        }
-
-                        else if (dgvJug.RowCount > 0)
-                        {
-                            for (int c = 0; c < dgvJug.RowCount; c++)
-                            {
-                                c1 = dgvJug.Rows[c].Cells[2].Value.ToString();
-                                v1 = Convert.ToInt32(dgvJug.Rows[c].Cells[5].Value.ToString());
-                                v2 = Convert.ToInt32(dgvJug.Rows[c].Cells[6].Value.ToString());
-
-                                mTotalJug = mTotalJug +
-                                            Convert.ToDouble(txt_monto_jug.Text) +
-                                            Convert.ToDouble(txtMonto.Text);
-
-                                if (Convert.ToInt32(clsMet.montMaxTck) < Convert.ToInt32(mTotalJug))
+                                if (Convert.ToInt32(clsMet.montMaxTck) < Convert.ToInt32(txtMonto.Text))
                                 {
                                     msjInfo = "El maximo por ticket es de: ";
                                     msjInfo += clsMet.montMaxTck.ToString("N2");
                                     MessageBox.Show(msjInfo, "Verifique.");
                                     txtMonto.Focus();
-
-                                    mTotalJug = 0;
-                                    validar = false;
-                                    busMontTotJug();
-                                    break;
+                                    valid = false;
                                 }
-                                else if ((c1 == txtCodigo.Text) && (v1 == idLot) && (v2 == idSort))
+                                else { valid = true; }
+                            }
+
+                            else if (dgvJug.RowCount > 0)
+                            {
+                                for (int c = 0; c < dgvJug.RowCount; c++)
                                 {
-                                    mTotalJug = Convert.ToInt64(txtMonto.Text) +
-                                    Convert.ToDouble(this.dgvJug.Rows[c].Cells[4].Value.ToString());
+                                    c1 = dgvJug.Rows[c].Cells[2].Value.ToString();
+                                    v1 = Convert.ToInt32(dgvJug.Rows[c].Cells[5].Value.ToString());
+                                    v2 = Convert.ToInt32(dgvJug.Rows[c].Cells[6].Value.ToString());
 
-                                    if (mTotalJug > Convert.ToInt64(clsMet.monto_max_jug))
-                                    { mTotalJug = Convert.ToInt64(clsMet.monto_max_jug); }
-                                    this.dgvJug.Rows[c].Cells[4].Value = Convert.ToDouble(mTotalJug).ToString("N2");
+                                    mTotalJug = mTotalJug +
+                                                Convert.ToDouble(txt_monto_jug.Text) +
+                                                Convert.ToDouble(txtMonto.Text);
 
-                                    mTotalJug = 0;
-                                    validar = false;
-                                    busMontTotJug();
-                                    break;
+                                    if (Convert.ToInt32(clsMet.montMaxTck) < Convert.ToInt32(mTotalJug))
+                                    {
+                                        msjInfo = "El maximo por ticket es de: ";
+                                        msjInfo += clsMet.montMaxTck.ToString("N2");
+                                        MessageBox.Show(msjInfo, "Verifique.");
+                                        txtMonto.Focus();
 
+                                        mTotalJug = 0;
+                                        valid = false;
+                                        busMontTotJug();
+                                        break;
+                                    }
+                                    else if ((c1 == txtCodigo.Text) && (v1 == idLot) && (v2 == idSort))
+                                    {
+                                        mTotalJug = Convert.ToInt64(txtMonto.Text) +
+                                        Convert.ToDouble(this.dgvJug.Rows[c].Cells[4].Value.ToString());
+
+                                        if (mTotalJug > Convert.ToInt64(clsMet.monto_max_jug))
+                                        { mTotalJug = Convert.ToInt64(clsMet.monto_max_jug); }
+                                        this.dgvJug.Rows[c].Cells[4].Value = Convert.ToDouble(mTotalJug).ToString("N2");
+
+                                        mTotalJug = 0;
+                                        valid = false;
+                                        busMontTotJug();
+                                        break;
+
+                                    }
+                                    else { mTotalJug = 0; valid = true; }
                                 }
-                                else { mTotalJug = 0; validar = true; }
                             }
                         }
-                        if (validar == true)
+                        else if (Convert.ToInt32(txtCodigo.Text) > codMaxProd)
+                        {
+                            msjInfo  = "Codigo: \"" + txtCodigo.Text + "\"";
+                            msjInfo += " invalido para la loteria: ";
+                            msjInfo += "\"" + nombLot.ToUpper() + "\"";
+                            MessageBox.Show(msjInfo, "Verifique.");
+                            txtCodigo.Focus();
+                            valid= false;
+                        }
+
+                        if (valid == true)
                         {
                             int dtIdlot = 0;
                             string dtCodJug = "", dtCNombProd = "";
@@ -460,12 +486,6 @@ namespace ventas_loteria
                 txtMonto.Focus();
                 validar = false;
             }
-            else if (Convert.ToInt32(txtCodigo.Text) > Convert.ToInt32(codMaxProd))
-            {
-                MessageBox.Show("Codigo invalido.", "Verifique.");
-                txtCodigo.Focus();
-                validar = false;
-            }
             else if (txtCodigo.Text.Length == 1)
             {
                 if (txtCodigo.Text != "0") { txtCodigo.Text = txtCodigo.Text.PadLeft(2, '0'); }
@@ -521,7 +541,7 @@ namespace ventas_loteria
             return validar;
         }
 
-        public string busTitulo(string prmNombLot, string prmNombSort)
+        public string busTit(string prmNombLot, string prmNombSort)
         {
             string titulo = "";
             int cantDigRest = 0;
@@ -560,7 +580,7 @@ namespace ventas_loteria
                     if (rsValidStatTick == true)
                     {
                         string rsActStatTick = "";
-                        string msjInfo;
+                        string msjInf="";
 
                         rsActStatTick = objMet.actStatTck
                         (Convert.ToInt32(clsMet.idUsu),
@@ -568,9 +588,9 @@ namespace ventas_loteria
 
                         if (!string.IsNullOrEmpty(rsActStatTick))
                         {
-                            msjInfo = "Ticket ganador. Monto a pagar: ";
-                            msjInfo += Convert.ToInt64(rsActStatTick).ToString("N2");
-                            MessageBox.Show(msjInfo, "Trasacción Exitosa.");
+                            msjInf = "Ticket ganador. Monto a pagar: ";
+                            msjInf += Convert.ToInt64(rsActStatTick).ToString("N2");
+                            MessageBox.Show(msjInf, "Trasacción Exitosa.");
                             busCuadDiario();
                             txtNroTick.Text = "";
                             txtNroSerial.Text = "";
@@ -760,7 +780,7 @@ namespace ventas_loteria
 
             string msjInf = "", nroTck = "";
             string nroSerial = "", fechaAct = "";
-            string fTck = "", hTicket = "";
+            string fTck = "", hTck = "";
             Boolean rsProces;
             string codJug = "", nombProd = "";
             string nombLot = "", nombSort = "";
@@ -808,7 +828,7 @@ namespace ventas_loteria
                 nroTck = rsDat[1].ToString();
                 nroSerial = rsDat[2].ToString();
                 fTck = Convert.ToDateTime(rsDat[3]).ToString("dd/MM/yyyy");
-                hTicket = rsDat[4].ToString();
+                hTck = rsDat[4].ToString();
                 fechaHoraVerf = Convert.ToDateTime(rsDat[5].ToString());
                 idTck = rsDat[6].ToString();
                 rsVerfTiempo = DateTime.Compare(fechaHoraVerf, horaServ);
@@ -958,7 +978,7 @@ namespace ventas_loteria
                         if ((idLotAnt != idLotSig || idSortAnt != idSortSig))
                         {
                             if (cadResult.Length > 0) { cadResult += "/"; cont_jud = 1; }
-                            cadResult += busTitulo(nombLot, "");
+                            cadResult += busTit(nombLot, "");
                         }
 
                         cadResult += codJug.PadRight(3, ' ');
@@ -975,10 +995,11 @@ namespace ventas_loteria
                     frm_rpt_ticket_venta objRpt = new frm_rpt_ticket_venta();
                     objRpt.nombTaq = clsMet.nombUsu;
                     objRpt.fecha = fTck;
-                    objRpt.hora = hTicket;
+                    objRpt.hora = hTck;
                     objRpt.nroTicket = nroTck.ToString();
                     objRpt.nroSerial = nroSerial;
                     objRpt.detJug = cadResult;
+                    objRpt.totVenta = Convert.ToDouble(txt_monto_jug.Text);
                     objRpt.totVenta = Convert.ToDouble(txt_monto_jug.Text);
                     objRpt.nroDiaCad = clsMet.cant_dia_cad_ticket;
                     objRpt.ShowDialog();
@@ -1152,7 +1173,6 @@ namespace ventas_loteria
                         for (int c = 0; c < dgvJug.RowCount; c++)
                         {
                             cont_jud++;
-
                             nomb_sorteo = dgvJug.Rows[c].Cells[1].Value.ToString();
                             cod_jug = dgvJug.Rows[c].Cells[2].Value.ToString();
                             nomb_prod = dgvJug.Rows[c].Cells[3].Value.ToString();
@@ -1166,7 +1186,7 @@ namespace ventas_loteria
                             if ((id_loteria_ant != id_loteria_sig || id_sorteo_ant != id_sorteo_sig))
                             {
                                 if (cadena_result.Length > 0) { cadena_result += "/"; cont_jud = 1; }
-                                cadena_result += busTitulo(nomb_loteria, "");
+                                cadena_result += busTit(nomb_loteria, "");
                             }
                             cadena_result += cod_jug.PadRight(3, ' ') + nomb_prod.ToLower().PadRight(2, ' ') + monto + "     ";
                             if (cont_jud == 3) { cadena_result += "/"; cont_jud = 0; }
@@ -1326,8 +1346,22 @@ namespace ventas_loteria
 
                 if (Convert.ToBoolean(cell.Value) == true) { cell.Value = false; }
                 else if (Convert.ToBoolean(cell.Value) == false) { cell.Value = true; }
-                codMaxProd = Convert.ToInt32(dgvSort.Rows[nroFil].Cells[3].Value.ToString());
             }
+        }
+
+        private void btnSal_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(idPerf.ToString());
+            if (idPerf == 2)
+            {
+                string msjInf = "";
+                msjInf = "¿Esta usted seguro que desea salir del sistema?";
+                if (MessageBox.Show(msjInf, "Verifique.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
+            if (idPerf == 3) { this.Close(); }
         }
 
         private void cboLot_SelectionChangeCommitted(object sender, EventArgs e)
@@ -1354,17 +1388,17 @@ namespace ventas_loteria
 
         private void btn_inprimir_tck_Click(object sender, EventArgs e)
         {
-            string nroTick = "", nroSerial = "";
-            string fechaTick = "", horaTick = "";
+            string nroTck = "", nroSer = "";
+            string fTck = "", hTck = "";
             int cantTick, permitReimp;
-            string montoTick = "";
+            string mTck = "";
             int cantMinReimp;
 
             string codJug = "", nombProd = "";
             int idLotAnt = 0, idLotSig = 0;
             int idSortAnt = 0, idSortSig = 0;
             string nombLot = "", nombSort = "";
-            string cadResult = "", monto = "";
+            string cadRs = "", monto = "";
             string msjInfo = "";
 
             try
@@ -1387,7 +1421,6 @@ namespace ventas_loteria
                 }
                 else if (cantTick >= 1)
                 {
-
                     if (permitReimp == 0)
                     {
                         msjInfo = "No se podra reimprimir el ultimo ticket.";
@@ -1399,71 +1432,73 @@ namespace ventas_loteria
 
                     if (permitReimp == 1)
                     {
-                        nroTick = rsDatInfTick[3].ToString();
-                        nroSerial = rsDatInfTick[4].ToString();
-                        fechaTick = rsDatInfTick[5].ToString().Substring(0, 10);
-                        fechaTick = Convert.ToDateTime(fechaTick).ToString("dd-MM-yyyy");
-                        horaTick = clsMet.hora_normal(rsDatInfTick[6].ToString());
-                        montoTick = rsDatInfTick[7].ToString();
+                        nroTck = rsDatInfTick[3].ToString();
+                        nroSer = rsDatInfTick[4].ToString();
+                        fTck = Convert.ToDateTime(rsDatInfTick[5].ToString()).ToString("dd/MM/yyyy");
+                        hTck = rsDatInfTick[6].ToString();
+                        mTck = rsDatInfTick[7].ToString();
                     }
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); return; }
 
-            clsMet.conectar();
-            MySqlCommand cmd = new MySqlCommand();
-
             try
             {
-                cmd.Connection = clsMet.cn_bd;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SP_det_reimprimir_ticket";
-                cmd.Parameters.AddWithValue("prm_id_usuario", Convert.ToInt32(clsMet.idUsu));
-                cmd.Parameters.AddWithValue("prm_nro_ticket", nroTick);
-                MySqlDataReader dr = cmd.ExecuteReader();
-                int cont_jud = 0;
-
-                while (dr.Read())
+                using (MySqlConnection cnBd = new MySqlConnection())
                 {
-                    idLotSig = Convert.ToInt32(dr["id_loteria"].ToString());
-                    idSortSig = Convert.ToInt32(dr["id_sorteo"].ToString());
-                    codJug = dr["codigo_jugada"].ToString();
-                    nombProd = dr["nomb_product"].ToString();
-                    monto = dr["monto"].ToString();
-                    nombSort = dr["nomb_sorteo"].ToString();
-                    nombLot = dr["nomb_loteria"].ToString();
-                    cont_jud++;
+                    cnBd.ConnectionString = clsMet.cn; cnBd.Open();
+                    int contJud = 0; clsMet.idCn = 1;
 
-                    if (codJug.Length == 1) { codJug.PadRight(1, ' '); }
-
-                    if ((idLotAnt != idLotSig) || idSortAnt != idSortSig)
+                    using (MySqlCommand cmd = new MySqlCommand())
                     {
-                        if (cadResult.Length > 0) { cadResult += "/"; cont_jud = 1; }
-                        cadResult += busTitulo(nombLot, nombSort);
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "SPreimpTck";
+                        cmd.Parameters.AddWithValue("prmIdUsu", Convert.ToInt32(clsMet.idUsu));
+                        cmd.Parameters.AddWithValue("prmNroTck", nroTck);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+
+                        while (dr.Read())
+                        {
+                            idLotSig = Convert.ToInt32(dr["idLot"].ToString());
+                            idSortSig = Convert.ToInt32(dr["idSort"].ToString());
+                            codJug = dr["codJug"].ToString();
+                            nombProd = dr["nombProd"].ToString();
+                            monto = dr["mont"].ToString();
+                            nombSort = dr["nombSort"].ToString();
+                            nombLot = dr["nombLot"].ToString();
+                            contJud++;
+
+                            if (codJug.Length == 1) { codJug.PadRight(1, ' '); }
+
+                            if ((idLotAnt != idLotSig) || idSortAnt != idSortSig)
+                            {
+                                if (cadRs.Length > 0) { cadRs += "/"; contJud = 1; }
+                                cadRs += busTit(nombLot, nombSort);
+                            }
+
+                            cadRs += codJug.PadRight(3, ' ');
+                            cadRs += nombProd.Substring(0,3).ToUpper().PadRight(4, ' ');
+                            cadRs += Convert.ToDouble(monto).ToString("N2") + "  ";
+                            if (contJud == 2) { cadRs += "/"; contJud = 0; }
+
+                            idLotAnt = idLotSig;
+                            idSortAnt = idSortSig;
+                        }
+                        dr.Close();
                     }
-
-                    // cadResult  += cod_jug.PadRight(4, ' ');
-                    //cadResult  += nomb_prod.Substring(0, 3).ToLower().PadRight(5, ' ');
-                    cadResult += codJug.PadRight(3, ' ');
-                    cadResult += nombProd.ToLower().PadRight(2, ' ');
-                    cadResult += monto + "     ";
-
-                    if (cont_jud == 3) { cadResult += "/"; cont_jud = 0; }
-                    idLotAnt = idLotSig;
-                    idSortAnt = idSortSig;
                 }
-                dr.Close();
 
-                frm_rpt_ticket_venta objTickVenta = new frm_rpt_ticket_venta();
-                objTickVenta.nombTaq = clsMet.nombUsu;
-                objTickVenta.fecha = fechaTick;
-                objTickVenta.hora = horaTick;
-                objTickVenta.nroTicket = nroTick;
-                objTickVenta.nroSerial = nroSerial;
-                objTickVenta.detJug = cadResult;
-                objTickVenta.totVenta = Convert.ToDouble(montoTick);
-                objTickVenta.nroDiaCad = clsMet.cant_dia_cad_ticket;
-                objTickVenta.ShowDialog();
+                frm_rpt_ticket_venta objTckVent = new frm_rpt_ticket_venta();
+                objTckVent.nombTaq = clsMet.nombUsu;
+                objTckVent.fecha = fTck;
+                objTckVent.hora = hTck;
+                objTckVent.nroTicket = nroTck;
+                objTckVent.nroSerial = nroSer;
+                objTckVent.detJug = cadRs;
+                objTckVent.totVenta = Convert.ToDouble(mTck);
+                objTckVent.nroDiaCad = clsMet.cant_dia_cad_ticket;
+                objTckVent.ShowDialog();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             finally { clsMet.Desconectar(); }
@@ -1484,15 +1519,6 @@ namespace ventas_loteria
         {
             frm_config_impresora objConfImp = new frm_config_impresora();
             objConfImp.ShowDialog();
-        }
-        private void btn_salir_Click_1(object sender, EventArgs e)
-        {
-            string msjInfo;
-            msjInfo = "¿Esta usted seguro que desea salir del sistema?";
-            if (MessageBox.Show(msjInfo, "Verifique.", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
         }
         public void refresc()
         {

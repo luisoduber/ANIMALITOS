@@ -304,7 +304,7 @@ namespace ventas_loteria
             }
             catch (MySqlException ex) { idProc = 0; msjInf = ex.Message; Console.WriteLine("resultados: " + ex.Message); }
             catch (Exception ex) { idProc = 0; msjInf = ex.Message; }
-            finally { e.Cancel = true; wkProcRsAut.CancelAsync(); }
+            finally { wkProcRsAut.CancelAsync();  e.Cancel = wkProcRsAut.CancellationPending; }
         }
         private void wkProcRsAut_OnProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -367,7 +367,7 @@ namespace ventas_loteria
                 }
             }
             catch (Exception ex){ idProc = 0; msjInf = "wkProcJugAut: " +ex.Message; }
-            finally { e.Cancel = true; wkProcJugAut.CancelAsync(); }
+            finally {  wkProcJugAut.CancelAsync(); e.Cancel = wkProcRsAut.CancellationPending; }
         }
         private void wkProcJugAut_OnProgressChanged(object sender, ProgressChangedEventArgs e)
         {

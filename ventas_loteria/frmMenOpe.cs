@@ -25,7 +25,7 @@ namespace ventas_loteria
         private void frmMenOpe_Load(object sender, EventArgs e)
         {
             idPerf = Convert.ToInt16(clsMet.idPerf);
-            this.Text = "Menu Operaciones";
+            this.Text = "Menu Operaciones".ToUpper();
             rsDat = objMet.busFechHoraServ();
 
             clsMet.FechaActual = Convert.ToDateTime(rsDat[0].ToString()).ToString("yyyy/MM/dd");

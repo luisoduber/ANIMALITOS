@@ -759,6 +759,8 @@ D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_lo
 D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.IO.Pipelines.xml
 D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Numerics.Vectors.xml
 D:\PROGRAMACION\SISTEMAS\ANIMALITO\LOTERIA\VERSION--130\ventas_loteria\ventas_loteria\bin\Debug\System.Threading.Tasks.Extensions.xml
+F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.exe
+F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\MySql.Data.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
@@ -768,8 +770,6 @@ F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.exe.config
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.application
-F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.exe
-F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.pdb
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\BouncyCastle.Crypto.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\BouncyCastle.Cryptography.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
@@ -780,7 +780,6 @@ F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\K4os.Hash.xxHash.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
-F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\MySql.Data.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\MySqlConnector.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Buffers.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Configuration.ConfigurationManager.dll
@@ -844,3 +843,4 @@ F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.application
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_l.94258B2D.Up2Date
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.pdb

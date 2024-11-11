@@ -87,7 +87,7 @@
             this.gp_ope_ventas = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.btnImp = new System.Windows.Forms.Button();
             this.BtnCClave = new System.Windows.Forms.Button();
-            this.btn_salir = new System.Windows.Forms.Button();
+            this.btnSal = new System.Windows.Forms.Button();
             this.btn_calc = new System.Windows.Forms.Button();
             this.btn_inprimir_tck = new System.Windows.Forms.Button();
             this.btn_repetir_ticket = new System.Windows.Forms.Button();
@@ -775,7 +775,7 @@
             this.gp_ope_ventas.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.gp_ope_ventas.Controls.Add(this.btnImp);
             this.gp_ope_ventas.Controls.Add(this.BtnCClave);
-            this.gp_ope_ventas.Controls.Add(this.btn_salir);
+            this.gp_ope_ventas.Controls.Add(this.btnSal);
             this.gp_ope_ventas.Controls.Add(this.btn_calc);
             this.gp_ope_ventas.Controls.Add(this.btn_inprimir_tck);
             this.gp_ope_ventas.Controls.Add(this.btn_repetir_ticket);
@@ -852,19 +852,19 @@
             this.BtnCClave.UseVisualStyleBackColor = false;
             this.BtnCClave.Click += new System.EventHandler(this.BtnCClave_Click);
             // 
-            // btn_salir
+            // btnSal
             // 
-            this.btn_salir.BackColor = System.Drawing.Color.White;
-            this.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_salir.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_salir.ForeColor = System.Drawing.Color.Black;
-            this.btn_salir.Location = new System.Drawing.Point(99, 304);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(91, 30);
-            this.btn_salir.TabIndex = 204;
-            this.btn_salir.Text = "Salir";
-            this.btn_salir.UseVisualStyleBackColor = false;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click_1);
+            this.btnSal.BackColor = System.Drawing.Color.White;
+            this.btnSal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSal.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSal.ForeColor = System.Drawing.Color.Black;
+            this.btnSal.Location = new System.Drawing.Point(99, 304);
+            this.btnSal.Name = "btnSal";
+            this.btnSal.Size = new System.Drawing.Size(91, 30);
+            this.btnSal.TabIndex = 204;
+            this.btnSal.Text = "Salir";
+            this.btnSal.UseVisualStyleBackColor = false;
+            this.btnSal.Click += new System.EventHandler(this.btnSal_Click);
             // 
             // btn_calc
             // 
@@ -1231,7 +1231,7 @@
         private System.Windows.Forms.Timer tmpReloj;
         private System.ComponentModel.BackgroundWorker work_proc_sorteos;
         private System.Windows.Forms.Button btn_calc;
-        private System.Windows.Forms.Button btn_salir;
+        private System.Windows.Forms.Button btnSal;
         private System.Windows.Forms.Label LblNombDivisa;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Timer tmpProceso;
