@@ -1,0 +1,32 @@
+SP ---> SPbusLotTrip nuevo
+tbl --> usuario - campo nuevo mMaxTrip
+update usuarios SET mMaxTrip=0
+SP ---> SP_bus_verf_login sustituir por sPverfLog
+tbl --> tipTck -- nueva
+
+tbl --> det_jug_ticket campo nuevo idTipTck
+UPDATE det_jug_ticket SET idTipTck=1
+
+tbl --> ticket campo nuevo idTipTck
+update ticket SET  idTipTck=1
+
+SP ---> SP_grd_ticket sustituir por SPgrdTck
+SP ---> SPgrdTckTrip nuevo
+
+tbl --> parametro_general reemplazar
+
+SP ---> SPbusParamGral  sustituir por  SP_bus_parametros_grales
+
+SP ---> SPBusJugPendProc
+SP ---> SPBusJugProcRs
+SP ---> SPactRsLot  sustituir por  SSP_act_result_loteria
+SP ---> SPactRsLotTrip nuevo
+
+tbl --> usuario - campo nuevo mXuniTrip
+update usuarios SET mXuniTrip=60
+
+SP ---> SPBusJugProcRsMan
+SP ---> SPInfTck por SP_bus_mostrar_ticket_info
+SP ---> SPTckDet por SP_bus_mostrar_ticket_det
+SP ---> spDetTck nuevo
+SP ---> SPDetTckAn sustituir por SP_verf_det_ticket_anula  

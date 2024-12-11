@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ventas));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,7 +52,8 @@
             this.Column16 = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.btn_imprimir_ticket = new System.Windows.Forms.Button();
+            this.btnTrip = new System.Windows.Forms.Button();
+            this.btnImpTck = new System.Windows.Forms.Button();
             this.txt_monto_jug = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMonto = new System.Windows.Forms.TextBox();
@@ -278,7 +280,8 @@
             // 
             this.groupPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel1.Controls.Add(this.btn_imprimir_ticket);
+            this.groupPanel1.Controls.Add(this.btnTrip);
+            this.groupPanel1.Controls.Add(this.btnImpTck);
             this.groupPanel1.Controls.Add(this.txt_monto_jug);
             this.groupPanel1.Controls.Add(this.label2);
             this.groupPanel1.Controls.Add(this.txtMonto);
@@ -325,25 +328,42 @@
             this.groupPanel1.TabIndex = 194;
             this.groupPanel1.Text = "Elegir Jugada";
             // 
-            // btn_imprimir_ticket
+            // btnTrip
             // 
-            this.btn_imprimir_ticket.BackColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir_ticket.BackgroundImage = global::ventas_loteria.Properties.Resources.impresora;
-            this.btn_imprimir_ticket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_imprimir_ticket.FlatAppearance.BorderSize = 0;
-            this.btn_imprimir_ticket.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir_ticket.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir_ticket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_imprimir_ticket.Location = new System.Drawing.Point(219, 3);
-            this.btn_imprimir_ticket.Name = "btn_imprimir_ticket";
-            this.btn_imprimir_ticket.Size = new System.Drawing.Size(55, 55);
-            this.btn_imprimir_ticket.TabIndex = 208;
-            this.btn_imprimir_ticket.UseVisualStyleBackColor = false;
-            this.btn_imprimir_ticket.Click += new System.EventHandler(this.btn_imprimir_ticket_Click);
+            this.btnTrip.BackColor = System.Drawing.Color.Transparent;
+            this.btnTrip.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTrip.BackgroundImage")));
+            this.btnTrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTrip.FlatAppearance.BorderSize = 0;
+            this.btnTrip.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnTrip.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrip.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrip.Location = new System.Drawing.Point(265, 5);
+            this.btnTrip.Name = "btnTrip";
+            this.btnTrip.Size = new System.Drawing.Size(53, 51);
+            this.btnTrip.TabIndex = 209;
+            this.btnTrip.UseVisualStyleBackColor = false;
+            this.btnTrip.Click += new System.EventHandler(this.btnTrip_Click);
+            // 
+            // btnImpTck
+            // 
+            this.btnImpTck.BackColor = System.Drawing.Color.Transparent;
+            this.btnImpTck.BackgroundImage = global::ventas_loteria.Properties.Resources.impresora;
+            this.btnImpTck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnImpTck.FlatAppearance.BorderSize = 0;
+            this.btnImpTck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnImpTck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnImpTck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImpTck.Location = new System.Drawing.Point(204, 1);
+            this.btnImpTck.Name = "btnImpTck";
+            this.btnImpTck.Size = new System.Drawing.Size(55, 55);
+            this.btnImpTck.TabIndex = 208;
+            this.btnImpTck.UseVisualStyleBackColor = false;
+            this.btnImpTck.Click += new System.EventHandler(this.btn_imprimir_ticket_Click);
             // 
             // txt_monto_jug
             // 
-            this.txt_monto_jug.Location = new System.Drawing.Point(295, 9);
+            this.txt_monto_jug.Location = new System.Drawing.Point(332, 33);
             this.txt_monto_jug.Name = "txt_monto_jug";
             this.txt_monto_jug.Size = new System.Drawing.Size(50, 26);
             this.txt_monto_jug.TabIndex = 5;
@@ -1224,7 +1244,7 @@
         private System.Windows.Forms.TextBox txtNroTick;
         private System.Windows.Forms.Button btn_totales_venta;
         private System.Windows.Forms.Button btn_mov_venta_ticket;
-        private System.Windows.Forms.Button btn_imprimir_ticket;
+        private System.Windows.Forms.Button btnImpTck;
         private System.Windows.Forms.Button btn_result_lot;
         private System.Windows.Forms.Button btn_repetir_ticket;
         private System.Windows.Forms.Button btn_inprimir_tck;
@@ -1247,6 +1267,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel4;
+        private System.Windows.Forms.ComboBox cboLot;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnTrip;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
@@ -1255,8 +1279,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel4;
-        private System.Windows.Forms.ComboBox cboLot;
-        private System.Windows.Forms.Label label3;
     }
 }

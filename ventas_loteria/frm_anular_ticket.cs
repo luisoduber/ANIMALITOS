@@ -66,8 +66,8 @@ namespace ventas_loteria
                 rtbMostTck.Text += "\n Monto total ticket: " + mTck.ToString("N2");
                 rtbMostTck.Text += "\n Verifique su ticket.";
                 rtbMostTck.Text += "\n Ticket caduca: ";
-                rtbMostTck.Text += clsMet.cant_dia_cad_ticket + " Dias.";
-                rtbMostTck.Text += "\n Nota: " + clsMet.nota_msj_ticket;
+                rtbMostTck.Text += clsMet.cantDiaCadTck + " Dias.";
+                rtbMostTck.Text += "\n Nota: " + clsMet.ntMsjTck;
 
                 if (idStat == 1) { btnAnTck.Enabled = true; }
                 else { btnAnTck.Enabled = false; }

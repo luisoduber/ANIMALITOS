@@ -27,7 +27,7 @@ namespace ventas_loteria
         string nombLot = "", nombSort = "";
         double mTotalJug = 0;
         double mJug = 0;
-        int idPerf=0;
+        int idGrup=0, idPerf = 0;
         int id_proceso = 0;
 
         int nroFila = 0;
@@ -67,6 +67,7 @@ namespace ventas_loteria
             dtDgvJug.Columns.Add("id_sorteo", typeof(string));
             dtDgvJug.Columns.Add("nomb_loteria", typeof(string));
 
+            idGrup = Convert.ToInt32(clsMet.idGrup);
             idUsu = Convert.ToInt32(clsMet.idUsu);
             idPerf = Convert.ToInt32(clsMet.idPerf);
             this.KeyPreview = true;
@@ -137,7 +138,7 @@ namespace ventas_loteria
                 msjInfo += Convert.ToDateTime(fechaHoraServ).ToString("hh:mm:ss");
 
                 lblHoraCierre.Text = msjInfo;
-                busCuadDiario();
+                busCuadCaj();
             }
         }
         delegate void delProcSort(int prmIdSort);
@@ -432,20 +433,20 @@ namespace ventas_loteria
             txtMonto.SelectionStart = 0;
             txtMonto.SelectionLength = txtMonto.Text.Length;
         }
-        public void busCuadDiario()
+        public void busCuadCaj()
         {
             try
             {
-                string rsCuadCajDiario = "";
-                String[] rsDatCuadCajDiario = null;
+                string rsCuadCaj= "";
+                String[] rsDatCuadCaj = null;
 
-                rsCuadCajDiario = objMet.busCuadCajDiario(Convert.ToInt32(clsMet.idUsu));
-                rsDatCuadCajDiario = rsCuadCajDiario.Split('?');
-                lblTotVenta.Text = Convert.ToInt32(rsDatCuadCajDiario[0]).ToString("N2");
-                lblTotPag.Text = Convert.ToInt32(rsDatCuadCajDiario[1]).ToString("N2");
-                lblTotAnul.Text = Convert.ToInt32(rsDatCuadCajDiario[2]).ToString("N2");
-                lblTotCaja.Text = Convert.ToInt32(rsDatCuadCajDiario[3]).ToString("N2");
-                lblUltTick.Text = rsDatCuadCajDiario[4].ToString();
+                rsCuadCaj = objMet.busCuadCajDiario(Convert.ToInt32(clsMet.idUsu));
+                rsDatCuadCaj= rsCuadCaj.Split('?');
+                lblTotVenta.Text = Convert.ToInt32(rsDatCuadCaj[0]).ToString("N2");
+                lblTotPag.Text = Convert.ToInt32(rsDatCuadCaj[1]).ToString("N2");
+                lblTotAnul.Text = Convert.ToInt32(rsDatCuadCaj[2]).ToString("N2");
+                lblTotCaja.Text = Convert.ToInt32(rsDatCuadCaj[3]).ToString("N2");
+                lblUltTick.Text = rsDatCuadCaj[4].ToString();
             }
             catch (Exception ex)
             {
@@ -591,7 +592,7 @@ namespace ventas_loteria
                             msjInf = "Ticket ganador. Monto a pagar: ";
                             msjInf += Convert.ToInt64(rsActStatTick).ToString("N2");
                             MessageBox.Show(msjInf, "Trasacción Exitosa.");
-                            busCuadDiario();
+                            busCuadCaj();
                             txtNroTick.Text = "";
                             txtNroSerial.Text = "";
                         }
@@ -685,7 +686,7 @@ namespace ventas_loteria
                             msjInf = "Ticket nro: " + txtNroTick.Text;
                             msjInf += " fue anulado...";
                             MessageBox.Show(msjInf, "Transacción Exitosa.");
-                            busCuadDiario();
+                            busCuadCaj();
                             txtNroTick.Text = "";
                             txtNroSerial.Text = "";
                         }
@@ -805,9 +806,10 @@ namespace ventas_loteria
                 cmdGrdTck.Connection = clsMet.cn_bd;
                 myTrans = clsMet.cn_bd.BeginTransaction();
                 cmdGrdTck.CommandType = CommandType.StoredProcedure;
-                cmdGrdTck.CommandText = "SP_grd_ticket";
-                cmdGrdTck.Parameters.AddWithValue("prm_id_grupo", Convert.ToInt32(clsMet.idGrup));
-                cmdGrdTck.Parameters.AddWithValue("prm_id_usuario", Convert.ToInt32(clsMet.idUsu));
+                cmdGrdTck.CommandText = "SPgrdTck";
+                cmdGrdTck.Parameters.AddWithValue("prmIdGrup", idGrup);
+                cmdGrdTck.Parameters.AddWithValue("prmIdUsu", idUsu);
+                cmdGrdTck.Parameters.AddWithValue("prmIdTipTck", 1);
                 MySqlDataReader dr = cmdGrdTck.ExecuteReader();
                 dr.Read();
 
@@ -815,8 +817,8 @@ namespace ventas_loteria
                 {
                     rsProces = true;
                     rsDat[0] = rsProces.ToString();
-                    rsDat[1] = dr["prm_cont_ticket"].ToString();
-                    rsDat[2] = dr["prm_nro_Serial"].ToString();
+                    rsDat[1] = dr["prmContTck"].ToString();
+                    rsDat[2] = dr["prmNroSer"].ToString();
                     rsDat[3] = dr["fecha_ticket"].ToString();
                     rsDat[4] = dr["hora_ticket"].ToString();
                     rsDat[5] = dr["fechaHoraVerf"].ToString();
@@ -1001,7 +1003,7 @@ namespace ventas_loteria
                     objRpt.detJug = cadResult;
                     objRpt.totVenta = Convert.ToDouble(txt_monto_jug.Text);
                     objRpt.totVenta = Convert.ToDouble(txt_monto_jug.Text);
-                    objRpt.nroDiaCad = clsMet.cant_dia_cad_ticket;
+                    objRpt.nroDiaCad = clsMet.cantDiaCadTck;
                     objRpt.ShowDialog();
 
                     lblUltTick.Text = nroTck.ToString();
@@ -1010,7 +1012,7 @@ namespace ventas_loteria
                     lblMontJug.Text = "0.00";
 
                     myTrans.Commit();
-                    busCuadDiario();
+                    busCuadCaj();
                     if (sortAb == true) { refresc(); }
                 }
             }
@@ -1206,7 +1208,7 @@ namespace ventas_loteria
                         objTickVenta.nroSerial = nroSerial;
                         objTickVenta.detJug = cadena_result;
                         objTickVenta.totVenta = Convert.ToDouble(txt_monto_jug.Text);
-                        objTickVenta.nroDiaCad = clsMet.cant_dia_cad_ticket;
+                        objTickVenta.nroDiaCad = clsMet.cantDiaCadTck;
                         objTickVenta.ShowDialog();
 
                         lblUltTick.Text = nroTick.ToString();
@@ -1215,7 +1217,7 @@ namespace ventas_loteria
                         lblMontJug.Text = "0.00";
 
                         myTrans.Commit();
-                        busCuadDiario();
+                        busCuadCaj();
                     }
                 }
                 catch (Exception ex)
@@ -1351,7 +1353,6 @@ namespace ventas_loteria
 
         private void btnSal_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(idPerf.ToString());
             if (idPerf == 2)
             {
                 string msjInf = "";
@@ -1362,6 +1363,14 @@ namespace ventas_loteria
                 }
             }
             if (idPerf == 3) { this.Close(); }
+        }
+
+        private void btnTrip_Click(object sender, EventArgs e)
+        {
+            frmTrip objFrm = new frmTrip();
+            objFrm.ShowDialog();
+
+           if(clsMet.verfAct==true) { busCuadCaj(); clsMet.verfAct = false; }
         }
 
         private void cboLot_SelectionChangeCommitted(object sender, EventArgs e)
@@ -1497,7 +1506,7 @@ namespace ventas_loteria
                 objTckVent.nroSerial = nroSer;
                 objTckVent.detJug = cadRs;
                 objTckVent.totVenta = Convert.ToDouble(mTck);
-                objTckVent.nroDiaCad = clsMet.cant_dia_cad_ticket;
+                objTckVent.nroDiaCad = clsMet.cantDiaCadTck;
                 objTckVent.ShowDialog();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

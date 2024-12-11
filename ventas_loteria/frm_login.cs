@@ -35,7 +35,7 @@ namespace ventas_loteria
         string nombCnRed="";
         string statCnRed="";
         string[] rsVerfMac = new string[3];
-        string[] rsPrmGral = new string[2];
+        string[] rsPrmGral = new string[4];
         int idStatMac=0, idUsuMac=0;
 
         private void frm_login_Load(object sender, EventArgs e)
@@ -44,14 +44,16 @@ namespace ventas_loteria
             // clsMet.cadena_conexion = clsMet.descifrar(Settings.Default.cadCnBd, clsMet.clave_ed);
             //MessageBox.Show(clsMet.descifrar(clsMet.cadena_conexion, clsMet.clave_ed));
             //clsMet.cn = "Server=localhost;port=3306;Database=loteria; Uid=grupodab_prog;Pwd='U4TQxTau]zYOi3e]]WvGYaIJb}M3l5RL';";
+            //clsMet.cn = "Server=68.178.200.104;port=8689;Database=DesarrLot; Uid=grupodab_prog;Pwd='NeM{.B2kP.@FkgZt{4x$[#s,GY&j4+F%';";
             clsMet.cn = "Server=68.178.200.104;port=8689;Database=loterias; Uid=grupodab_prog;Pwd='NeM{.B2kP.@FkgZt{4x$[#s,GY&j4+F%';";
-
+            
             this.Text = "Autenticación Usuario...".ToUpper();
             btn_recordar_clave.FlatAppearance.BorderSize = 0;
 
             rsPrmGral = objMet.busPrmGral();
-            clsMet.cant_dia_cad_ticket = Convert.ToInt32(rsPrmGral[0].ToString());
-            clsMet.nota_msj_ticket = rsPrmGral[1].ToString();
+            clsMet.cantDiaCadTck = Convert.ToInt32(rsPrmGral[0].ToString());
+            clsMet.ntMsjTck = rsPrmGral[1].ToString();
+            clsMet.cantSortTrip = Convert.ToInt16(rsPrmGral[3].ToString());
 
             if (Settings.Default.chkLog == true)
             {
@@ -170,7 +172,6 @@ namespace ventas_loteria
             rsDatLog = rsLog.Split('?');
             clsMet.menbrete_info = "Operador: " + rsDatLog[0];
             clsMet.menbrete_info += " - ( " + txtUsuario.Text + " )";
-
             clsMet.nombUsu = rsDatLog[0];
             clave = rsDatLog[1];
             idStat = Convert.ToInt32(rsDatLog[2]);
@@ -179,14 +180,15 @@ namespace ventas_loteria
             clsMet.nomb_perfil = rsDatLog[5];
             clsMet.idGrup = rsDatLog[6];
             clsMet.monto_max_jug = Convert.ToInt32(rsDatLog[7]);
-            clsMet.montMaxTck = Convert.ToInt32(rsDatLog[8]);
-            clsMet.monto_Xunidad = Convert.ToInt32(rsDatLog[9]);
-            clsMet.monto_multiplo_jug = Convert.ToInt32(rsDatLog[10].ToString());
-            clsMet.monto_min_jug = Convert.ToInt32(rsDatLog[11].ToString());
-            clsMet.nomb_imp = rsDatLog[12].ToString();
-            clsMet.ancho_ticket = rsDatLog[13].ToString();
-            clsMet.num_letra = rsDatLog[14].ToString();
-            clsMet.NombDivisa = rsDatLog[15].ToString();
+            clsMet.mMaxTrip = Convert.ToInt32(rsDatLog[8]);
+            clsMet.montMaxTck = Convert.ToInt32(rsDatLog[9]);
+            clsMet.monto_Xunidad = Convert.ToInt32(rsDatLog[10]);
+            clsMet.monto_multiplo_jug = Convert.ToInt32(rsDatLog[11].ToString());
+            clsMet.monto_min_jug = Convert.ToInt32(rsDatLog[12].ToString());
+            clsMet.nomb_imp = rsDatLog[13].ToString();
+            clsMet.ancho_ticket = rsDatLog[14].ToString();
+            clsMet.num_letra = rsDatLog[15].ToString();
+            clsMet.NombDivisa = rsDatLog[16].ToString();
 
             if (clave != txtClave.Text)
             {
@@ -288,14 +290,15 @@ namespace ventas_loteria
                 clsMet.nomb_perfil = rsDatLog[5];
                 clsMet.idGrup = rsDatLog[6];
                 clsMet.monto_max_jug = Convert.ToInt32(rsDatLog[7]);
-                clsMet.montMaxTck = Convert.ToInt32(rsDatLog[8]);
-                clsMet.monto_Xunidad = Convert.ToInt32(rsDatLog[9]);
-                clsMet.monto_multiplo_jug = Convert.ToInt32(rsDatLog[10].ToString());
-                clsMet.monto_min_jug = Convert.ToInt32(rsDatLog[11].ToString());
-                clsMet.nomb_imp = rsDatLog[12].ToString();
-                clsMet.ancho_ticket = rsDatLog[13].ToString();
-                clsMet.num_letra = rsDatLog[14].ToString();
-                clsMet.NombDivisa = rsDatLog[15].ToString();
+                clsMet.mMaxTrip = Convert.ToInt32(rsDatLog[8]);
+                clsMet.montMaxTck = Convert.ToInt32(rsDatLog[9]);
+                clsMet.monto_Xunidad = Convert.ToInt32(rsDatLog[10]);
+                clsMet.monto_multiplo_jug = Convert.ToInt32(rsDatLog[11].ToString());
+                clsMet.monto_min_jug = Convert.ToInt32(rsDatLog[12].ToString());
+                clsMet.nomb_imp = rsDatLog[13].ToString();
+                clsMet.ancho_ticket = rsDatLog[14].ToString();
+                clsMet.num_letra = rsDatLog[15].ToString();
+                clsMet.NombDivisa = rsDatLog[16].ToString();
 
                 if (clave != txtClave.Text)
                 {

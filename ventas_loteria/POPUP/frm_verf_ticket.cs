@@ -27,34 +27,57 @@ namespace ventas_loteria
 
             string nombTaq="", nombStatTck="";
             string fechReg="", horaReg="";
+            int idTipTck = 0;
             long mTck = 0, mPag = 0;
 
             rsMostTckInf = objTck.SPMostInfTck(prmNroTck,prmNroSerial);
             rsDatMostTckDet = rsMostTckInf.Split('?');
 
-            nombTaq = rsDatMostTckDet[0].ToString();
-            nombStatTck = rsDatMostTckDet[1].ToString();
-            mTck = Convert.ToInt64(rsDatMostTckDet[2].ToString());
-            mPag = Convert.ToInt64(rsDatMostTckDet[3].ToString());
-            fechReg = Convert.ToDateTime(rsDatMostTckDet[4]).ToString("dd/MM/yyyy");
-            horaReg = Convert.ToDateTime(rsDatMostTckDet[5]).ToString("hh:mm tt").ToUpper();
+            idTipTck = Convert.ToInt32(rsDatMostTckDet[0].ToString());
+            nombTaq = rsDatMostTckDet[1].ToString();
+            nombStatTck = rsDatMostTckDet[2].ToString();
+            mTck = Convert.ToInt64(rsDatMostTckDet[3].ToString());
+            mPag = Convert.ToInt64(rsDatMostTckDet[4].ToString());
+            fechReg = Convert.ToDateTime(rsDatMostTckDet[5]).ToString("dd/MM/yyyy");
+            horaReg = Convert.ToDateTime(rsDatMostTckDet[6]).ToString("hh:mm tt").ToUpper();
 
-            rsMostTckDet = objTck.busMostDetTck(Convert.ToInt64(prmNroTck),
-                                             Convert.ToInt64(prmNroSerial));
+            if (idTipTck == 1)
+            {
+                rsMostTckDet = objTck.busMostDetTck(Convert.ToInt64(prmNroTck),
+                                            Convert.ToInt64(prmNroSerial));
 
-            rsDatMostTckDet = rsMostTckDet.Split('?');
-            rtbMostTck.Text = "\n Taquilla: " + nombTaq;
-            rtbMostTck.Text += "\n Ticket: " + prmNroTck;
-            rtbMostTck.Text += "\n Fecha: " + fechReg;
-            rtbMostTck.Text += "\n Hora: " + horaReg;
-            rtbMostTck.Text += "\n Status: " + nombStatTck.ToLower();
-            rtbMostTck.Text += "\n " + rsMostTckDet;
-            rtbMostTck.Text += "-------------------------------------";
-            rtbMostTck.Text += "\n Monto total ticket: " + mTck.ToString("N2");
-            rtbMostTck.Text += "\n Verifique su ticket.";
-            rtbMostTck.Text += "\n Ticket caduca: ";
-            rtbMostTck.Text += clsMet.cant_dia_cad_ticket +" Dias.";
-            rtbMostTck.Text += "\n Nota: " + clsMet.nota_msj_ticket;
+                rsDatMostTckDet = rsMostTckDet.Split('?');
+                rtbMostTck.Text = "\n Taquilla: " + nombTaq;
+                rtbMostTck.Text += "\n Ticket: " + prmNroTck;
+                rtbMostTck.Text += "\n Fecha: " + fechReg;
+                rtbMostTck.Text += "\n Hora: " + horaReg;
+                rtbMostTck.Text += "\n Status: " + nombStatTck.ToLower();
+                rtbMostTck.Text += "\n " + rsMostTckDet;
+                rtbMostTck.Text += "--------------------------------------------";
+                rtbMostTck.Text += "\n Monto total ticket: " + mTck.ToString("N2");
+                rtbMostTck.Text += "\n Verifique su ticket.";
+
+                rtbMostTck.Text += "\n Ticket caduca: ";
+                rtbMostTck.Text += clsMet.cantDiaCadTck + " Dias.";
+                rtbMostTck.Text += "\n Nota: " + clsMet.ntMsjTck;
+            }
+            else if (idTipTck == 2)
+            {
+                rsMostTckDet = objTck.busMostDetTckTrip(Convert.ToInt64(prmNroTck),
+                                            Convert.ToInt64(prmNroSerial));
+
+                rtbMostTck.Text = "\n Taquilla: " + nombTaq;
+                rtbMostTck.Text += "\n Ticket: " + prmNroTck;
+                rtbMostTck.Text += "\n Fecha: " + fechReg;
+                rtbMostTck.Text += "\n Hora: " + horaReg;
+                rtbMostTck.Text += "\n Status: " + nombStatTck.ToLower();
+                rtbMostTck.Text += "\n " + rsMostTckDet;
+                rtbMostTck.Text += "------------------------------------------";
+                rtbMostTck.Text += "\n Monto total ticket: " + mTck.ToString("N2");
+                rtbMostTck.Text += "\n Valido por ";
+                rtbMostTck.Text += clsMet.cantSortTrip;
+                rtbMostTck.Text += " sorteos descritos.";
+            }
         }
         private void frm_verf_ticket_KeyPress(object sender, KeyPressEventArgs e)
         {

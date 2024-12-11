@@ -17,6 +17,7 @@ using MySql.Data.MySqlClient;
 using DevComponents.DotNetBar;
 using Org.BouncyCastle.Asn1.Ocsp;
 using Org.BouncyCastle.Math;
+using System.Drawing;
 
 namespace ventas_loteria
 {
@@ -31,9 +32,11 @@ namespace ventas_loteria
         public static int monto_min_jug;
         public static int monto_max_jug;
         public static int montMaxTck;
+        public static int mMaxTrip;
         public static int monto_Xunidad;
-        public static int cant_dia_cad_ticket;
-        public static string nota_msj_ticket;
+        public static int cantDiaCadTck;
+        public static int cantSortTrip;
+        public static string ntMsjTck;
         public static int idCn;
         public static string version_pro = "";
         public static string nomb_perfil;
@@ -45,6 +48,7 @@ namespace ventas_loteria
         public static string msj_error_cn = "";
         public static string NombDivisa = "";
         public static string FechaActual = "";
+        public static Boolean verfAct = false;
 
         public static MySqlConnection cn_bd = new MySqlConnection();
         public static void Desconectar() { if (cn_bd.State == ConnectionState.Open) cn_bd.Close(); }
@@ -184,8 +188,8 @@ namespace ventas_loteria
                     {
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "SP_bus_verf_login";
-                        cmd.Parameters.AddWithValue("prm_usuario", prmUsu);
+                        cmd.CommandText = "SPverfLog";
+                        cmd.Parameters.AddWithValue("prmUsu", prmUsu);
                         MySqlDataReader dr = cmd.ExecuteReader();
                         dr.Read();
 
@@ -199,6 +203,7 @@ namespace ventas_loteria
                                  dr["nomb_perfil"].ToString() + "?" +
                                  dr["id_grupo"].ToString() + "?" + 
                                  dr["monto_max_jug"].ToString() + "?" +
+                                 dr["mMaxTrip"].ToString() + "?" +
                                  dr["monto_max_ticket"].ToString() + "?" + 
                                  dr["monto_Xunidad"].ToString() + "?" +
                                  dr["monto_multiplo_jug"].ToString() + "?" + 
@@ -220,7 +225,7 @@ namespace ventas_loteria
 
         public string[] busPrmGral()
         {
-            string[] rsPrmGral = new string[2];
+            string[] rsPrmGral = new string[4];
             try
             {
                 using (MySqlConnection cnBd = new MySqlConnection())
@@ -231,20 +236,23 @@ namespace ventas_loteria
                     {
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "SP_bus_sorteos_proc_result";
-                        cmd.CommandText = "SP_bus_parametros_grales";
+                        cmd.CommandText = "SPbusParamGral";
                         MySqlDataReader dr = cmd.ExecuteReader();
                         dr.Read();
 
                         if (dr.HasRows)
                         {
-                            rsPrmGral[0] = dr["cant_dia_cad_ticket"].ToString();
-                            rsPrmGral[1] = dr["nota_msj_ticket"].ToString();
+                            rsPrmGral[0] = dr["cantDiaCadTck"].ToString();
+                            rsPrmGral[1] = dr["ntMsjTck"].ToString();
+                            rsPrmGral[2] = dr["idTipProcDat"].ToString();
+                            rsPrmGral[3] = dr["cantSortTrip"].ToString();
                         }
                         else
                         {
                             rsPrmGral[0] = "";
                             rsPrmGral[1] = "";
+                            rsPrmGral[2] = "";
+                            rsPrmGral[3] = "";
                         }
                         dr.Close();
                     }
@@ -255,6 +263,8 @@ namespace ventas_loteria
                 MessageBox.Show("Ha ocurrido el siguiente error: " + ex.Message, "Verifique");
                 rsPrmGral[0] = ex.Message;
                 rsPrmGral[1] = "";
+                rsPrmGral[2] = "";
+                rsPrmGral[3] = "";
             }
             return rsPrmGral;
         }
@@ -1555,12 +1565,12 @@ namespace ventas_loteria
                     {
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "SP_verf_det_ticket_anula";
-                        cmd.Parameters.AddWithValue("prm_nro_ticket", prmNroTck);
+                        cmd.CommandText = "SPDetTckAn";
+                        cmd.Parameters.AddWithValue("prmNroTck", prmNroTck);
                         MySqlDataReader dr = cmd.ExecuteReader();
                         dr.Read();
 
-                        if (dr.HasRows) { rsDat = dr["rs_anular_ticket"].ToString(); }
+                        if (dr.HasRows) { rsDat = dr["rsAnTck"].ToString(); }
                         else { rsDat = ""; }
                         dr.Close();
                     }
@@ -1612,20 +1622,21 @@ namespace ventas_loteria
                     {
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "SP_bus_mostrar_ticket_info";
-                        cmd.Parameters.AddWithValue("prm_nro_ticket", prmNroTck);
-                        cmd.Parameters.AddWithValue("prm_nro_serial", prmNroSer);
+                        cmd.CommandText = "SPInfTck";
+                        cmd.Parameters.AddWithValue("prmNroTck", prmNroTck);
+                        cmd.Parameters.AddWithValue("prmNroSer", prmNroSer);
                         MySqlDataReader dr = cmd.ExecuteReader();
                         dr.Read();
 
                         if (dr.HasRows)
                         {
-                            rsDat = dr["nick"].ToString() + "?" + 
-                                dr["nmb_status_ticket"].ToString() + "?" + 
-                                dr["monto_ticket"].ToString() + "?" +
-                                dr["monto_pagado"].ToString() + "?" + 
-                                dr["fecha_reg"].ToString() + "?" + 
-                                dr["hora_reg"].ToString();
+                            rsDat = dr["idTipTck"].ToString() + "?" +
+                                dr["nick"].ToString() + "?" + 
+                                dr["nombStatTck"].ToString() + "?" + 
+                                dr["mTck"].ToString() + "?" +
+                                dr["mPag"].ToString() + "?" + 
+                                dr["fechReg"].ToString() + "?" + 
+                                dr["horaReg"].ToString();
                         }
                         else { rsDat = ""; }
                         dr.Close();
@@ -1688,9 +1699,8 @@ namespace ventas_loteria
                     {
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "SP_bus_mostrar_ticket_det";
-                        cmd.Parameters.AddWithValue("prm_nro_ticket", prmNroTck);
-                        cmd.Parameters.AddWithValue("prm_nro_serial", prmNroSer);
+                        cmd.CommandText = "SPTckDet";
+                        cmd.Parameters.AddWithValue("prmNroTck", prmNroTck);
                         MySqlDataReader dr = cmd.ExecuteReader();
 
                         string nombLot = "", horaSort = "";
@@ -1701,17 +1711,17 @@ namespace ventas_loteria
 
                         while (dr.Read())
                         {
-                            codJug = dr["codigo_jugada"].ToString().Trim();
-                            nombProd = dr["nomb_product"].ToString().Trim();
+                            codJug = dr["codJug"].ToString().Trim();
+                            nombProd = dr["nombProd"].ToString().Trim();
                             mJug = Convert.ToInt64(dr["monto"].ToString().Trim());
 
-                            if ((idLot != Convert.ToInt32(dr["id_loteria"].ToString()))
-                                || idSort != Convert.ToInt32(dr["id_sorteo"].ToString()))
+                            if ((idLot != Convert.ToInt32(dr["idLot"].ToString()))
+                                || idSort != Convert.ToInt32(dr["idSort"].ToString()))
                             {
 
-                                nombLot = dr["nomb_loteria"].ToString();
-                                horaSort = dr["hora_sorteo"].ToString();
-                                rsDat += "-------------------------------------\n";
+                                nombLot = dr["nombLot"].ToString();
+                                horaSort = dr["horaSort"].ToString();
+                                rsDat += "-------------------------------------------\n";
                                 rsDat += nombLot + "  ";
                                 rsDat += Convert.ToDateTime(horaSort).ToString("hh:mm tt").ToUpper();
                                 rsDat += "\n\n";
@@ -1722,8 +1732,8 @@ namespace ventas_loteria
                             rsDat += " " + mJug.ToString("N2") + "   ";
 
                             if (contDetJug == 2) { rsDat += "\n"; contDetJug = 0; }
-                            idLot = Convert.ToInt32(dr["id_loteria"].ToString());
-                            idSort = Convert.ToInt32(dr["id_sorteo"].ToString());
+                            idLot = Convert.ToInt32(dr["idLot"].ToString());
+                            idSort = Convert.ToInt32(dr["idSort"].ToString());
                         }
                         dr.Close();
                     }
@@ -1732,6 +1742,69 @@ namespace ventas_loteria
             catch (Exception ex) { rsDat = ex.Message; }
             return rsDat;
         }
+
+        public string busMostDetTckTrip(long prmNroTck, long prmNroSer)
+        {
+            string rsDat = "";
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "SPTckDetTrip";
+                        cmd.Parameters.AddWithValue("prmNroTck", prmNroTck);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+
+                        string nombLot = "", fechaIni = "";
+                        string fechaFin = "", nombProd = "";
+                        string  mont = "";
+                        int idLot = 0, contDetJug = 0;
+                        long mJug = 0;
+
+                        while (dr.Read())
+                        {
+                            nombLot = dr["nombLot"].ToString().Trim();
+                            fechaIni = dr["fechaIni"].ToString().Trim();
+                            fechaFin = dr["fechaFin"].ToString().Trim();
+                            nombProd = dr["nombProd"].ToString().Trim();
+                            mont = dr["mont"].ToString().Trim();
+
+                            if (idLot != Convert.ToInt32(dr["idLot"].ToString()))
+                            {
+
+                                nombLot = dr["nombLot"].ToString();
+                                rsDat += "------------------------------------------\n";
+                                rsDat += nombLot;
+                                rsDat += "\n";
+                                rsDat += fechaIni;
+                                rsDat += "\n";
+                                rsDat += fechaFin;
+                                rsDat += "\n";
+                                rsDat += nombProd;
+                                rsDat += "\n";
+                                rsDat += mont;
+                                rsDat += "\n";
+                                contDetJug = 0;
+                            }
+                            contDetJug++;
+
+                            if (contDetJug == 2) { rsDat += "\n"; contDetJug = 0; }
+                            idLot = Convert.ToInt32(dr["idLot"].ToString());
+                        }
+                        dr.Close();
+                    }
+                }
+            }
+            catch (Exception ex) { rsDat = ex.Message; }
+            return rsDat;
+        }
+
+
         public string SPMostDetTckAn(long prmNroTck)
         {
             string rsDat = "";
@@ -2045,6 +2118,8 @@ namespace ventas_loteria
                         cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
                         cmd.Parameters.AddWithValue("prmIdSort", prmIdSort);
                         cmd.Parameters.AddWithValue("prmFech", prmFech);
+
+                        //MessageBox.Show(prmIdPerf+"  "+ prmIdGrup + "  " + prmIdSort + "  " + prmFech);
                         da = new MySqlDataAdapter(cmd);
                         da.Fill(dt);
                     }
@@ -2277,7 +2352,7 @@ namespace ventas_loteria
                     {
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "SP_act_result_loteria";
+                        cmd.CommandText = "SPactRsLot";
                         cmd.Parameters.AddWithValue("prmIdDetJug", prmIdDetJug);
                         cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
                         cmd.Parameters.AddWithValue("prmIdSort", prmIdSort);
@@ -2294,6 +2369,37 @@ namespace ventas_loteria
             }
             catch (MySqlException ex) { rsDat = ex.Message; MessageBox.Show(rsDat); }
             catch (Exception ex) { rsDat = ex.Message; MessageBox.Show(ex.Message,"busProcRsLot"); }
+            return rsDat;
+        }
+        public string busProcRsLotTrip(int prmIdDetJug, int prmIdLot,
+                                       string prmRstLot)
+        {
+            string rsDat = "";
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "SPactRsLotTrip";
+                        cmd.Parameters.AddWithValue("prmIdDetJug", prmIdDetJug);
+                        cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                        cmd.Parameters.AddWithValue("prmRsLot", prmRstLot);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        dr.Read();
+                        if (dr.HasRows) { rsDat = dr["statTck"].ToString(); }
+                        else { rsDat = ""; }
+                        dr.Close();
+                    }
+                }
+
+            }
+            catch (MySqlException ex) { rsDat = ex.Message; MessageBox.Show(rsDat); }
+            catch (Exception ex) { rsDat = ex.Message; MessageBox.Show(ex.Message, "busProcRsLot"); }
             return rsDat;
         }
         public DataTable bus_cuadre_taq(int prmIdGrup, int prmIdUsu)
@@ -3091,6 +3197,29 @@ namespace ventas_loteria
                         cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
                         cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
                         cmd.Parameters.AddWithValue("prmIdSort", prmIdSort);
+                        da = new MySqlDataAdapter(cmd);
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
+            return dt;
+        }
+        public DataTable busLotTrip()
+        {
+            DataTable dt = new DataTable("busLotTrip");
+            MySqlDataAdapter da;
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "SPbusLotTrip";
                         da = new MySqlDataAdapter(cmd);
                         da.Fill(dt);
                     }

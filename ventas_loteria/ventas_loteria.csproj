@@ -28,7 +28,7 @@
     <InstallUrl>http://app.grupodabreu.com/animalitos/</InstallUrl>
     <ProductName>Animal Like</ProductName>
     <WebPage>prueba.html</WebPage>
-    <ApplicationRevision>170</ApplicationRevision>
+    <ApplicationRevision>173</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -193,6 +193,12 @@
     <Compile Include="frmContVent.Designer.cs">
       <DependentUpon>frmContVent.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTrip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTrip.Designer.cs">
+      <DependentUpon>frmTrip.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_verf_ticket_taq.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,12 @@
     </Compile>
     <Compile Include="POPUP\frm_result_lot.Designer.cs">
       <DependentUpon>frm_result_lot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\frmTckTrip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RPT\frmTckTrip.Designer.cs">
+      <DependentUpon>frmTckTrip.cs</DependentUpon>
     </Compile>
     <Compile Include="RPT\frm_rpt_imp_prueba.cs">
       <SubType>Form</SubType>
@@ -319,6 +331,9 @@
     <EmbeddedResource Include="frmContVent.resx">
       <DependentUpon>frmContVent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTrip.resx">
+      <DependentUpon>frmTrip.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_verf_ticket_taq.resx">
       <DependentUpon>frm_verf_ticket_taq.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,6 +389,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RPT\frmTckTrip.resx">
+      <DependentUpon>frmTckTrip.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RPT\frm_rpt_imp_prueba.resx">
       <DependentUpon>frm_rpt_imp_prueba.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
