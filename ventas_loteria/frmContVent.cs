@@ -53,7 +53,11 @@ namespace ventas_loteria
             try
             {
                 dtCboGrup = objMet.BusGrup();
-                dtCboLot = objMet.listLotContVent();
+
+                if (idPerf == 2) { idGrup = Convert.ToInt16(clsMet.idGrup); }
+                else if (idPerf == 3) { idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0]); }
+
+                dtCboLot = objMet.listLotContVent(idGrup);
                 idLot = Convert.ToInt16(dtCboLot.Rows[0][0]);
                 dtDgvSort = objMet.listSortContVentTod(idLot);
                 dtDgvProd = objMet.busContVentTaq(idLot);
@@ -78,6 +82,11 @@ namespace ventas_loteria
 
             idLot = Convert.ToInt32(cboLot.SelectedValue);
             idSort = Convert.ToInt32(dgvSort.CurrentRow.Cells[0].Value.ToString());
+
+            dtCboLot = objMet.listLotContVent(idGrup);
+            this.cboLot.DisplayMember = "nombLot";
+            this.cboLot.ValueMember = "idLot";
+            this.cboLot.DataSource = dtCboLot;
 
             dtDgvProdBloq = objMet.listProdBloqFilt(idGrup, idLot, idSort);
             dgvProdBloq.DataSource = dtDgvProdBloq;

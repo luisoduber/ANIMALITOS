@@ -95,7 +95,7 @@ namespace ventas_loteria
         {
             try
             {
-                dtCboLot = objMet.listLotTod();
+                dtCboLot = objMet.listLotTod(idGrup);
                 dtDgvSort = objMet.busLot(idUsu);
                 dtNombProd = objMet.busNombProd();
                 fechaHoraServ = objMet.verfHoraServ(idUsu);
@@ -125,7 +125,6 @@ namespace ventas_loteria
                 clsMet.FechaActual = Convert.ToDateTime(rsDat[0].ToString()).ToString("yyyy/MM/dd");
                 FechaAct = Convert.ToDateTime(rsDat[0].ToString()).ToString("dd/MM/yyyy");
                 HoraAct = Convert.ToDateTime(rsDat[1].ToString()).ToString("hh:mm:ss");
-
 
                 this.Text = "Usuario:".ToUpper();
                 this.Text += clsMet.nombUsu.ToUpper();

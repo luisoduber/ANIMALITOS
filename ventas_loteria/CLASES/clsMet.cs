@@ -975,7 +975,7 @@ namespace ventas_loteria
                     {
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "SP_bus_sorteos";
+                        cmd.CommandText = "SPBusSort";
                         cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
                         da = new MySqlDataAdapter(cmd);
                         da.Fill(dt);
@@ -2992,7 +2992,7 @@ namespace ventas_loteria
                     idCn = 1;
                     using (MySqlCommand cmd = new MySqlCommand())
                     {
-                        cmd.Connection = clsMet.cn_bd;
+                        cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "spActLimTaq";
                         cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
@@ -3005,7 +3005,7 @@ namespace ventas_loteria
             catch (Exception ex) { rsDat = ex.Message; }
             return rsDat;
         }
-        public DataTable listLotTod()
+        public DataTable listLotTod(int prmIdGrup)
         {
             DataTable dt = new DataTable("listLotTod");
             MySqlDataAdapter da;
@@ -3020,6 +3020,7 @@ namespace ventas_loteria
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "spListLotTod";
+                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
                         using (da = new MySqlDataAdapter(cmd)) { da.Fill(dt); }
                     }
                 }
@@ -3027,7 +3028,7 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
-        public DataTable listLotContVent()
+        public DataTable listLotContVent(int prmIdGrup)
         {
             DataTable dt = new DataTable("listLotContVent");
             MySqlDataAdapter da;
@@ -3042,6 +3043,7 @@ namespace ventas_loteria
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "splistLotContVent";
+                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
                         da = new MySqlDataAdapter(cmd);
                         da.Fill(dt);
                     }

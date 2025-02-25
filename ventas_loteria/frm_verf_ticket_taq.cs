@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
@@ -28,7 +29,7 @@ namespace ventas_loteria
         DataTable dtDgvDetJug = new DataTable();
 
         int idLot = 0, idSort= 0;
-        int idTaq = 0;
+        int idTaq = 0, idGrup=0;
         string fechLot = "";
         int idProc = 0;
         private void frm_verf_ticket_taq_Load(object sender, EventArgs e)
@@ -42,6 +43,7 @@ namespace ventas_loteria
             this.dgvDetJug.ColumnHeadersVisible = false;
 
             gp_cant_jug.Text = "cantidad jugadas: 0";
+            idGrup= Convert.ToInt16(clsMet.idGrup);
 
             this.dtp_fecha.Value = Convert.ToDateTime(clsMet.FechaActual);
             this.dtp_fecha.Format = DateTimePickerFormat.Custom;
@@ -56,7 +58,7 @@ namespace ventas_loteria
         {
             try
             {
-                dtCboLot = objMet.listLotTod();
+                dtCboLot = objMet.listLotTod(idGrup);
                 dtDgvSort = objMet.busLotProcRs();
                 dtCboTaq = objMet.busGrupTaq
                             (Convert.ToInt32(clsMet.idGrup));

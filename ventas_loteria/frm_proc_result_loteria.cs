@@ -113,7 +113,7 @@ namespace ventas_loteria
         {
             try
             {
-                dtCboLot = objMet.listLotTod();
+                dtCboLot = objMet.listLotTod(idGrup);
                 dtDgvSort = objMet.busLotProcRs();
                 dtcboTipProc = objMet.busTipProc();
                 dtDgvJug = objMet.busJugPendProc(idPerf, idGrup);
@@ -215,7 +215,8 @@ namespace ventas_loteria
                                             (idLotBus == "5") || (idLotBus == "10") ||
                                             (idLotBus == "11") || (idLotBus == "12") ||
                                             (idLotBus == "13") || (idLotBus == "16") ||
-                                            (idLotBus == "17") || (idLotBus == "18"))
+                                            (idLotBus == "17") || (idLotBus == "18") || 
+                                            (idLotBus == "19"))
                                         {
                                             if (string.IsNullOrEmpty(rsGan))
                                             {
