@@ -220,10 +220,10 @@ namespace ventas_loteria
         private void frmContVent_KeyPress(object sender, KeyPressEventArgs e)
         {
             char caracter;
-            int codigo;
+            int cod=0;
             caracter = Convert.ToChar(e.KeyChar);
-            codigo = (int)caracter;
-            if (codigo == 27) { this.Close(); }
+            cod = (int)caracter;
+            if (cod == 27) { this.Close(); }
         }
        
     }

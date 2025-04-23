@@ -122,6 +122,12 @@ namespace ventas_loteria
             }
         }
 
+        private void btnBloqLot_Click(object sender, EventArgs e)
+        {
+            frmContLot objfrm = new frmContLot();
+            objfrm.ShowDialog();
+        }
+
         private void btnCuadTaq_Click(object sender, EventArgs e)
         {
             frm_cuadre_taq frm =new frm_cuadre_taq();

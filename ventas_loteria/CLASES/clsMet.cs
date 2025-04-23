@@ -3207,7 +3207,7 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
-        public DataTable busLotTrip()
+        public DataTable busLotTrip(int prmIdGrup)
         {
             DataTable dt = new DataTable("busLotTrip");
             MySqlDataAdapter da;
@@ -3222,6 +3222,7 @@ namespace ventas_loteria
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "SPbusLotTrip";
+                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
                         da = new MySqlDataAdapter(cmd);
                         da.Fill(dt);
                     }
@@ -3229,6 +3230,53 @@ namespace ventas_loteria
             }
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
+        }
+        public DataTable busBloqLot(int prmIdGrup)
+        {
+            DataTable dt = new DataTable("busBloqLot");
+            MySqlDataAdapter da;
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spListLotGrup";
+                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                        da = new MySqlDataAdapter(cmd);
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
+            return dt;
+        }
+        public string actStatLot(int prmIdBloqLot, int prmIdStat)
+        {
+            string rsDat = "";
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spActStatLot";
+                        cmd.Parameters.AddWithValue("prmIdBloqLot", prmIdBloqLot);
+                        cmd.Parameters.AddWithValue("prmIdStat", prmIdStat);
+                        rsDat = cmd.ExecuteNonQuery() > 0 ? "true" : "false";
+                    }
+                }
+            }
+            catch (Exception ex) { rsDat = ex.Message; }
+            return rsDat;
         }
     }
 }

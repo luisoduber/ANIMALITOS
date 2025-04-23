@@ -79,7 +79,7 @@ namespace ventas_loteria
             try
             {
                 dtCboLot = objMet.listLotTod(idGrup);
-                dtDgvLot = objMet.busLotTrip();
+                dtDgvLot = objMet.busLotTrip(idGrup);
                 dtNombProd = objMet.busNombProd();
                 rsDat = objMet.busFechHoraServ();
 

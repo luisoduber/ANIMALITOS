@@ -55,6 +55,21 @@
             this.wkIniFrm = new System.ComponentModel.BackgroundWorker();
             this.gp_cant_jug = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dgvJug = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbInfProcRs = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.pbInfProcRs = new DevComponents.DotNetBar.Controls.ProgressBarX();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -75,21 +90,6 @@
             this.lblMsjErr = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.wkProcJugAut = new System.ComponentModel.BackgroundWorker();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gb_loteria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSort)).BeginInit();
             this.gp_cant_jug.SuspendLayout();
@@ -329,6 +329,130 @@
             this.dgvJug.Size = new System.Drawing.Size(661, 347);
             this.dgvJug.TabIndex = 194;
             this.dgvJug.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvJug_CellFormatting);
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "id_det_jug";
+            this.Column6.HeaderText = "id_det_jug";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "id_loteria";
+            this.Column17.HeaderText = "id_loteria";
+            this.Column17.Name = "Column17";
+            this.Column17.Visible = false;
+            // 
+            // Column18
+            // 
+            this.Column18.DataPropertyName = "id_sorteo";
+            this.Column18.HeaderText = "id_sorteo";
+            this.Column18.Name = "Column18";
+            this.Column18.Visible = false;
+            // 
+            // Column19
+            // 
+            this.Column19.DataPropertyName = "idTipTck";
+            this.Column19.HeaderText = "idTipTck";
+            this.Column19.Name = "Column19";
+            this.Column19.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "nro_ticket";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column8.HeaderText = "Ticket";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 70;
+            // 
+            // Column20
+            // 
+            this.Column20.DataPropertyName = "nombTipTck";
+            this.Column20.HeaderText = "nombTipTck";
+            this.Column20.Name = "Column20";
+            this.Column20.Width = 20;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "nomb_usuario";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Column12.HeaderText = "Usuario";
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "abrev_loteria";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn4.HeaderText = "nomb_loteria";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 40;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "nomb_sorteo";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Column5.HeaderText = "Sorteo";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 80;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "codigo_jugada";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Column2.HeaderText = "codigo_jugada";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 30;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "nomb_product";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Column3.HeaderText = "nomb_product";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 90;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "monto";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Format = "N2";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle12;
+            this.Column4.HeaderText = "Monto";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 70;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "nmb_status_ticket";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Column9.HeaderText = "Status";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 130;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "error";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle14;
+            this.Column14.HeaderText = "error";
+            this.Column14.Name = "Column14";
+            this.Column14.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "cod_result";
+            this.Column13.HeaderText = "cod_result";
+            this.Column13.Name = "Column13";
+            this.Column13.Visible = false;
             // 
             // gbInfProcRs
             // 
@@ -684,130 +808,6 @@
             // 
             this.wkProcJugAut.WorkerReportsProgress = true;
             this.wkProcJugAut.WorkerSupportsCancellation = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "id_det_jug";
-            this.Column6.HeaderText = "id_det_jug";
-            this.Column6.Name = "Column6";
-            this.Column6.Visible = false;
-            // 
-            // Column17
-            // 
-            this.Column17.DataPropertyName = "id_loteria";
-            this.Column17.HeaderText = "id_loteria";
-            this.Column17.Name = "Column17";
-            this.Column17.Visible = false;
-            // 
-            // Column18
-            // 
-            this.Column18.DataPropertyName = "id_sorteo";
-            this.Column18.HeaderText = "id_sorteo";
-            this.Column18.Name = "Column18";
-            this.Column18.Visible = false;
-            // 
-            // Column19
-            // 
-            this.Column19.DataPropertyName = "idTipTck";
-            this.Column19.HeaderText = "idTipTck";
-            this.Column19.Name = "Column19";
-            this.Column19.Visible = false;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "nro_ticket";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Column8.HeaderText = "Ticket";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 70;
-            // 
-            // Column20
-            // 
-            this.Column20.DataPropertyName = "nombTipTck";
-            this.Column20.HeaderText = "nombTipTck";
-            this.Column20.Name = "Column20";
-            this.Column20.Width = 20;
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "nomb_usuario";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Column12.HeaderText = "Usuario";
-            this.Column12.Name = "Column12";
-            this.Column12.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "abrev_loteria";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn4.HeaderText = "nomb_loteria";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 40;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "nomb_sorteo";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Column5.HeaderText = "Sorteo";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 80;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "codigo_jugada";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Column2.HeaderText = "codigo_jugada";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 30;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "nomb_product";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Column3.HeaderText = "nomb_product";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 90;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "monto";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Format = "N2";
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Column4.HeaderText = "Monto";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 70;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "nmb_status_ticket";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Column9.HeaderText = "Status";
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 130;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "error";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle14;
-            this.Column14.HeaderText = "error";
-            this.Column14.Name = "Column14";
-            this.Column14.Visible = false;
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "cod_result";
-            this.Column13.HeaderText = "cod_result";
-            this.Column13.Name = "Column13";
-            this.Column13.Visible = false;
             // 
             // frm_proc_result_loteria
             // 

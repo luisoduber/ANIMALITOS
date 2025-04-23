@@ -1352,7 +1352,7 @@ namespace ventas_loteria
 
         private void btnSal_Click(object sender, EventArgs e)
         {
-            if (idPerf == 2)
+            if (idPerf == 1)
             {
                 string msjInf = "";
                 msjInf = "¿Esta usted seguro que desea salir del sistema?";
@@ -1361,7 +1361,7 @@ namespace ventas_loteria
                     Application.Exit();
                 }
             }
-            if (idPerf == 3) { this.Close(); }
+            else { this.Close(); }
         }
 
         private void btnTrip_Click(object sender, EventArgs e)
