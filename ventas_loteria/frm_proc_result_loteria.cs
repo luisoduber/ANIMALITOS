@@ -220,12 +220,12 @@ namespace ventas_loteria
                                         {
                                             if (string.IsNullOrEmpty(rsGan))
                                             {
-                                                rsGan += rsGrup1(urlGrup1, idLotBus, idSortBus,
+                                                rsGan += rsGrup2( idLotBus, idSortBus,
                                                                  nombLotBus, horaSortBus);
                                             }
                                             else
                                             {
-                                                rsLot = rsGrup1(urlGrup1, idLotBus, idSortBus, nombLotBus, horaSortBus);
+                                                rsLot = rsGrup2( idLotBus, idSortBus, nombLotBus, horaSortBus);
                                                 if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
                                             }
                                         }
@@ -233,12 +233,12 @@ namespace ventas_loteria
                                         {
                                             if (string.IsNullOrEmpty(rsGan))
                                             {
-                                                rsGan += rsGrup2(urlGrup2, idLotBus, idSortBus,
+                                                rsGan += rsGrup2(idLotBus, idSortBus,
                                                                  nombLotBus, horaSortBus);
                                             }
                                             else
                                             {
-                                                rsLot = rsGrup2(urlGrup2, idLotBus, idSortBus,
+                                                rsLot = rsGrup2(idLotBus, idSortBus,
                                                                     nombLotBus, horaSortBus);
                                                 if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
                                             }
@@ -724,14 +724,20 @@ namespace ventas_loteria
             catch (Exception ex) {msjInf = ex.Message;}
             return result;
         }
-        public string rsGrup2(string prmUrl, string prmIdLot,
+        public string rsGrup2(string prmIdLot,
                                     string prmIdSort, string prmNombLot,
                                     string prmHoraSortBus)
         {
             string result = "";
             try
             {
-                var htmlDoc = web.Load(prmUrl);
+                string prmUrl = "";
+                prmUrl="https://loteriadehoy.com/animalito/";
+                prmUrl += prmNombLot.Replace(" ","");
+                prmUrl +="/resultados/";
+
+               // MessageBox.Show("url: "+prmUrl);
+               var htmlDoc = web.Load(prmUrl);
                 var node = htmlDoc.DocumentNode.SelectNodes("//div[@class='circle-legend']");
 
                 string rsAni = "";
@@ -748,17 +754,28 @@ namespace ventas_loteria
                     rsDatLot = h4Nod[0].InnerText.ToString().Trim();
                     rsDatLot += "/" + h5Nod[0].InnerText.ToString().Trim();
                     rsDatLot = rsDatLot.Replace(" ", "/");
+
+
+                    MessageBox.Show(rsDatLot);
                     rsDat = rsDatLot.Split('/');
+
+                    MessageBox.Show("tamano arreglo: " + rsDat.Length);
 
                     rsAni = rsDat[0].ToString();
                     nombAni = rsDat[1].ToString();
                     prmNombLotPw = rsDat[2].ToString();
                     prmNombLotPw += " " + rsDat[3].ToString();
-                    prmNombLotPw += " " + rsDat[4].ToString().Substring(0, 2);
-                    prmNombLotPw = prmNombLotPw.ToLower();
-                    prmHoraLot = rsDat[5].ToString();
 
-                    //MessageBox.Show(prmNombLot+"   "+ prmHoraSortBus  +"   " + rsAni + "   " + prmNombLotPw + "   " + prmHoraLot);
+                    if (Convert.ToInt16(prmIdLot) == 11) { prmNombLotPw += " " + rsDat[4].ToString(); }
+                    else if (Convert.ToInt16(prmIdLot) == 14) { prmNombLotPw += " " + rsDat[4].ToString().Substring(0, 2); }
+                    else if (Convert.ToInt16(prmIdLot) == 19) { prmNombLotPw += " " + rsDat[4].ToString(); }
+                    prmNombLotPw = prmNombLotPw.ToLower();
+
+                    if (rsDat.Length == 6){prmHoraLot = rsDat[4].ToString();}
+                    else if (rsDat.Length == 7) { prmHoraLot = rsDat[5].ToString(); }
+
+                    MessageBox.Show(prmNombLot + "    " + prmHoraSortBus + "   " + rsAni + "   " + prmNombLotPw + "   " + prmHoraLot);
+                    MessageBox.Show(prmNombLot + "    " + prmNombLot.Trim().Length + "   " + prmNombLotPw + "   " + prmNombLotPw.Trim().Length);
                     if ((prmNombLotPw.ToLower() == prmNombLot) && (prmHoraLot == prmHoraSortBus))
                     {
                         //VERIFICA SI HAY RESULTADO EN LA LOTERIA SI NO VIENE VACIO
@@ -769,8 +786,12 @@ namespace ventas_loteria
                             result += rsAni;
                             result += "-" + prmNombLotPw;
                             result += " " + prmHoraSortBus;
+
+                            MessageBox.Show("BREAK");
+                            break;
                         }
-                        break;
+
+                        
                     }
                 }
             }
