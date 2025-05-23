@@ -755,27 +755,25 @@ namespace ventas_loteria
                     rsDatLot += "/" + h5Nod[0].InnerText.ToString().Trim();
                     rsDatLot = rsDatLot.Replace(" ", "/");
 
-
-                    MessageBox.Show(rsDatLot);
                     rsDat = rsDatLot.Split('/');
-
-                    MessageBox.Show("tamano arreglo: " + rsDat.Length);
-
                     rsAni = rsDat[0].ToString();
                     nombAni = rsDat[1].ToString();
-                    prmNombLotPw = rsDat[2].ToString();
-                    prmNombLotPw += " " + rsDat[3].ToString();
+                    prmNombLotPw = rsDat[2].ToString().Trim();
+
+                    if (Convert.ToInt16(prmIdLot) == 10) { prmNombLotPw += rsDat[3].ToString().Trim(); }
+                    else { prmNombLotPw += " " + rsDat[3].ToString().Trim(); }
 
                     if (Convert.ToInt16(prmIdLot) == 11) { prmNombLotPw += " " + rsDat[4].ToString(); }
                     else if (Convert.ToInt16(prmIdLot) == 14) { prmNombLotPw += " " + rsDat[4].ToString().Substring(0, 2); }
                     else if (Convert.ToInt16(prmIdLot) == 19) { prmNombLotPw += " " + rsDat[4].ToString(); }
                     prmNombLotPw = prmNombLotPw.ToLower();
+                    prmNombLotPw = prmNombLotPw.Trim();
 
                     if (rsDat.Length == 6){prmHoraLot = rsDat[4].ToString();}
                     else if (rsDat.Length == 7) { prmHoraLot = rsDat[5].ToString(); }
 
-                    MessageBox.Show(prmNombLot + "    " + prmHoraSortBus + "   " + rsAni + "   " + prmNombLotPw + "   " + prmHoraLot);
-                    MessageBox.Show(prmNombLot + "    " + prmNombLot.Trim().Length + "   " + prmNombLotPw + "   " + prmNombLotPw.Trim().Length);
+                    //MessageBox.Show(prmNombLot + "    " + prmHoraSortBus + "   " + rsAni + "   " + prmNombLotPw + "   " + prmHoraLot);
+                    //MessageBox.Show(prmNombLot + "    " + prmNombLot.Trim().Length + "   " + prmNombLotPw + "   " + prmNombLotPw.Trim().Length);
                     if ((prmNombLotPw.ToLower() == prmNombLot) && (prmHoraLot == prmHoraSortBus))
                     {
                         //VERIFICA SI HAY RESULTADO EN LA LOTERIA SI NO VIENE VACIO
@@ -786,12 +784,8 @@ namespace ventas_loteria
                             result += rsAni;
                             result += "-" + prmNombLotPw;
                             result += " " + prmHoraSortBus;
-
-                            MessageBox.Show("BREAK");
                             break;
                         }
-
-                        
                     }
                 }
             }
