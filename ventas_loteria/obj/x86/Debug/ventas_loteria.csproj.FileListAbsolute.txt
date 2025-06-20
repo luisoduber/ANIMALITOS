@@ -847,3 +847,6 @@ F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.pdb
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmTrip.resources
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmTckTrip.resources
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmContLot.resources
+F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\HtmlAgilityPack.dll
+F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\HtmlAgilityPack.pdb
+F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\HtmlAgilityPack.xml
