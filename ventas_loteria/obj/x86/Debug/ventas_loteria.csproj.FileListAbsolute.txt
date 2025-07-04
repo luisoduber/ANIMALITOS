@@ -850,3 +850,4 @@ F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmContLot.reso
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\HtmlAgilityPack.dll
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\HtmlAgilityPack.pdb
 F:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\HtmlAgilityPack.xml
+F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmVentLot.resources

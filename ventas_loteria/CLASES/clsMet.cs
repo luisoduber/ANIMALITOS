@@ -3028,6 +3028,78 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
+        public DataTable listLot(int prmIdGrup)
+        {
+            DataTable dt = new DataTable("listLot");
+            MySqlDataAdapter da;
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spListLot";
+                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                        using (da = new MySqlDataAdapter(cmd)) { da.Fill(dt); }
+                    }
+                }
+            }
+            catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
+            return dt;
+        }
+
+        public string[] VerfVentLot(int prmIdGrup, int prmIdUsu, int prmIdLot,
+                                    string prmFechIni,string prmFechFin)
+        {
+            string[] rsDat = new string[6];
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spVerfVentLot";
+                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                        cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
+                        cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                        cmd.Parameters.AddWithValue("prmFechIni", prmFechIni);
+                        cmd.Parameters.AddWithValue("prmFechFin", prmFechFin);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        dr.Read();
+
+                        if (dr.HasRows) 
+                        {
+                            rsDat[0] = "1";
+                            rsDat[1] = "";
+                            rsDat[2] = dr["prmMVent"].ToString();
+                            rsDat[3] = dr["prmMPrem"].ToString();
+                            rsDat[4] = dr["prmMAn"].ToString();
+                            rsDat[5] = dr["prmMUt"].ToString();
+                        }
+                        dr.Close();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {                        
+                rsDat[0] = "0";
+                rsDat[1] = ex.Message;
+                rsDat[2] = "";
+                rsDat[3] = "";
+                rsDat[4] = "";
+                rsDat[5] = "";
+            }
+            return rsDat;
+        }
         public DataTable listLotContVent(int prmIdGrup)
         {
             DataTable dt = new DataTable("listLotContVent");

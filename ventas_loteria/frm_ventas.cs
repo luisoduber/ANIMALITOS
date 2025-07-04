@@ -1364,6 +1364,12 @@ namespace ventas_loteria
             else { this.Close(); }
         }
 
+        private void btnVerfVent_Click(object sender, EventArgs e)
+        {
+            frmVentLot objFrm = new frmVentLot();
+            objFrm.ShowDialog();
+        }
+
         private void btnTrip_Click(object sender, EventArgs e)
         {
             frmTrip objFrm = new frmTrip();

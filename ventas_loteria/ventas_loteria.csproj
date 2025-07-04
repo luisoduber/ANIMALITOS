@@ -28,7 +28,7 @@
     <InstallUrl>http://app.grupodabreu.com/animalitos/</InstallUrl>
     <ProductName>Animal Like</ProductName>
     <WebPage>prueba.html</WebPage>
-    <ApplicationRevision>182</ApplicationRevision>
+    <ApplicationRevision>183</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -261,6 +261,12 @@
     <Compile Include="frm_config_impresora.Designer.cs">
       <DependentUpon>frm_config_impresora.cs</DependentUpon>
     </Compile>
+    <Compile Include="POPUP\frmVentLot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPUP\frmVentLot.Designer.cs">
+      <DependentUpon>frmVentLot.cs</DependentUpon>
+    </Compile>
     <Compile Include="POPUP\frm_cuadre_taq_gral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -407,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ventas.resx">
       <DependentUpon>frm_ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPUP\frmVentLot.resx">
+      <DependentUpon>frmVentLot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POPUP\frm_cuadre_taq_gral.resx">
       <DependentUpon>frm_cuadre_taq_gral.cs</DependentUpon>

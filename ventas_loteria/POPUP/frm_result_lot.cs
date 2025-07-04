@@ -92,18 +92,14 @@ namespace ventas_loteria
         private void frm_result_lot_KeyPress(object sender, KeyPressEventArgs e)
         {
             char caracter;
-            int codigo;
+            int cod=0;
             caracter = Convert.ToChar(e.KeyChar);
-            codigo = (int)caracter;
-            if (codigo == 27) { this.Close(); }
+            cod = (int)caracter;
+            if (cod == 27) { this.Close(); }
         }
 
         private void cboLot_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
-
-
         }
     }
 }

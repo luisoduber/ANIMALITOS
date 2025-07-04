@@ -33,6 +33,7 @@ namespace ventas_loteria
         int codMaxProd;
         string msjProcRs = "";
         string nombLot = "";
+        string nombAn = "";
         string codRsLot = "";
         string nombSort = "";
         int idProc = 0;
@@ -149,7 +150,7 @@ namespace ventas_loteria
 
                 cboTipProc.SelectedValue = 2;
                 timer1.Enabled = true;
-                timer1.Interval = 10000;
+                timer1.Interval = 120000;
             }
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -162,7 +163,7 @@ namespace ventas_loteria
             {
                 gpReult.Text = "Loteria: ";
                 fechLot = Convert.ToDateTime(dtpFecha.Text).ToString("yyyy-MM-dd");
-                lblMsjInf.Text = "Procesando resultados...";
+                lblMsjInf.Text = "verificando...".ToUpper();
                 this.wkProcRsAut.RunWorkerAsync();
             }
         }
@@ -201,7 +202,7 @@ namespace ventas_loteria
                                 da.Fill(dtInfSort);
                                 if (dtInfSort.Rows.Count > 0)
                                 {
-                                    html=scrapPw(urlLotHoy);
+                                    //html=scrapPw(urlLotHoy);
 
                                     for (int c = 0; c <= dtInfSort.Rows.Count - 1; c++)
                                     {
@@ -222,11 +223,12 @@ namespace ventas_loteria
                                         {
                                             if (string.IsNullOrEmpty(rsGan))
                                             {
-                                                rsGan += rsGenLotHoy(html, idLotBus, idSortBus,nombLotBus, horaSortBus);
+                                                
+                                                rsGan += rsIndLotHoy (idLotBus, idSortBus,nombLotBus, horaSortBus);
                                             }
                                             else
                                             {
-                                                rsLot = rsGenLotHoy(html, idLotBus, idSortBus, nombLotBus, horaSortBus);
+                                                rsLot = rsIndLotHoy (idLotBus, idSortBus, nombLotBus, horaSortBus);
                                                 if (!string.IsNullOrEmpty(rsLot)) { rsGan += "/" + rsLot; }
                                             }
                                         }
@@ -269,7 +271,7 @@ namespace ventas_loteria
                 }
 
 
-                if (string.IsNullOrEmpty(rsGan)) { msjInf = "No se encontraron resultados..."; }
+                if (string.IsNullOrEmpty(rsGan)) { msjInf = "No se ubicaron resultados...".ToUpper(); }
                 else if (!string.IsNullOrEmpty(rsGan))
                 {
                     prmGrdRs = rsGan.Split('/');
@@ -283,7 +285,8 @@ namespace ventas_loteria
                         idLot = Convert.ToInt32(rsDetLot[0].ToString());
                         idSort = Convert.ToInt32(rsDetLot[1].ToString());
                         codRsLot = rsDetLot[2].ToString();
-                        nombLot = rsDetLot[3].ToString();
+                        nombAn = rsDetLot[3].ToString();
+                        nombLot = rsDetLot[4].ToString();
 
                         if (codRsLot.Length == 1) { if (codRsLot != "0") { codRsLot = codRsLot.PadLeft(2, '0'); } }
                         rsGrdRsLot = objMet.grdActRstLot(idLot, idSort, codRsLot, fechLot);
@@ -301,9 +304,10 @@ namespace ventas_loteria
         private void wkProcRsAut_OnProgressChanged(object sender, ProgressChangedEventArgs e)
         {
 
-            msjInf = "Resultado Nro: \"" + codRsLot + "\"";
+            msjInf = "Resultado:\"" + codRsLot + "\"";
+            msjInf += " - " + nombAn.ToUpper();
             gpReult.Text = "Loteria: " + nombLot;
-            lblMsjInf.Text = msjInf;
+            lblMsjInf.Text = msjInf.ToUpper();
 
         }
         private void wkProcRsAut_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -863,8 +867,10 @@ namespace ventas_loteria
                             string rsAni = "";
                             string nombAni = "";
                             string prmNombLotPw = "";
-                            string[] rsDat = new string[6];
-                            string rsDatLot = "";
+                            string[] rsDatAn = new string[6];
+                            string[] rsDatLot = new string[6];
+
+                            string cadAn ="", cadLot = "";
 
                             if (node == null) { msjInf = "El nodo verificado es NULL o no a sido encontrado"; Console.WriteLine(msjInf); }
                             else if (node != null)
@@ -874,27 +880,62 @@ namespace ventas_loteria
                                     var h4Nod = node1.SelectNodes("./h4");
                                     var h5Nod = node1.SelectNodes("./h5");
 
-                                    rsDatLot = h4Nod[0].InnerText.ToString().Trim();
-                                    rsDatLot += "/" + h5Nod[0].InnerText.ToString().Trim();
-                                    rsDatLot = rsDatLot.Replace(" ", "/");
+                                    cadAn = h4Nod[0].InnerText.ToString().Trim();
+                                    cadAn = cadAn.Replace(" ", "/");
 
-                                    rsDat = rsDatLot.Split('/');
-                                    rsAni = rsDat[0].ToString();
-                                    nombAni = rsDat[1].ToString();
-                                    prmNombLotPw = rsDat[2].ToString().Trim();
+                                    cadLot =  h5Nod[0].InnerText.ToString().Trim();
+                                    cadLot = cadLot.Replace(" ", "/");
 
-                                    if (Convert.ToInt16(prmIdLot) == 10) { prmNombLotPw += rsDat[3].ToString().Trim(); }
-                                    else { prmNombLotPw += " " + rsDat[3].ToString().Trim(); }
+                                    rsDatAn = cadAn.Split('/');
+                                    rsAni = rsDatAn[0].ToString();
+                                    
+                                    if (rsDatAn.Length == 2) { nombAni = rsDatAn[1].ToString(); }
+                                    else if (rsDatAn.Length == 3) { nombAni = rsDatAn[1].ToString() +" " + rsDatAn[2].ToString(); }
+                                    else if (rsDatAn.Length == 4) { nombAni = rsDatAn[1].ToString() + " " + rsDatAn[2].ToString() +" " + rsDatAn[3].ToString(); }
 
-                                    if (Convert.ToInt16(prmIdLot) == 11) { prmNombLotPw += " " + rsDat[4].ToString(); }
-                                    else if (Convert.ToInt16(prmIdLot) == 14) { prmNombLotPw += " " + rsDat[4].ToString().Substring(0, 2); }
-                                    else if (Convert.ToInt16(prmIdLot) == 19) { prmNombLotPw += " " + rsDat[4].ToString(); }
+                                    rsDatLot = cadLot.Split('/');
+   
+                                   // MessageBox.Show("h4: " + cadAn + "  ----> " + "h5: " + cadLot);
+
+                                    if (Convert.ToInt16(prmIdLot) == 10) 
+                                    { 
+                                        prmNombLotPw = rsDatLot[0].ToString();
+                                        prmNombLotPw += rsDatLot[1].ToString();
+                                        prmHoraLot = rsDatLot[2].ToString();
+                                    }
+                                    else if (Convert.ToInt16(prmIdLot) == 11) 
+                                    {
+                                        prmNombLotPw = rsDatLot[0].ToString();
+                                        prmNombLotPw += " " + rsDatLot[1].ToString();
+                                        prmNombLotPw += " " + rsDatLot[2].ToString();
+                                        prmHoraLot = rsDatLot[3].ToString();
+                                    }
+                                    else if (Convert.ToInt16(prmIdLot) == 14) 
+                                    {
+                                        prmNombLotPw = rsDatLot[0].ToString();
+                                        prmNombLotPw += " " + rsDatLot[1].ToString();
+                                        prmNombLotPw += " " + rsDatLot[2].ToString().Substring(0, 2);
+                                        prmHoraLot = rsDatLot[3].ToString();
+                                    }
+                                    else if (Convert.ToInt16(prmIdLot) == 19) 
+                                    {
+                                        prmNombLotPw = rsDatLot[0].ToString();
+                                        prmNombLotPw += " " + rsDatLot[1].ToString();
+                                        prmNombLotPw += " " + rsDatLot[2].ToString();
+                                        prmHoraLot = rsDatLot[3].ToString();
+                                    }
+                                    else
+                                    {
+                                        prmNombLotPw = rsDatLot[0].ToString();
+                                        prmNombLotPw += " " + rsDatLot[1].ToString();
+                                        prmHoraLot = rsDatLot[2].ToString();
+                                    }
                                     prmNombLotPw = prmNombLotPw.ToLower();
                                     prmNombLotPw = prmNombLotPw.Trim();
 
-                                    if (rsDat.Length == 6) { prmHoraLot = rsDat[4].ToString(); }
-                                    else if (rsDat.Length == 7) { prmHoraLot = rsDat[5].ToString(); }
-
+                                    //MessageBox.Show("loterias: "+prmNombLotPw+ " ----> Hora: " + prmHoraLot);
+                                    //MessageBox.Show("loterias II: " + prmNombLot);
+                                    
                                     //MessageBox.Show(prmNombLot + "    " + prmHoraSortBus + "   " + rsAni + "   " + prmNombLotPw + "   " + prmHoraLot);
                                     //MessageBox.Show(prmNombLot + "    " + prmNombLot.Trim().Length + "   " + prmNombLotPw + "   " + prmNombLotPw.Trim().Length);
                                     if ((prmNombLotPw.ToLower() == prmNombLot) && (prmHoraLot == prmHoraSortBus))
@@ -904,9 +945,10 @@ namespace ventas_loteria
                                         {
                                             result += prmIdLot + "-";
                                             result += prmIdSort + "-";
-                                            result += rsAni;
-                                            result += "-" + prmNombLotPw;
-                                            result += " " + prmHoraSortBus;
+                                            result += rsAni +"-";
+                                            result += nombAni + "-";
+                                            result += prmNombLotPw + " ";
+                                            result += prmHoraSortBus;
                                             break;
                                         }
                                     }
@@ -1076,6 +1118,11 @@ namespace ventas_loteria
             }
         }
 
+        private void lblMsjInf_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public string result_grupo2(string prmUrl, string prmIdLotBus,
                                     string prmIdSorBus, string prmHoraSortBus,
                                     string prmNombLot)
@@ -1125,6 +1172,22 @@ namespace ventas_loteria
                 contHS++;
             }
             return result;
+        }
+        private void btnVentLot_Click(object sender, EventArgs e)
+        {
+            if (this.wkProcRsAut.IsBusy)
+            {
+                msjInf = "Se esta ejecutando el procedimiento asincrono";
+                msjInf += " para procesar los resultados, por ";
+                msjInf += " favor espere.";
+                MessageBox.Show(msjInf, "¡ Espere !");
+            }
+            else
+            {
+                frmVentLot objFrm = new frmVentLot();
+                objFrm.ShowDialog();
+            }
+           
         }
     }
 }
