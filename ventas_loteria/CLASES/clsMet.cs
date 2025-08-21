@@ -2305,7 +2305,7 @@ namespace ventas_loteria
                         cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
                         cmd.Parameters.AddWithValue("prmCodProd", prmCodProd);
                         cmd.Parameters.AddWithValue("prmIdStat", prmIdStat);
-                        rsDat = cmd.ExecuteNonQuery() == 0 ? "true" : "false";
+                        rsDat = cmd.ExecuteNonQuery() > 0 ? "true" : "false";
                     }
                 }
             }

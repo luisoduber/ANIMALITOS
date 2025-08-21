@@ -943,3 +943,4 @@ D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.application
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_l.94258B2D.Up2Date
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.config
