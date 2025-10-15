@@ -63,7 +63,7 @@ namespace ventas_loteria
 
             if (Convert.ToInt32(clsMet.idPerf) == 1)
             {
-                procesarResultadosToolStripMenuItem.Visible = false;
+                procResultadosToolStripMenuItem.Visible = false;
                 cuadreGruposToolStripMenuItem.Visible = false;
                 cuadreTaquillasToolStripMenuItem.Visible = false;
                 crearGruposUsuariosToolStripMenuItem.Visible = false;
@@ -84,7 +84,7 @@ namespace ventas_loteria
             else if (Convert.ToInt32(clsMet.idPerf) == 2)
             {
                 ventasToolStripMenuItem.Visible = true;
-                procesarResultadosToolStripMenuItem.Visible = true;
+                procResultadosToolStripMenuItem.Visible = true;
                 crearGruposUsuariosToolStripMenuItem.Visible = false;
                 cuadreGruposToolStripMenuItem.Visible = false;
 
@@ -162,7 +162,7 @@ namespace ventas_loteria
             frm.Show();
         }
 
-        private void procesarResultadosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void procResultadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm = this.MdiChildren.FirstOrDefault(x => x is frmContVent);
             if (frm != null)

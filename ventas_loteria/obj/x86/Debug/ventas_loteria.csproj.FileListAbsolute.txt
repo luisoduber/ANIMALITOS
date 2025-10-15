@@ -1036,3 +1036,6 @@ E:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.application
 E:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_l.94258B2D.Up2Date
 E:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
 E:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
+E:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\DevComponents.DotNetBar.Schedule.dll
+E:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
+E:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\DevComponents.DotNetBar.Schedule.xml

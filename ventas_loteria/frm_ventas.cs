@@ -629,7 +629,7 @@ namespace ventas_loteria
 
             else if (prmIdStatTick == 1)
             {
-                MessageBox.Show("Ticket pendiente por procesar.", "Verifique.");
+                MessageBox.Show("Ticket pendiente por proc.", "Verifique.");
                 txtNroSerial.Focus();
                 validar = false;
             }

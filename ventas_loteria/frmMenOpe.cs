@@ -115,11 +115,9 @@ namespace ventas_loteria
 
         private void btnCuadGrup_Click(object sender, EventArgs e)
         {
-            if (idPerf == 3)
-            {
-                frm_cuadre_taq_gral frm = new frm_cuadre_taq_gral();
-                frm.ShowDialog();
-            }
+
+            frm_cuadre_taq_gral frm = new frm_cuadre_taq_gral();
+            frm.ShowDialog();
         }
 
         private void btnBloqLot_Click(object sender, EventArgs e)

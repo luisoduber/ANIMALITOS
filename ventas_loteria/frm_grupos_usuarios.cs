@@ -179,7 +179,7 @@ namespace ventas_loteria
             }
             else if (txtNroRif.Text.Length < 9)
             {
-                MessageBox.Show("La cantidad de digitos del RIF son 9.", "Verifique.");
+                MessageBox.Show("La cantidad de digs del RIF son 9.", "Verifique.");
                 txtNroRif.Focus();
                 validar = false;
             }
@@ -191,7 +191,7 @@ namespace ventas_loteria
             }
             else if (txtNroTlf.Text.Length < 7)
             {
-                MessageBox.Show("La cantidad de digitos del Nro. Telefono son 7.", "Verifique.");
+                MessageBox.Show("La cantidad de digs del Nro. Telefono son 7.", "Verifique.");
                 txtNroTlf.Focus();
                 validar = false;
             }
@@ -369,7 +369,7 @@ namespace ventas_loteria
 
                 else if (txtClave.Text.Length < 8)
                 {
-                    MessageBox.Show("La Clave debe ser igual o mayor a 8 digitos.", "Verifique.");
+                    MessageBox.Show("La Clave debe ser igual o mayor a 8 digs.", "Verifique.");
                     txtClave.Focus();
                     validar = false;
                 }
@@ -390,7 +390,7 @@ namespace ventas_loteria
 
             else if (txtMac.Text.Length != 12)
             {
-                MessageBox.Show("La dirección MAC debe contener 12 digitos.", "Verifique.");
+                MessageBox.Show("La dirección MAC debe contener 12 digs.", "Verifique.");
                 txtMac.Focus();
                 validar = false;
             }

@@ -40,7 +40,7 @@ namespace ventas_loteria
 
             else if (txtClavAct.Text.Length < 8)
             {
-                MessageBox.Show("Clave actual no debe ser menor de 8 digitos.", "Verifique.");
+                MessageBox.Show("Clave actual no debe ser menor de 8 digs.", "Verifique.");
                 txtClavAct.Focus();
                 validar = false;
             }
@@ -54,7 +54,7 @@ namespace ventas_loteria
 
             else if (txtClavNew.Text.Length < 8)
             {
-                MessageBox.Show("Clave nueva no debe ser menor de 8 digitos.", "Verifique.");
+                MessageBox.Show("Clave nueva no debe ser menor de 8 digs.", "Verifique.");
                 txtClavNew.Focus();
                 validar = false;
             }
@@ -68,7 +68,7 @@ namespace ventas_loteria
 
             else if (txtRepClav.Text.Length < 8)
             {
-                MessageBox.Show("Repetir clave nueva no debe ser menor de 8 digitos.", "Verifique.");
+                MessageBox.Show("Repetir clave nueva no debe ser menor de 8 digs.", "Verifique.");
                 txtRepClav.Focus();
                 validar = false;
             }

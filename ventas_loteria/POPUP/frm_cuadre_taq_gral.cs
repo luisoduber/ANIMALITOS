@@ -51,11 +51,26 @@ namespace ventas_loteria
                 dtCboGrup = objMet.busGrupTod();
                 idProc = 1;
                 work_inicia_frm.CancelAsync();
-                idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0].ToString());
-                dtDgvCuad = objMet.busVentGrupTod
-                (idGrup,
-                Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
-                Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
+
+                if (Convert.ToInt16(clsMet.idPerf) == 2) 
+                { 
+                    idGrup = Convert.ToInt16(clsMet.idGrup);
+                    dtDgvCuad = objMet.busVentGrup
+                    (idGrup,
+                    Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
+                    Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
+                }
+                else if (Convert.ToInt16(clsMet.idPerf) == 3) 
+                { 
+                    idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0].ToString());
+                    dtDgvCuad = objMet.busVentGrupTod
+                    (idGrup,
+                    Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
+                    Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
+                }
+              
+
+               
             }
             catch (Exception ex)
             {
@@ -76,6 +91,10 @@ namespace ventas_loteria
                 this.cboGrup.ValueMember = "id_grupo";
                 this.cboGrup.DataSource = dtCboGrup;
                 this.dgvCuadGrup.DataSource = dtDgvCuad;
+                cboGrup.SelectedValue = idGrup;
+
+                if (Convert.ToInt16(clsMet.idPerf) == 2) { cboGrup.Enabled = false; }
+                else if (Convert.ToInt16(clsMet.idPerf) == 3) { cboGrup.Enabled = true; }
             }
             else if (idProc == 0)
             {
@@ -111,6 +130,32 @@ namespace ventas_loteria
             caracter = Convert.ToChar(e.KeyChar);
             codigo = (int)caracter;
             if (codigo == 27) { this.Close(); }
+        }
+
+        private void dtpFechFin_ValueChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt16(clsMet.idPerf) == 2)
+            {
+                DateTime fechIni = dtpFechIni.Value.Date;
+                DateTime fechFin = dtpFechFin.Value.Date;
+                int cantDif = fechIni.CompareTo(fechFin);
+
+                if (cantDif > 0)
+                {
+                    MessageBox.Show("Fecha de relación diaria no debe ser mayor a fecha final...", "Verifique.");
+                    return;
+                }
+
+                dtDgvCuad = objMet.busVentGrup
+                   (idGrup,
+                   Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
+                   Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
+
+                dgvCuadGrup.DataSource = dtDgvCuad;
+
+
+            }
+
         }
     }
 }

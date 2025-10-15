@@ -566,7 +566,7 @@ namespace ventas_loteria
             }
             catch (Exception ex)
             {
-                try {  myTrans.Rollback(); }
+                try { MessageBox.Show(ex.Message);  myTrans.Rollback(); }
                 catch (MySqlException error)
                 {
                     if (myTrans.Connection != null)

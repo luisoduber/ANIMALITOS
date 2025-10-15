@@ -111,7 +111,7 @@ namespace ventas_loteria
             string cadena_descifrada = UTF8Encoding.UTF8.GetString(resultado); // Obtenemos la cadena
             return cadena_descifrada; // Devolvemos la cadena
         }
-        public static string procesar_rif(string prm_rif)
+        public static string proc_rif(string prm_rif)
         {
             int cant_dig_rif = prm_rif.Length;
             string letra_rif = prm_rif.Substring(0, 1);

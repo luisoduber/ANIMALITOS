@@ -32,7 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.operacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.procesarResultadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.procResultadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuadreGruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuadreTaquillasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anularTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +64,7 @@
             // 
             this.operacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ventasToolStripMenuItem,
-            this.procesarResultadosToolStripMenuItem,
+            this.procResultadosToolStripMenuItem,
             this.cuadreGruposToolStripMenuItem,
             this.cuadreTaquillasToolStripMenuItem,
             this.anularTicketToolStripMenuItem,
@@ -81,12 +81,12 @@
             this.ventasToolStripMenuItem.Text = "Ventas";
             this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
             // 
-            // procesarResultadosToolStripMenuItem
+            // procResultadosToolStripMenuItem
             // 
-            this.procesarResultadosToolStripMenuItem.Name = "procesarResultadosToolStripMenuItem";
-            this.procesarResultadosToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.procesarResultadosToolStripMenuItem.Text = "Procesar Resultados";
-            this.procesarResultadosToolStripMenuItem.Click += new System.EventHandler(this.procesarResultadosToolStripMenuItem_Click);
+            this.procResultadosToolStripMenuItem.Name = "procResultadosToolStripMenuItem";
+            this.procResultadosToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.procResultadosToolStripMenuItem.Text = "proc Resultados";
+            this.procResultadosToolStripMenuItem.Click += new System.EventHandler(this.procResultadosToolStripMenuItem_Click);
             // 
             // cuadreGruposToolStripMenuItem
             // 
@@ -199,7 +199,7 @@
         private System.Windows.Forms.ToolStripMenuItem crearGruposUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem operacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem procesarResultadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem procResultadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuadreTaquillasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem impresoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuadreGruposToolStripMenuItem;

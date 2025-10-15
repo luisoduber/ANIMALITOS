@@ -69,7 +69,7 @@ namespace ventas_loteria
         int rsVerfJugCer = 0;
         private void frm_proc_result_loteria_Load(object sender, EventArgs e)
         {
-            this.Text = "Procesar Resultados...".ToUpper();
+            this.Text = "proc Resultados...".ToUpper();
             this.dgvSort.AllowUserToAddRows = false;
             this.dgvSort.RowHeadersVisible = false;
 
@@ -627,7 +627,7 @@ namespace ventas_loteria
                 if (this.wkProcRsAut.IsBusy)
                 {
                     msjInf = "Se esta ejecutando el procedimiento asincrono";
-                    msjInf += " para procesar los resultados, por ";
+                    msjInf += " para proc los resultados, por ";
                     msjInf += " favor espere.";
                     MessageBox.Show(msjInf, "¡ Espere !");
                 }
@@ -1107,7 +1107,7 @@ namespace ventas_loteria
             if (this.wkProcRsAut.IsBusy)
             {
                 msjInf = "Se esta ejecutando el procedimiento asincrono";
-                msjInf += " para procesar los resultados, por ";
+                msjInf += " para proc los resultados, por ";
                 msjInf += " favor espere.";
                 MessageBox.Show(msjInf, "¡ Espere !");
             }
@@ -1178,7 +1178,7 @@ namespace ventas_loteria
             if (this.wkProcRsAut.IsBusy)
             {
                 msjInf = "Se esta ejecutando el procedimiento asincrono";
-                msjInf += " para procesar los resultados, por ";
+                msjInf += " para proc los resultados, por ";
                 msjInf += " favor espere.";
                 MessageBox.Show(msjInf, "¡ Espere !");
             }

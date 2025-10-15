@@ -93,7 +93,7 @@ namespace ventas_loteria
 
             else if (txtClave.Text.Length < 8)
             {
-                MessageBox.Show("Clave debe contener minimo 8 digitos.", "verifique.");
+                MessageBox.Show("Clave debe contener minimo 8 digs.", "verifique.");
                 txtClave.Focus();
                 valid = false;
             }
@@ -352,10 +352,10 @@ namespace ventas_loteria
         }
         private void frm_login_KeyPress(object sender, KeyPressEventArgs e)
         {
-            int digito;
-            digito = Convert.ToInt32((Keys)e.KeyChar);
+            int dig;
+            dig = Convert.ToInt32((Keys)e.KeyChar);
 
-            if (digito == 27) 
+            if (dig == 27) 
             {
                 string msjInfo = "";
                 msjInfo = "¿Esta usted seguro que desea salir del sistema?";

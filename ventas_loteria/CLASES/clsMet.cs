@@ -115,7 +115,7 @@ namespace ventas_loteria
             string cadena_descifrada = UTF8Encoding.UTF8.GetString(resultado); // Obtenemos la cadena
             return cadena_descifrada; // Devolvemos la cadena
         }
-        public static string procesar_rif(string prm_rif)
+        public static string proc_rif(string prm_rif)
         {
             int cant_dig_rif = prm_rif.Length;
             string letra_rif = prm_rif.Substring(0, 1);
@@ -3327,7 +3327,7 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
-        public string actStatLot(int prmIdBloqLot, int prmIdStat)
+        public string actStatLot(int prmIdBloqLot, int prmIdStat, string prmMont)
         {
             string rsDat = "";
             try
@@ -3343,12 +3343,151 @@ namespace ventas_loteria
                         cmd.CommandText = "spActStatLot";
                         cmd.Parameters.AddWithValue("prmIdBloqLot", prmIdBloqLot);
                         cmd.Parameters.AddWithValue("prmIdStat", prmIdStat);
+                        cmd.Parameters.AddWithValue("prmMont", prmMont);
                         rsDat = cmd.ExecuteNonQuery() > 0 ? "true" : "false";
                     }
                 }
             }
             catch (Exception ex) { rsDat = ex.Message; }
             return rsDat;
+        }
+
+        public DataTable BusStat()
+        {
+            DataTable dt = new DataTable("BusStat");
+            MySqlDataAdapter da;
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "SP_bus_status";
+                        da = new MySqlDataAdapter(cmd);
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex) { dt = null; MessageBox.Show("aaa: " + ex.Message); }
+            return dt;
+        }
+
+        public string formatMonto(string prmCad)
+        {
+            string resta = "", rsForm = "";
+            try
+            {
+                if (prmCad.Contains("-"))
+                {
+                    resta = prmCad.Substring(0, 1);
+                    prmCad = prmCad.Replace("-", "");
+                }
+
+                if (prmCad.Length == 1) { rsForm = "0,0" + prmCad; }
+                else if (prmCad.Length == 2) { rsForm = "0," + prmCad; }
+                else if ((prmCad.Length >= 3) && (prmCad.Length <= 5))
+                {
+                    rsForm = prmCad.Substring(0, prmCad.Length - 2);
+                    rsForm += "," + prmCad.Substring(prmCad.Length - 2, 2);
+                }
+                else if ((prmCad.Length == 6))
+                {
+                    rsForm = prmCad.Substring(0, 1);
+                    rsForm += "." + prmCad.Substring(1, prmCad.Length - 3);
+                    rsForm += "," + prmCad.Substring(prmCad.Length - 2, 2);
+                }
+                else if ((prmCad.Length == 7))
+                {
+                    rsForm = prmCad.Substring(0, 2);
+                    rsForm += "." + prmCad.Substring(2, prmCad.Length - 4);
+                    rsForm += "," + prmCad.Substring(prmCad.Length - 2, 2);
+                }
+                else if ((prmCad.Length == 8))
+                {
+                    rsForm = prmCad.Substring(0, 3);
+                    rsForm += "." + prmCad.Substring(3, prmCad.Length - 5);
+                    rsForm += "," + prmCad.Substring(prmCad.Length - 2, 2);
+                }
+                else if ((prmCad.Length == 9))
+                {
+                    rsForm = prmCad.Substring(0, 1);
+                    rsForm += "." + prmCad.Substring(1, 3);
+                    rsForm += "." + prmCad.Substring(4, prmCad.Length - 6);
+                    rsForm += "," + prmCad.Substring(prmCad.Length - 2, 2);
+                }
+                else if ((prmCad.Length == 10))
+                {
+                    rsForm = prmCad.Substring(0, 2);
+                    rsForm += "." + prmCad.Substring(2, 3);
+                    rsForm += "." + prmCad.Substring(5, prmCad.Length - 7);
+                    rsForm += "," + prmCad.Substring(prmCad.Length - 2, 2);
+                }
+
+                else if ((prmCad.Length == 11))
+                {
+                    rsForm = prmCad.Substring(0, 3);
+                    rsForm += "." + prmCad.Substring(3, 3);
+                    rsForm += "." + prmCad.Substring(6, 3);
+                    rsForm += "," + prmCad.Substring(prmCad.Length - 2, 2);
+                }
+
+                else if ((prmCad.Length == 12))
+                {
+                    rsForm = prmCad.Substring(0, 1);
+                    rsForm += "." + prmCad.Substring(1, 3);
+                    rsForm += "." + prmCad.Substring(4, 3);
+                    rsForm += "." + prmCad.Substring(7, 3);
+                    rsForm += "," + prmCad.Substring(prmCad.Length - 2, 2);
+                }
+
+                else if ((prmCad.Length == 13))
+                {
+                    rsForm = prmCad.Substring(0, 2);
+                    rsForm += "." + prmCad.Substring(2, 3);
+                    rsForm += "." + prmCad.Substring(5, 3);
+                    rsForm += "." + prmCad.Substring(8, 3);
+                    rsForm += "," + prmCad.Substring(prmCad.Length - 2, 2);
+                }
+
+                else if ((prmCad.Length == 14))
+                {
+                    rsForm = prmCad.Substring(0, 3);
+                    rsForm += "." + prmCad.Substring(3, 3);
+                    rsForm += "." + prmCad.Substring(6, 3);
+                    rsForm += "." + prmCad.Substring(9, 3);
+                    rsForm += "," + prmCad.Substring(prmCad.Length - 2, 2);
+                }
+
+                rsForm = resta + rsForm;
+                prmCad = resta + prmCad;
+                return rsForm;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido el siguiente error: " + ex.Message, "Verifique...");
+                return rsForm = "";
+            }
+        }
+        public string limpMonto(string prmCad)
+        {
+            try
+            {
+                prmCad = prmCad.Replace(".", "");
+                prmCad = prmCad.Replace(",", "");
+                prmCad = Convert.ToInt64(prmCad).ToString();
+
+                if (Convert.ToDouble(prmCad) == 0) { prmCad = ""; }
+                return prmCad;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido el siguiente error: " + ex.Message, "Verifique...");
+                return prmCad = "";
+            }
         }
     }
 }
