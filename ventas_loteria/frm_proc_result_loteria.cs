@@ -619,10 +619,10 @@ namespace ventas_loteria
         {
 
             char caracter;
-            int codigo;
+            int cod=0;
             caracter = Convert.ToChar(e.KeyChar);
-            codigo = (int)caracter;
-            if (codigo == 27)
+            cod = (int)caracter;
+            if (cod == 27)
             {
                 if (this.wkProcRsAut.IsBusy)
                 {

@@ -103,7 +103,7 @@ namespace ventas_loteria
             head2 = "Divisa:" + clsMet.NombDivisa.ToUpper();
             head3 = "Fecha:" + fecha + "  Hora:" + hora;
             head4 = "Ticket:" + nroTicket + "  Serial:" + nroSerial;
-            separador = "==============================";
+            separador = "=================================";
             foot1 = "Total venta:" + totVenta.ToString("N2");
             foot1 += " " + clsMet.NombDivisa.ToUpper();
             foot2 = "Valido por:" + clsMet.cantSortTrip;

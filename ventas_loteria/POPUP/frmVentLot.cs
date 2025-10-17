@@ -84,11 +84,6 @@ namespace ventas_loteria
         {
             if (idProc == 1)
             {
-                if (idPerf == 2)
-                {
-                    cboGrup.Enabled = false;
-                    cboGrup.SelectedValue = idGrup;
-                }
 
                 this.cboGrup.DisplayMember = "nombGrup";
                 this.cboGrup.ValueMember = "idGrup";
@@ -101,6 +96,12 @@ namespace ventas_loteria
                 this.cboLot.DisplayMember = "nombLot";
                 this.cboLot.ValueMember = "idLot";
                 this.cboLot.DataSource = dtCboLot;
+
+                if (idPerf == 2)
+                {
+                    cboGrup.Enabled = false;
+                    cboGrup.SelectedValue = idGrup;
+                }
             }
         }
 

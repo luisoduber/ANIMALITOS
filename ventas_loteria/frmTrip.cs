@@ -343,7 +343,7 @@ namespace ventas_loteria
             else if (Convert.ToInt32(clsMet.mMaxTrip) < Convert.ToInt32(txtMont.Text))
             {
                 msjInf = "El maximo por tripleta debe ser: ";
-                msjInf += clsMet.monto_max_jug.ToString("N2");
+                msjInf += clsMet.mMaxTrip.ToString("N2");
                 MessageBox.Show(msjInf, "Verifique.");
                 txtMont.Focus();
                 valid = false;

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DevComponents.DotNetBar.Controls;
+using MySql.Data.MySqlClient;
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -181,8 +182,8 @@ namespace ventas_loteria
         }
         private void work_proc_sorteos_DoWork(object sender, DoWorkEventArgs e)
         {
-            delProcSort delegado = new delProcSort(procSort);
-            delProcJug delJug = new delProcJug(procJug);
+            //delProcSort delegado = new delProcSort(procSort);
+            //delProcJug delJug = new delProcJug(procJug);
             int i = 0; string fechaActual = "";
 
             try
@@ -206,12 +207,15 @@ namespace ventas_loteria
 
                         if (rsVerfSort >= 0)
                         {
-                            object[] parametros = new object[] { idSort };
-                            this.Invoke(delegado, parametros);
+                            //object[] parametros = new object[] { idSort };
+                            //this.Invoke(delegado, parametros);
+
+                            //MessageBox.Show("idSort: " + idSort);
                             //work_proc_sorteos.ReportProgress(idSort);
+
+                            this.Invoke(new Action(() => { dgvSort.Rows.RemoveAt(i); }));
                         }
                         else { i++; }
-                        // work_proc_sorteos.ReportProgress(i);
                     }
                 }
                 idLot = 0; idSort = 0;
@@ -241,8 +245,10 @@ namespace ventas_loteria
 
                         if (rsVerfJug >= 0)
                         {
-                            object[] prmJug = new object[] { idSort };
-                            this.Invoke(delJug, prmJug);
+                            // object[] prmJug = new object[] { idSort };
+                            //this.Invoke(delJug, prmJug);
+
+                            this.Invoke(new Action(() => { dgvJug.Rows.RemoveAt(c); }));
                             validBorraJug = true;
                         }
                         else { c++; }
@@ -261,7 +267,8 @@ namespace ventas_loteria
         }
         private void work_proc_sorteos_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-
+            
+           
         }
         private void work_proc_sorteos_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -1352,16 +1359,35 @@ namespace ventas_loteria
 
         private void btnSal_Click(object sender, EventArgs e)
         {
+            string msjInf = "";
             if (idPerf == 1)
             {
-                string msjInf = "";
                 msjInf = "¿Esta usted seguro que desea salir del sistema?";
                 if (MessageBox.Show(msjInf, "Verifique.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    Application.Exit();
+
+                    if (this.work_proc_sorteos.IsBusy)
+                    {
+                        msjInf = "Se esta ejecutando el procedimiento asincrono";
+                        msjInf += " para proc los sorteos, por ";
+                        msjInf += " favor espere.";
+                        MessageBox.Show(msjInf, "¡ Espere !");
+                    }
+                    else { Application.Exit(); }
                 }
             }
-            else { this.Close(); }
+            else 
+            {
+                if (this.work_proc_sorteos.IsBusy)
+                {
+                    msjInf = "Se esta ejecutando el procedimiento asincrono";
+                    msjInf += " para proc los sorteos, por ";
+                    msjInf += " favor espere.";
+                    MessageBox.Show(msjInf, "¡ Espere !");
+                }
+                else { this.Close(); }
+               
+            }
         }
 
         private void btnVerfVent_Click(object sender, EventArgs e)

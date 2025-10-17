@@ -64,8 +64,11 @@ namespace ventas_loteria
 
         private void btnGrupUsu_Click(object sender, EventArgs e)
         {
-            frm_grupos_usuarios frm = new frm_grupos_usuarios();
-            frm.ShowDialog();
+            if (Convert.ToInt16(clsMet.idPerf) == 3)
+            {
+                frm_grupos_usuarios frm = new frm_grupos_usuarios();
+                frm.ShowDialog();
+            }
         }
 
         private void btnContVent_Click(object sender, EventArgs e)

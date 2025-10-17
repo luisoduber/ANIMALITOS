@@ -42,9 +42,10 @@
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel1.Controls.Add(this.pictureBox1);
             this.groupPanel1.Controls.Add(this.label1);
+            this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel1.DrawTitleBox = false;
             this.groupPanel1.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.groupPanel1.Location = new System.Drawing.Point(8, 0);
+            this.groupPanel1.Location = new System.Drawing.Point(8, -4);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(244, 94);
             // 
@@ -110,7 +111,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(257, 99);
+            this.ClientSize = new System.Drawing.Size(257, 95);
             this.ControlBox = false;
             this.Controls.Add(this.groupPanel1);
             this.Name = "frmTckTrip";
