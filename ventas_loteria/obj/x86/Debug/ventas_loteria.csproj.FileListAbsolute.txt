@@ -1039,3 +1039,4 @@ E:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
 E:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\DevComponents.DotNetBar.Schedule.dll
 E:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\DevComponents.DotNetBar2.dll
 E:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\DevComponents.DotNetBar.Schedule.xml
+D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\DevComponents.DotNetBar.Schedule.xml

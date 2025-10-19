@@ -381,7 +381,6 @@ namespace ventas_loteria
                 pbInfProcRs.Value = 0;
             }
 
-            Console.WriteLine("pru: " + e.ProgressPercentage);
             dgvJug.CurrentCell = dgvJug.Rows[e.ProgressPercentage].Cells[4];
             dgvJug.FirstDisplayedScrollingRowIndex = e.ProgressPercentage;
             this.pbInfProcRs.Value = e.ProgressPercentage;
@@ -450,7 +449,7 @@ namespace ventas_loteria
                 msjErr = "Ha ocurrido un Error En la Linea: " + dgvJug.RowCount + "---" + ex.Message;
                 idProc = 0;
             }
-            finally { e.Cancel = true; wkProcRsMan.CancelAsync(); }
+            finally { wkProcRsMan.CancelAsync(); e.Cancel = wkProcRsMan.CancellationPending; }
         }
         private void wkProcRsMan_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -769,7 +768,6 @@ namespace ventas_loteria
                 if (node == null) { msjInf = "El nodo verificado es NULL o no a sido encontrado"; Console.WriteLine(msjInf); }
                 else if (node != null)
 
-
                     //var node = htmlDoc.DocumentNode.SelectNodes("//div[contains(@class, 'col-xs-6 col-sm-3')]");
 
                     if (node2 == null) { result = "El nodo verificado es NULL o no a sido encontrado"; Console.WriteLine(result); MessageBox.Show("nada node 2"); }
@@ -783,8 +781,6 @@ namespace ventas_loteria
                     prmNombLotPw = prmNombLotPw.Trim();
 
                     if (prmNombLotPw == prmNombLot) { MessageBox.Show("h3Nod --> " + h3Nod[0].InnerText.ToString() + "--> Loteria --> " + prmNombLot +" --> break"); break; }
-                   
-
                 }
                 {
                     foreach (var node1 in node)
@@ -1121,6 +1117,13 @@ namespace ventas_loteria
         private void lblMsjInf_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frm_proc_result_loteria_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (timer1 != null) { timer1.Stop(); timer1.Dispose(); timer1 = null; }
+            if (wkProcRsAut != null && wkProcRsAut.IsBusy) { wkProcRsAut.CancelAsync(); }
+            if (wkProcJugAut != null && wkProcJugAut.IsBusy) { wkProcJugAut.CancelAsync(); }
         }
 
         public string result_grupo2(string prmUrl, string prmIdLotBus,

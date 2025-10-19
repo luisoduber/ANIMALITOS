@@ -1,6 +1,7 @@
 ﻿using DevComponents.DotNetBar.Controls;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Security.Cryptography;
@@ -43,6 +44,9 @@ namespace ventas_loteria
         string fechaHora = "", FechaAct = "";
         string[] rsDat = null;
         string HoraAct = "";
+
+        List<int> ListSortDel = new List<int>();
+        List<int> ListJudDel = new List<int>();
         private void frm_ventas_Load(object sender, EventArgs e)
         {
             this.Text = "Ventas Taquilla.";
@@ -67,6 +71,7 @@ namespace ventas_loteria
             dtDgvJug.Columns.Add("id_loteria", typeof(string));
             dtDgvJug.Columns.Add("id_sorteo", typeof(string));
             dtDgvJug.Columns.Add("nomb_loteria", typeof(string));
+
 
             idGrup = Convert.ToInt32(clsMet.idGrup);
             idUsu = Convert.ToInt32(clsMet.idUsu);
@@ -141,32 +146,7 @@ namespace ventas_loteria
                 busCuadCaj();
             }
         }
-        delegate void delProcSort(int prmIdSort);
-        private void procSort(int prmIdSort)
-        {
-            int i = 0, idSort = 0;
-            while (i < dgvSort.RowCount)
-            {
-                idSort = Convert.ToInt32(dgvSort.Rows[i].Cells[2].Value.ToString());
-                if (idSort == prmIdSort) { dgvSort.Rows.RemoveAt(i); }
-                else { i++; }
-            }
-        }
-        delegate void delProcJug(int prmIdSort);
-        private void procJug(int prmIdSort)
-        {
-            int i = 0, idSort = 0;
-            while (i < dgvJug.RowCount)
-            {
-                idSort = Convert.ToInt32(dgvJug.Rows[i].Cells[6].Value.ToString());
-                if (idSort == prmIdSort)
-                {
-                    //MessageBox.Show("jugadas: " + prm_id_sorteo + "  i:" + i);
-                    dgvJug.Rows.RemoveAt(i);
-                }
-                else { i++; }
-            }
-        }
+
         private void tmpReloj_Tick(object sender, EventArgs e)
         {
             horaServ = horaServ.AddSeconds(1);
@@ -182,9 +162,8 @@ namespace ventas_loteria
         }
         private void work_proc_sorteos_DoWork(object sender, DoWorkEventArgs e)
         {
-            //delProcSort delegado = new delProcSort(procSort);
-            //delProcJug delJug = new delProcJug(procJug);
             int i = 0; string fechaActual = "";
+            if (this.IsDisposed || !this.IsHandleCreated) return;
 
             try
             {
@@ -198,24 +177,9 @@ namespace ventas_loteria
                         fechaActual += " " + dgvSort.Rows[i].Cells[5].Value.ToString();
                         horaSort = Convert.ToDateTime(fechaActual);
                         rsVerfSort = DateTime.Compare(horaServ, horaSort);
-                        /*
-                        string msjInfo = "";
-                        msjInfo = "resultado sorteo: " + rsVerfSort;
-                        msjInfo += " hora server: " + hora_server.ToString();
-                        msjInfo += " hora sorteo: " + hora_sorteo.ToString();
-                        MessageBox.Show(msjInfo);*/
 
-                        if (rsVerfSort >= 0)
-                        {
-                            //object[] parametros = new object[] { idSort };
-                            //this.Invoke(delegado, parametros);
-
-                            //MessageBox.Show("idSort: " + idSort);
-                            //work_proc_sorteos.ReportProgress(idSort);
-
-                            this.Invoke(new Action(() => { dgvSort.Rows.RemoveAt(i); }));
-                        }
-                        else { i++; }
+                        if (rsVerfSort >= 0) { ListSortDel.Add(idSort); }
+                        i++;
                     }
                 }
                 idLot = 0; idSort = 0;
@@ -237,21 +201,12 @@ namespace ventas_loteria
                         horaSortJug = Convert.ToDateTime(fechaActual);
                         rsVerfJug = DateTime.Compare(horaServ, horaSortJug);
 
-                       // string msjInfo = "";
-                        //msj_info = "resultado jugada: " + rsVerfJug;
-                       // msj_info += " hora servidor: " + hora_server.ToString();
-                        //msj_info += " hora jugada: " + hora_sorteo_jug.ToString();
-                       // MessageBox.Show(msj_info);
-
                         if (rsVerfJug >= 0)
                         {
-                            // object[] prmJug = new object[] { idSort };
-                            //this.Invoke(delJug, prmJug);
-
-                            this.Invoke(new Action(() => { dgvJug.Rows.RemoveAt(c); }));
+                            ListJudDel.Add(idSort);
                             validBorraJug = true;
                         }
-                        else { c++; }
+                        c++;
                     }
                 }
                 idLot = 0; idSort = 0;
@@ -261,8 +216,12 @@ namespace ventas_loteria
             catch (Exception ex) { id_proceso = 0; MessageBox.Show("Ha Ocurrido el siguiente error 2: " + ex.Message, "Verifique 5."); }
             finally
             {
-                work_proc_sorteos.CancelAsync();
-                e.Cancel = work_proc_sorteos.CancellationPending;
+                if (work_proc_sorteos != null && work_proc_sorteos.IsBusy)
+                {
+                    work_proc_sorteos.CancelAsync();
+                    e.Cancel = work_proc_sorteos.CancellationPending;
+                    MessageBox.Show("work_proc_sorteos.CancellationPending " + work_proc_sorteos.CancellationPending);
+                }
             }
         }
         private void work_proc_sorteos_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -272,6 +231,41 @@ namespace ventas_loteria
         }
         private void work_proc_sorteos_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            if (this.IsDisposed) return;
+            if (dgvJug.RowCount > 0)
+            {
+                if (ListSortDel.Count > 0)
+                {
+                    int i = 0, idSort = 0, idSortDel = 0;
+                    while (i < dgvSort.RowCount)
+                    {
+                        idSort = Convert.ToInt32(dgvSort.Rows[i].Cells[2].Value.ToString());
+                        idSortDel = ListSortDel[i];
+                        if (idSort == idSortDel) { { dgvSort.Rows.RemoveAt(i); } }
+                        else { i++; }
+
+                    }
+                    ListSortDel.Clear();
+                }
+            }
+
+            if (dgvJug.RowCount > 0)
+            {
+                if (ListJudDel.Count > 0)
+                {
+                    int c = 0, idSort = 0, idSortDel = 0;
+                    while (c < dgvJug.RowCount)
+                    {
+                        ListJudDel.Add(idSort);
+                        idSort = Convert.ToInt32(dgvJug.Rows[c].Cells[6].Value.ToString());
+                        idSortDel = ListJudDel[c];
+                        if (idSort == idSortDel) { { dgvJug.Rows.RemoveAt(c); } }
+                        else { c++; }
+                    }
+                    ListJudDel.Clear();
+                }
+            }
+
             if (id_proceso == 0) { refresc(); }
             if (validBorraJug == true) { busMontTotJug(); } //SI ELIMINA JUGADA DE SORTEO CERRADO ACTUALIZA EL MONTO DEL TICKET
         }
@@ -1394,6 +1388,13 @@ namespace ventas_loteria
         {
             frmVentLot objFrm = new frmVentLot();
             objFrm.ShowDialog();
+        }
+
+        private void frm_ventas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (tmpReloj != null) { tmpReloj.Stop(); tmpReloj.Dispose(); tmpReloj = null; }
+            if (tmpProceso != null) { tmpProceso.Stop(); tmpProceso.Dispose(); tmpProceso = null; }
+            if (work_proc_sorteos != null && work_proc_sorteos.IsBusy){ work_proc_sorteos.CancelAsync(); }
         }
 
         private void btnTrip_Click(object sender, EventArgs e)
