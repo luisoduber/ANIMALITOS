@@ -129,6 +129,8 @@ namespace ventas_loteria
                 if (proc == true) { rsFormat = objMet.formatMonto(cMont); }
                 txtMont.Text = rsFormat;
                 txtMont.SelectionStart = txtMont.Text.Length;
+                txtMont.SelectionLength = 0;
+
             }
             catch (Exception ex) { MessageBox.Show("Ha ocurrido el siguiente error:" + ex.Message, "Verifique..."); }
 
@@ -205,6 +207,8 @@ namespace ventas_loteria
                 cboStat.SelectedValue = idStat;
                 txtMont.Text = Convert.ToDouble(monto).ToString("N2");
                 txtMont.Focus();
+                txtMont.SelectionStart = txtMont.Text.Length;
+                txtMont.SelectionLength = 0;
             }
         }
     }

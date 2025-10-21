@@ -637,7 +637,7 @@ namespace ventas_loteria
 
         private void dgvJug_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            rsVerfJugCer = Convert.ToInt32(this.dgvJug.Rows[e.RowIndex].Cells[9].Value.ToString());
+            rsVerfJugCer = Convert.ToInt32(this.dgvJug.Rows[e.RowIndex].Cells[13].Value.ToString());
             if (rsVerfJugCer == 1)
             {
                 dgvJug.Rows[e.RowIndex].DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
