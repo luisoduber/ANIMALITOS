@@ -15,7 +15,6 @@ namespace ventas_loteria
 
         clsMet objMet = new clsMet();
         DataTable dtDgvLot = new DataTable();
-        DataTable dtCboLot = new DataTable();
         DataTable dtDgvJug = new DataTable();
         DataTable dtNombProd = new DataTable();
 
@@ -78,7 +77,6 @@ namespace ventas_loteria
         {
             try
             {
-                dtCboLot = objMet.listLotTod(idGrup);
                 dtDgvLot = objMet.busLotTrip(idGrup);
                 dtNombProd = objMet.busNombProd();
                 rsDat = objMet.busFechHoraServ();
@@ -102,10 +100,6 @@ namespace ventas_loteria
         {
             if (idProc == 1)
             {
-                this.cboLot.DisplayMember = "nombLot";
-                this.cboLot.ValueMember = "idLot";
-                this.cboLot.DataSource = dtCboLot;
-
                 clsMet.FechaActual = Convert.ToDateTime(rsDat[0].ToString()).ToString("yyyy/MM/dd");
                 FechaAct = Convert.ToDateTime(rsDat[0].ToString()).ToString("dd/MM/yyyy");
                 HoraAct = Convert.ToDateTime(rsDat[1].ToString()).ToString("hh:mm:ss");
@@ -535,7 +529,7 @@ namespace ventas_loteria
                     int dtIdlot = 0;
                     int cant = 0;
                     
-                    cadResult += "Tripleta ";
+                    cadResult += "Tripleta: ";
                     cadResult += nombLot.ToUpper() + "?";
                     cadResult += tripIni + "?";
                     cadResult += tripFin + "?";
@@ -546,6 +540,7 @@ namespace ventas_loteria
                     cadResult += "Monto jugando:";
                     cadResult += Convert.ToDouble(monto).ToString("N2");
                     cadResult += " " + clsMet.NombDivisa.ToUpper() + "?";
+                    cadResult = cadResult.ToUpper();
                     idLotAnt = Convert.ToInt32(dgvJug.Rows[d].Cells[0].Value.ToString());
                 }
 

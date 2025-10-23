@@ -36,9 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.cboLot = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.gb_loteria = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dgvLot = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -72,7 +69,6 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupPanel4.SuspendLayout();
             this.gb_loteria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLot)).BeginInit();
             this.groupPanel1.SuspendLayout();
@@ -80,79 +76,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvJug)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupPanel4
-            // 
-            this.groupPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            this.groupPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel4.Controls.Add(this.cboLot);
-            this.groupPanel4.Controls.Add(this.label3);
-            this.groupPanel4.DrawTitleBox = false;
-            this.groupPanel4.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.groupPanel4.Location = new System.Drawing.Point(8, 0);
-            this.groupPanel4.Name = "groupPanel4";
-            this.groupPanel4.Size = new System.Drawing.Size(239, 67);
-            // 
-            // 
-            // 
-            this.groupPanel4.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            this.groupPanel4.Style.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            this.groupPanel4.Style.BackColorGradientAngle = 90;
-            this.groupPanel4.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel4.Style.BorderBottomWidth = 3;
-            this.groupPanel4.Style.BorderColor = System.Drawing.Color.White;
-            this.groupPanel4.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel4.Style.BorderLeftWidth = 3;
-            this.groupPanel4.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel4.Style.BorderRightWidth = 3;
-            this.groupPanel4.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel4.Style.BorderTopWidth = 3;
-            this.groupPanel4.Style.CornerDiameter = 4;
-            this.groupPanel4.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel4.Style.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPanel4.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Far;
-            this.groupPanel4.Style.TextColor = System.Drawing.Color.Black;
-            this.groupPanel4.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Far;
-            // 
-            // 
-            // 
-            this.groupPanel4.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.groupPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel4.TabIndex = 219;
-            this.groupPanel4.Text = "Loterias";
-            // 
-            // cboLot
-            // 
-            this.cboLot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLot.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboLot.FormattingEnabled = true;
-            this.cboLot.Location = new System.Drawing.Point(12, 4);
-            this.cboLot.Margin = new System.Windows.Forms.Padding(4);
-            this.cboLot.Name = "cboLot";
-            this.cboLot.Size = new System.Drawing.Size(217, 27);
-            this.cboLot.TabIndex = 208;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.LightGray;
-            this.label3.Location = new System.Drawing.Point(27, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 21);
-            this.label3.TabIndex = 1;
-            // 
             // gb_loteria
             // 
             this.gb_loteria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
             this.gb_loteria.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.gb_loteria.Controls.Add(this.dgvLot);
+            this.gb_loteria.DisabledBackColor = System.Drawing.Color.Empty;
             this.gb_loteria.DrawTitleBox = false;
             this.gb_loteria.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_loteria.Location = new System.Drawing.Point(6, 65);
+            this.gb_loteria.Location = new System.Drawing.Point(6, -5);
             this.gb_loteria.Name = "gb_loteria";
-            this.gb_loteria.Size = new System.Drawing.Size(241, 418);
+            this.gb_loteria.Size = new System.Drawing.Size(241, 417);
             // 
             // 
             // 
@@ -285,6 +219,7 @@
             this.groupPanel1.Controls.Add(this.label2);
             this.groupPanel1.Controls.Add(this.txtMont);
             this.groupPanel1.Controls.Add(this.txtCod1);
+            this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel1.DrawTitleBox = false;
             this.groupPanel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupPanel1.Location = new System.Drawing.Point(253, 0);
@@ -406,11 +341,12 @@
             this.groupPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel2.Controls.Add(this.dgvJug);
+            this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel2.DrawTitleBox = false;
             this.groupPanel2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupPanel2.Location = new System.Drawing.Point(253, 85);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(396, 398);
+            this.groupPanel2.Size = new System.Drawing.Size(396, 327);
             // 
             // 
             // 
@@ -486,7 +422,7 @@
             this.dgvJug.Name = "dgvJug";
             this.dgvJug.RowTemplate.Height = 35;
             this.dgvJug.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvJug.Size = new System.Drawing.Size(382, 363);
+            this.dgvJug.Size = new System.Drawing.Size(382, 293);
             this.dgvJug.TabIndex = 194;
             this.dgvJug.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvJug_CellClick);
             // 
@@ -508,7 +444,6 @@
             this.Column13.DataPropertyName = "nombLot";
             this.Column13.HeaderText = "nombLot";
             this.Column13.Name = "Column13";
-            this.Column13.Visible = false;
             // 
             // Column9
             // 
@@ -614,11 +549,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(652, 489);
+            this.ClientSize = new System.Drawing.Size(652, 416);
             this.ControlBox = false;
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
-            this.Controls.Add(this.groupPanel4);
             this.Controls.Add(this.gb_loteria);
             this.KeyPreview = true;
             this.Name = "frmTrip";
@@ -627,8 +561,6 @@
             this.Activated += new System.EventHandler(this.frmTrip_Activated);
             this.Load += new System.EventHandler(this.frmTrip_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmTrip_KeyPress);
-            this.groupPanel4.ResumeLayout(false);
-            this.groupPanel4.PerformLayout();
             this.gb_loteria.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLot)).EndInit();
             this.groupPanel1.ResumeLayout(false);
@@ -640,10 +572,6 @@
         }
 
         #endregion
-
-        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel4;
-        private System.Windows.Forms.ComboBox cboLot;
-        private System.Windows.Forms.Label label3;
         private DevComponents.DotNetBar.Controls.GroupPanel gb_loteria;
         private System.Windows.Forms.DataGridView dgvLot;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;

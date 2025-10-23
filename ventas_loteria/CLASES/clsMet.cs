@@ -1787,9 +1787,12 @@ namespace ventas_loteria
                                 rsDat += "\n";
                                 rsDat += nombProd;
                                 rsDat += "\n";
+                                rsDat += "Monto jugando: ";
                                 rsDat += mont;
+                                rsDat += " "+ clsMet.NombDivisa;
                                 rsDat += "\n";
-                                contDetJug = 0;
+                                rsDat = rsDat.ToUpper();
+                               contDetJug = 0;
                             }
                             contDetJug++;
 
