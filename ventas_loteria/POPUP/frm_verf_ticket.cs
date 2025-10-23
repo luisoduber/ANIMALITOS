@@ -28,7 +28,7 @@ namespace ventas_loteria
             string nombTaq="", nombStatTck="";
             string fechReg="", horaReg="";
             int idTipTck = 0;
-            long mTck = 0, mPag = 0;
+            double mTck = 0, mPag = 0;
 
             rsMostTckInf = objTck.SPMostInfTck(prmNroTck,prmNroSerial);
             rsDatMostTckDet = rsMostTckInf.Split('?');
@@ -36,8 +36,8 @@ namespace ventas_loteria
             idTipTck = Convert.ToInt32(rsDatMostTckDet[0].ToString());
             nombTaq = rsDatMostTckDet[1].ToString();
             nombStatTck = rsDatMostTckDet[2].ToString();
-            mTck = Convert.ToInt64(rsDatMostTckDet[3].ToString());
-            mPag = Convert.ToInt64(rsDatMostTckDet[4].ToString());
+            mTck = Convert.ToDouble(rsDatMostTckDet[3].ToString());
+            mPag = Convert.ToDouble(rsDatMostTckDet[4].ToString());
             fechReg = Convert.ToDateTime(rsDatMostTckDet[5]).ToString("dd/MM/yyyy");
             horaReg = Convert.ToDateTime(rsDatMostTckDet[6]).ToString("hh:mm tt").ToUpper();
 

@@ -323,6 +323,7 @@
             this.txtMont.Name = "txtMont";
             this.txtMont.Size = new System.Drawing.Size(87, 26);
             this.txtMont.TabIndex = 2;
+            this.txtMont.Text = "0,00";
             this.txtMont.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtMont.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMont_KeyPress);
             // 
@@ -444,6 +445,7 @@
             this.Column13.DataPropertyName = "nombLot";
             this.Column13.HeaderText = "nombLot";
             this.Column13.Name = "Column13";
+            this.Column13.Visible = false;
             // 
             // Column9
             // 

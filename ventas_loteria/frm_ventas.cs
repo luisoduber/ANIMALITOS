@@ -1,6 +1,7 @@
 ﻿using DevComponents.DotNetBar.Controls;
 using MySql.Data.MySqlClient;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,6 +49,11 @@ namespace ventas_loteria
 
         List<int> ListSortDel = new List<int>();
         List<int> ListJudDel = new List<int>();
+
+        int dig = 0;
+        string rsForm = "";
+        Boolean proc = false;
+        string cMont = "";
         private void frm_ventas_Load(object sender, EventArgs e)
         {
             this.Text = "Ventas Taquilla.";
@@ -181,7 +187,7 @@ namespace ventas_loteria
 
                         if (rsVerfSort >= 0) 
                         { 
-                            ListSortDel.Add(idSort);
+                            //ListSortDel.Add(idSort);
                             this.Invoke(new Action(() => { dgvSort.Rows.RemoveAt(i); }));
                         }
                         else { i++; }
@@ -305,6 +311,57 @@ namespace ventas_loteria
             if (Char.IsControl(e.KeyChar)) { e.Handled = false; }
             else { e.Handled = true; }
 
+            try
+            {
+                dig = Convert.ToInt32((Keys)e.KeyChar);
+                e.Handled = true;
+
+                if (dig == 8)
+                {
+
+                    if (string.IsNullOrEmpty(cMont)) { rsForm = "0,00"; }
+                    if (cMont.Length == 0) { rsForm = "0,00"; }
+                    else if (cMont.Length >= 1)
+                    {
+                        cMont = cMont.Substring(0, cMont.Length - 1);
+
+                        if (cMont.Length == 0) { rsForm = "0,00"; proc = false; }
+                        else if ((cMont.Length == 1) && (cMont == "-"))
+                        { rsForm = "0,00"; cMont = ""; proc = false; }
+                        else { proc = true; }
+                    }
+                }
+
+                else if (dig == 45)
+                {
+                    if (!cMont.Contains(Convert.ToChar(e.KeyChar)))
+                    {
+                        cMont = Convert.ToChar(e.KeyChar) + cMont; proc = true;
+                    }
+                }
+
+                else if ((dig >= 48) && (dig <= 57))
+                {
+                    cMont += e.KeyChar.ToString();
+
+                    if (Convert.ToDouble(cMont) == 0)
+                    {
+                        cMont = cMont.Substring(0, cMont.Length - 1);
+                        proc = false;
+                    }
+                    else { proc = true; }
+                }
+
+                /*#################################################################################################################
+                 * ###############################################################################################################*/
+
+                if (proc == true) { rsForm = objMet.formatMonto(cMont); }
+
+                txtMonto.Text = rsForm;
+                txtMonto.SelectionStart = txtMonto.Text.Length;
+            }
+            catch (Exception ex) { MessageBox.Show("Ha ocurrido el siguiente error:" + ex.Message, "Verifique..."); }
+
             char caracter;
             int codigo;
             caracter = Convert.ToChar(e.KeyChar);
@@ -343,7 +400,7 @@ namespace ventas_loteria
                         {
                             if (dgvJug.RowCount == 0)
                             {
-                                if (Convert.ToInt32(clsMet.montMaxTck) < Convert.ToInt32(txtMonto.Text))
+                                if (Convert.ToDouble(clsMet.montMaxTck) < Convert.ToDouble(txtMonto.Text))
                                 {
                                     msjInfo = "El maximo por ticket es de: ";
                                     msjInfo += clsMet.montMaxTck.ToString("N2");
@@ -366,7 +423,7 @@ namespace ventas_loteria
                                                 Convert.ToDouble(txt_monto_jug.Text) +
                                                 Convert.ToDouble(txtMonto.Text);
 
-                                    if (Convert.ToInt32(clsMet.montMaxTck) < Convert.ToInt32(mTotalJug))
+                                    if (Convert.ToDouble(clsMet.montMaxTck) < Convert.ToDouble(mTotalJug))
                                     {
                                         msjInfo = "El maximo por ticket es de: ";
                                         msjInfo += clsMet.montMaxTck.ToString("N2");
@@ -380,11 +437,11 @@ namespace ventas_loteria
                                     }
                                     else if ((c1 == txtCodigo.Text) && (v1 == idLot) && (v2 == idSort))
                                     {
-                                        mTotalJug = Convert.ToInt64(txtMonto.Text) +
+                                        mTotalJug = Convert.ToDouble(txtMonto.Text) +
                                         Convert.ToDouble(this.dgvJug.Rows[c].Cells[4].Value.ToString());
 
-                                        if (mTotalJug > Convert.ToInt64(clsMet.monto_max_jug))
-                                        { mTotalJug = Convert.ToInt64(clsMet.monto_max_jug); }
+                                        if (mTotalJug > Convert.ToDouble(clsMet.monto_max_jug))
+                                        { mTotalJug = Convert.ToDouble(clsMet.monto_max_jug); }
                                         this.dgvJug.Rows[c].Cells[4].Value = Convert.ToDouble(mTotalJug).ToString("N2");
 
                                         mTotalJug = 0;
@@ -471,15 +528,15 @@ namespace ventas_loteria
 
                 rsCuadCaj = objMet.busCuadCajDiario(Convert.ToInt32(clsMet.idUsu));
                 rsDatCuadCaj= rsCuadCaj.Split('?');
-                lblTotVenta.Text = Convert.ToInt32(rsDatCuadCaj[0]).ToString("N2");
-                lblTotPag.Text = Convert.ToInt32(rsDatCuadCaj[1]).ToString("N2");
-                lblTotAnul.Text = Convert.ToInt32(rsDatCuadCaj[2]).ToString("N2");
-                lblTotCaja.Text = Convert.ToInt32(rsDatCuadCaj[3]).ToString("N2");
+                lblTotVenta.Text = Convert.ToDouble(rsDatCuadCaj[0]).ToString("N2");
+                lblTotPag.Text = Convert.ToDouble(rsDatCuadCaj[1]).ToString("N2");
+                lblTotAnul.Text = Convert.ToDouble(rsDatCuadCaj[2]).ToString("N2");
+                lblTotCaja.Text = Convert.ToDouble(rsDatCuadCaj[3]).ToString("N2");
                 lblUltTick.Text = rsDatCuadCaj[4].ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ha ocurrido el siguiente error: " + ex.Message, "Verifique...");
+                MessageBox.Show("Ha ocurrido el siguiente error: " + ex.Message, "Verifique...5");
             }
         }
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
@@ -533,6 +590,7 @@ namespace ventas_loteria
             int i = 0;
             bool result = int.TryParse(verfNum, out i);
 
+            /*
             if (result == false)
             {
                 msjInfo = "El monto de la jugada deben ser multiplos de: ";
@@ -541,7 +599,8 @@ namespace ventas_loteria
                 txtMonto.Focus();
                 validar = false;
             }
-            else if (Convert.ToInt32(clsMet.monto_min_jug) > Convert.ToInt32(txtMonto.Text))
+            */
+            if (Convert.ToDouble(clsMet.monto_min_jug) > Convert.ToDouble(txtMonto.Text))
             {
                 msjInfo = "El monto  minimo de la jugada debe ser: ";
                 msjInfo += clsMet.monto_min_jug.ToString("N2");
@@ -549,7 +608,7 @@ namespace ventas_loteria
                 txtMonto.Focus();
                 validar = false;
             }
-            else if (Convert.ToInt32(clsMet.monto_max_jug) < Convert.ToInt32(txtMonto.Text))
+            else if (Convert.ToDouble(clsMet.monto_max_jug) < Convert.ToDouble(txtMonto.Text))
             {
                 msjInfo = "El maximo por jugada debe ser: ";
                 msjInfo += clsMet.monto_max_jug.ToString("N2");
@@ -897,12 +956,12 @@ namespace ventas_loteria
                         cmdDetTck.Parameters.AddWithValue("prmIdLot", idLot);
                         cmdDetTck.Parameters.AddWithValue("prmIdSort", idSort);
                         cmdDetTck.Parameters.AddWithValue("prmCodJug", codJug);
-                        cmdDetTck.Parameters.AddWithValue("prmMonto", Convert.ToString(mJug).Replace(",", "."));
+                        cmdDetTck.Parameters.AddWithValue("prmMonto", Convert.ToString(mJug).Replace(".", "").Replace(",", "."));
                         MySqlDataReader drDetTck = cmdDetTck.ExecuteReader();
                         //rsDat3 = cmdDetTck.ExecuteNonQuery().ToString();
                         drDetTck.Read();
                         rsDat3 = drDetTck["prmGrd"].ToString();
-                        mJugBd = Convert.ToDouble(drDetTck["prmMonto"].ToString());
+                        mJugBd = Convert.ToDouble(drDetTck["prmMonto"].ToString().Replace(".",","));
                         drDetTck.Close();
                         cmdDetTck.Parameters.Clear();
 
@@ -1039,6 +1098,9 @@ namespace ventas_loteria
                     mTotalJug = 0;
                     txt_monto_jug.Text = "0";
                     lblMontJug.Text = "0.00";
+                    txtMonto.Text = "0.00";
+                    cMont = "";
+                    txtCodigo.Focus();
 
                     myTrans.Commit();
                     busCuadCaj();
@@ -1171,12 +1233,12 @@ namespace ventas_loteria
                             cmdDetTck.Parameters.AddWithValue("prmIdLot", idLot);
                             cmdDetTck.Parameters.AddWithValue("prmIdSort", idSort);
                             cmdDetTck.Parameters.AddWithValue("prmCodJug", codJug);
-                            cmdDetTck.Parameters.AddWithValue("prmMonto", Convert.ToString(mJug).Replace(",", "."));
+                            cmdDetTck.Parameters.AddWithValue("prmMonto", Convert.ToString(mJug).Replace(".", "").Replace(",", "."));
                             MySqlDataReader drDetTck = cmdDetTck.ExecuteReader();
                             //rsDat3 = cmdDetTck.ExecuteNonQuery().ToString();
                             drDetTck.Read();
                             rsDat3 = drDetTck["prmGrd"].ToString();
-                            mJugBd = Convert.ToDouble(drDetTck["prmMonto"].ToString());
+                            mJugBd = Convert.ToDouble(drDetTck["prmMonto"].ToString().Replace(".", ","));
                             drDetTck.Close();
                             cmdDetTck.Parameters.Clear();
 
@@ -1313,6 +1375,9 @@ namespace ventas_loteria
                         mTotalJug = 0;
                         txt_monto_jug.Text = "0";
                         lblMontJug.Text = "0.00";
+                        txtMonto.Text = "0.00";
+                        cMont = "";
+                        txtCodigo.Focus();
 
                         myTrans.Commit();
                         busCuadCaj();

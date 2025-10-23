@@ -1707,13 +1707,13 @@ namespace ventas_loteria
                         string codJug = "", nombProd = "";
                         int idLot = 0, idSort = 0;
                         int contDetJug = 0;
-                        long mJug = 0;
+                        double mJug = 0;
 
                         while (dr.Read())
                         {
                             codJug = dr["codJug"].ToString().Trim();
                             nombProd = dr["nombProd"].ToString().Trim();
-                            mJug = Convert.ToInt64(dr["monto"].ToString().Trim());
+                            mJug = Convert.ToDouble(dr["monto"].ToString().Trim());
 
                             if ((idLot != Convert.ToInt32(dr["idLot"].ToString()))
                                 || idSort != Convert.ToInt32(dr["idSort"].ToString()))
@@ -1777,7 +1777,7 @@ namespace ventas_loteria
                             if (idLot != Convert.ToInt32(dr["idLot"].ToString()))
                             {
 
-                                nombLot = dr["nombLot"].ToString();
+                                nombLot ="TRIPLETA: " + dr["nombLot"].ToString();
                                 rsDat += "------------------------------------------\n";
                                 rsDat += nombLot;
                                 rsDat += "\n";
@@ -1788,7 +1788,7 @@ namespace ventas_loteria
                                 rsDat += nombProd;
                                 rsDat += "\n";
                                 rsDat += "Monto jugando: ";
-                                rsDat += mont;
+                                rsDat += Convert.ToDouble(mont).ToString("N2");
                                 rsDat += " "+ clsMet.NombDivisa;
                                 rsDat += "\n";
                                 rsDat = rsDat.ToUpper();

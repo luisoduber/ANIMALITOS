@@ -1,6 +1,8 @@
 ﻿
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crypto.Macs;
 using System;
+using System.Linq;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
@@ -37,6 +39,10 @@ namespace ventas_loteria
         string nombProdAb1 = "", nombProdAb2 = "";
         string nombProdAb3 = "";
 
+        int dig = 0;
+        string rsForm = "";
+        Boolean proc = false;
+        string cMont = "";
         private void frmTrip_Load(object sender, EventArgs e)
         {
             this.Text = "Ventas Tripletas.";
@@ -120,6 +126,57 @@ namespace ventas_loteria
              if (Char.IsControl(e.KeyChar)) { e.Handled = false; }
             else { e.Handled = true; }
 
+            try
+            {
+                dig = Convert.ToInt32((Keys)e.KeyChar);
+                e.Handled = true;
+
+                if (dig == 8)
+                {
+
+                    if (string.IsNullOrEmpty(cMont)) { rsForm = "0,00"; }
+                    if (cMont.Length == 0) { rsForm = "0,00"; }
+                    else if (cMont.Length >= 1)
+                    {
+                        cMont = cMont.Substring(0, cMont.Length - 1);
+
+                        if (cMont.Length == 0) { rsForm = "0,00"; proc = false; }
+                        else if ((cMont.Length == 1) && (cMont == "-"))
+                        { rsForm = "0,00"; cMont = ""; proc = false; }
+                        else { proc = true; }
+                    }
+                }
+
+                else if (dig == 45)
+                {
+                    if (!cMont.Contains(Convert.ToChar(e.KeyChar)))
+                    {
+                        cMont = Convert.ToChar(e.KeyChar) + cMont; proc = true;
+                    }
+                }
+
+                else if ((dig >= 48) && (dig <= 57))
+                {
+                    cMont += e.KeyChar.ToString();
+
+                    if (Convert.ToDouble(cMont) == 0)
+                    {
+                        cMont = cMont.Substring(0, cMont.Length - 1);
+                        proc = false;
+                    }
+                    else { proc = true; }
+                }
+
+                /*#################################################################################################################
+                 * ###############################################################################################################*/
+
+                if (proc == true) { rsForm = objMet.formatMonto(cMont); }
+
+                txtMont.Text = rsForm;
+                txtMont.SelectionStart = txtMont.Text.Length;
+            }
+            catch (Exception ex) { MessageBox.Show("Ha ocurrido el siguiente error:" + ex.Message, "Verifique..."); }
+
             char caracter;
             int codigo;
             caracter = Convert.ToChar(e.KeyChar);
@@ -157,7 +214,7 @@ namespace ventas_loteria
                         {
                             if (dgvJug.RowCount == 0)
                             {
-                                if (Convert.ToInt32(clsMet.mMaxTrip) < Convert.ToInt32(txtMont.Text))
+                                if (Convert.ToDouble(clsMet.mMaxTrip) < Convert.ToDouble(txtMont.Text))
                                 {
                                     msjInf = "El maximo por tripleta es de: ";
                                     msjInf += clsMet.montMaxTck.ToString("N2");
@@ -317,7 +374,7 @@ namespace ventas_loteria
             string verfNum = rsDiv.ToString();
             int i = 0;
             bool result = int.TryParse(verfNum, out i);
-
+            /*
             if (result == false)
             {
                 msjInf = "El monto de la tripleta deben ser multiplos de: ";
@@ -325,8 +382,8 @@ namespace ventas_loteria
                 MessageBox.Show(msjInf, "Verifique.");
                 txtMont.Focus();
                 valid = false;
-            }
-            else if (Convert.ToInt32(clsMet.monto_min_jug) > Convert.ToInt32(txtMont.Text))
+            }*/
+            if (Convert.ToDouble(clsMet.monto_min_jug) > Convert.ToDouble(txtMont.Text))
             {
                 msjInf = "El monto  minimo de la tripleta debe ser: ";
                 msjInf += clsMet.monto_min_jug.ToString("N2");
@@ -334,7 +391,7 @@ namespace ventas_loteria
                 txtMont.Focus();
                 valid = false;
             }
-            else if (Convert.ToInt32(clsMet.mMaxTrip) < Convert.ToInt32(txtMont.Text))
+            else if (Convert.ToDouble(clsMet.mMaxTrip) < Convert.ToDouble(txtMont.Text))
             {
                 msjInf = "El maximo por tripleta debe ser: ";
                 msjInf += clsMet.mMaxTrip.ToString("N2");
@@ -403,7 +460,7 @@ namespace ventas_loteria
                         cmd.CommandText = "SPgrdTckTrip";
                         cmd.Parameters.AddWithValue("prmIdGrup", idGrup);
                         cmd.Parameters.AddWithValue("prmIdUsu", idUsu);
-                        cmd.Parameters.AddWithValue("prmMont", Convert.ToString(txtMJug.Text).Replace(",", "."));
+                        cmd.Parameters.AddWithValue("prmMont", Convert.ToString(txtMJug.Text).Replace(".", "").Replace(",", "."));
                         MySqlDataReader dr = cmd.ExecuteReader();
                         dr.Read();
 
@@ -479,7 +536,7 @@ namespace ventas_loteria
                             cmd2.Parameters.AddWithValue("prmNombProd2", nombProd2.ToUpper());
                             cmd2.Parameters.AddWithValue("prmCodJug3", codJug3);
                             cmd2.Parameters.AddWithValue("prmNombProd3", nombProd3.ToUpper());
-                            cmd2.Parameters.AddWithValue("prmMont", Convert.ToString(mJug).Replace(",", "."));
+                            cmd2.Parameters.AddWithValue("prmMont", Convert.ToString(mJug).Replace(".", "").Replace(",", "."));
                             MySqlDataReader dr2 = cmd2.ExecuteReader();
                             dr2.Read();
                             cmd2.Parameters.Clear();
@@ -557,6 +614,10 @@ namespace ventas_loteria
                 objRpt.nroDiaCad = clsMet.cantDiaCadTck;
                 objRpt.ShowDialog();
                 clsMet.verfAct = true;
+
+                txtMont.Text = "0,00";
+                cMont = "";
+                txtCod1.Focus();
 
             }
             catch (Exception ex)

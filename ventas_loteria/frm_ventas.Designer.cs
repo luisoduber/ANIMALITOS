@@ -391,6 +391,7 @@
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(87, 26);
             this.txtMonto.TabIndex = 2;
+            this.txtMonto.Text = "0,00";
             this.txtMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 

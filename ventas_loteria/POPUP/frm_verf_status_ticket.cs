@@ -20,8 +20,8 @@ namespace ventas_loteria
         DataTable dtDgvStatTck = new DataTable();
 
         int idStatTck = 0, cantTck = 0;
-        long mTotEnt = 0, mTotSal = 0;
-        long mTotCaja = 0;
+        double mTotEnt = 0, mTotSal = 0;
+        double mTotCaja = 0;
         int id_proceso = 0;
 
         string rsTotVent = "";
@@ -103,8 +103,8 @@ namespace ventas_loteria
 
             rsDatTotVent = rsTotVent.Split('?');
             cantTck = Convert.ToInt32(rsDatTotVent[0].ToString());
-            mTotEnt = Convert.ToInt64(rsDatTotVent[1].ToString());
-            mTotSal= Convert.ToInt64(rsDatTotVent[2].ToString());
+            mTotEnt = Convert.ToDouble(rsDatTotVent[1].ToString());
+            mTotSal= Convert.ToDouble(rsDatTotVent[2].ToString());
             mTotCaja = mTotEnt - mTotSal;
 
             lbl_status_ticket.Text = cboStatTck.Text;

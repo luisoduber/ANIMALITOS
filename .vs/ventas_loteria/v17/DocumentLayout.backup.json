@@ -1,125 +1,140 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\GITHUB\\ANIMALITOS\\",
+  "WorkspaceRootPath": "E:\\GITHUB\\ANIMALITOS\\",
   "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|d:\\github\\animalitos\\ventas_loteria\\frmtrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frmtrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\rpt\\frmtcktrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\rpt\\frmtcktrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmtrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frmtrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\rpt\\frmtcktrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\rpt\\frmtcktrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_verf_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_verf_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_verf_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_verf_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\clases\\clsmet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\clases\\clsmet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|ventas_loteria||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_proc_result_loteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|e:\\github\\animalitos\\ventas_loteria\\clases\\listuserag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\clases\\listuserag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_proc_result_loteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frm_proc_result_loteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_proc_result_loteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_proc_result_loteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frm_proc_result_loteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\clases\\clsmet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\clases\\clsmet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_verf_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_verf_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_verf_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_verf_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frm_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frm_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmcontlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frmcontlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmtrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frmtrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frm_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|e:\\github\\animalitos\\ventas_loteria\\frmtrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frmtrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmcontlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frmcontlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\rpt\\frmtcktrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\rpt\\frmtcktrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frm_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\rpt\\frmtcktrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\rpt\\frmtcktrip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_cuadre_taq_gral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_cuadre_taq_gral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|e:\\github\\animalitos\\ventas_loteria\\frm_verf_ticket_taq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frm_verf_ticket_taq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_cuadre_taq_gral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_cuadre_taq_gral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|e:\\github\\animalitos\\ventas_loteria\\popup\\frm_verf_status_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_verf_status_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_verf_status_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_verf_status_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_verf_status_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_totales_venta_taq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmcontlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frmcontlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frm_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmcontlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frmcontlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frm_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_cuadre_taq_gral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_cuadre_taq_gral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_cuadre_taq_gral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_cuadre_taq_gral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_totales_venta_taq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_totales_venta_taq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_result_lot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_result_lot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_result_lot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frmventlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frmventlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frmventlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmmenope.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmmenope.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frmmenope.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmmenope.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmmenope.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frmmenope.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frmventlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frmventlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frmventlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_grupos_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_grupos_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frm_grupos_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_cuadre_taq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\popup\\frm_cuadre_taq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\popup\\frm_cuadre_taq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_menu_operaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_menu_operaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frm_menu_operaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmcontvent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmcontvent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frmcontvent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmcontvent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmcontvent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|solutionrelative:ventas_loteria\\frmcontvent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}|ventas_loteria\\ventas_loteria.csproj|e:\\github\\animalitos\\ventas_loteria\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|cc4014f5-b18d-439c-9352-f99d984cca85"
     }
   ],
   "DocumentGroupContainers": [
@@ -129,37 +144,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 16,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "frm_proc_result_loteria.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_proc_result_loteria.cs",
-              "RelativeDocumentMoniker": "ventas_loteria\\frm_proc_result_loteria.cs",
-              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_proc_result_loteria.cs [Dise\u00F1o]",
+              "DocumentIndex": 1,
+              "Title": "ListUserAg.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\CLASES\\ListUserAg.cs",
+              "RelativeDocumentMoniker": "ventas_loteria\\CLASES\\ListUserAg.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\CLASES\\ListUserAg.cs",
+              "RelativeToolTip": "ventas_loteria\\CLASES\\ListUserAg.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAuwFsAAAB/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T19:53:31.538Z"
+              "WhenOpened": "2025-10-23T18:37:58.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "frm_proc_result_loteria.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_proc_result_loteria.cs",
-              "RelativeDocumentMoniker": "ventas_loteria\\frm_proc_result_loteria.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_proc_result_loteria.cs",
-              "RelativeToolTip": "ventas_loteria\\frm_proc_result_loteria.cs",
-              "ViewState": "AgIAAGgCAAAAAAAAAIA0wH8CAABkAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "frm_verf_ticket_taq.cs [Dise\u00F1o]",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_verf_ticket_taq.cs",
+              "RelativeDocumentMoniker": "ventas_loteria\\frm_verf_ticket_taq.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_verf_ticket_taq.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\frm_verf_ticket_taq.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T19:32:17.617Z"
+              "WhenOpened": "2025-10-23T14:34:14.666Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 14,
+              "Title": "frm_verf_status_ticket.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_status_ticket.cs",
+              "RelativeDocumentMoniker": "ventas_loteria\\POPUP\\frm_verf_status_ticket.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_status_ticket.cs",
+              "RelativeToolTip": "ventas_loteria\\POPUP\\frm_verf_status_ticket.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAIAwwGsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T14:27:52.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "frmTrip.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmTrip.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmTrip.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frmTrip.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmTrip.cs [Dise\u00F1o]",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmTrip.cs [Dise\u00F1o]",
               "RelativeToolTip": "ventas_loteria\\frmTrip.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T14:27:13.445Z",
@@ -167,24 +202,49 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "frmTrip.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmTrip.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmTrip.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frmTrip.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmTrip.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmTrip.cs",
               "RelativeToolTip": "ventas_loteria\\frmTrip.cs",
-              "ViewState": "AgIAABACAAAAAAAAAAAAwB8CAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAALgBAAAAAAAAAAAewM4BAACAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T15:29:57.357Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "frm_proc_result_loteria.cs [Dise\u00F1o]",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_proc_result_loteria.cs",
+              "RelativeDocumentMoniker": "ventas_loteria\\frm_proc_result_loteria.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_proc_result_loteria.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\frm_proc_result_loteria.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T19:53:31.538Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frm_proc_result_loteria.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_proc_result_loteria.cs",
+              "RelativeDocumentMoniker": "ventas_loteria\\frm_proc_result_loteria.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_proc_result_loteria.cs",
+              "RelativeToolTip": "ventas_loteria\\frm_proc_result_loteria.cs",
+              "ViewState": "AgIAADYDAAAAAAAAAADwv7MDAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T19:32:17.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "frmTckTrip.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\RPT\\frmTckTrip.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\RPT\\frmTckTrip.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\RPT\\frmTckTrip.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\RPT\\frmTckTrip.cs [Dise\u00F1o]",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\RPT\\frmTckTrip.cs [Dise\u00F1o]",
               "RelativeToolTip": "ventas_loteria\\RPT\\frmTckTrip.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T18:41:40.376Z",
@@ -192,24 +252,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "frmTckTrip.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\RPT\\frmTckTrip.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\RPT\\frmTckTrip.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\RPT\\frmTckTrip.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\RPT\\frmTckTrip.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\RPT\\frmTckTrip.cs",
               "RelativeToolTip": "ventas_loteria\\RPT\\frmTckTrip.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAQwCAAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T18:42:06.526Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "frm_verf_ticket.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_ticket.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_ticket.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\POPUP\\frm_verf_ticket.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_ticket.cs [Dise\u00F1o]",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_ticket.cs [Dise\u00F1o]",
               "RelativeToolTip": "ventas_loteria\\POPUP\\frm_verf_ticket.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T18:53:52.54Z",
@@ -219,35 +279,35 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "frm_verf_ticket.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_ticket.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_ticket.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\POPUP\\frm_verf_ticket.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_ticket.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_ticket.cs",
               "RelativeToolTip": "ventas_loteria\\POPUP\\frm_verf_ticket.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAgwCYAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAUwEEAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T18:53:55.058Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "clsMet.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\CLASES\\clsMet.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\CLASES\\clsMet.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\CLASES\\clsMet.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\CLASES\\clsMet.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\CLASES\\clsMet.cs",
               "RelativeToolTip": "ventas_loteria\\CLASES\\clsMet.cs",
-              "ViewState": "AgIAAOUGAAAAAAAAAAAiwAEHAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAOIGAAAAAAAAAAAUwPMGAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T14:37:59.072Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "frm_login.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_login.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_login.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frm_login.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_login.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_login.cs",
               "RelativeToolTip": "ventas_loteria\\frm_login.cs",
               "ViewState": "AgIAAEMBAAAAAAAAAAAwwEIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -255,54 +315,58 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "frm_login.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_login.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_login.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frm_login.cs",
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_login.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\frm_login.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T00:35:36.798Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "frm_totales_venta_taq.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_totales_venta_taq.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_totales_venta_taq.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\POPUP\\frm_totales_venta_taq.cs",
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_totales_venta_taq.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\POPUP\\frm_totales_venta_taq.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T18:53:50.556Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "ventas_loteria",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\ventas_loteria.csproj",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\ventas_loteria.csproj",
               "RelativeDocumentMoniker": "ventas_loteria\\ventas_loteria.csproj",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\ventas_loteria.csproj",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\ventas_loteria.csproj",
               "RelativeToolTip": "ventas_loteria\\ventas_loteria.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-10-18T14:47:59.477Z"
+              "WhenOpened": "2025-10-18T14:47:59.477Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 7,
               "Title": "frm_ventas.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_ventas.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_ventas.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frm_ventas.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_ventas.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_ventas.cs",
               "RelativeToolTip": "ventas_loteria\\frm_ventas.cs",
-              "ViewState": "AgIAACwEAAAAAAAAAIA9wDcEAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAG0EAAAAAAAAAAAmwHcEAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T18:42:07.482Z"
+              "WhenOpened": "2025-10-15T18:42:07.482Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "frmContLot.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContLot.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContLot.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frmContLot.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContLot.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContLot.cs",
               "RelativeToolTip": "ventas_loteria\\frmContLot.cs",
               "ViewState": "AgIAAI0AAAAAAAAAAAASwNAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -310,51 +374,57 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 8,
               "Title": "frm_ventas.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_ventas.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_ventas.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frm_ventas.cs",
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_ventas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\frm_ventas.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T18:25:24.074Z"
+              "WhenOpened": "2025-10-17T18:25:24.074Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 15,
               "Title": "frm_verf_status_ticket.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_status_ticket.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_status_ticket.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\POPUP\\frm_verf_status_ticket.cs",
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_verf_status_ticket.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\POPUP\\frm_verf_status_ticket.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T18:53:51.616Z"
+              "WhenOpened": "2025-10-16T18:53:51.616Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "frm_result_lot.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_result_lot.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_result_lot.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\POPUP\\frm_result_lot.cs",
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_result_lot.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\POPUP\\frm_result_lot.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T18:53:49.068Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "frm_cuadre_taq_gral.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_cuadre_taq_gral.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_cuadre_taq_gral.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\POPUP\\frm_cuadre_taq_gral.cs",
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_cuadre_taq_gral.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\POPUP\\frm_cuadre_taq_gral.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T16:45:40.167Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "frm_cuadre_taq_gral.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_cuadre_taq_gral.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_cuadre_taq_gral.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\POPUP\\frm_cuadre_taq_gral.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_cuadre_taq_gral.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_cuadre_taq_gral.cs",
               "RelativeToolTip": "ventas_loteria\\POPUP\\frm_cuadre_taq_gral.cs",
               "ViewState": "AgIAAFQAAAAAAAAAAAA5wG4AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -362,11 +432,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "frm_grupos_usuarios.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_grupos_usuarios.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_grupos_usuarios.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frm_grupos_usuarios.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_grupos_usuarios.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_grupos_usuarios.cs",
               "RelativeToolTip": "ventas_loteria\\frm_grupos_usuarios.cs",
               "ViewState": "AgIAAGMDAAAAAAAAAAAWwHgDAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -374,21 +444,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "frmContLot.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContLot.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContLot.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frmContLot.cs",
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContLot.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\frmContLot.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T17:40:14.342Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "frmMenOpe.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmMenOpe.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmMenOpe.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frmMenOpe.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmMenOpe.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmMenOpe.cs",
               "RelativeToolTip": "ventas_loteria\\frmMenOpe.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAYwEYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -396,21 +467,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "frmVentLot.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frmVentLot.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frmVentLot.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\POPUP\\frmVentLot.cs",
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frmVentLot.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\POPUP\\frmVentLot.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T15:16:38.09Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "frmVentLot.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frmVentLot.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frmVentLot.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\POPUP\\frmVentLot.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frmVentLot.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frmVentLot.cs",
               "RelativeToolTip": "ventas_loteria\\POPUP\\frmVentLot.cs",
               "ViewState": "AgIAAD4AAAAAAAAAAAAAwGIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -418,41 +490,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "frmMenOpe.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmMenOpe.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmMenOpe.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frmMenOpe.cs",
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmMenOpe.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\frmMenOpe.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T16:44:55.444Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "frm_menu_operaciones.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_menu_operaciones.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_menu_operaciones.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frm_menu_operaciones.cs",
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frm_menu_operaciones.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\frm_menu_operaciones.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T16:44:35.246Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "frm_cuadre_taq.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_cuadre_taq.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_cuadre_taq.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\POPUP\\frm_cuadre_taq.cs",
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frm_cuadre_taq.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\POPUP\\frm_cuadre_taq.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T17:39:54.187Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "frmContVent.cs",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContVent.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContVent.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frmContVent.cs",
-              "ToolTip": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContVent.cs",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContVent.cs",
               "RelativeToolTip": "ventas_loteria\\frmContVent.cs",
               "ViewState": "AgIAALoAAAAAAAAAAAAIwNEAAABiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -460,11 +535,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "frmContVent.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContVent.cs",
+              "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContVent.cs",
               "RelativeDocumentMoniker": "ventas_loteria\\frmContVent.cs",
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\frmContVent.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ventas_loteria\\frmContVent.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T14:37:45.16Z"
             }
