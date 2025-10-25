@@ -45,6 +45,11 @@ namespace ventas_loteria
         string cMont = "";
         private void frmTrip_Load(object sender, EventArgs e)
         {
+
+            if (Convert.ToInt16(clsMet.idUsu) == 34) { txtMont.Text = "0,00"; }
+            else { txtMont.Text = ""; }
+            txtCod1.Focus();
+
             this.Text = "Ventas Tripletas.";
             this.dgvLot.AllowUserToAddRows = false;
             this.dgvLot.RowHeadersVisible = false;
@@ -126,56 +131,59 @@ namespace ventas_loteria
              if (Char.IsControl(e.KeyChar)) { e.Handled = false; }
             else { e.Handled = true; }
 
-            try
+            if (Convert.ToInt16(clsMet.idUsu) == 34)
             {
-                dig = Convert.ToInt32((Keys)e.KeyChar);
-                e.Handled = true;
-
-                if (dig == 8)
+                try
                 {
+                    dig = Convert.ToInt32((Keys)e.KeyChar);
+                    e.Handled = true;
 
-                    if (string.IsNullOrEmpty(cMont)) { rsForm = "0,00"; }
-                    if (cMont.Length == 0) { rsForm = "0,00"; }
-                    else if (cMont.Length >= 1)
+                    if (dig == 8)
                     {
-                        cMont = cMont.Substring(0, cMont.Length - 1);
 
-                        if (cMont.Length == 0) { rsForm = "0,00"; proc = false; }
-                        else if ((cMont.Length == 1) && (cMont == "-"))
-                        { rsForm = "0,00"; cMont = ""; proc = false; }
+                        if (string.IsNullOrEmpty(cMont)) { rsForm = "0,00"; }
+                        if (cMont.Length == 0) { rsForm = "0,00"; }
+                        else if (cMont.Length >= 1)
+                        {
+                            cMont = cMont.Substring(0, cMont.Length - 1);
+
+                            if (cMont.Length == 0) { rsForm = "0,00"; proc = false; }
+                            else if ((cMont.Length == 1) && (cMont == "-"))
+                            { rsForm = "0,00"; cMont = ""; proc = false; }
+                            else { proc = true; }
+                        }
+                    }
+
+                    else if (dig == 45)
+                    {
+                        if (!cMont.Contains(Convert.ToChar(e.KeyChar)))
+                        {
+                            cMont = Convert.ToChar(e.KeyChar) + cMont; proc = true;
+                        }
+                    }
+
+                    else if ((dig >= 48) && (dig <= 57))
+                    {
+                        cMont += e.KeyChar.ToString();
+
+                        if (Convert.ToDouble(cMont) == 0)
+                        {
+                            cMont = cMont.Substring(0, cMont.Length - 1);
+                            proc = false;
+                        }
                         else { proc = true; }
                     }
+
+                    /*#################################################################################################################
+                     * ###############################################################################################################*/
+
+                    if (proc == true) { rsForm = objMet.formatMonto(cMont); }
+
+                    txtMont.Text = rsForm;
+                    txtMont.SelectionStart = txtMont.Text.Length;
                 }
-
-                else if (dig == 45)
-                {
-                    if (!cMont.Contains(Convert.ToChar(e.KeyChar)))
-                    {
-                        cMont = Convert.ToChar(e.KeyChar) + cMont; proc = true;
-                    }
-                }
-
-                else if ((dig >= 48) && (dig <= 57))
-                {
-                    cMont += e.KeyChar.ToString();
-
-                    if (Convert.ToDouble(cMont) == 0)
-                    {
-                        cMont = cMont.Substring(0, cMont.Length - 1);
-                        proc = false;
-                    }
-                    else { proc = true; }
-                }
-
-                /*#################################################################################################################
-                 * ###############################################################################################################*/
-
-                if (proc == true) { rsForm = objMet.formatMonto(cMont); }
-
-                txtMont.Text = rsForm;
-                txtMont.SelectionStart = txtMont.Text.Length;
+                catch (Exception ex) { MessageBox.Show("Ha ocurrido el siguiente error:" + ex.Message, "Verifique..."); }
             }
-            catch (Exception ex) { MessageBox.Show("Ha ocurrido el siguiente error:" + ex.Message, "Verifique..."); }
 
             char caracter;
             int codigo;
@@ -364,6 +372,7 @@ namespace ventas_loteria
 
             return valid;
         }
+
         public Boolean valJug()
         {
             Boolean valid = true;
@@ -615,8 +624,7 @@ namespace ventas_loteria
                 objRpt.ShowDialog();
                 clsMet.verfAct = true;
 
-                txtMont.Text = "0,00";
-                cMont = "";
+                if (Convert.ToInt16(clsMet.idUsu) == 34) { txtMont.Text = "0,00"; cMont = ""; }
                 txtCod1.Focus();
 
             }
