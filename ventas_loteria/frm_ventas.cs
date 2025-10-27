@@ -767,7 +767,6 @@ namespace ventas_loteria
                     (Convert.ToInt32(clsMet.idUsu),
                     txtNroTick.Text, txtNroSerial.Text);
 
-
                     //MessageBox.Show(rs_verf_ticket_anular);
                     if (string.IsNullOrEmpty(rsVerfTck)) rsVerfTck = "0";
 
@@ -779,7 +778,7 @@ namespace ventas_loteria
                         rsAnulaTick = objMet.verfDetTckAnu(txtNroTick.Text);
                         if (rsAnulaTick == "1")
                         {
-                            msjInf = "Ticket nro: " + txtNroTick.Text;
+                            msjInf  = "Ticket nro: " + txtNroTick.Text;
                             msjInf += " fue anulado...";
                             MessageBox.Show(msjInf, "Transacción Exitosa.");
                             busCuadCaj();

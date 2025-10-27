@@ -295,14 +295,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ventas_loteria.exe" size="503808">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ventas_loteria.exe" size="504832">
       <assemblyIdentity name="ventas_loteria" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9qN3IndCZZHvN/tHP5RLlMF2Q7Mn8GibNI174lFeLsU=</dsig:DigestValue>
+        <dsig:DigestValue>4MO1+eHzjXKUhSxlHIKUkF+9RrD2VBWKE2CiiJ997f8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

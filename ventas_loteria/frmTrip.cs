@@ -200,12 +200,13 @@ namespace ventas_loteria
                 rsValidJug = valJug();
                 if (rsValidJug == false) { return; }
 
-                Boolean valid = true;
+                Boolean valid = true; Boolean selSort = false;
                 foreach (DataGridViewRow row in dgvLot.Rows)
                 {
                     DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
                     if (Convert.ToBoolean(cell.Value) == true)
                     {
+                        selSort = true;
                         idLot = 0; nombLot = "";
                         idLot = Convert.ToInt32(row.Cells[1].Value.ToString());
                         nombLot = row.Cells[2].Value.ToString();
@@ -220,7 +221,43 @@ namespace ventas_loteria
                          )
 
                         {
-                            if (dgvJug.RowCount == 0)
+                            if (Convert.ToInt32(txtCod1.Text) == Convert.ToInt32(txtCod2.Text))
+                            {
+                                msjInf = "Codigo: \"" + txtCod1.Text + "\"";
+                                msjInf += " del campo 1 es igual al ";
+                                msjInf += "Codigo: \"" + txtCod2.Text + "\"";
+                                msjInf += " del campo 2,";
+                                msjInf += " por favor cambie la selección de";
+                                msjInf += " los animalitos.";
+                                MessageBox.Show(msjInf, "Verifique.");
+                                txtCod2.Focus();
+                                valid = false;
+                            }
+                            else if (Convert.ToInt32(txtCod1.Text) == Convert.ToInt32(txtCod3.Text))
+                            {
+                                msjInf = "Codigo: \"" + txtCod1.Text + "\"";
+                                msjInf += " del campo 1 es igual al ";
+                                msjInf += "Codigo: \"" + txtCod3.Text + "\"";
+                                msjInf += " del campo 3,";
+                                msjInf += " por favor cambie la selección de";
+                                msjInf += " los animalitos.";
+                                MessageBox.Show(msjInf, "Verifique.");
+                                txtCod3.Focus();
+                                valid = false;
+                            }
+                            else if (Convert.ToInt32(txtCod2.Text) == Convert.ToInt32(txtCod3.Text))
+                            {
+                                msjInf = "Codigo: \"" + txtCod2.Text + "\"";
+                                msjInf += " del campo 2 es igual al ";
+                                msjInf += "Codigo: \"" + txtCod3.Text + "\"";
+                                msjInf += " del campo 3,";
+                                msjInf += " por favor cambie la selección de";
+                                msjInf += " los animalitos.";
+                                MessageBox.Show(msjInf, "Verifique.");
+                                txtCod3.Focus();
+                                valid = false;
+                            }
+                            else if (dgvJug.RowCount == 0)
                             {
                                 if (Convert.ToDouble(clsMet.mMaxTrip) < Convert.ToDouble(txtMont.Text))
                                 {
@@ -263,6 +300,7 @@ namespace ventas_loteria
 
                         if (valid == true)
                         {
+                           
                             int dtIdlot = 0;
                             string dtCodJug = "", dtCNombProd = "";
                             string dtCNombProdAb = "";
@@ -320,12 +358,12 @@ namespace ventas_loteria
                             DataView dv = new DataView(dtDgvJug);
                             dv.Sort = "idLot DESC";
                             dgvJug.DataSource = dv;
-                            busMontTotJug();
+                            busMontTotJug(); 
+                            limpJug();
                         }
                     } 
                 }
-                limpJug();
-
+                if (selSort == false) { MessageBox.Show("No se a seleccionado ninguna loteria.", "¡ Verifique !"); }
             }
         }
 
