@@ -46,7 +46,7 @@ namespace ventas_loteria
         private void frmTrip_Load(object sender, EventArgs e)
         {
 
-            if (Convert.ToInt16(clsMet.idUsu) == 34) { txtMont.Text = "0,00"; }
+            if (Convert.ToInt16(clsMet.idUsu) == 36) { txtMont.Text = "0,00"; }
             else { txtMont.Text = ""; }
             txtCod1.Focus();
 
@@ -662,7 +662,7 @@ namespace ventas_loteria
                 objRpt.ShowDialog();
                 clsMet.verfAct = true;
 
-                if (Convert.ToInt16(clsMet.idUsu) == 34) { txtMont.Text = "0,00"; cMont = ""; }
+                if (Convert.ToInt16(clsMet.idUsu) == 36) { txtMont.Text = "0,00"; cMont = ""; }
                 txtCod1.Focus();
 
             }

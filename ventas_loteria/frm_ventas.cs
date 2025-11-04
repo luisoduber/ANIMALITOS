@@ -57,7 +57,7 @@ namespace ventas_loteria
         private void frm_ventas_Load(object sender, EventArgs e)
         {
 
-            if (Convert.ToInt16(clsMet.idUsu) == 34) { txtMonto.Text = "0,00"; }
+            if (Convert.ToInt16(clsMet.idUsu) == 36) { txtMonto.Text = "0,00"; }
             else { txtMonto.Text = ""; }
             txtCodigo.Focus();
 
@@ -1106,7 +1106,7 @@ namespace ventas_loteria
                     txt_monto_jug.Text = "0";
                     lblMontJug.Text = "0.00";
 
-                    if (Convert.ToInt16(clsMet.idUsu) == 34) { txtMonto.Text = "0.00"; cMont = ""; }
+                    if (Convert.ToInt16(clsMet.idUsu) == 36) { txtMonto.Text = "0.00"; cMont = ""; }
                     txtCodigo.Focus();
 
                     myTrans.Commit();
@@ -1383,7 +1383,7 @@ namespace ventas_loteria
                         txt_monto_jug.Text = "0";
                         lblMontJug.Text = "0.00";
 
-                        if (Convert.ToInt16(clsMet.idUsu) == 34) { txtMonto.Text = "0.00"; cMont = ""; }
+                        if (Convert.ToInt16(clsMet.idUsu) == 36) { txtMonto.Text = "0.00"; cMont = ""; }
                         txtCodigo.Focus();
 
                         myTrans.Commit();
