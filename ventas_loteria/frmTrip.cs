@@ -131,7 +131,7 @@ namespace ventas_loteria
              if (Char.IsControl(e.KeyChar)) { e.Handled = false; }
             else { e.Handled = true; }
 
-            if (Convert.ToInt16(clsMet.idUsu) == 34)
+            if (Convert.ToInt16(clsMet.idUsu) == 36)
             {
                 try
                 {
