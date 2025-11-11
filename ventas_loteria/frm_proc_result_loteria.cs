@@ -222,7 +222,8 @@ namespace ventas_loteria
                                             (idLotBus == "16") || (idLotBus == "19") ||
                                             (idLotBus == "20") || (idLotBus == "21") ||
                                             (idLotBus == "22") || (idLotBus == "23") || 
-                                            (idLotBus == "24") || (idLotBus == "25"))
+                                            (idLotBus == "24") || (idLotBus == "25") || 
+                                            (idLotBus == "26"))
                                         {
                                             if (string.IsNullOrEmpty(rsGan))
                                             {
@@ -836,6 +837,7 @@ namespace ventas_loteria
                     prmUrl = @"https://loteriadehoy.com/animalito/";
 
                     if (Convert.ToInt16(prmIdLot) == 22) { prmUrl += prmNombLot.Replace(" ", "-"); }
+                    else if (Convert.ToInt16(prmIdLot) == 26) { prmUrl += prmNombLot.Replace(" ", "").ToLower(); }
                     else { prmUrl += prmNombLot.Replace(" ", ""); }
                     prmUrl += "/resultados/";
                     Console.WriteLine(prmUrl);
@@ -931,6 +933,14 @@ namespace ventas_loteria
                                        
                                         prmHoraLot = rsDatLot[1].ToString();
                                     }
+                                    else if (Convert.ToInt16(prmIdLot) == 26)
+                                    {
+                                        prmNombLotPw = rsDatLot[0].ToString();
+                                        prmNombLotPw += " " + rsDatLot[1].ToString();
+                                        prmNombLotPw += " " + rsDatLot[2].ToString();
+                                        prmNombLotPw += " " + rsDatLot[3].ToString();
+                                        prmHoraLot = rsDatLot[4].ToString();
+                                    }
                                     else
                                     {
                                         prmNombLotPw = rsDatLot[0].ToString();
@@ -945,7 +955,7 @@ namespace ventas_loteria
 
                                     //MessageBox.Show(prmNombLot + "    " + prmHoraSortBus + "   " + rsAni + "   " + prmNombLotPw + "   " + prmHoraLot);
                                     //MessageBox.Show(prmNombLot + "    " + prmNombLot.Trim().Length + "   " + prmNombLotPw + "   " + prmNombLotPw.Trim().Length);
-                                    //MessageBox.Show(prmNombLotPw.ToLower()+" --> "+ prmNombLot+ " | hora --> "+prmHoraLot +" --- "+ prmHoraSortBus,"loteria ");
+                                   // MessageBox.Show(prmNombLotPw.ToLower()+" --> "+ prmNombLot+ " | hora --> "+prmHoraLot +" --- "+ prmHoraSortBus,"loteria ");
 
                                     if ((prmNombLotPw.ToLower() == prmNombLot) && (prmHoraLot == prmHoraSortBus))
                                     {
