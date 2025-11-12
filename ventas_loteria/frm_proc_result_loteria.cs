@@ -215,14 +215,14 @@ namespace ventas_loteria
                                         // LOTTO - GRANJITA - LUCKY ANIMAL - LOTTO REY - CHANCE CON ANIMALITOS - ///////////
                                         // GUACHAR ACTIVO - SELVA PLUS /////////
 
-                                        if ((idLotBus == "1")  || (idLotBus == "4")  ||
-                                            (idLotBus == "5")  || (idLotBus == "10") ||
+                                        if ((idLotBus == "1") || (idLotBus == "4") ||
+                                            (idLotBus == "5") || (idLotBus == "10") ||
                                             (idLotBus == "11") || (idLotBus == "12") ||
                                             (idLotBus == "13") || (idLotBus == "14") ||
                                             (idLotBus == "16") || (idLotBus == "19") ||
                                             (idLotBus == "20") || (idLotBus == "21") ||
-                                            (idLotBus == "22") || (idLotBus == "23") || 
-                                            (idLotBus == "24") || (idLotBus == "25") || 
+                                            (idLotBus == "22") || (idLotBus == "23") ||
+                                            (idLotBus == "24") || (idLotBus == "25") ||
                                             (idLotBus == "26"))
                                         {
                                             if (string.IsNullOrEmpty(rsGan))
