@@ -38,11 +38,12 @@
             this.groupPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel3.Controls.Add(this.rtbMostTck);
+            this.groupPanel3.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel3.DrawTitleBox = false;
             this.groupPanel3.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.groupPanel3.Location = new System.Drawing.Point(9, 0);
+            this.groupPanel3.Location = new System.Drawing.Point(8, -4);
             this.groupPanel3.Name = "groupPanel3";
-            this.groupPanel3.Size = new System.Drawing.Size(288, 488);
+            this.groupPanel3.Size = new System.Drawing.Size(317, 488);
             // 
             // 
             // 
@@ -81,7 +82,7 @@
             this.rtbMostTck.Location = new System.Drawing.Point(3, 3);
             this.rtbMostTck.Name = "rtbMostTck";
             this.rtbMostTck.ReadOnly = true;
-            this.rtbMostTck.Size = new System.Drawing.Size(276, 449);
+            this.rtbMostTck.Size = new System.Drawing.Size(300, 449);
             this.rtbMostTck.TabIndex = 0;
             this.rtbMostTck.Text = "";
             // 
@@ -90,7 +91,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(301, 494);
+            this.ClientSize = new System.Drawing.Size(331, 489);
             this.ControlBox = false;
             this.Controls.Add(this.groupPanel3);
             this.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

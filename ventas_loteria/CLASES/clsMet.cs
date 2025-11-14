@@ -1774,8 +1774,10 @@ namespace ventas_loteria
                             nombProd = dr["nombProd"].ToString().Trim();
                             mont = dr["mont"].ToString().Trim();
 
-                            if (idLot != Convert.ToInt32(dr["idLot"].ToString()))
-                            {
+                            //MessageBox.Show(nombLot+" "+ fechaIni + " " + nombProd + " " + mont);
+
+                            //if (idLot != Convert.ToInt32(dr["idLot"].ToString()))
+                           // {
 
                                 nombLot ="TRIPLETA: " + dr["nombLot"].ToString();
                                 rsDat += "------------------------------------------\n";
@@ -1793,7 +1795,7 @@ namespace ventas_loteria
                                 rsDat += "\n";
                                 rsDat = rsDat.ToUpper();
                                contDetJug = 0;
-                            }
+                            //}
                             contDetJug++;
 
                             if (contDetJug == 2) { rsDat += "\n"; contDetJug = 0; }

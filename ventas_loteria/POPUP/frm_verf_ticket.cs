@@ -20,6 +20,7 @@ namespace ventas_loteria
         public string prmNroTck, prmNroSerial;
         private void frm_verf_ticket_Load(object sender, EventArgs e)
         {
+
             this.Text = "Verifica Ticket.";
             string rsMostTckInf = "";
             string rsMostTckDet = "";
