@@ -1,5 +1,6 @@
 ﻿using HtmlAgilityPack;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crypto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,9 +58,13 @@ namespace ventas_loteria
         string rsGrdRsLot = "";
 
         int idDetJug = 0;
-        int nroTck = 0;
+        string  nroTck = "";
         string cod_jug = "";
         long monto_jug = 0;
+
+        string mTck="";
+        int idUsu = 0, idStatTck = 0;
+
 
         int cont = 0;
         int contRegPed = 0;
@@ -349,14 +354,21 @@ namespace ventas_loteria
                         idLot = Convert.ToInt32(dtDgvJug.Rows[contRs][1].ToString().Trim());
                         idSort = Convert.ToInt32(dtDgvJug.Rows[contRs][2].ToString().Trim());
                         idTipTck = Convert.ToInt32(dtDgvJug.Rows[contRs][3].ToString().Trim());
-                        nroTck = Convert.ToInt32(dtDgvJug.Rows[contRs][4].ToString().Trim());
+                        nroTck = dtDgvJug.Rows[contRs][4].ToString().Trim();
                         cod_jug = dtDgvJug.Rows[contRs][9].ToString().Trim();
+                        mTck = dtDgvJug.Rows[contRs][11].ToString().Trim().Replace(".", "").Replace(",", ".");
                         codRsLot = dtDgvJug.Rows[contRs][14].ToString().Trim();
+                        idUsu=Convert.ToInt32(dtDgvJug.Rows[contRs][15].ToString().Trim());
+                        idStatTck = Convert.ToInt32(dtDgvJug.Rows[contRs][16].ToString().Trim());
 
-                        if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, codRsLot); }
+                            //if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, codRsLot); }
+                            //else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, codRsLot); }
+
+                            if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, idUsu, idStatTck, 
+                                                                        nroTck, mTck, cod_jug, codRsLot); }
                         else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, codRsLot); }
 
-                        if (rsDat == "0") { contRegPed++; }
+                        if (rsDat == "0") {  contRegPed++; }
                         else if (rsDat == "1") { contRegGan++; }
                         msjProcRs = "Jug:" + dtDgvJug.Rows.Count + ". Gan: " + contRegGan;
                         msjProcRs += ". Perd: " + contRegPed + "...";
@@ -421,17 +433,23 @@ namespace ventas_loteria
 
                 while (cont <= cantRsCarg)
                 {
-                    idDetJug = Convert.ToInt32(dgvJug.Rows[cont].Cells[0].Value.ToString().Trim());
+                    idDetJug = Convert.ToInt32(dtDgvJug.Rows[cont][0].ToString().Trim());
                     idLot = Convert.ToInt32(dtDgvJug.Rows[cont][1].ToString().Trim());
                     idSort = Convert.ToInt32(dtDgvJug.Rows[cont][2].ToString().Trim());
                     idTipTck = Convert.ToInt32(dtDgvJug.Rows[cont][3].ToString().Trim());
-                    nroTck = Convert.ToInt32(dgvJug.Rows[cont].Cells[4].Value.ToString().Trim());
-                    cod_jug = dgvJug.Rows[cont].Cells[9].Value.ToString().Trim();
-                    rsVerfJugCer = Convert.ToInt32(dgvJug.Rows[cont].Cells[13].Value.ToString().Trim());
-
+                    nroTck = dtDgvJug.Rows[cont][4].ToString().Trim();
+                    cod_jug = dtDgvJug.Rows[cont][9].ToString().Trim();
+                    mTck = dtDgvJug.Rows[cont][11].ToString().Trim().Replace(".", "").Replace(",", ".");
+                    codRsLot = dtDgvJug.Rows[cont][14].ToString().Trim();
+                    idUsu = Convert.ToInt32(dtDgvJug.Rows[cont][15].ToString().Trim());
+                    idStatTck = Convert.ToInt32(dtDgvJug.Rows[cont][15].ToString().Trim());
+              
                     if (rsVerfJugCer == 0)
                     {
-                        if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, txtCod.Text); }
+                        //if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, txtCod.Text); }
+                        //else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, txtCod.Text); }
+
+                        if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, idUsu, idStatTck, nroTck, mTck, cod_jug, txtCod.Text); }
                         else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, txtCod.Text); }
 
                         wkProcRsMan.ReportProgress(cont);
