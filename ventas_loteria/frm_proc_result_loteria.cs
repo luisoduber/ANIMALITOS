@@ -65,7 +65,6 @@ namespace ventas_loteria
         string mTck="";
         int idUsu = 0, idStatTck = 0;
 
-
         int cont = 0;
         int contRegPed = 0;
         int contRegGan = 0;
@@ -366,7 +365,9 @@ namespace ventas_loteria
 
                             if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, idUsu, idStatTck, 
                                                                         nroTck, mTck, cod_jug, codRsLot); }
-                        else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, codRsLot); }
+
+                        else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, idUsu, idStatTck, 
+                                                                                  nroTck, mTck, cod_jug,codRsLot); }
 
                         if (rsDat == "0") {  contRegPed++; }
                         else if (rsDat == "1") { contRegGan++; }
@@ -450,7 +451,8 @@ namespace ventas_loteria
                         //else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, txtCod.Text); }
 
                         if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, idUsu, idStatTck, nroTck, mTck, cod_jug, txtCod.Text); }
-                        else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, txtCod.Text); }
+                        else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, idUsu, idStatTck,
+                                                                                  nroTck, mTck, cod_jug, txtCod.Text); }
 
                         wkProcRsMan.ReportProgress(cont);
                         cont++;

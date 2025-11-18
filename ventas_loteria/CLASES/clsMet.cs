@@ -1,23 +1,24 @@
-﻿using System;
+﻿using DevComponents.DotNetBar;
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.Ocsp;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Math;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using System.Windows.Forms;
-using System.Net;
-using System.Net.Sockets;
 using System.Configuration;
-using System.Security.Cryptography;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
-using System.Threading;
-using System.IO;
+using System.Net.Sockets;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
-using MySql.Data.MySqlClient;
-using DevComponents.DotNetBar;
-using Org.BouncyCastle.Asn1.Ocsp;
-using Org.BouncyCastle.Math;
-using System.Drawing;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace ventas_loteria
 {
@@ -2386,8 +2387,11 @@ namespace ventas_loteria
             catch (Exception ex) { rsDat = ex.Message; MessageBox.Show(ex.Message,"busProcRsLot"); }
             return rsDat;
         }
-        public string busProcRsLotTrip(int prmIdDetJug, int prmIdLot,
-                                       string prmRstLot)
+        public string busProcRsLotTrip(int prmIdDetJug, int prmIdLot, 
+                                       int prmIdUsu, int prmIdStatTck,
+                                       string  prmNroTck, string prmMjugTck,
+                                       string prmCodJugTck,string prmRstLot)
+
         {
             string rsDat = "";
             try
@@ -2398,11 +2402,17 @@ namespace ventas_loteria
                     idCn = 1;
                     using (MySqlCommand cmd = new MySqlCommand())
                     {
+                       // MessageBox.Show(prmIdUsu+" | "+ prmIdStatTck + " | " + prmNroTck + " | " + prmMjugTck + " | " + prmCodJugTck);
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "SPactRsLotTrip";
                         cmd.Parameters.AddWithValue("prmIdDetJug", prmIdDetJug);
                         cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                        cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
+                        cmd.Parameters.AddWithValue("prmIdStatTck", prmIdStatTck);
+                        cmd.Parameters.AddWithValue("prmNroTck", prmNroTck);
+                        cmd.Parameters.AddWithValue("prmMjugTck", prmMjugTck);
+                        cmd.Parameters.AddWithValue("prmCodJugTck", prmCodJugTck);
                         cmd.Parameters.AddWithValue("prmRsLot", prmRstLot);
                         MySqlDataReader dr = cmd.ExecuteReader();
                         dr.Read();
