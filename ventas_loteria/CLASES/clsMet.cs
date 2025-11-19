@@ -2383,8 +2383,8 @@ namespace ventas_loteria
                // MessageBox.Show(prmIdDetJug + " " + prmIdLot + " " + prmIdSort + " " + prmRstLot);
 
             }
-            catch (MySqlException ex) { rsDat = ex.Message; MessageBox.Show(rsDat, prmIdDetJug +" " + "mysql lop"); }
-            catch (Exception ex) { rsDat = ex.Message; MessageBox.Show(ex.Message,"busProcRsLot"); }
+            catch (MySqlException ex) { rsDat = ex.Message;  }
+            catch (Exception ex) { rsDat = ex.Message;  }
             return rsDat;
         }
         public string busProcRsLotTrip(int prmIdDetJug, int prmIdLot, 
@@ -2423,8 +2423,8 @@ namespace ventas_loteria
                 }
 
             }
-            catch (MySqlException ex) { rsDat = ex.Message; MessageBox.Show(rsDat,"mysql trip"); }
-            catch (Exception ex) { rsDat = ex.Message; MessageBox.Show(ex.Message, "busProcRsTrip"); }
+            catch (MySqlException ex) { rsDat = ex.Message; }
+            catch (Exception ex) { rsDat = ex.Message;  }
             return rsDat;
         }
         public DataTable bus_cuadre_taq(int prmIdGrup, int prmIdUsu)
