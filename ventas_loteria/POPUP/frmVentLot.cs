@@ -46,9 +46,17 @@ namespace ventas_loteria
             idPerf = Convert.ToInt32(clsMet.idPerf);
 
             lblVent.Text = "0,00";
-            lblPrem.Text = "0,00";
-            lblAn.Text = "0,00";
+            lblVentAn.Text = "0,00";
+            lblVentTrip.Text = "0,00";
+            lblPre.Text = "0,00";
+            lblPreAn.Text = "0,00";
+            lblPreTrip.Text = "0,00";
+            lblTckAn.Text = "0,00";
+            lblTckAnAn.Text = "0,00";
+            lblTckAnTrip.Text = "0,00";
             lblUt.Text = "0,00";
+            lblUtAn.Text = "0,00";
+            lblUtTrip.Text = "0,00";
 
             this.wkIniFrm.DoWork += new System.ComponentModel.DoWorkEventHandler(this.wkIniFrm_DoWork);
             this.wkIniFrm.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.wkIniFrm_OnProgressChanged);
@@ -105,6 +113,25 @@ namespace ventas_loteria
             }
         }
 
+        private void cboGrup_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idGrup = Convert.ToInt16(cboGrup.SelectedValue.ToString());
+            dtCboTaq = objMet.BusTaqContVent(idGrup);
+            this.cboTaq.DisplayMember = "nick";
+            this.cboTaq.ValueMember = "id_usuario";
+            this.cboTaq.DataSource = dtCboTaq;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPrem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void cboLot_SelectionChangeCommitted(object sender, EventArgs e)
         {
             string[] rsDat = new string[6];
@@ -134,8 +161,8 @@ namespace ventas_loteria
             else if (Convert.ToInt16(rsDat[0]) == 1)
             {
                 lblVent.Text = Convert.ToDouble(rsDat[2]).ToString("N2");
-                lblPrem.Text= Convert.ToDouble(rsDat[3]).ToString("N2");
-                lblAn.Text = Convert.ToDouble(rsDat[4]).ToString("N2");
+                lblPre.Text= Convert.ToDouble(rsDat[3]).ToString("N2");
+                lblTckAn.Text = Convert.ToDouble(rsDat[4]).ToString("N2");
                 lblUt.Text = Convert.ToDouble(rsDat[5]).ToString("N2");
             }
 

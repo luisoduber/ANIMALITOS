@@ -91,6 +91,8 @@ namespace ventas_loteria
 
             LblNombDivisa.Text = clsMet.NombDivisa.ToUpper();
             lblTotVenta.Text = "0,00";
+            lblTotVentAn.Text = "0,00";
+            lblTotVentTrip.Text = "0,00";
             lblTotPag.Text = "0,00";
             lblTotAnul.Text = "0,00";
             lblTotCaja.Text = "0,00";
@@ -537,10 +539,13 @@ namespace ventas_loteria
                 rsCuadCaj = objMet.busCuadCajDiario(Convert.ToInt32(clsMet.idUsu));
                 rsDatCuadCaj= rsCuadCaj.Split('?');
                 lblTotVenta.Text = Convert.ToDouble(rsDatCuadCaj[0]).ToString("N2");
-                lblTotPag.Text = Convert.ToDouble(rsDatCuadCaj[1]).ToString("N2");
-                lblTotAnul.Text = Convert.ToDouble(rsDatCuadCaj[2]).ToString("N2");
-                lblTotCaja.Text = Convert.ToDouble(rsDatCuadCaj[3]).ToString("N2");
-                lblUltTick.Text = rsDatCuadCaj[4].ToString();
+                lblTotVentAn.Text = Convert.ToDouble(rsDatCuadCaj[1]).ToString("N2");
+                lblTotVentTrip.Text = Convert.ToDouble(rsDatCuadCaj[2]).ToString("N2");
+                lblTotPag.Text = Convert.ToDouble(rsDatCuadCaj[3]).ToString("N2");
+                lblTotAnul.Text = Convert.ToDouble(rsDatCuadCaj[4]).ToString("N2");
+                lblTotCaja.Text = Convert.ToDouble(rsDatCuadCaj[5]).ToString("N2");
+                lblUltTick.Text = rsDatCuadCaj[6].ToString();
+                lblUltTick.Text = rsDatCuadCaj[6].ToString();
             }
             catch (Exception ex)
             {

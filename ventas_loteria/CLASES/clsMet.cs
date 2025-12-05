@@ -1423,18 +1423,20 @@ namespace ventas_loteria
                     {
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "SP_bus_cuadre_caja_diario";
-                        cmd.Parameters.AddWithValue("prm_id_usuario", prmIdUsu);
+                        cmd.CommandText = "SPbusCuadCajDia";
+                        cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
                         MySqlDataReader dr = cmd.ExecuteReader();
                         dr.Read();
 
                         if (dr.HasRows)
                         {
-                            rsDat = dr["prm_total_venta"].ToString() + "?" + 
-                                dr["prm_total_pagado"].ToString() + "?" + 
-                                dr["prm_total_anulado"].ToString() + "?" + 
-                                dr["prm_total_caja"].ToString()+ "?" + 
-                                dr["prm_ultimo_ticket"].ToString();
+                            rsDat = dr["prmTotVent"].ToString() + "?" + 
+                                dr["prmTotVentAn"].ToString() + "?" + 
+                                dr["prmTotVentTrip"].ToString() + "?" + 
+                                dr["prmTotPag"].ToString()+ "?" + 
+                                dr["prmTotTckAn"].ToString() + "?" +
+                                dr["prmTotCaj"].ToString() + "?" +
+                                dr["prmUltTck"].ToString();
                         }
 
                         else { rsDat = ""; }

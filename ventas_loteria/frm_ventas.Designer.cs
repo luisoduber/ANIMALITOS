@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ventas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gb_loteria = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dgvSort = new System.Windows.Forms.DataGridView();
             this.Column14 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -111,6 +111,10 @@
             this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.cboLot = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblTotVentAn = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblTotVentTrip = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.gb_loteria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSort)).BeginInit();
             this.groupPanel1.SuspendLayout();
@@ -170,14 +174,14 @@
             this.dgvSort.BackgroundColor = System.Drawing.Color.White;
             this.dgvSort.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSort.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSort.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSort.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dgvSort.ColumnHeadersHeight = 35;
             this.dgvSort.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column14,
@@ -188,24 +192,24 @@
             this.Column7,
             this.Column16,
             this.Column1});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSort.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSort.DefaultCellStyle = dataGridViewCellStyle25;
             this.dgvSort.Location = new System.Drawing.Point(3, 3);
             this.dgvSort.Name = "dgvSort";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSort.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSort.RowHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dgvSort.RowTemplate.Height = 35;
             this.dgvSort.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSort.Size = new System.Drawing.Size(226, 418);
@@ -259,12 +263,12 @@
             // Column16
             // 
             this.Column16.DataPropertyName = "nomb_loteria";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.Column16.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
+            this.Column16.DefaultCellStyle = dataGridViewCellStyle24;
             this.Column16.HeaderText = "Loteria";
             this.Column16.Name = "Column16";
             this.Column16.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -293,7 +297,7 @@
             this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel1.DrawTitleBox = false;
             this.groupPanel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPanel1.Location = new System.Drawing.Point(256, 2);
+            this.groupPanel1.Location = new System.Drawing.Point(250, 2);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(399, 85);
             // 
@@ -436,7 +440,7 @@
             this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel2.DrawTitleBox = false;
             this.groupPanel2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPanel2.Location = new System.Drawing.Point(256, 89);
+            this.groupPanel2.Location = new System.Drawing.Point(250, 89);
             this.groupPanel2.Name = "groupPanel2";
             this.groupPanel2.Size = new System.Drawing.Size(399, 492);
             // 
@@ -477,14 +481,14 @@
             this.dgvJug.BackgroundColor = System.Drawing.Color.White;
             this.dgvJug.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvJug.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvJug.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvJug.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.dgvJug.ColumnHeadersHeight = 35;
             this.dgvJug.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
@@ -495,14 +499,14 @@
             this.Column8,
             this.Column10,
             this.Column9});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvJug.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvJug.DefaultCellStyle = dataGridViewCellStyle33;
             this.dgvJug.Location = new System.Drawing.Point(5, 3);
             this.dgvJug.Name = "dgvJug";
             this.dgvJug.RowTemplate.Height = 35;
@@ -514,8 +518,8 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "abrev_loteria";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridViewTextBoxColumn4.HeaderText = "AB";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Width = 40;
@@ -523,8 +527,8 @@
             // Column5
             // 
             this.Column5.DataPropertyName = "hora_sorteo";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle29;
             this.Column5.HeaderText = "hora";
             this.Column5.Name = "Column5";
             this.Column5.Visible = false;
@@ -533,8 +537,8 @@
             // Column2
             // 
             this.Column2.DataPropertyName = "codigo_jugada";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle30;
             this.Column2.HeaderText = "COD";
             this.Column2.Name = "Column2";
             this.Column2.Width = 30;
@@ -542,8 +546,8 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "nomb_product";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle31;
             this.Column3.HeaderText = "nomb_product";
             this.Column3.Name = "Column3";
             this.Column3.Width = 50;
@@ -551,9 +555,9 @@
             // Column4
             // 
             this.Column4.DataPropertyName = "monto";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.Format = "N2";
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.Format = "N2";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle32;
             this.Column4.HeaderText = "Monto";
             this.Column4.Name = "Column4";
             this.Column4.Width = 70;
@@ -584,6 +588,10 @@
             // 
             this.gp_cuadre_diario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
             this.gp_cuadre_diario.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.gp_cuadre_diario.Controls.Add(this.lblTotVentTrip);
+            this.gp_cuadre_diario.Controls.Add(this.label16);
+            this.gp_cuadre_diario.Controls.Add(this.lblTotVentAn);
+            this.gp_cuadre_diario.Controls.Add(this.label14);
             this.gp_cuadre_diario.Controls.Add(this.LblNombDivisa);
             this.gp_cuadre_diario.Controls.Add(this.label12);
             this.gp_cuadre_diario.Controls.Add(this.lblMontJug);
@@ -601,9 +609,9 @@
             this.gp_cuadre_diario.DisabledBackColor = System.Drawing.Color.Empty;
             this.gp_cuadre_diario.DrawTitleBox = false;
             this.gp_cuadre_diario.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gp_cuadre_diario.Location = new System.Drawing.Point(661, 2);
+            this.gp_cuadre_diario.Location = new System.Drawing.Point(655, 2);
             this.gp_cuadre_diario.Name = "gp_cuadre_diario";
-            this.gp_cuadre_diario.Size = new System.Drawing.Size(199, 193);
+            this.gp_cuadre_diario.Size = new System.Drawing.Size(199, 230);
             // 
             // 
             // 
@@ -663,7 +671,7 @@
             this.lblMontJug.AutoSize = true;
             this.lblMontJug.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMontJug.ForeColor = System.Drawing.Color.Black;
-            this.lblMontJug.Location = new System.Drawing.Point(80, 134);
+            this.lblMontJug.Location = new System.Drawing.Point(80, 175);
             this.lblMontJug.Name = "lblMontJug";
             this.lblMontJug.Size = new System.Drawing.Size(50, 19);
             this.lblMontJug.TabIndex = 13;
@@ -674,7 +682,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(18, 134);
+            this.label11.Location = new System.Drawing.Point(18, 175);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(62, 19);
             this.label11.TabIndex = 12;
@@ -685,7 +693,7 @@
             this.lblUltTick.AutoSize = true;
             this.lblUltTick.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUltTick.ForeColor = System.Drawing.Color.Black;
-            this.lblUltTick.Location = new System.Drawing.Point(80, 115);
+            this.lblUltTick.Location = new System.Drawing.Point(80, 156);
             this.lblUltTick.Name = "lblUltTick";
             this.lblUltTick.Size = new System.Drawing.Size(50, 19);
             this.lblUltTick.TabIndex = 11;
@@ -696,7 +704,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(0, 115);
+            this.label9.Location = new System.Drawing.Point(0, 156);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(81, 19);
             this.label9.TabIndex = 10;
@@ -707,7 +715,7 @@
             this.lblTotCaja.AutoSize = true;
             this.lblTotCaja.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotCaja.ForeColor = System.Drawing.Color.Black;
-            this.lblTotCaja.Location = new System.Drawing.Point(80, 94);
+            this.lblTotCaja.Location = new System.Drawing.Point(80, 135);
             this.lblTotCaja.Name = "lblTotCaja";
             this.lblTotCaja.Size = new System.Drawing.Size(50, 19);
             this.lblTotCaja.TabIndex = 9;
@@ -718,7 +726,7 @@
             this.lblTotAnul.AutoSize = true;
             this.lblTotAnul.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotAnul.ForeColor = System.Drawing.Color.Black;
-            this.lblTotAnul.Location = new System.Drawing.Point(80, 73);
+            this.lblTotAnul.Location = new System.Drawing.Point(80, 114);
             this.lblTotAnul.Name = "lblTotAnul";
             this.lblTotAnul.Size = new System.Drawing.Size(50, 19);
             this.lblTotAnul.TabIndex = 8;
@@ -729,7 +737,7 @@
             this.lblTotPag.AutoSize = true;
             this.lblTotPag.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotPag.ForeColor = System.Drawing.Color.Black;
-            this.lblTotPag.Location = new System.Drawing.Point(80, 52);
+            this.lblTotPag.Location = new System.Drawing.Point(80, 93);
             this.lblTotPag.Name = "lblTotPag";
             this.lblTotPag.Size = new System.Drawing.Size(50, 19);
             this.lblTotPag.TabIndex = 7;
@@ -751,7 +759,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(34, 94);
+            this.label7.Location = new System.Drawing.Point(34, 135);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 19);
             this.label7.TabIndex = 5;
@@ -762,7 +770,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(10, 73);
+            this.label6.Location = new System.Drawing.Point(10, 114);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 19);
             this.label6.TabIndex = 4;
@@ -773,7 +781,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(11, 52);
+            this.label5.Location = new System.Drawing.Point(11, 93);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 19);
             this.label5.TabIndex = 3;
@@ -784,7 +792,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(27, 33);
+            this.label4.Location = new System.Drawing.Point(29, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 19);
             this.label4.TabIndex = 2;
@@ -818,9 +826,9 @@
             this.gp_ope_ventas.DisabledBackColor = System.Drawing.Color.Empty;
             this.gp_ope_ventas.DrawTitleBox = false;
             this.gp_ope_ventas.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.gp_ope_ventas.Location = new System.Drawing.Point(661, 201);
+            this.gp_ope_ventas.Location = new System.Drawing.Point(655, 238);
             this.gp_ope_ventas.Name = "gp_ope_ventas";
-            this.gp_ope_ventas.Size = new System.Drawing.Size(199, 380);
+            this.gp_ope_ventas.Size = new System.Drawing.Size(199, 343);
             // 
             // 
             // 
@@ -858,11 +866,11 @@
             this.btnVerfVent.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVerfVent.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerfVent.ForeColor = System.Drawing.Color.Black;
-            this.btnVerfVent.Location = new System.Drawing.Point(7, 268);
+            this.btnVerfVent.Location = new System.Drawing.Point(2, 268);
             this.btnVerfVent.Name = "btnVerfVent";
-            this.btnVerfVent.Size = new System.Drawing.Size(183, 30);
+            this.btnVerfVent.Size = new System.Drawing.Size(87, 30);
             this.btnVerfVent.TabIndex = 207;
-            this.btnVerfVent.Text = "Verificar Ventas";
+            this.btnVerfVent.Text = "Ventas";
             this.btnVerfVent.UseVisualStyleBackColor = false;
             this.btnVerfVent.Click += new System.EventHandler(this.btnVerfVent_Click);
             // 
@@ -872,7 +880,7 @@
             this.btnImp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnImp.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImp.ForeColor = System.Drawing.Color.Black;
-            this.btnImp.Location = new System.Drawing.Point(8, 340);
+            this.btnImp.Location = new System.Drawing.Point(3, 304);
             this.btnImp.Name = "btnImp";
             this.btnImp.Size = new System.Drawing.Size(86, 30);
             this.btnImp.TabIndex = 206;
@@ -886,11 +894,11 @@
             this.BtnCClave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCClave.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCClave.ForeColor = System.Drawing.Color.Black;
-            this.BtnCClave.Location = new System.Drawing.Point(7, 304);
+            this.BtnCClave.Location = new System.Drawing.Point(94, 268);
             this.BtnCClave.Name = "BtnCClave";
-            this.BtnCClave.Size = new System.Drawing.Size(183, 30);
+            this.BtnCClave.Size = new System.Drawing.Size(91, 30);
             this.BtnCClave.TabIndex = 205;
-            this.BtnCClave.Text = "Cambiar Clave";
+            this.BtnCClave.Text = "Ca. Clave";
             this.BtnCClave.UseVisualStyleBackColor = false;
             this.BtnCClave.Click += new System.EventHandler(this.BtnCClave_Click);
             // 
@@ -900,7 +908,7 @@
             this.btnSal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSal.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSal.ForeColor = System.Drawing.Color.Black;
-            this.btnSal.Location = new System.Drawing.Point(99, 340);
+            this.btnSal.Location = new System.Drawing.Point(94, 304);
             this.btnSal.Name = "btnSal";
             this.btnSal.Size = new System.Drawing.Size(91, 30);
             this.btnSal.TabIndex = 204;
@@ -914,7 +922,7 @@
             this.btn_calc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_calc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_calc.ForeColor = System.Drawing.Color.Black;
-            this.btn_calc.Location = new System.Drawing.Point(99, 232);
+            this.btn_calc.Location = new System.Drawing.Point(94, 232);
             this.btn_calc.Name = "btn_calc";
             this.btn_calc.Size = new System.Drawing.Size(91, 30);
             this.btn_calc.TabIndex = 203;
@@ -928,7 +936,7 @@
             this.btn_inprimir_tck.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_inprimir_tck.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_inprimir_tck.ForeColor = System.Drawing.Color.Black;
-            this.btn_inprimir_tck.Location = new System.Drawing.Point(7, 232);
+            this.btn_inprimir_tck.Location = new System.Drawing.Point(2, 232);
             this.btn_inprimir_tck.Name = "btn_inprimir_tck";
             this.btn_inprimir_tck.Size = new System.Drawing.Size(86, 30);
             this.btn_inprimir_tck.TabIndex = 202;
@@ -942,7 +950,7 @@
             this.btn_repetir_ticket.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_repetir_ticket.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_repetir_ticket.ForeColor = System.Drawing.Color.Black;
-            this.btn_repetir_ticket.Location = new System.Drawing.Point(8, 159);
+            this.btn_repetir_ticket.Location = new System.Drawing.Point(3, 159);
             this.btn_repetir_ticket.Name = "btn_repetir_ticket";
             this.btn_repetir_ticket.Size = new System.Drawing.Size(85, 30);
             this.btn_repetir_ticket.TabIndex = 201;
@@ -956,7 +964,7 @@
             this.btn_result_lot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_result_lot.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_result_lot.ForeColor = System.Drawing.Color.Black;
-            this.btn_result_lot.Location = new System.Drawing.Point(100, 196);
+            this.btn_result_lot.Location = new System.Drawing.Point(95, 196);
             this.btn_result_lot.Name = "btn_result_lot";
             this.btn_result_lot.Size = new System.Drawing.Size(90, 30);
             this.btn_result_lot.TabIndex = 11;
@@ -970,7 +978,7 @@
             this.btn_totales_venta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_totales_venta.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_totales_venta.ForeColor = System.Drawing.Color.Black;
-            this.btn_totales_venta.Location = new System.Drawing.Point(8, 196);
+            this.btn_totales_venta.Location = new System.Drawing.Point(3, 196);
             this.btn_totales_venta.Name = "btn_totales_venta";
             this.btn_totales_venta.Size = new System.Drawing.Size(85, 30);
             this.btn_totales_venta.TabIndex = 9;
@@ -984,7 +992,7 @@
             this.btn_mov_venta_ticket.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_mov_venta_ticket.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_mov_venta_ticket.ForeColor = System.Drawing.Color.Black;
-            this.btn_mov_venta_ticket.Location = new System.Drawing.Point(100, 159);
+            this.btn_mov_venta_ticket.Location = new System.Drawing.Point(95, 159);
             this.btn_mov_venta_ticket.Name = "btn_mov_venta_ticket";
             this.btn_mov_venta_ticket.Size = new System.Drawing.Size(90, 30);
             this.btn_mov_venta_ticket.TabIndex = 8;
@@ -998,7 +1006,7 @@
             this.btn_anular_ticket.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_anular_ticket.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_anular_ticket.ForeColor = System.Drawing.Color.Black;
-            this.btn_anular_ticket.Location = new System.Drawing.Point(100, 120);
+            this.btn_anular_ticket.Location = new System.Drawing.Point(95, 120);
             this.btn_anular_ticket.Name = "btn_anular_ticket";
             this.btn_anular_ticket.Size = new System.Drawing.Size(90, 33);
             this.btn_anular_ticket.TabIndex = 5;
@@ -1012,7 +1020,7 @@
             this.btn_pagar_ticket.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_pagar_ticket.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_pagar_ticket.ForeColor = System.Drawing.Color.Black;
-            this.btn_pagar_ticket.Location = new System.Drawing.Point(9, 121);
+            this.btn_pagar_ticket.Location = new System.Drawing.Point(4, 121);
             this.btn_pagar_ticket.Name = "btn_pagar_ticket";
             this.btn_pagar_ticket.Size = new System.Drawing.Size(84, 33);
             this.btn_pagar_ticket.TabIndex = 4;
@@ -1025,7 +1033,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(18, 62);
+            this.label8.Location = new System.Drawing.Point(13, 63);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 22);
             this.label8.TabIndex = 3;
@@ -1033,7 +1041,7 @@
             // 
             // txtNroSerial
             // 
-            this.txtNroSerial.Location = new System.Drawing.Point(9, 86);
+            this.txtNroSerial.Location = new System.Drawing.Point(4, 87);
             this.txtNroSerial.Name = "txtNroSerial";
             this.txtNroSerial.Size = new System.Drawing.Size(181, 29);
             this.txtNroSerial.TabIndex = 2;
@@ -1045,7 +1053,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(18, 6);
+            this.label10.Location = new System.Drawing.Point(13, 7);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(105, 22);
             this.label10.TabIndex = 1;
@@ -1053,7 +1061,7 @@
             // 
             // txtNroTick
             // 
-            this.txtNroTick.Location = new System.Drawing.Point(11, 30);
+            this.txtNroTick.Location = new System.Drawing.Point(6, 31);
             this.txtNroTick.MaxLength = 33333;
             this.txtNroTick.Name = "txtNroTick";
             this.txtNroTick.Size = new System.Drawing.Size(179, 29);
@@ -1192,12 +1200,56 @@
             this.label3.Size = new System.Drawing.Size(0, 21);
             this.label3.TabIndex = 1;
             // 
+            // lblTotVentAn
+            // 
+            this.lblTotVentAn.AutoSize = true;
+            this.lblTotVentAn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotVentAn.ForeColor = System.Drawing.Color.Black;
+            this.lblTotVentAn.Location = new System.Drawing.Point(80, 52);
+            this.lblTotVentAn.Name = "lblTotVentAn";
+            this.lblTotVentAn.Size = new System.Drawing.Size(50, 19);
+            this.lblTotVentAn.TabIndex = 17;
+            this.lblTotVentAn.Text = "monto";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(3, 52);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 19);
+            this.label14.TabIndex = 16;
+            this.label14.Text = "Animalito:";
+            // 
+            // lblTotVentTrip
+            // 
+            this.lblTotVentTrip.AutoSize = true;
+            this.lblTotVentTrip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotVentTrip.ForeColor = System.Drawing.Color.Black;
+            this.lblTotVentTrip.Location = new System.Drawing.Point(80, 73);
+            this.lblTotVentTrip.Name = "lblTotVentTrip";
+            this.lblTotVentTrip.Size = new System.Drawing.Size(50, 19);
+            this.lblTotVentTrip.TabIndex = 19;
+            this.lblTotVentTrip.Text = "monto";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(8, 73);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(73, 19);
+            this.label16.TabIndex = 18;
+            this.label16.Text = "Tripletas:";
+            // 
             // frm_ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(865, 584);
+            this.ClientSize = new System.Drawing.Size(858, 585);
             this.ControlBox = false;
             this.Controls.Add(this.groupPanel4);
             this.Controls.Add(this.groupPanel3);
@@ -1305,5 +1357,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.ComponentModel.BackgroundWorker work_inicia_frm;
         private System.Windows.Forms.Button btnVerfVent;
+        private System.Windows.Forms.Label lblTotVentTrip;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblTotVentAn;
+        private System.Windows.Forms.Label label14;
     }
 }

@@ -127,7 +127,7 @@
   <data name="btnTrip.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAvxJREFUeF7tmTFuU1EURL0ACkt0FgUF9OwARIOoyAaQsoRUFBTggt5LYAnsgKwg
+        vAAADrwBlbxySQAAAvxJREFUeF7tmTFuU1EURL0ACkt0FgUF9OwARIOoyAaQsoRUFBTggt5LYAnsgKwg
         ZAXsACUFCwh3rGdkRi4Yz7f+JcyRTvvkd8b6sZ1FCCGEEEIIIYQQQgjhH2e1Wi3L1+W63JjijOU4esvP
         R08flC/Kd+VmJi/Gy+lFxTovb8q7Cbwt34yjt9TFEf66vJvZ6/GS+lCxPu3Fm8L1OHpLXfqivN2LMKe9
         BqhYFxTP9Xv5+9FTF35ZdokP+wxQoZ6XeFwcCnmsb8fxiL8sf+xdvoOtBrikeK5/XK4uu6bLd7DHABXr
@@ -156,6 +156,6 @@
     <value>1274, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>94</value>
+    <value>58</value>
   </metadata>
 </root>
