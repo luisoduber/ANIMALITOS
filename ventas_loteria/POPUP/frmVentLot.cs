@@ -68,7 +68,7 @@ namespace ventas_loteria
             try
             {
                 dtCboGrup = objMet.BusGrup();
-                if (idPerf == 2){ idGrup = Convert.ToInt32(clsMet.idGrup);}
+                if (idPerf == 1 || idPerf == 2) { idGrup = Convert.ToInt32(clsMet.idGrup);}
                 else if (idPerf == 3) { idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0].ToString()); }
 
                 dtCboTaq = objMet.BusTaqContVent(idGrup);
@@ -105,7 +105,17 @@ namespace ventas_loteria
                 this.cboLot.ValueMember = "idLot";
                 this.cboLot.DataSource = dtCboLot;
 
-                if (idPerf == 2)
+                if (idPerf == 1)
+                {
+                    cboGrup.Enabled = false;
+                    cboGrup.SelectedValue = idGrup;
+
+                    cboTaq.Enabled = false;
+                    cboTaq.SelectedValue = idUsu;
+
+                    cboLot.SelectedValue = 0;
+                }
+                else if (idPerf == 2)
                 {
                     cboGrup.Enabled = false;
                     cboGrup.SelectedValue = idGrup;
@@ -122,19 +132,57 @@ namespace ventas_loteria
             this.cboTaq.DataSource = dtCboTaq;
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void cboLot_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void lblPrem_Click(object sender, EventArgs e)
+        private void cboTaq_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            string[] rsDat = new string[14];
+            DateTime fechIni = dtpFechIni.Value.Date;
+            DateTime fechFin = dtpFechFin.Value.Date;
+            int cantDif = fechIni.CompareTo(fechFin);
+            int idLot = 0;
 
+            idGrup = Convert.ToInt16(cboGrup.SelectedValue.ToString());
+            idUsu = Convert.ToInt16(cboTaq.SelectedValue.ToString());
+            idLot = Convert.ToInt16(cboLot.SelectedValue.ToString());
+
+            if (cantDif > 0)
+            {
+                MessageBox.Show("Fecha inicial no debe ser mayor a fecha final...", "Verifique.");
+                return;
+            }
+
+            rsDat = objMet.VerfVentTaq(idGrup, idUsu, idLot,
+                Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
+                Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
+
+            if (Convert.ToInt16(rsDat[0]) == 0)
+            {
+                MessageBox.Show(rsDat[1].ToString(), "¡ Verifique !");
+            }
+            else if (Convert.ToInt16(rsDat[0]) == 1)
+            {
+                lblVent.Text = Convert.ToDouble(rsDat[2]).ToString("N2");
+                lblVentAn.Text = Convert.ToDouble(rsDat[3]).ToString("N2");
+                lblVentTrip.Text = Convert.ToDouble(rsDat[4]).ToString("N2");
+                lblPre.Text = Convert.ToDouble(rsDat[5]).ToString("N2");
+                lblPreAn.Text = Convert.ToDouble(rsDat[6]).ToString("N2");
+                lblPreTrip.Text = Convert.ToDouble(rsDat[7]).ToString("N2");
+                lblTckAn.Text = Convert.ToDouble(rsDat[8]).ToString("N2");
+                lblTckAnAn.Text = Convert.ToDouble(rsDat[9]).ToString("N2");
+                lblTckAnTrip.Text = Convert.ToDouble(rsDat[10]).ToString("N2");
+                lblUt.Text = Convert.ToDouble(rsDat[11]).ToString("N2");
+                lblUtAn.Text = Convert.ToDouble(rsDat[12]).ToString("N2");
+                lblUtTrip.Text = Convert.ToDouble(rsDat[13]).ToString("N2");
+            }
         }
 
         private void cboLot_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            string[] rsDat = new string[6];
+            string[] rsDat = new string[14];
             DateTime fechIni = dtpFechIni.Value.Date;
             DateTime fechFin = dtpFechFin.Value.Date;
             int cantDif = fechIni.CompareTo(fechFin);
@@ -161,9 +209,17 @@ namespace ventas_loteria
             else if (Convert.ToInt16(rsDat[0]) == 1)
             {
                 lblVent.Text = Convert.ToDouble(rsDat[2]).ToString("N2");
-                lblPre.Text= Convert.ToDouble(rsDat[3]).ToString("N2");
-                lblTckAn.Text = Convert.ToDouble(rsDat[4]).ToString("N2");
-                lblUt.Text = Convert.ToDouble(rsDat[5]).ToString("N2");
+                lblVentAn.Text = Convert.ToDouble(rsDat[3]).ToString("N2");
+                lblVentTrip.Text = Convert.ToDouble(rsDat[4]).ToString("N2");
+                lblPre.Text= Convert.ToDouble(rsDat[5]).ToString("N2");
+                lblPreAn.Text = Convert.ToDouble(rsDat[6]).ToString("N2");
+                lblPreTrip.Text = Convert.ToDouble(rsDat[7]).ToString("N2");
+                lblTckAn.Text = Convert.ToDouble(rsDat[8]).ToString("N2");
+                lblTckAnAn.Text = Convert.ToDouble(rsDat[9]).ToString("N2");
+                lblTckAnTrip.Text = Convert.ToDouble(rsDat[10]).ToString("N2");
+                lblUt.Text = Convert.ToDouble(rsDat[11]).ToString("N2");
+                lblUtAn.Text = Convert.ToDouble(rsDat[12]).ToString("N2");
+                lblUtTrip.Text = Convert.ToDouble(rsDat[13]).ToString("N2");
             }
 
         }

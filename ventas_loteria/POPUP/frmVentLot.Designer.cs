@@ -36,6 +36,22 @@
             this.cboLot = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblUtTrip = new System.Windows.Forms.Label();
+            this.lblUtAn = new System.Windows.Forms.Label();
+            this.lblTckAnTrip = new System.Windows.Forms.Label();
+            this.lblTckAnAn = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblPreTrip = new System.Windows.Forms.Label();
+            this.lblPreAn = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblVentTrip = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblVentAn = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblUt = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,22 +62,6 @@
             this.lblVent = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.wkIniFrm = new System.ComponentModel.BackgroundWorker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblVentAn = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblVentTrip = new System.Windows.Forms.Label();
-            this.lblPreAn = new System.Windows.Forms.Label();
-            this.lblPreTrip = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblTckAnAn = new System.Windows.Forms.Label();
-            this.lblTckAnTrip = new System.Windows.Forms.Label();
-            this.lblUtAn = new System.Windows.Forms.Label();
-            this.lblUtTrip = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.groupPanel4.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -124,6 +124,7 @@
             this.cboTaq.Name = "cboTaq";
             this.cboTaq.Size = new System.Drawing.Size(170, 27);
             this.cboTaq.TabIndex = 276;
+            this.cboTaq.SelectionChangeCommitted += new System.EventHandler(this.cboTaq_SelectionChangeCommitted);
             // 
             // cboGrup
             // 
@@ -161,6 +162,7 @@
             this.cboLot.Name = "cboLot";
             this.cboLot.Size = new System.Drawing.Size(345, 27);
             this.cboLot.TabIndex = 208;
+            this.cboLot.SelectedIndexChanged += new System.EventHandler(this.cboLot_SelectedIndexChanged);
             this.cboLot.SelectionChangeCommitted += new System.EventHandler(this.cboLot_SelectionChangeCommitted);
             // 
             // label3
@@ -239,6 +241,182 @@
             this.groupPanel1.TabIndex = 218;
             this.groupPanel1.Text = "Cuadre";
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(240, 170);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(83, 22);
+            this.label22.TabIndex = 265;
+            this.label22.Text = "Tripletas";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(240, 113);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(83, 22);
+            this.label20.TabIndex = 264;
+            this.label20.Text = "Tripletas";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(240, 60);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(83, 22);
+            this.label16.TabIndex = 263;
+            this.label16.Text = "Tripletas";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(128, 170);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(97, 22);
+            this.label18.TabIndex = 262;
+            this.label18.Text = "Animalitos";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(128, 112);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 22);
+            this.label13.TabIndex = 261;
+            this.label13.Text = "Animalitos";
+            // 
+            // lblUtTrip
+            // 
+            this.lblUtTrip.BackColor = System.Drawing.Color.White;
+            this.lblUtTrip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUtTrip.ForeColor = System.Drawing.Color.Black;
+            this.lblUtTrip.Location = new System.Drawing.Point(239, 194);
+            this.lblUtTrip.Name = "lblUtTrip";
+            this.lblUtTrip.Size = new System.Drawing.Size(105, 30);
+            this.lblUtTrip.TabIndex = 259;
+            this.lblUtTrip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUtAn
+            // 
+            this.lblUtAn.BackColor = System.Drawing.Color.White;
+            this.lblUtAn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUtAn.ForeColor = System.Drawing.Color.Black;
+            this.lblUtAn.Location = new System.Drawing.Point(125, 194);
+            this.lblUtAn.Name = "lblUtAn";
+            this.lblUtAn.Size = new System.Drawing.Size(105, 30);
+            this.lblUtAn.TabIndex = 257;
+            this.lblUtAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTckAnTrip
+            // 
+            this.lblTckAnTrip.BackColor = System.Drawing.Color.White;
+            this.lblTckAnTrip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTckAnTrip.ForeColor = System.Drawing.Color.Black;
+            this.lblTckAnTrip.Location = new System.Drawing.Point(240, 135);
+            this.lblTckAnTrip.Name = "lblTckAnTrip";
+            this.lblTckAnTrip.Size = new System.Drawing.Size(104, 30);
+            this.lblTckAnTrip.TabIndex = 255;
+            this.lblTckAnTrip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTckAnAn
+            // 
+            this.lblTckAnAn.BackColor = System.Drawing.Color.White;
+            this.lblTckAnAn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTckAnAn.ForeColor = System.Drawing.Color.Black;
+            this.lblTckAnAn.Location = new System.Drawing.Point(125, 135);
+            this.lblTckAnAn.Name = "lblTckAnAn";
+            this.lblTckAnAn.Size = new System.Drawing.Size(105, 30);
+            this.lblTckAnAn.TabIndex = 253;
+            this.lblTckAnAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(128, 60);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(97, 22);
+            this.label11.TabIndex = 252;
+            this.label11.Text = "Animalitos";
+            // 
+            // lblPreTrip
+            // 
+            this.lblPreTrip.BackColor = System.Drawing.Color.White;
+            this.lblPreTrip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreTrip.ForeColor = System.Drawing.Color.Black;
+            this.lblPreTrip.Location = new System.Drawing.Point(239, 82);
+            this.lblPreTrip.Name = "lblPreTrip";
+            this.lblPreTrip.Size = new System.Drawing.Size(105, 30);
+            this.lblPreTrip.TabIndex = 251;
+            this.lblPreTrip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPreAn
+            // 
+            this.lblPreAn.BackColor = System.Drawing.Color.White;
+            this.lblPreAn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreAn.ForeColor = System.Drawing.Color.Black;
+            this.lblPreAn.Location = new System.Drawing.Point(125, 82);
+            this.lblPreAn.Name = "lblPreAn";
+            this.lblPreAn.Size = new System.Drawing.Size(105, 30);
+            this.lblPreAn.TabIndex = 249;
+            this.lblPreAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(239, 3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(83, 22);
+            this.label8.TabIndex = 248;
+            this.label8.Text = "Tripletas";
+            // 
+            // lblVentTrip
+            // 
+            this.lblVentTrip.BackColor = System.Drawing.Color.White;
+            this.lblVentTrip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVentTrip.ForeColor = System.Drawing.Color.Black;
+            this.lblVentTrip.Location = new System.Drawing.Point(239, 25);
+            this.lblVentTrip.Name = "lblVentTrip";
+            this.lblVentTrip.Size = new System.Drawing.Size(105, 30);
+            this.lblVentTrip.TabIndex = 247;
+            this.lblVentTrip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(128, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 22);
+            this.label4.TabIndex = 246;
+            this.label4.Text = "Animalitos";
+            // 
+            // lblVentAn
+            // 
+            this.lblVentAn.BackColor = System.Drawing.Color.White;
+            this.lblVentAn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVentAn.ForeColor = System.Drawing.Color.Black;
+            this.lblVentAn.Location = new System.Drawing.Point(125, 25);
+            this.lblVentAn.Name = "lblVentAn";
+            this.lblVentAn.Size = new System.Drawing.Size(105, 30);
+            this.lblVentAn.TabIndex = 245;
+            this.lblVentAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -293,7 +471,6 @@
             this.label2.Size = new System.Drawing.Size(77, 22);
             this.label2.TabIndex = 240;
             this.label2.Text = "Premios";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblPre
             // 
@@ -305,7 +482,6 @@
             this.lblPre.Size = new System.Drawing.Size(105, 30);
             this.lblPre.TabIndex = 239;
             this.lblPre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblPre.Click += new System.EventHandler(this.lblPrem_Click);
             // 
             // label10
             // 
@@ -342,182 +518,6 @@
             // 
             this.wkIniFrm.WorkerReportsProgress = true;
             this.wkIniFrm.WorkerSupportsCancellation = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(128, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 22);
-            this.label4.TabIndex = 246;
-            this.label4.Text = "Animalitos";
-            // 
-            // lblVentAn
-            // 
-            this.lblVentAn.BackColor = System.Drawing.Color.White;
-            this.lblVentAn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVentAn.ForeColor = System.Drawing.Color.Black;
-            this.lblVentAn.Location = new System.Drawing.Point(125, 25);
-            this.lblVentAn.Name = "lblVentAn";
-            this.lblVentAn.Size = new System.Drawing.Size(105, 30);
-            this.lblVentAn.TabIndex = 245;
-            this.lblVentAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(239, 3);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 22);
-            this.label8.TabIndex = 248;
-            this.label8.Text = "Tripletas";
-            // 
-            // lblVentTrip
-            // 
-            this.lblVentTrip.BackColor = System.Drawing.Color.White;
-            this.lblVentTrip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVentTrip.ForeColor = System.Drawing.Color.Black;
-            this.lblVentTrip.Location = new System.Drawing.Point(239, 25);
-            this.lblVentTrip.Name = "lblVentTrip";
-            this.lblVentTrip.Size = new System.Drawing.Size(105, 30);
-            this.lblVentTrip.TabIndex = 247;
-            this.lblVentTrip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPreAn
-            // 
-            this.lblPreAn.BackColor = System.Drawing.Color.White;
-            this.lblPreAn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPreAn.ForeColor = System.Drawing.Color.Black;
-            this.lblPreAn.Location = new System.Drawing.Point(125, 82);
-            this.lblPreAn.Name = "lblPreAn";
-            this.lblPreAn.Size = new System.Drawing.Size(105, 30);
-            this.lblPreAn.TabIndex = 249;
-            this.lblPreAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPreTrip
-            // 
-            this.lblPreTrip.BackColor = System.Drawing.Color.White;
-            this.lblPreTrip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPreTrip.ForeColor = System.Drawing.Color.Black;
-            this.lblPreTrip.Location = new System.Drawing.Point(239, 82);
-            this.lblPreTrip.Name = "lblPreTrip";
-            this.lblPreTrip.Size = new System.Drawing.Size(105, 30);
-            this.lblPreTrip.TabIndex = 251;
-            this.lblPreTrip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(128, 60);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(97, 22);
-            this.label11.TabIndex = 252;
-            this.label11.Text = "Animalitos";
-            // 
-            // lblTckAnAn
-            // 
-            this.lblTckAnAn.BackColor = System.Drawing.Color.White;
-            this.lblTckAnAn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTckAnAn.ForeColor = System.Drawing.Color.Black;
-            this.lblTckAnAn.Location = new System.Drawing.Point(125, 135);
-            this.lblTckAnAn.Name = "lblTckAnAn";
-            this.lblTckAnAn.Size = new System.Drawing.Size(105, 30);
-            this.lblTckAnAn.TabIndex = 253;
-            this.lblTckAnAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTckAnTrip
-            // 
-            this.lblTckAnTrip.BackColor = System.Drawing.Color.White;
-            this.lblTckAnTrip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTckAnTrip.ForeColor = System.Drawing.Color.Black;
-            this.lblTckAnTrip.Location = new System.Drawing.Point(240, 135);
-            this.lblTckAnTrip.Name = "lblTckAnTrip";
-            this.lblTckAnTrip.Size = new System.Drawing.Size(104, 30);
-            this.lblTckAnTrip.TabIndex = 255;
-            this.lblTckAnTrip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblUtAn
-            // 
-            this.lblUtAn.BackColor = System.Drawing.Color.White;
-            this.lblUtAn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUtAn.ForeColor = System.Drawing.Color.Black;
-            this.lblUtAn.Location = new System.Drawing.Point(125, 194);
-            this.lblUtAn.Name = "lblUtAn";
-            this.lblUtAn.Size = new System.Drawing.Size(105, 30);
-            this.lblUtAn.TabIndex = 257;
-            this.lblUtAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblUtTrip
-            // 
-            this.lblUtTrip.BackColor = System.Drawing.Color.White;
-            this.lblUtTrip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUtTrip.ForeColor = System.Drawing.Color.Black;
-            this.lblUtTrip.Location = new System.Drawing.Point(239, 194);
-            this.lblUtTrip.Name = "lblUtTrip";
-            this.lblUtTrip.Size = new System.Drawing.Size(105, 30);
-            this.lblUtTrip.TabIndex = 259;
-            this.lblUtTrip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(128, 112);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(97, 22);
-            this.label13.TabIndex = 261;
-            this.label13.Text = "Animalitos";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(128, 170);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(97, 22);
-            this.label18.TabIndex = 262;
-            this.label18.Text = "Animalitos";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(240, 60);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(83, 22);
-            this.label16.TabIndex = 263;
-            this.label16.Text = "Tripletas";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(240, 113);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(83, 22);
-            this.label20.TabIndex = 264;
-            this.label20.Text = "Tripletas";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(240, 170);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(83, 22);
-            this.label22.TabIndex = 265;
-            this.label22.Text = "Tripletas";
             // 
             // frmVentLot
             // 

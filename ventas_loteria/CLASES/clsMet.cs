@@ -3069,7 +3069,7 @@ namespace ventas_loteria
                     {
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "spListLot";
+                        cmd.CommandText = "spListLotTod";
                         cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
                         using (da = new MySqlDataAdapter(cmd)) { da.Fill(dt); }
                     }
@@ -3078,11 +3078,75 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
+        public string[] VerfVentTaq(int prmIdGrup, int prmIdUsu, int prmIdLot,
+                            string prmFechIni, string prmFechFin)
+        {
+            string[] rsDat = new string[14];
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spVerfVentTaq";
+                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                        cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
+                        cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                        cmd.Parameters.AddWithValue("prmFechIni", prmFechIni);
+                        cmd.Parameters.AddWithValue("prmFechFin", prmFechFin);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        dr.Read();
+
+                        if (dr.HasRows)
+                        {
+                            rsDat[0] = "1";
+                            rsDat[1] = "";
+                            rsDat[2] = dr["prmMVent"].ToString();
+                            rsDat[3] = dr["prmMVentAn"].ToString();
+                            rsDat[4] = dr["prmMVentTrip"].ToString();
+                            rsDat[5] = dr["prmMPre"].ToString();
+                            rsDat[6] = dr["prmMPreAn"].ToString();
+                            rsDat[7] = dr["prmMPreTrip"].ToString();
+                            rsDat[8] = dr["prmMAn"].ToString();
+                            rsDat[9] = dr["prmMAnAn"].ToString();
+                            rsDat[10] = dr["prmMAnTrip"].ToString();
+                            rsDat[11] = dr["prmMUt"].ToString();
+                            rsDat[12] = dr["prmMUtAn"].ToString();
+                            rsDat[13] = dr["prmMUtTrip"].ToString();
+                        }
+                        dr.Close();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                rsDat[0] = "0";
+                rsDat[1] = ex.Message;
+                rsDat[2] = "";
+                rsDat[3] = "";
+                rsDat[4] = "";
+                rsDat[5] = "";
+                rsDat[6] = "";
+                rsDat[7] = "";
+                rsDat[8] = "";
+                rsDat[9] = "";
+                rsDat[10] = "";
+                rsDat[11] = "";
+                rsDat[12] = "";
+                rsDat[13] = "";
+            }
+            return rsDat;
+        }
 
         public string[] VerfVentLot(int prmIdGrup, int prmIdUsu, int prmIdLot,
                                     string prmFechIni,string prmFechFin)
         {
-            string[] rsDat = new string[6];
+            string[] rsDat = new string[14];
             try
             {
                 using (MySqlConnection cnBd = new MySqlConnection())
@@ -3107,9 +3171,17 @@ namespace ventas_loteria
                             rsDat[0] = "1";
                             rsDat[1] = "";
                             rsDat[2] = dr["prmMVent"].ToString();
-                            rsDat[3] = dr["prmMPrem"].ToString();
-                            rsDat[4] = dr["prmMAn"].ToString();
-                            rsDat[5] = dr["prmMUt"].ToString();
+                            rsDat[3] = dr["prmMVentAn"].ToString();
+                            rsDat[4] = dr["prmMVentTrip"].ToString();
+                            rsDat[5] = dr["prmMPre"].ToString();
+                            rsDat[6] = dr["prmMPreAn"].ToString();
+                            rsDat[7] = dr["prmMPreTrip"].ToString();
+                            rsDat[8] = dr["prmMAn"].ToString();
+                            rsDat[9] = dr["prmMAnAn"].ToString();
+                            rsDat[10] = dr["prmMAnTrip"].ToString();
+                            rsDat[11] = dr["prmMUt"].ToString();
+                            rsDat[12] = dr["prmMUtAn"].ToString();
+                            rsDat[13] = dr["prmMUtTrip"].ToString();
                         }
                         dr.Close();
 
@@ -3124,6 +3196,10 @@ namespace ventas_loteria
                 rsDat[3] = "";
                 rsDat[4] = "";
                 rsDat[5] = "";
+                rsDat[6] = "";
+                rsDat[7] = "";
+                rsDat[8] = "";
+                rsDat[9] = "";
             }
             return rsDat;
         }
