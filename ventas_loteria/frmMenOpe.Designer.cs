@@ -42,6 +42,7 @@ namespace ventas_loteria
             this.btnLimTaq = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnBloqLot = new System.Windows.Forms.Button();
+            this.btnVentLot = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVentas
@@ -213,6 +214,19 @@ namespace ventas_loteria
             this.btnBloqLot.UseVisualStyleBackColor = false;
             this.btnBloqLot.Click += new System.EventHandler(this.btnBloqLot_Click);
             // 
+            // btnVentLot
+            // 
+            this.btnVentLot.BackColor = System.Drawing.Color.White;
+            this.btnVentLot.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVentLot.ForeColor = System.Drawing.Color.Black;
+            this.btnVentLot.Location = new System.Drawing.Point(119, 320);
+            this.btnVentLot.Name = "btnVentLot";
+            this.btnVentLot.Size = new System.Drawing.Size(90, 90);
+            this.btnVentLot.TabIndex = 218;
+            this.btnVentLot.Text = "Ventas Detalladas";
+            this.btnVentLot.UseVisualStyleBackColor = false;
+            this.btnVentLot.Click += new System.EventHandler(this.btnVentLot_Click);
+            // 
             // frmMenOpe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,6 +234,7 @@ namespace ventas_loteria
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(433, 418);
             this.ControlBox = false;
+            this.Controls.Add(this.btnVentLot);
             this.Controls.Add(this.btnBloqLot);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnLimTaq);
@@ -260,5 +275,6 @@ namespace ventas_loteria
         private System.Windows.Forms.Button btnLimTaq;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnBloqLot;
+        private System.Windows.Forms.Button btnVentLot;
     }
 }

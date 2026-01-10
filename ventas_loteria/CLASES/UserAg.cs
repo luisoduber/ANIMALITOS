@@ -8,6 +8,9 @@ namespace ventas_loteria
 {
     public class UserAg
     {
+
+        
+        public int idUserAg { get; set; }
         public string cdUserAg { get; set; }
     }
 }

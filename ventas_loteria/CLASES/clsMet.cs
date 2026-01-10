@@ -3592,5 +3592,84 @@ namespace ventas_loteria
                 return prmCad = "";
             }
         }
+
+        public string[] VerfStatTaq(int prmIdUsu)
+        {
+            string[] rsDat = new string[3];
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spVerfStatTaq";
+                        cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        dr.Read();
+
+                        if (dr.HasRows)
+                        {
+                            rsDat[0] = "true";
+                            rsDat[1] = "";
+                            rsDat[2] = dr["idStat"].ToString();
+                        }
+                        dr.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                rsDat[0] = "false";
+                rsDat[1] = ex.Message;
+                rsDat[2] = "";
+            }
+            return rsDat;
+        }
+
+
+        public List<UserAg> ListUserAg()
+        {
+            List<UserAg> listUserAg = new List<UserAg>();
+
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection(cn))
+                {
+                    cnBd.Open();
+                    idCn = 1;
+
+                    using (MySqlCommand cmd = new MySqlCommand("spListUserAg", cnBd))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        using (MySqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                UserAg _UserAg = new UserAg
+                                {
+                                    idUserAg = dr.GetInt32("idUserAg"),
+                                    cdUserAg = dr.GetString("nombUserAg")
+
+                                };
+
+                                listUserAg.Add(_UserAg);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+
+            return listUserAg;
+        }
+
     }
 }

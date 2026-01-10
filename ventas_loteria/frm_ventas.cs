@@ -1,11 +1,12 @@
 ﻿using DevComponents.DotNetBar.Controls;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.Tsp;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 
@@ -46,6 +47,7 @@ namespace ventas_loteria
         string fechaHora = "", FechaAct = "";
         string[] rsDat = null;
         string HoraAct = "";
+        string[] rsVerfStatTaq = new string[3];
 
         List<int> ListSortDel = new List<int>();
         List<int> ListJudDel = new List<int>();
@@ -180,6 +182,33 @@ namespace ventas_loteria
 
             try
             {
+                int idStatTaq = 0;
+                rsVerfStatTaq=objMet.VerfStatTaq(idUsu);
+
+                //MessageBox.Show(rsVerfStatTaq[0].ToString()+" "+ rsVerfStatTaq[2].ToString(), "Verifique.");
+                if (Convert.ToBoolean(rsVerfStatTaq[0]) == false)
+                {
+                    msjInfo = rsVerfStatTaq[1];
+                    MessageBox.Show(msjInfo, "Verifique.");
+                }
+                else if (Convert.ToBoolean(rsVerfStatTaq[0]) == true)
+                {
+                    idStatTaq =Convert.ToInt16(rsVerfStatTaq[2]);
+
+                    if (idStatTaq == 2)
+                    {
+                        msjInfo = "Usuario Inactivo. Contacte Con El ";
+                        msjInfo+= "Administrador del Sistema.";
+                        MessageBox.Show(msjInfo, "Verifique.");
+
+                        if (tmpReloj != null) { tmpReloj.Stop(); tmpReloj.Dispose(); tmpReloj = null; }
+                        if (tmpProceso != null) { tmpProceso.Stop(); tmpProceso.Dispose(); tmpProceso = null; }
+                        if (work_proc_sorteos != null && work_proc_sorteos.IsBusy) { work_proc_sorteos.CancelAsync(); }
+                        Application.Exit();
+                    }
+                }
+
+
                 if (dgvSort.RowCount > 0)
                 {
                     while (i < dgvSort.RowCount)
@@ -191,13 +220,13 @@ namespace ventas_loteria
                         horaSort = Convert.ToDateTime(fechaActual);
                         rsVerfSort = DateTime.Compare(horaServ, horaSort);
 
-                        if (rsVerfSort >= 0) 
-                        { 
+                        if (rsVerfSort >= 0)
+                        {
                             //ListSortDel.Add(idSort);
                             this.Invoke(new Action(() => { dgvSort.Rows.RemoveAt(i); }));
                         }
                         else { i++; }
-                        
+
                     }
                 }
                 idLot = 0; idSort = 0;
