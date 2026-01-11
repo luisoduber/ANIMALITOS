@@ -157,7 +157,7 @@ namespace ventas_loteria
 
                 cboTipProc.SelectedValue = 2;
                 timer1.Enabled = true;
-                timer1.Interval = 10000;
+                timer1.Interval = 120000;
             }
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -686,6 +686,11 @@ namespace ventas_loteria
                                     string prmHoraSortBus)
         {
             string result = "";
+            int idUserAg= 0;
+            Random rand = new Random();
+            int indAl = rand.Next(_listUserAg.Count);
+            idUserAg = _listUserAg[indAl].idUserAg;
+
             try
             {
                 using (var client = new HttpClient())
@@ -694,14 +699,15 @@ namespace ventas_loteria
                     //List<UserAg> _UserAg = new List<UserAg>();
                     //_UserAg = _ListUserAg._UserAg();
 
-                    Random rand = new Random();
-                    int indAl = rand.Next(_listUserAg.Count);
+                    
+                    
                     //int indAl = rand.Next(_UserAg.Count);
-
+                    
                     client.BaseAddress = new Uri(prmUrl);
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Add("User-Agent", _listUserAg[indAl].cdUserAg.ToString());
                     //client.DefaultRequestHeaders.Add("User-Agent", _UserAg[indAl].cdUserAg.ToString());
+                    
 
                     //Console.WriteLine("indice: " + _UserAg.Count);
                     //Console.WriteLine("User-Agent: ", _UserAg[indAl].cdUserAg.ToString() + " --> " + indAl);
@@ -738,7 +744,6 @@ namespace ventas_loteria
                                     string[] rsDatAni = rsLotPw.Split('-');
                                     string rsAni = rsDatAni[0].ToString();
                                     string rsNombAni = rsDatAni[1].ToString();
-
 
                                     var horaLot = node1.SelectSingleNode(".//div[contains(@class,'horario')]/span");
                                     string horaLotPw = horaLot?.InnerText?.Trim();
@@ -779,7 +784,13 @@ namespace ventas_loteria
                     }
                 } 
             }
-            catch (Exception ex) { msjInf = ex.Message; MessageBox.Show(ex.Message,"casth"); }
+            catch (Exception ex) 
+            {
+                msjInf = "Error: User-Agent id - " + idUserAg.ToString();
+                msjInf += " | ";
+                msjInf += ex.Message; 
+               
+            }
             return result;
         }
 
