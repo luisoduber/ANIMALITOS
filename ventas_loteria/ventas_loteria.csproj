@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>C:\Users\usuario\Desktop\ANIMALITOS\instalador\</PublishUrl>
+    <PublishUrl>C:\Users\programacion\Desktop\ANIMALITOS\instalador\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,7 +28,7 @@
     <InstallUrl>http://app.grupodabreu.com/animalitos/</InstallUrl>
     <ProductName>Animal Like</ProductName>
     <WebPage>prueba.html</WebPage>
-    <ApplicationRevision>224</ApplicationRevision>
+    <ApplicationRevision>226</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

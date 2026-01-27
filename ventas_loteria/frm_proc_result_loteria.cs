@@ -25,6 +25,7 @@ namespace ventas_loteria
         DataTable dtCboLot = new DataTable();
         DataTable dtcboTipProc = new DataTable();
         DataTable dtDgvJug = new DataTable();
+        DataTable dtCboTipTck = new DataTable();
         HtmlWeb web = new HtmlWeb();
 
         int idLot = 0, idSort = 0;
@@ -122,6 +123,7 @@ namespace ventas_loteria
                 dtCboLot = objMet.listLotTod(idGrup);
                 dtDgvSort = objMet.busLotProcRs();
                 dtcboTipProc = objMet.busTipProc();
+                dtCboTipTck = objMet.busTipTck();
                 dtDgvJug = objMet.busJugPendProc(idPerf, idGrup);
                 idProc = 1;
                 wkIniFrm.CancelAsync();
@@ -147,6 +149,10 @@ namespace ventas_loteria
                 this.cboLot.DisplayMember = "nombLot";
                 this.cboLot.ValueMember = "idLot";
                 this.cboLot.DataSource = dtCboLot;
+
+                this.cboTipTck.DisplayMember = "nombTipTckLar";
+                this.cboTipTck.ValueMember = "idTipTck";
+                this.cboTipTck.DataSource = dtCboTipTck;
 
                 dgvJug.DataSource = dtDgvJug;
                 gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
@@ -1213,6 +1219,16 @@ namespace ventas_loteria
         private void lblMsjInf_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboTipTck_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+            int idTipJug = 0;
+            idTipJug= Convert.ToInt16(cboTipTck.SelectedValue);
+            dtDgvJug = objMet.busTipJugPendProc(idPerf, idGrup, idTipJug);
+            dgvJug.DataSource = dtDgvJug;
+            gp_cant_jug.Text = "Cantidad jugadas: " + dgvJug.RowCount;
         }
 
         private void frm_proc_result_loteria_FormClosing(object sender, FormClosingEventArgs e)

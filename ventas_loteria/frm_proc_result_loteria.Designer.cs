@@ -55,6 +55,23 @@
             this.wkIniFrm = new System.ComponentModel.BackgroundWorker();
             this.gp_cant_jug = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dgvJug = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbInfProcRs = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.pbInfProcRs = new DevComponents.DotNetBar.Controls.ProgressBarX();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -77,23 +94,9 @@
             this.wkProcJugAut = new System.ComponentModel.BackgroundWorker();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.btnVentLot = new System.Windows.Forms.Button();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.cboTipTck = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.gb_loteria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSort)).BeginInit();
             this.gp_cant_jug.SuspendLayout();
@@ -104,6 +107,7 @@
             this.groupPanel2.SuspendLayout();
             this.gpMsjErr.SuspendLayout();
             this.groupPanel1.SuspendLayout();
+            this.groupPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // gb_loteria
@@ -338,6 +342,144 @@
             this.dgvJug.Size = new System.Drawing.Size(661, 347);
             this.dgvJug.TabIndex = 194;
             this.dgvJug.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvJug_CellFormatting);
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "id_det_jug";
+            this.Column6.HeaderText = "id_det_jug";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "id_loteria";
+            this.Column17.HeaderText = "id_loteria";
+            this.Column17.Name = "Column17";
+            this.Column17.Visible = false;
+            // 
+            // Column18
+            // 
+            this.Column18.DataPropertyName = "id_sorteo";
+            this.Column18.HeaderText = "id_sorteo";
+            this.Column18.Name = "Column18";
+            this.Column18.Visible = false;
+            // 
+            // Column19
+            // 
+            this.Column19.DataPropertyName = "idTipTck";
+            this.Column19.HeaderText = "idTipTck";
+            this.Column19.Name = "Column19";
+            this.Column19.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "nro_ticket";
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle36;
+            this.Column8.HeaderText = "Ticket";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 70;
+            // 
+            // Column20
+            // 
+            this.Column20.DataPropertyName = "nombTipTck";
+            this.Column20.HeaderText = "nombTipTck";
+            this.Column20.Name = "Column20";
+            this.Column20.Width = 20;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "nomb_usuario";
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle37;
+            this.Column12.HeaderText = "Usuario";
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "abrev_loteria";
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle38;
+            this.dataGridViewTextBoxColumn4.HeaderText = "nomb_loteria";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 40;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "nomb_sorteo";
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle39;
+            this.Column5.HeaderText = "Sorteo";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 80;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "codigo_jugada";
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle40;
+            this.Column2.HeaderText = "codigo_jugada";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 30;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "nomb_product";
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle41;
+            this.Column3.HeaderText = "nomb_product";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 90;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "monto";
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle42.Format = "N2";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle42;
+            this.Column4.HeaderText = "Monto";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 70;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "nmb_status_ticket";
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle43;
+            this.Column9.HeaderText = "Status";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 130;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "error";
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle44;
+            this.Column14.HeaderText = "error";
+            this.Column14.Name = "Column14";
+            this.Column14.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "cod_result";
+            this.Column13.HeaderText = "cod_result";
+            this.Column13.Name = "Column13";
+            this.Column13.Visible = false;
+            // 
+            // Column21
+            // 
+            this.Column21.DataPropertyName = "id_usuario";
+            this.Column21.HeaderText = "id_usuario";
+            this.Column21.Name = "Column21";
+            this.Column21.Visible = false;
+            // 
+            // Column22
+            // 
+            this.Column22.DataPropertyName = "id_status_ticket";
+            this.Column22.HeaderText = "id_status_ticket";
+            this.Column22.Name = "Column22";
+            this.Column22.Visible = false;
             // 
             // gbInfProcRs
             // 
@@ -637,9 +779,9 @@
             this.gpMsjErr.DisabledBackColor = System.Drawing.Color.Empty;
             this.gpMsjErr.DrawTitleBox = false;
             this.gpMsjErr.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.gpMsjErr.Location = new System.Drawing.Point(340, 65);
+            this.gpMsjErr.Location = new System.Drawing.Point(478, 65);
             this.gpMsjErr.Name = "gpMsjErr";
-            this.gpMsjErr.Size = new System.Drawing.Size(590, 67);
+            this.gpMsjErr.Size = new System.Drawing.Size(452, 67);
             // 
             // 
             // 
@@ -678,7 +820,7 @@
             this.lblMsjErr.BackColor = System.Drawing.Color.Transparent;
             this.lblMsjErr.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMsjErr.ForeColor = System.Drawing.Color.Black;
-            this.lblMsjErr.Location = new System.Drawing.Point(5, 3);
+            this.lblMsjErr.Location = new System.Drawing.Point(5, 4);
             this.lblMsjErr.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblMsjErr.Name = "lblMsjErr";
             this.lblMsjErr.Size = new System.Drawing.Size(80, 22);
@@ -755,143 +897,70 @@
             this.btnVentLot.UseVisualStyleBackColor = false;
             this.btnVentLot.Click += new System.EventHandler(this.btnVentLot_Click);
             // 
-            // Column6
+            // groupPanel4
             // 
-            this.Column6.DataPropertyName = "id_det_jug";
-            this.Column6.HeaderText = "id_det_jug";
-            this.Column6.Name = "Column6";
-            this.Column6.Visible = false;
+            this.groupPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
+            this.groupPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel4.Controls.Add(this.cboTipTck);
+            this.groupPanel4.Controls.Add(this.label4);
+            this.groupPanel4.DisabledBackColor = System.Drawing.Color.Empty;
+            this.groupPanel4.DrawTitleBox = false;
+            this.groupPanel4.Font = new System.Drawing.Font("Times New Roman", 14.25F);
+            this.groupPanel4.Location = new System.Drawing.Point(340, 65);
+            this.groupPanel4.Name = "groupPanel4";
+            this.groupPanel4.Size = new System.Drawing.Size(132, 67);
             // 
-            // Column17
             // 
-            this.Column17.DataPropertyName = "id_loteria";
-            this.Column17.HeaderText = "id_loteria";
-            this.Column17.Name = "Column17";
-            this.Column17.Visible = false;
             // 
-            // Column18
+            this.groupPanel4.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
+            this.groupPanel4.Style.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
+            this.groupPanel4.Style.BackColorGradientAngle = 90;
+            this.groupPanel4.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderBottomWidth = 3;
+            this.groupPanel4.Style.BorderColor = System.Drawing.Color.White;
+            this.groupPanel4.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderLeftWidth = 3;
+            this.groupPanel4.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderRightWidth = 3;
+            this.groupPanel4.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderTopWidth = 3;
+            this.groupPanel4.Style.CornerDiameter = 4;
+            this.groupPanel4.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel4.Style.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupPanel4.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Far;
+            this.groupPanel4.Style.TextColor = System.Drawing.Color.Black;
+            this.groupPanel4.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Far;
             // 
-            this.Column18.DataPropertyName = "id_sorteo";
-            this.Column18.HeaderText = "id_sorteo";
-            this.Column18.Name = "Column18";
-            this.Column18.Visible = false;
             // 
-            // Column19
             // 
-            this.Column19.DataPropertyName = "idTipTck";
-            this.Column19.HeaderText = "idTipTck";
-            this.Column19.Name = "Column19";
-            this.Column19.Visible = false;
+            this.groupPanel4.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            // Column8
             // 
-            this.Column8.DataPropertyName = "nro_ticket";
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle36;
-            this.Column8.HeaderText = "Ticket";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 70;
             // 
-            // Column20
+            this.groupPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel4.TabIndex = 274;
+            this.groupPanel4.Text = "Jugadas";
             // 
-            this.Column20.DataPropertyName = "nombTipTck";
-            this.Column20.HeaderText = "nombTipTck";
-            this.Column20.Name = "Column20";
-            this.Column20.Width = 20;
+            // cboTipTck
             // 
-            // Column12
+            this.cboTipTck.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipTck.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTipTck.FormattingEnabled = true;
+            this.cboTipTck.Location = new System.Drawing.Point(4, 5);
+            this.cboTipTck.Margin = new System.Windows.Forms.Padding(4);
+            this.cboTipTck.Name = "cboTipTck";
+            this.cboTipTck.Size = new System.Drawing.Size(112, 27);
+            this.cboTipTck.TabIndex = 208;
+            this.cboTipTck.SelectionChangeCommitted += new System.EventHandler(this.cboTipTck_SelectionChangeCommitted);
             // 
-            this.Column12.DataPropertyName = "nomb_usuario";
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle37;
-            this.Column12.HeaderText = "Usuario";
-            this.Column12.Name = "Column12";
-            this.Column12.Width = 110;
+            // label4
             // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "abrev_loteria";
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle38;
-            this.dataGridViewTextBoxColumn4.HeaderText = "nomb_loteria";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 40;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "nomb_sorteo";
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle39;
-            this.Column5.HeaderText = "Sorteo";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 80;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "codigo_jugada";
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle40;
-            this.Column2.HeaderText = "codigo_jugada";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 30;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "nomb_product";
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle41;
-            this.Column3.HeaderText = "nomb_product";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 90;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "monto";
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.Format = "N2";
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle42;
-            this.Column4.HeaderText = "Monto";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 70;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "nmb_status_ticket";
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle43;
-            this.Column9.HeaderText = "Status";
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 130;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "error";
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle44;
-            this.Column14.HeaderText = "error";
-            this.Column14.Name = "Column14";
-            this.Column14.Visible = false;
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "cod_result";
-            this.Column13.HeaderText = "cod_result";
-            this.Column13.Name = "Column13";
-            this.Column13.Visible = false;
-            // 
-            // Column21
-            // 
-            this.Column21.DataPropertyName = "id_usuario";
-            this.Column21.HeaderText = "id_usuario";
-            this.Column21.Name = "Column21";
-            this.Column21.Visible = false;
-            // 
-            // Column22
-            // 
-            this.Column22.DataPropertyName = "id_status_ticket";
-            this.Column22.HeaderText = "id_status_ticket";
-            this.Column22.Name = "Column22";
-            this.Column22.Visible = false;
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.LightGray;
+            this.label4.Location = new System.Drawing.Point(27, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 21);
+            this.label4.TabIndex = 1;
             // 
             // frm_proc_result_loteria
             // 
@@ -900,6 +969,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(934, 517);
             this.ControlBox = false;
+            this.Controls.Add(this.groupPanel4);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.gpMsjErr);
             this.Controls.Add(this.groupPanel2);
@@ -932,6 +1002,8 @@
             this.gpMsjErr.ResumeLayout(false);
             this.gpMsjErr.PerformLayout();
             this.groupPanel1.ResumeLayout(false);
+            this.groupPanel4.ResumeLayout(false);
+            this.groupPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -988,5 +1060,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
+        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel4;
+        private System.Windows.Forms.ComboBox cboTipTck;
+        private System.Windows.Forms.Label label4;
     }
 }

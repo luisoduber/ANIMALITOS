@@ -962,6 +962,28 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
+        public DataTable busTipTck()
+        {
+            DataTable dt = new DataTable("busTipTck");
+            MySqlDataAdapter da;
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spListTipTck";
+                        using (da = new MySqlDataAdapter(cmd)) { da.Fill(dt); }
+                    }
+                }
+            }
+            catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
+            return dt;
+        }
         public DataTable busLot(int prmIdUsu)
         {
             DataTable dt = new DataTable("busLot");
@@ -2238,7 +2260,32 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
-
+        public DataTable busTipJugPendProc(int prmIdPerf, int prmIdGrup,
+                                            int prmIdTipTck)
+        {
+            DataTable dt = new DataTable("busJugPendProc");
+            MySqlDataAdapter da;
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "SPBusTipJugPendProc";
+                        cmd.Parameters.AddWithValue("prmIdPerf", prmIdPerf);
+                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                        cmd.Parameters.AddWithValue("prmIdTipTck", prmIdTipTck);
+                        using (da = new MySqlDataAdapter(cmd)) { da.Fill(dt); }
+                    }
+                }
+            }
+            catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
+            return dt;
+        }
         public DataTable bus_sorteo_proc_result(int prmIdLot)
         {
 
