@@ -29,7 +29,7 @@ namespace ventas_loteria
         DataTable dtCboStatMac = new DataTable();
         DataTable dtCboStatMacFilt = new DataTable();
         DataTable dtCboCuad = new DataTable();
-        DataTable dtCboDivisa = new DataTable();
+        DataTable dtCboDiv = new DataTable();
 
         int idProc = 0, idGrup = 0;
         int idUsu = 0, idGrupUsu=0;
@@ -79,7 +79,7 @@ namespace ventas_loteria
                 dtCboPregSeg = objFunc.busPregSeg();
                 dtCboStatMac = objFunc.busStatMac();
                 dtCboCuad = objFunc.busTipCuad();
-                dtCboDivisa= objFunc.busDivisa();
+                dtCboDiv= objFunc.busDiv();
                 dtDgvMac = objFunc.busMac(idPerf,idGrup);
                 dtCboStatMacFilt = objFunc.busStatMac();
 
@@ -135,7 +135,7 @@ namespace ventas_loteria
 
                 this.cboDivisa.DisplayMember = "nombDivisa";
                 this.cboDivisa.ValueMember = "idDivisa";
-                this.cboDivisa.DataSource = dtCboDivisa;
+                this.cboDivisa.DataSource = dtCboDiv;
 
                 this.cboStatus.DisplayMember = "nomb_status";
                 this.cboStatus.ValueMember = "id_status";

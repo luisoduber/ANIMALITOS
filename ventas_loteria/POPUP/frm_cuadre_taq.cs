@@ -50,7 +50,7 @@ namespace ventas_loteria
                 dtCboTaq = objCuadreTaq.busGrupTaq
                (Convert.ToInt32(clsMet.idGrup));
 
-                dtCboDivisa = objCuadreTaq.busDivisa();
+                dtCboDivisa = objCuadreTaq.busDiv();
 
                 id_proceso = 1;
                 work_inicia_frm.CancelAsync();

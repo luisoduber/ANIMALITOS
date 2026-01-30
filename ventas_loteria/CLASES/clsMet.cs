@@ -770,9 +770,9 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
-        public DataTable busDivisa()
+        public DataTable busDiv()
         {
-            DataTable dt = new DataTable("busDivisa");
+            DataTable dt = new DataTable("busDiv");
             MySqlDataAdapter da;
             try
             {
@@ -2573,8 +2573,8 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show("aaa: " + ex.Message); }
             return dt;
         }
-        public DataTable busVentGrup(int prmIdgrup, string prmFechIni,
-                                                 string prmFechFin)
+        public DataTable busVentGrup(int prmIdgrup, int prmIdDiv,
+                                    string prmFechIni, string prmFechFin)
         {
             DataTable dt = new DataTable("busVentTodGrup");
             MySqlDataAdapter da;
@@ -2590,6 +2590,7 @@ namespace ventas_loteria
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "SPBusTotGrup";
                         cmd.Parameters.AddWithValue("prmIdgrup", prmIdgrup);
+                        cmd.Parameters.AddWithValue("prmIdDiv", prmIdDiv);
                         cmd.Parameters.AddWithValue("prmFechIni", prmFechIni);
                         cmd.Parameters.AddWithValue("prmFechFin", prmFechFin);
                         da = new MySqlDataAdapter(cmd);
@@ -2600,8 +2601,8 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
-        public DataTable busVentGrupTod(int prmIdgrup, string prmFechIni,
-                                         string prmFechFin)
+        public DataTable busVentGrupTod(int prmIdgrup, int prmIdDiv,
+                                        string prmFechIni, string prmFechFin)
         {
             DataTable dt = new DataTable("busVentTodGrup");
             MySqlDataAdapter da;
@@ -2617,6 +2618,7 @@ namespace ventas_loteria
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "SPBusTotGrupTod";
                         cmd.Parameters.AddWithValue("prmIdgrup", prmIdgrup);
+                        cmd.Parameters.AddWithValue("prmIdDiv", prmIdDiv);
                         cmd.Parameters.AddWithValue("prmFechIni", prmFechIni);
                         cmd.Parameters.AddWithValue("prmFechFin", prmFechFin);
                         da = new MySqlDataAdapter(cmd);

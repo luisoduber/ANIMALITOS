@@ -19,8 +19,9 @@ namespace ventas_loteria
         clsMet objMet = new clsMet();
         DataTable dtDgvCuad= new DataTable();
         DataTable dtCboGrup = new DataTable();
-        DataTable dtCboTaq = new DataTable();
+        DataTable dtCboDiv = new DataTable();
         int idGrup = 0;
+        int idDiv = 0;
         int idProc = 0;
 
         private void frm_cuadre_taq_gral_Load(object sender, EventArgs e)
@@ -49,14 +50,17 @@ namespace ventas_loteria
             try
             {
                 dtCboGrup = objMet.busGrupTod();
+                dtCboDiv = objMet.busDiv();
                 idProc = 1;
                 work_inicia_frm.CancelAsync();
 
+                idDiv = Convert.ToInt16(dtCboDiv.Rows[0][0].ToString());
                 if (Convert.ToInt16(clsMet.idPerf) == 2) 
                 { 
                     idGrup = Convert.ToInt16(clsMet.idGrup);
                     dtDgvCuad = objMet.busVentGrup
                     (idGrup,
+                     idDiv,
                     Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
                     Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
                 }
@@ -65,6 +69,7 @@ namespace ventas_loteria
                     idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0].ToString());
                     dtDgvCuad = objMet.busVentGrupTod
                     (idGrup,
+                     idDiv,
                     Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
                     Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
                 }
@@ -95,6 +100,10 @@ namespace ventas_loteria
 
                 if (Convert.ToInt16(clsMet.idPerf) == 2) { cboGrup.Enabled = false; }
                 else if (Convert.ToInt16(clsMet.idPerf) == 3) { cboGrup.Enabled = true; }
+
+                this.cboDiv.DisplayMember = "nombDivisa";
+                this.cboDiv.ValueMember = "idDivisa";
+                this.cboDiv.DataSource = dtCboDiv;
             }
             else if (idProc == 0)
             {
@@ -106,10 +115,12 @@ namespace ventas_loteria
         {
 
             idGrup = Convert.ToInt32(cboGrup.SelectedValue.ToString());
+            idDiv = Convert.ToInt32(cboDiv.SelectedValue.ToString());
             if (idGrup == 0)
             {
                 dtDgvCuad = objMet.busVentGrupTod
                 (idGrup,
+                idDiv,
                 Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
                 Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
             }
@@ -117,6 +128,7 @@ namespace ventas_loteria
             {
                 dtDgvCuad = objMet.busVentGrup
                 (idGrup,
+                idDiv,
                 Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
                 Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
             }
@@ -131,8 +143,7 @@ namespace ventas_loteria
             codigo = (int)caracter;
             if (codigo == 27) { this.Close(); }
         }
-
-        private void dtpFechFin_ValueChanged(object sender, EventArgs e)
+        private void cboDiv_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (Convert.ToInt16(clsMet.idPerf) == 2)
             {
@@ -146,14 +157,14 @@ namespace ventas_loteria
                     return;
                 }
 
+                idGrup = Convert.ToInt32(cboGrup.SelectedValue.ToString());
+                idDiv = Convert.ToInt32(cboDiv.SelectedValue.ToString());
                 dtDgvCuad = objMet.busVentGrup
                    (idGrup,
+                   idDiv,
                    Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
                    Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
-
                 dgvCuadGrup.DataSource = dtDgvCuad;
-
-
             }
 
         }
