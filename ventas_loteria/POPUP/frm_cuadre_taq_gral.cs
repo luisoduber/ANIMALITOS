@@ -145,27 +145,25 @@ namespace ventas_loteria
         }
         private void cboDiv_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (Convert.ToInt16(clsMet.idPerf) == 2)
+            idGrup = Convert.ToInt32(cboGrup.SelectedValue.ToString());
+            idDiv = Convert.ToInt32(cboDiv.SelectedValue.ToString());
+            if (idGrup == 0)
             {
-                DateTime fechIni = dtpFechIni.Value.Date;
-                DateTime fechFin = dtpFechFin.Value.Date;
-                int cantDif = fechIni.CompareTo(fechFin);
-
-                if (cantDif > 0)
-                {
-                    MessageBox.Show("Fecha de relación diaria no debe ser mayor a fecha final...", "Verifique.");
-                    return;
-                }
-
-                idGrup = Convert.ToInt32(cboGrup.SelectedValue.ToString());
-                idDiv = Convert.ToInt32(cboDiv.SelectedValue.ToString());
-                dtDgvCuad = objMet.busVentGrup
-                   (idGrup,
-                   idDiv,
-                   Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
-                   Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
-                dgvCuadGrup.DataSource = dtDgvCuad;
+                dtDgvCuad = objMet.busVentGrupTod
+                (idGrup,
+                idDiv,
+                Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
+                Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
             }
+            else if (idGrup > 0)
+            {
+                dtDgvCuad = objMet.busVentGrup
+                (idGrup,
+                idDiv,
+                Convert.ToDateTime(dtpFechIni.Text).ToString("yyyy-MM-dd"),
+                Convert.ToDateTime(dtpFechFin.Text).ToString("yyyy-MM-dd"));
+            }
+            this.dgvCuadGrup.DataSource = dtDgvCuad;
 
         }
     }
