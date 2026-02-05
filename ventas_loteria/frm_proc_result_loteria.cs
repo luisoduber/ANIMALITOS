@@ -879,7 +879,12 @@ namespace ventas_loteria
                                         var partes = resultadoTexto.Split(' ');
                                         rsAni = partes.Length > 0 ? partes[0] : null;
                                         rsNombAni = partes.Length > 1 ? partes[1] : null;
-                                       
+
+                                        int numVal = 0;
+                                        bool valid= int.TryParse(rsAni, out numVal);
+                                        if (rsAni.Length == 1) { rsAni = "0" + rsAni; }
+                                        if (valid == false) { rsAni = "";  }
+
                                         nombLot = nombLot.Replace(" ", "/");
                                         var rsDatNombLot = nombLot.Split('/');
 
