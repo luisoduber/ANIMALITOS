@@ -1,4 +1,5 @@
-﻿using DevComponents.DotNetBar.Controls;
+﻿using DevComponents.AdvTree;
+using DevComponents.DotNetBar.Controls;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.Tsp;
 using System;
@@ -1119,6 +1120,8 @@ namespace ventas_loteria
 
                         idLotAnt = Convert.ToInt32(dgvJug.Rows[d].Cells[5].Value.ToString());
                         idSortAnt = Convert.ToInt32(dgvJug.Rows[d].Cells[6].Value.ToString());
+
+                       // if (Convert.ToBoolean(cell.Value) == true) { cell.Value = false; }
                     }
 
                     dtDgvJug.Clear();
@@ -1145,6 +1148,12 @@ namespace ventas_loteria
 
                     myTrans.Commit();
                     busCuadCaj();
+
+                    foreach (DataGridViewRow row in dgvSort.Rows)
+                    {
+                        DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
+                        if (Convert.ToBoolean(cell.Value) == true) { cell.Value = false; }
+                    }
                     if (sortAb == true) { refresc(); }
                 }
             }
@@ -1422,6 +1431,13 @@ namespace ventas_loteria
 
                         myTrans.Commit();
                         busCuadCaj();
+
+                        foreach (DataGridViewRow row in dgvSort.Rows)
+                        {
+                            DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
+                            if (Convert.ToBoolean(cell.Value) == true) { cell.Value = false; }
+                        }
+
                         if (sortAb == true) { refresc(); }
                     }
                 }

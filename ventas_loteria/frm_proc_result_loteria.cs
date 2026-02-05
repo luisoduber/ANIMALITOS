@@ -6,7 +6,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
+using System.Linq;
 using System.Net.Http;
+using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using System.Web.Services.Description;
 using System.Windows.Forms;
@@ -181,7 +184,7 @@ namespace ventas_loteria
                 this.wkProcRsAut.RunWorkerAsync();
             }
         }
-        private void wkProcRsAut_DoWork(object sender, DoWorkEventArgs e)
+        private  void wkProcRsAut_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
@@ -220,6 +223,7 @@ namespace ventas_loteria
 
                                     for (int c = 0; c <= dtInfSort.Rows.Count - 1; c++)
                                     {
+                                        rsLot = "";
                                         idLotBus = dtInfSort.Rows[c][0].ToString();
                                         idSortBus = dtInfSort.Rows[c][1].ToString();
                                         horaSortBus = Convert.ToDateTime(dtInfSort.Rows[c][2].ToString()).ToString("hh:mm");
@@ -228,17 +232,14 @@ namespace ventas_loteria
                                         rsLot = rsTuAzar(urlTuAzar, idLotBus, idSortBus, nombLotBus, horaSortBus);
                                         if (string.IsNullOrEmpty(rsLot)) { rsLot = rsTuAzar(urlTuAzFr, idLotBus, idSortBus, nombLotBus, horaSortBus); }
                                         if (string.IsNullOrEmpty(rsLot)) { rsLot = rsIndLotHoy(idLotBus, idSortBus, nombLotBus, horaSortBus); }
+                                        if (string.IsNullOrEmpty(rsLot)) { rsLot = LottResult(idLotBus, idSortBus, nombLotBus, horaSortBus); }
 
                                         if (!string.IsNullOrEmpty(rsLot))
                                         {
                                             if (string.IsNullOrEmpty(rsGan)) { rsGan += rsLot; }
                                             else { rsGan += "/" + rsLot; }
+                                            //MessageBox.Show(rsGan);
                                         }
-
-                                        //MessageBox.Show(rsLot, "rsLot");
-                                        //MessageBox.Show(rsGan);
-
-
                                         /////////////////////////////////////////////////////////////////////////////////////
                                         ////////////////////////////////// RULETA ACTIVA ////////////////////////////////////
 
@@ -310,7 +311,7 @@ namespace ventas_loteria
 
             if (idProc == 1)
             {
-                if (string.IsNullOrEmpty(rsGan)) { lblMsjInf.Text = msjInf; }
+                if (string.IsNullOrEmpty(rsGan)) { lblMsjInf.Text = msjInf.ToUpper(); }
                 lblMsjErr.Text = "";
                 wkProcJugAut.RunWorkerAsync();
             }
@@ -701,7 +702,7 @@ namespace ventas_loteria
                     {
                         if (res.IsSuccessStatusCode)
                         {
-                            string html = res.Content.ReadAsStringAsync().Result;
+                            string html =res.Content.ReadAsStringAsync().Result;
                             HtmlAgilityPack.HtmlDocument htmlDoc = new HtmlAgilityPack.HtmlDocument();
                             htmlDoc.LoadHtml(html);
                             var node = htmlDoc.DocumentNode.SelectNodes("//div[contains(@class, 'col-xs-6 col-sm-3')]");
@@ -812,18 +813,17 @@ namespace ventas_loteria
         }
 
 
-        public async Task<string> LottResult(string prmIdLot, string prmIdSort,
+        public string LottResult(string prmIdLot, string prmIdSort,
                                    string prmNombLot, string prmHoraSortBus)
         {
             string result = "";
             try
             {
-                //MessageBox.Show(prmNombLot);
                 using (var client = new HttpClient())
                 {
                     string prmUrl = "";
                     prmUrl = @"https://www.lottoresultados.com/resultados/animalitos";
-
+                    Debug.WriteLine("https://www.lottoresultados.com/resultados/animalitos");
                     Random rand = new Random();
                     int indAl = rand.Next(_listUserAg.Count);
 
@@ -831,72 +831,96 @@ namespace ventas_loteria
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Add("User-Agent", _listUserAg[indAl].cdUserAg.ToString());
 
-                    using (var res = await client.GetAsync(prmUrl))
+                    using (var res = client.GetAsync(prmUrl).Result)
                     {
                         if (res.IsSuccessStatusCode)
                         {
-                            string html = await res.Content.ReadAsStringAsync();
+                            string html = res.Content.ReadAsStringAsync().Result;
                             HtmlAgilityPack.HtmlDocument htmlDoc = new HtmlAgilityPack.HtmlDocument();
                             htmlDoc.LoadHtml(html);
+                            var nodes = htmlDoc.DocumentNode.SelectNodes("//div[starts-with(@id,'resultado-de-')]");
 
-                            var tipoNode = htmlDoc.DocumentNode.SelectSingleNode("//h2[contains(@class,'h3')]/text()");
-                            var nombreNode = htmlDoc.DocumentNode.SelectSingleNode("//h2[contains(@class,'h3')]/small");
-                            var items = htmlDoc.DocumentNode.SelectNodes("//li[contains(@class,'step-item')]");
-
-                            string tipo = tipoNode?.InnerText.Trim();
-                            string nombreLoteria = nombreNode?.InnerText.Trim();
-
-                            string rsAni = "";
-                            string nombAni = "";
+                            string rsAni = "", rsNombAni = "";
                             string prmNombLotPw = "";
+                            string horaLotPw = "";
                             string[] rsDatAn = new string[6];
                             string[] rsDatLot = new string[6];
                             string cadAn = "", cadLot = "";
+                            Boolean culProc = false;
 
-                            if (items == null) { msjInf = "El nodo verificado es NULL o no a sido encontrado"; Console.WriteLine(msjInf); }
-                            else if (items != null)
+                            if (nodes == null) { msjInf = "El nodo verificado es NULL o no a sido encontrado"; Console.WriteLine(msjInf); }
+                            else if (nodes != null)
                             {
-
-                                foreach (var item in items)
+                                foreach (var bloque in nodes)
                                 {
+                                    var nombLot = bloque
+                                        .SelectSingleNode(".//h2")
+                                        ?.InnerText
+                                        ?.Trim();
 
-                                    var horaNode = item.SelectSingleNode(".//h4");
-                                    var textoNode = item.SelectSingleNode(".//p[contains(@class,'step-text')]");
+                                    var sorteos = bloque.SelectNodes(".//li[@class='step-item']");
+                                    if (sorteos == null) continue;
 
-                                    string hora = horaNode?.InnerText.Trim();
-                                    string texto = textoNode?.InnerText.Trim();
-
-                                    int? codigo = null;
-                                    string animal = null;
-
-                                    if (!string.IsNullOrEmpty(texto) &&
-                                        texto != "Próximo" &&
-                                        texto != "Pendiente")
+                                    foreach (var sorteo in sorteos)
                                     {
-                                        var partes = texto.Split(' ', 2);
-                                        if (partes.Length == 2 && int.TryParse(partes[0], out int cod))
+                                        var hora = sorteo
+                                            .SelectSingleNode(".//h4")
+                                            ?.InnerText
+                                            ?.Trim();
+
+                                        var resultadoTexto = sorteo
+                                            .SelectSingleNode(".//p[contains(@class,'step-text')]")
+                                            ?.InnerText
+                                            ?.Trim();
+
+                                        if (string.IsNullOrEmpty(resultadoTexto))
+                                            continue;
+
+                                        var partes = resultadoTexto.Split(' ');
+                                        rsAni = partes.Length > 0 ? partes[0] : null;
+                                        rsNombAni = partes.Length > 1 ? partes[1] : null;
+                                       
+                                        nombLot = nombLot.Replace(" ", "/");
+                                        var rsDatNombLot = nombLot.Split('/');
+
+                                        hora = hora.Replace(" ", "/");
+                                        var rsHorLot = hora.Split('/');
+                                        horaLotPw =Convert.ToDateTime(rsHorLot[0]).ToString("hh:mm");
+                                       
+                                        if (Convert.ToInt16(prmIdLot) == 27)
                                         {
-                                            codigo = cod;
-                                            animal = partes[1];
+                                            if (rsDatNombLot.Length == 3) 
+                                            {
+                                                prmNombLotPw = rsDatNombLot[1].ToString() + " " + rsDatNombLot[2].ToString();
+                                            } 
+                                        }
+                                        else if (Convert.ToInt16(prmIdLot) == 28) 
+                                        {
+                                            if (rsDatNombLot.Length == 4)
+                                            {
+                                                prmNombLotPw = rsDatNombLot[0].ToString() + " " + rsDatNombLot[1].ToString();
+                                            }
+                                        }
+
+                                        if ((prmNombLotPw.ToLower().Trim() == prmNombLot) && (horaLotPw == prmHoraSortBus))
+                                        {
+                                            if (!string.IsNullOrEmpty(rsAni.ToString().Trim()))
+                                            {
+                                                result += prmIdLot + "-";
+                                                result += prmIdSort + "-";
+                                                result += rsAni + "-";
+                                                result += rsNombAni + "-";
+                                                result += prmNombLotPw + " ";
+                                                result += prmHoraSortBus;
+                                                culProc = true;
+
+                                                //MessageBox.Show(result,"result");
+                                                break;
+                                            }
                                         }
                                     }
 
-                                    MessageBox.Show(nombreLoteria + " | " + codigo + " | " + animal, " data pagina");
-
-                                    if ((prmNombLotPw.ToLower() == prmNombLot) && (prmHoraLot == prmHoraSortBus))
-                                    {
-                                        //VERIFICA SI HAY RESULTADO EN LA LOTERIA SI NO VIENE VACIO
-                                        if (!string.IsNullOrEmpty(rsAni))
-                                        {
-                                            result += prmIdLot + "-";
-                                            result += prmIdSort + "-";
-                                            result += rsAni + "-";
-                                            result += nombAni + "-";
-                                            result += prmNombLotPw + " ";
-                                            result += prmHoraSortBus;
-                                            break;
-                                        }
-                                    }
+                                    if (culProc == true) {  break; }
                                 }
                             }
                         }
@@ -904,11 +928,9 @@ namespace ventas_loteria
                 }
 
             }
-            catch (Exception ex) { msjInf = ex.Message; Console.WriteLine("exception: " + msjInf); }
+            catch (Exception ex) { msjInf = ex.Message; Debug.WriteLine("exception LottResult: " + msjInf); }
             return result;
         }
-
-
 
         public string rsGenLotHoy(string html, string prmIdLot,
                             string prmIdSort, string prmNombLot,
@@ -1137,7 +1159,7 @@ namespace ventas_loteria
                 }
 
             }
-            catch (Exception ex) { msjInf = ex.Message; Console.WriteLine("exception: " + msjInf); }
+            catch (Exception ex) { msjInf = ex.Message; Debug.WriteLine("exception: aaaaa" + msjInf); }
             return result;
         }
 
