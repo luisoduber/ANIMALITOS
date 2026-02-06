@@ -167,7 +167,7 @@ namespace ventas_loteria
 
                 cboTipProc.SelectedValue = 2;
                 timer1.Enabled = true;
-                timer1.Interval = 120000;
+                timer1.Interval = 20000;
             }
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -238,7 +238,7 @@ namespace ventas_loteria
                                         {
                                             if (string.IsNullOrEmpty(rsGan)) { rsGan += rsLot; }
                                             else { rsGan += "/" + rsLot; }
-                                            //MessageBox.Show(rsGan);
+                                            MessageBox.Show(rsGan);
                                         }
                                         /////////////////////////////////////////////////////////////////////////////////////
                                         ////////////////////////////////// RULETA ACTIVA ////////////////////////////////////
@@ -313,7 +313,7 @@ namespace ventas_loteria
             {
                 if (string.IsNullOrEmpty(rsGan)) { lblMsjInf.Text = msjInf.ToUpper(); }
                 lblMsjErr.Text = "";
-                wkProcJugAut.RunWorkerAsync();
+               wkProcJugAut.RunWorkerAsync();
             }
             else if (idProc == 0) { lblMsjErr.Text = "wkProcRsAut: " + msjInf; }
         }
@@ -880,10 +880,16 @@ namespace ventas_loteria
                                         rsAni = partes.Length > 0 ? partes[0] : null;
                                         rsNombAni = partes.Length > 1 ? partes[1] : null;
 
-                                        int numVal = 0;
+                                        MessageBox.Show(resultadoTexto+" | " + rsAni
+                                            + " | "+ rsAni.Length, "resultadoTexto");
+                            
+                                       int numVal = 0;
                                         bool valid= int.TryParse(rsAni, out numVal);
-                                        if (rsAni.Length == 1) { rsAni = "0" + rsAni; }
+                                        if (rsAni.Length == 1 && rsAni!="0") { rsAni = "0" + rsAni; }
                                         if (valid == false) { rsAni = "";  }
+
+                                        MessageBox.Show(valid + " | " + rsAni
+                                          + " | " + rsAni.Length, "resultadoTexto");
 
                                         nombLot = nombLot.Replace(" ", "/");
                                         var rsDatNombLot = nombLot.Split('/');
@@ -909,8 +915,12 @@ namespace ventas_loteria
 
                                         if ((prmNombLotPw.ToLower().Trim() == prmNombLot) && (horaLotPw == prmHoraSortBus))
                                         {
+                                            string msj= prmNombLotPw.ToLower().Trim() +" | " +prmNombLot + " | ";
+                                            msj += horaLotPw + " | " + prmHoraSortBus + " | " + rsAni + " | "+ nombLot;
+                                            MessageBox.Show(msj,"msj");
                                             if (!string.IsNullOrEmpty(rsAni.ToString().Trim()))
                                             {
+                                                MessageBox.Show("ingreso", "msj");
                                                 result += prmIdLot + "-";
                                                 result += prmIdSort + "-";
                                                 result += rsAni + "-";
@@ -919,13 +929,14 @@ namespace ventas_loteria
                                                 result += prmHoraSortBus;
                                                 culProc = true;
 
-                                                //MessageBox.Show(result,"result");
-                                                break;
+                                                MessageBox.Show(result,"result error");
                                             }
+                                            break;
+
                                         }
                                     }
 
-                                    if (culProc == true) {  break; }
+                                    if (culProc == true) { MessageBox.Show("break", "break;");  break; }
                                 }
                             }
                         }
@@ -934,6 +945,7 @@ namespace ventas_loteria
 
             }
             catch (Exception ex) { msjInf = ex.Message; Debug.WriteLine("exception LottResult: " + msjInf); }
+            MessageBox.Show(result, "result final");
             return result;
         }
 
