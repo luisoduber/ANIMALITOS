@@ -359,7 +359,7 @@ namespace ventas_loteria
                             dv.Sort = "idLot DESC";
                             dgvJug.DataSource = dv;
                             busMontTotJug(); 
-                            limpJug();
+                         
                         }
                     } 
                 }
@@ -662,7 +662,14 @@ namespace ventas_loteria
                 objRpt.ShowDialog();
                 clsMet.verfAct = true;
 
+                foreach (DataGridViewRow row in dgvLot.Rows)
+                {
+                    DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
+                    if (Convert.ToBoolean(cell.Value) == true) { cell.Value = false; }
+                }
+
                 if (Convert.ToInt16(clsMet.idUsu) == 36) { txtMont.Text = "0,00"; cMont = ""; }
+                limpJug();
                 txtCod1.Focus();
 
             }
