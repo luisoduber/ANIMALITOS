@@ -45,7 +45,7 @@ namespace ventas_loteria
             //MessageBox.Show(clsMet.descifrar(clsMet.cadena_conexion, clsMet.clave_ed));
             //clsMet.cn = "Server=localhost;port=3306;Database=loteria; Uid=grupodab_prog;Pwd='U4TQxTau]zYOi3e]]WvGYaIJb}M3l5RL';";
             //clsMet.cn = "Server=68.178.200.104;port=8689;Database=loterias; Uid=grupodab_prog;Pwd='NeM{.B2kP.@FkgZt{4x$[#s,GY&j4+F%';";
-            clsMet.cn = "Server=72.167.49.239;port=1921;Database=loterias_pruebas; Uid=grupDabProg;Pwd='1^0wXI=ARs|6.kPA28#5bY,llS,>Og}2';";
+            clsMet.cn = "Server=72.167.49.239;port=1921;Database=loterias; Uid=grupDabProg;Pwd='1^0wXI=ARs|6.kPA28#5bY,llS,>Og}2';";
 
             this.Text = "Autenticación Usuario...".ToUpper();
             btn_recordar_clave.FlatAppearance.BorderSize = 0;
