@@ -130,6 +130,11 @@ namespace ventas_loteria
             this.cboTaq.DisplayMember = "nick";
             this.cboTaq.ValueMember = "id_usuario";
             this.cboTaq.DataSource = dtCboTaq;
+
+            dtCboLot = objMet.listLot(idGrup);
+            this.cboLot.DisplayMember = "nombLot";
+            this.cboLot.ValueMember = "idLot";
+            this.cboLot.DataSource = dtCboLot;
         }
 
         private void cboLot_SelectedIndexChanged(object sender, EventArgs e)
