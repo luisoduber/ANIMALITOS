@@ -60,8 +60,11 @@ namespace ventas_loteria
                 dtCboGrup = objMet.BusGrup();
                 if (idPerf == 2) { idGrup = Convert.ToInt16(clsMet.idGrup); }
                 else if (idPerf == 3) { idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0]); }
+                
+                dtCboTaq = objMet.BusTaqContVent(idGrup);
+                idTaq= Convert.ToInt16(dtCboTaq.Rows[0][0]);
+                dtCboLot = objMet.listLotContVent(idTaq);
 
-                dtCboLot = objMet.listLotContVent(idGrup);
                 idLot = Convert.ToInt16(dtCboLot.Rows[0][0]);
                 dtDgvSort = objMet.listSortContVentTod(idLot);
 
@@ -75,26 +78,10 @@ namespace ventas_loteria
             }
         }
 
-        private void cboGrup_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            idGrup = Convert.ToInt16(cboGrup.SelectedValue);
-            dtCboTaq = objMet.BusTaqContVent(idGrup);
-            dtdgvSortBloqII = objMet.listSortBloq(idGrup, idLot);
-
-            dtCboLot = objMet.listLotContVent(idGrup);
-            this.cboLot.DisplayMember = "nombLot";
-            this.cboLot.ValueMember = "idLot";
-            this.cboLot.DataSource = dtCboLot;
-
-            this.cboTaq.DisplayMember = "nick";
-            this.cboTaq.ValueMember = "id_usuario";
-            this.cboTaq.DataSource = dtCboTaq;
-            dgvSortBloqII.DataSource = dtdgvSortBloqII;
-        }
-
         private void work_inicia_frm_OnProgressChanged(object sender, ProgressChangedEventArgs e)
         {
         }
+
         private void work_inicia_frm_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.cboGrup.DisplayMember = "nombGrup";
@@ -154,6 +141,29 @@ namespace ventas_loteria
                 }
             }
         }
+        private void cboGrup_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idGrup = Convert.ToInt16(cboGrup.SelectedValue);
+            dtCboTaq = objMet.BusTaqContVent(idGrup);
+
+            this.cboTaq.DisplayMember = "nick";
+            this.cboTaq.ValueMember = "id_usuario";
+            this.cboTaq.DataSource = dtCboTaq;
+
+            idTaq = Convert.ToInt16(cboTaq.SelectedValue);
+            dtCboLot = objMet.listLotContVent(idTaq);
+
+            this.cboLot.DisplayMember = "nombLot";
+            this.cboLot.ValueMember = "idLot";
+            this.cboLot.DataSource = dtCboLot;
+            idLot = Convert.ToInt16(cboLot.SelectedValue);
+
+            dtDgvSort = objMet.listSortContVentTod(idLot);
+            dgvSort.DataSource = dtDgvSort;
+
+            dtdgvSortBloqII = objMet.listSortBloq(idGrup, idLot);
+            dgvSortBloqII.DataSource = dtdgvSortBloqII;
+        }
         private void dgvSort_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvSort.RowCount > 0)
@@ -194,6 +204,25 @@ namespace ventas_loteria
                 }
             }
         }
+
+        private void cboTaq_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+            idTaq = Convert.ToInt16(cboTaq.SelectedValue);
+            dtCboLot = objMet.listLotContVent(idTaq);
+
+            this.cboLot.DisplayMember = "nombLot";
+            this.cboLot.ValueMember = "idLot";
+            this.cboLot.DataSource = dtCboLot;
+            idLot = Convert.ToInt16(cboLot.SelectedValue);
+
+            dtDgvSort = objMet.listSortContVentTod(idLot);
+            dgvSort.DataSource = dtDgvSort;
+
+            dtdgvSortBloqII = objMet.listSortBloq(idGrup, idLot);
+            dgvSortBloqII.DataSource = dtdgvSortBloqII;
+        }
+
         private void frmContSort_KeyPress(object sender, KeyPressEventArgs e)
         {
             char caracter;

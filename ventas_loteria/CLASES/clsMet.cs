@@ -3081,7 +3081,7 @@ namespace ventas_loteria
             catch (Exception ex) { rsDat = ex.Message; }
             return rsDat;
         }
-        public DataTable listLotTod(int prmIdGrup)
+        public DataTable listLotTod(int prmIdUsu)
         {
             DataTable dt = new DataTable("listLotTod");
             MySqlDataAdapter da;
@@ -3096,6 +3096,29 @@ namespace ventas_loteria
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "spListLotTod";
+                        cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
+                        using (da = new MySqlDataAdapter(cmd)) { da.Fill(dt); }
+                    }
+                }
+            }
+            catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
+            return dt;
+        }
+        public DataTable listLotTodGrup(int prmIdGrup)
+        {
+            DataTable dt = new DataTable("listLotTodGrup");
+            MySqlDataAdapter da;
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spListLotTodGrup";
                         cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
                         using (da = new MySqlDataAdapter(cmd)) { da.Fill(dt); }
                     }
@@ -3104,7 +3127,8 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
-        public DataTable listLot(int prmIdGrup)
+
+        public DataTable listLot(int prmIdUsu)
         {
             DataTable dt = new DataTable("listLot");
             MySqlDataAdapter da;
@@ -3119,7 +3143,7 @@ namespace ventas_loteria
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "spListLotTod";
-                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                        cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
                         using (da = new MySqlDataAdapter(cmd)) { da.Fill(dt); }
                     }
                 }
@@ -3252,7 +3276,7 @@ namespace ventas_loteria
             }
             return rsDat;
         }
-        public DataTable listLotContVent(int prmIdGrup)
+        public DataTable listLotContVent(int prmIdUsu)
         {
             DataTable dt = new DataTable("listLotContVent");
             MySqlDataAdapter da;
@@ -3267,7 +3291,7 @@ namespace ventas_loteria
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "splistLotContVent";
-                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                        cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
                         da = new MySqlDataAdapter(cmd);
                         da.Fill(dt);
                     }
@@ -3431,7 +3455,7 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
-        public DataTable busLotTrip(int prmIdGrup)
+        public DataTable busLotTrip(int prmIdUsu)
         {
             DataTable dt = new DataTable("busLotTrip");
             MySqlDataAdapter da;
@@ -3446,7 +3470,7 @@ namespace ventas_loteria
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "SPbusLotTrip";
-                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                        cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
                         da = new MySqlDataAdapter(cmd);
                         da.Fill(dt);
                     }
@@ -3455,7 +3479,7 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
-        public DataTable busBloqLot(int prmIdGrup)
+        public DataTable busBloqLot(int prmIdUsu)
         {
             DataTable dt = new DataTable("busBloqLot");
             MySqlDataAdapter da;
@@ -3469,8 +3493,8 @@ namespace ventas_loteria
                     {
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "spListLotGrup";
-                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                        cmd.CommandText = "spListLotUsu";
+                        cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
                         da = new MySqlDataAdapter(cmd);
                         da.Fill(dt);
                     }
@@ -3479,7 +3503,8 @@ namespace ventas_loteria
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
         }
-        public string actStatLot(int prmIdBloqLot, int prmIdStat, string prmMont)
+        public string actStatLot(int prmIdBloqLot, int prmIdStat, 
+                               string prmMontBs, string prmMontUsd)
         {
             string rsDat = "";
             try
@@ -3495,7 +3520,8 @@ namespace ventas_loteria
                         cmd.CommandText = "spActStatLot";
                         cmd.Parameters.AddWithValue("prmIdBloqLot", prmIdBloqLot);
                         cmd.Parameters.AddWithValue("prmIdStat", prmIdStat);
-                        cmd.Parameters.AddWithValue("prmMont", prmMont);
+                        cmd.Parameters.AddWithValue("prmMontBs", prmMontBs);
+                        cmd.Parameters.AddWithValue("prmMontUsd", prmMontUsd);
                         rsDat = cmd.ExecuteNonQuery() > 0 ? "true" : "false";
                     }
                 }

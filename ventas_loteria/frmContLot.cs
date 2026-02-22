@@ -25,14 +25,18 @@ namespace ventas_loteria
 
         clsMet objMet = new clsMet();
         DataTable dtCboGrup = new DataTable();
+        DataTable dtCboTaq = new DataTable();
         DataTable dtCboStat = new DataTable();
         DataTable dtDgvBloqLot = new DataTable();
         int idProc = 0, idPerf = 0;
         int idBloqLot = 0, idStat = 0;
         int idGrup = 0; string msjInf = "";
-        string nombLot = "", monto="";
-        string cMont = "", rsFormat = "";
+        string nombLot = "", montoBs="";
+        string montoUsd="";
+        string cMontBs = "", rsFormat = "";
+        string cMontUsd = "";
         int dig=0; Boolean proc = true;
+        int idTaq = 0;
 
         private void frmContLot_Load(object sender, EventArgs e)
         {
@@ -51,6 +55,12 @@ namespace ventas_loteria
             try
             {
                 dtCboGrup = objMet.BusGrup();
+                if (idPerf == 1 || idPerf == 2) { idGrup = Convert.ToInt32(clsMet.idGrup); }
+                else if (idPerf == 3) { idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0].ToString()); }
+
+                dtCboTaq = objMet.BusTaqContVent(idGrup);
+                idTaq = Convert.ToInt16(dtCboTaq.Rows[0][0].ToString());
+
                 dtCboStat = objMet.BusStat();
                 idProc = 1;
                 wkIniFrm.CancelAsync();
@@ -73,6 +83,10 @@ namespace ventas_loteria
                 this.cboGrup.ValueMember = "idGrup";
                 this.cboGrup.DataSource = dtCboGrup;
 
+                this.cboTaq.DisplayMember = "nick";
+                this.cboTaq.ValueMember = "id_usuario";
+                this.cboTaq.DataSource = dtCboTaq;
+
                 this.cboStat.DisplayMember = "nomb_status";
                 this.cboStat.ValueMember = "id_status";
                 this.cboStat.DataSource = dtCboStat;
@@ -85,12 +99,12 @@ namespace ventas_loteria
                 }
                 else if (idPerf == 3) { idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0].ToString()); }
 
-                dtDgvBloqLot = objMet.busBloqLot(idGrup);
+                dtDgvBloqLot = objMet.busBloqLot(idTaq);
                 dgvBloqLot.DataSource = dtDgvBloqLot;
             }
         }
 
-        private void txtMont_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtMontBs_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
             {
@@ -99,13 +113,13 @@ namespace ventas_loteria
 
                 if (dig == 8)
                 {
-                    if (string.IsNullOrEmpty(cMont)) { rsFormat = "0,00"; }
-                    if (cMont.Length == 0) { rsFormat = "0,00"; }
-                    else if (cMont.Length >= 1)
+                    if (string.IsNullOrEmpty(cMontBs)) { rsFormat = "0,00"; }
+                    if (cMontBs.Length == 0) { rsFormat = "0,00"; }
+                    else if (cMontBs.Length >= 1)
                     {
-                        cMont = cMont.Substring(0, cMont.Length - 1);
+                        cMontBs = cMontBs.Substring(0, cMontBs.Length - 1);
 
-                        if (cMont.Length == 0) { rsFormat = "0,00"; proc = false; }
+                        if (cMontBs.Length == 0) { rsFormat = "0,00"; proc = false; }
                         else { proc = true; }
                     }
                 }
@@ -113,11 +127,11 @@ namespace ventas_loteria
                 else if (dig == 45) { proc = true; }
                 else if ((dig >= 48) && (dig <= 57))
                 {
-                    cMont += e.KeyChar.ToString();
+                    cMontBs += e.KeyChar.ToString();
 
-                    if (Convert.ToDouble(cMont) == 0)
+                    if (Convert.ToDouble(cMontBs) == 0)
                     {
-                        cMont = cMont.Substring(0, cMont.Length - 1);
+                        cMontBs = cMontBs.Substring(0, cMontBs.Length - 1);
                         proc = false;
                     }
                     else { proc = true; }
@@ -126,10 +140,95 @@ namespace ventas_loteria
                 /*#################################################################################################################
                  * ###############################################################################################################*/
                
-                if (proc == true) { rsFormat = objMet.formatMonto(cMont); }
-                txtMont.Text = rsFormat;
-                txtMont.SelectionStart = txtMont.Text.Length;
-                txtMont.SelectionLength = 0;
+                if (proc == true) { rsFormat = objMet.formatMonto(cMontBs); }
+                txtMontBs.Text = rsFormat;
+                txtMontBs.SelectionStart = txtMontBs.Text.Length;
+                txtMontBs.SelectionLength = 0;
+
+            }
+            catch (Exception ex) { MessageBox.Show("Ha ocurrido el siguiente error:" + ex.Message, "Verifique..."); }
+
+            /*#################################################################################################################
+            * ###############################################################################################################*/
+
+            if (dig == 13)
+            {
+                Boolean rsValidFrm = validFrm();
+                if (rsValidFrm == true)
+                {
+                    string rsDat = "";
+                    idStat = Convert.ToInt16(cboStat.SelectedValue.ToString());
+                    rsDat = objMet.actStatLot(idBloqLot, idStat,
+                            txtMontBs.Text.Replace(".", "").Replace(",", "."),
+                            txtMontUsd.Text.Replace(".", "").Replace(",", ".")
+                            );
+
+                    idTaq = Convert.ToInt16(cboTaq.SelectedValue);
+                    dtDgvBloqLot = objMet.busBloqLot(idTaq);
+                    dgvBloqLot.DataSource = dtDgvBloqLot;
+                    limpFrm();
+                }
+            }
+        }
+        public void limpFrm()
+        {
+            txtMontBs.Text = "0,00";
+            txtMontUsd.Text = "0,00";
+            cMontBs = "";
+            cMontUsd = "";
+        }
+
+        private void cboTaq_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idTaq = Convert.ToInt16(cboTaq.SelectedValue.ToString());
+            this.cboTaq.DisplayMember = "nick";
+            this.cboTaq.ValueMember = "id_usuario";
+            this.cboTaq.DataSource = dtCboTaq;
+
+            dtDgvBloqLot = objMet.busBloqLot(idTaq);
+            dgvBloqLot.DataSource = dtDgvBloqLot;
+        }
+
+        private void txtMontUsd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+             try
+            {
+                dig = Convert.ToInt32((Keys)e.KeyChar);
+                e.Handled = true;
+
+                if (dig == 8)
+                {
+                    if (string.IsNullOrEmpty(cMontUsd)) { rsFormat = "0,00"; }
+                    if (cMontUsd.Length == 0) { rsFormat = "0,00"; }
+                    else if (cMontUsd.Length >= 1)
+                    {
+                        cMontUsd = cMontUsd.Substring(0, cMontUsd.Length - 1);
+
+                        if (cMontUsd.Length == 0) { rsFormat = "0,00"; proc = false; }
+                        else { proc = true; }
+                    }
+                }
+
+                else if (dig == 45) { proc = true; }
+                else if ((dig >= 48) && (dig <= 57))
+                {
+                    cMontUsd += e.KeyChar.ToString();
+
+                    if (Convert.ToDouble(cMontUsd) == 0)
+                    {
+                        cMontUsd = cMontUsd.Substring(0, cMontUsd.Length - 1);
+                        proc = false;
+                    }
+                    else { proc = true; }
+                }
+
+                /*#################################################################################################################
+                 * ###############################################################################################################*/
+               
+                if (proc == true) { rsFormat = objMet.formatMonto(cMontUsd); }
+                txtMontUsd.Text = rsFormat;
+                txtMontUsd.SelectionStart = txtMontBs.Text.Length;
+                txtMontUsd.SelectionLength = 0;
 
             }
             catch (Exception ex) { MessageBox.Show("Ha ocurrido el siguiente error:" + ex.Message, "Verifique..."); }
@@ -145,33 +244,31 @@ namespace ventas_loteria
                     string rsDat = "";
                     idStat = Convert.ToInt16(cboStat.SelectedValue.ToString());
                     rsDat = objMet.actStatLot(idBloqLot, idStat, 
-                            txtMont.Text.Replace(".", "").Replace(",", "."));
+                            txtMontBs.Text.Replace(".", "").Replace(",", "."),
+                            txtMontUsd.Text.Replace(".", "").Replace(",", ".")
+                            );
 
-                    idGrup = Convert.ToInt16(cboGrup.SelectedValue);
-                    dtDgvBloqLot = objMet.busBloqLot(idGrup);
+                    idTaq = Convert.ToInt16(cboTaq.SelectedValue);
+                    dtDgvBloqLot = objMet.busBloqLot(idTaq);
                     dgvBloqLot.DataSource = dtDgvBloqLot;
                     limpFrm();
                 }
             }
         }
-        public void limpFrm()
-        {
-            txtMont.Text = "0,00";
-            cMont = "";
-        }
+
         public Boolean validFrm()
         {
             Boolean valid = true;
-            if (string.IsNullOrEmpty(txtMont.Text))
+            if (string.IsNullOrEmpty(txtMontBs.Text))
             {
                 MessageBox.Show("Ingrese un monto", "Verifique...");
-                txtMont.Focus();
+                txtMontBs.Focus();
                 valid = false;
             }
-            else if (Convert.ToDouble(txtMont.Text)==0)
+            else if (Convert.ToDouble(txtMontBs.Text)==0)
             {
                 MessageBox.Show("Ingrese un monto mayor a cero (0).", "Verifique...");
-                txtMont.Focus();
+                txtMontBs.Focus();
                 valid = false;
             }
             return valid;
@@ -192,6 +289,16 @@ namespace ventas_loteria
             idGrup = Convert.ToInt16(cboGrup.SelectedValue);
             dtDgvBloqLot = objMet.busBloqLot(idGrup);
             dgvBloqLot.DataSource = dtDgvBloqLot;
+
+            dtCboTaq = objMet.BusTaqContVent(idGrup);
+            idTaq = Convert.ToInt16(dtCboTaq.Rows[0][0].ToString());
+
+            this.cboTaq.DisplayMember = "nick";
+            this.cboTaq.ValueMember = "id_usuario";
+            this.cboTaq.DataSource = dtCboTaq;
+
+            dtDgvBloqLot = objMet.busBloqLot(idTaq);
+            dgvBloqLot.DataSource = dtDgvBloqLot;
         }
 
         private void dgvBloqLot_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -201,14 +308,17 @@ namespace ventas_loteria
                 idBloqLot = Convert.ToInt16(dgvBloqLot.CurrentRow.Cells[0].Value.ToString());
                 idStat = Convert.ToInt16(dgvBloqLot.CurrentRow.Cells[1].Value.ToString());
                 nombLot = dgvBloqLot.CurrentRow.Cells[2].Value.ToString();
-                monto = dgvBloqLot.CurrentRow.Cells[3].Value.ToString();
-                cMont = objMet.limpMonto(Convert.ToDouble(monto).ToString("N2"));
+                montoBs = dgvBloqLot.CurrentRow.Cells[3].Value.ToString();
+                montoUsd= dgvBloqLot.CurrentRow.Cells[4].Value.ToString();
+                cMontBs = objMet.limpMonto(Convert.ToDouble(montoBs).ToString("N2"));
+                cMontUsd = objMet.limpMonto(Convert.ToDouble(montoUsd).ToString("N2"));
 
                 cboStat.SelectedValue = idStat;
-                txtMont.Text = Convert.ToDouble(monto).ToString("N2");
-                txtMont.Focus();
-                txtMont.SelectionStart = txtMont.Text.Length;
-                txtMont.SelectionLength = 0;
+                txtMontBs.Text = Convert.ToDouble(montoBs).ToString("N2");
+                txtMontUsd.Text = Convert.ToDouble(montoUsd).ToString("N2");
+                txtMontBs.Focus();
+                txtMontBs.SelectionStart = txtMontBs.Text.Length;
+                txtMontBs.SelectionLength = 0;
             }
         }
     }

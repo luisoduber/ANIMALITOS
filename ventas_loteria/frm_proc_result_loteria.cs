@@ -124,7 +124,7 @@ namespace ventas_loteria
             try
             {
                 _listUserAg = objMet.ListUserAg();
-                dtCboLot = objMet.listLotTod(idGrup);
+                dtCboLot = objMet.listLotTodGrup(idGrup);
                 dtDgvSort = objMet.busLotProcRs();
                 dtcboTipProc = objMet.busTipProc();
                 dtCboTipTck = objMet.busTipTck();

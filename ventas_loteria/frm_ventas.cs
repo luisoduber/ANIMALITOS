@@ -117,7 +117,7 @@ namespace ventas_loteria
         {
             try
             {
-                dtCboLot = objMet.listLotTod(idGrup);
+                dtCboLot = objMet.listLotTod(idUsu);
                 dtDgvSort = objMet.busLot(idUsu);
                 dtNombProd = objMet.busNombProd();
                 fechaHoraServ = objMet.verfHoraServ(idUsu);

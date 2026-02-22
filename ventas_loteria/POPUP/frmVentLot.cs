@@ -29,6 +29,7 @@ namespace ventas_loteria
 
         int idUsu=0, idPerf=0;
         int idGrup=0, idProc = 0;
+        int idTaq = 0;
 
         private void frmVentLot_Load(object sender, EventArgs e)
         {
@@ -72,7 +73,8 @@ namespace ventas_loteria
                 else if (idPerf == 3) { idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0].ToString()); }
 
                 dtCboTaq = objMet.BusTaqContVent(idGrup);
-                dtCboLot = objMet.listLot(idGrup);
+                idTaq = Convert.ToInt16(dtCboTaq.Rows[0][0].ToString());
+                dtCboLot = objMet.listLot(idTaq);
 
                 idProc = 1;
                 wkIniFrm.CancelAsync();
@@ -125,13 +127,15 @@ namespace ventas_loteria
 
         private void cboGrup_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            limpVent();
             idGrup = Convert.ToInt16(cboGrup.SelectedValue.ToString());
             dtCboTaq = objMet.BusTaqContVent(idGrup);
             this.cboTaq.DisplayMember = "nick";
             this.cboTaq.ValueMember = "id_usuario";
             this.cboTaq.DataSource = dtCboTaq;
 
-            dtCboLot = objMet.listLot(idGrup);
+            idTaq = Convert.ToInt16(cboTaq.SelectedValue.ToString());
+            dtCboLot = objMet.listLot(idTaq);
             this.cboLot.DisplayMember = "nombLot";
             this.cboLot.ValueMember = "idLot";
             this.cboLot.DataSource = dtCboLot;
@@ -236,6 +240,23 @@ namespace ventas_loteria
             caracter = Convert.ToChar(e.KeyChar);
             cod = (int)caracter;
             if (cod == 27) { this.Close(); }
+        }
+        private void limpVent()
+        {
+            lblVent.Text = "0,00";
+            lblVentAn.Text = "0,00";
+            lblVentTrip.Text = "0,00";
+            lblPre.Text = "0,00";
+            lblPreAn.Text = "0,00";
+            lblPreTrip.Text = "0,00";
+            lblTckAn.Text = "0,00";
+            lblTckAnAn.Text = "0,00";
+            lblTckAnTrip.Text = "0,00";
+            lblUt.Text = "0,00";
+            lblUtAn.Text = "0,00";
+            lblUtTrip.Text = "0,00";
+
+
         }
     }
 }
