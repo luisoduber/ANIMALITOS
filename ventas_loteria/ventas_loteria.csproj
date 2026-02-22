@@ -28,7 +28,7 @@
     <InstallUrl>http://app.grupodabreu.com/animalitos/</InstallUrl>
     <ProductName>Animal Like</ProductName>
     <WebPage>prueba.html</WebPage>
-    <ApplicationRevision>238</ApplicationRevision>
+    <ApplicationRevision>240</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -57,10 +57,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>CC0A5E309D9792F837C11B3C219956F9BD8F49FA</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>C9E0E5C30BDE39A5C27E42036626AFEA505B3F47</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>ventas_loteria_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>ventas_loteria_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -480,7 +480,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="ventas_loteria_1_TemporaryKey.pfx" />
     <None Include="ventas_loteria_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

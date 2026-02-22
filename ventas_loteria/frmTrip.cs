@@ -221,7 +221,7 @@ namespace ventas_loteria
                          )
 
                         {
-                            if (Convert.ToInt32(txtCod1.Text) == Convert.ToInt32(txtCod2.Text))
+                            if (txtCod1.Text == txtCod2.Text)
                             {
                                 msjInf = "Codigo: \"" + txtCod1.Text + "\"";
                                 msjInf += " del campo 1 es igual al ";
@@ -233,7 +233,7 @@ namespace ventas_loteria
                                 txtCod2.Focus();
                                 valid = false;
                             }
-                            else if (Convert.ToInt32(txtCod1.Text) == Convert.ToInt32(txtCod3.Text))
+                            else if (txtCod1.Text == txtCod3.Text)
                             {
                                 msjInf = "Codigo: \"" + txtCod1.Text + "\"";
                                 msjInf += " del campo 1 es igual al ";
@@ -245,7 +245,7 @@ namespace ventas_loteria
                                 txtCod3.Focus();
                                 valid = false;
                             }
-                            else if (Convert.ToInt32(txtCod2.Text) == Convert.ToInt32(txtCod3.Text))
+                            else if (txtCod2.Text == txtCod3.Text)
                             {
                                 msjInf = "Codigo: \"" + txtCod2.Text + "\"";
                                 msjInf += " del campo 2 es igual al ";
@@ -300,7 +300,6 @@ namespace ventas_loteria
 
                         if (valid == true)
                         {
-                           
                             int dtIdlot = 0;
                             string dtCodJug = "", dtCNombProd = "";
                             string dtCNombProdAb = "";
@@ -363,7 +362,15 @@ namespace ventas_loteria
                         }
                     } 
                 }
-                if (selSort == false) { MessageBox.Show("No se a seleccionado ninguna loteria.", "¡ Verifique !"); }
+
+               
+                if (selSort == true) { if (valid == true) { limpJug(); } }
+                else if (selSort == false) 
+                { 
+                    MessageBox.Show("No se a seleccionado ninguna loteria.", "¡ Verifique !"); 
+                    return; 
+                }
+                
             }
         }
 
