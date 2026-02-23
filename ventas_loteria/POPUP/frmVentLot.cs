@@ -158,6 +158,11 @@ namespace ventas_loteria
             idUsu = Convert.ToInt16(cboTaq.SelectedValue.ToString());
             idLot = Convert.ToInt16(cboLot.SelectedValue.ToString());
 
+            dtCboLot = objMet.listLot(idUsu);
+            this.cboLot.DisplayMember = "nombLot";
+            this.cboLot.ValueMember = "idLot";
+            this.cboLot.DataSource = dtCboLot;
+
             if (cantDif > 0)
             {
                 MessageBox.Show("Fecha inicial no debe ser mayor a fecha final...", "Verifique.");

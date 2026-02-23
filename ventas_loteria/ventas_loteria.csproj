@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>C:\Users\usuario\Desktop\ANIMALITOS\instalador\</PublishUrl>
+    <PublishUrl>C:\Users\programacion\Desktop\ANIMALITOS\instalador\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,7 +28,7 @@
     <InstallUrl>http://app.grupodabreu.com/animalitos/</InstallUrl>
     <ProductName>Animal Like</ProductName>
     <WebPage>prueba.html</WebPage>
-    <ApplicationRevision>240</ApplicationRevision>
+    <ApplicationRevision>241</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -57,7 +57,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>C9E0E5C30BDE39A5C27E42036626AFEA505B3F47</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>8C5354E93D7EB143403FE177B5887EDA010E6B53</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>ventas_loteria_TemporaryKey.pfx</ManifestKeyFile>
