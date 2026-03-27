@@ -175,8 +175,8 @@
               "Title": "ventas_loteria",
               "DocumentMoniker": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\ventas_loteria.csproj",
               "RelativeDocumentMoniker": "ventas_loteria\\ventas_loteria.csproj",
-              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\ventas_loteria.csproj",
-              "RelativeToolTip": "ventas_loteria\\ventas_loteria.csproj",
+              "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\ventas_loteria.csproj*",
+              "RelativeToolTip": "ventas_loteria\\ventas_loteria.csproj*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2026-01-10T03:11:31.991Z",
               "EditorCaption": ""
@@ -190,8 +190,7 @@
               "ToolTip": "E:\\GITHUB\\ANIMALITOS\\ventas_loteria\\POPUP\\frmVentLot.cs [Dise\u00F1o]",
               "RelativeToolTip": "ventas_loteria\\POPUP\\frmVentLot.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T02:03:24.385Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2026-02-20T02:03:24.385Z"
             },
             {
               "$type": "Document",
@@ -203,8 +202,7 @@
               "RelativeToolTip": "ventas_loteria\\POPUP\\frmVentLot.cs",
               "ViewState": "AgIAAIkAAAAAAAAAAAAiwKQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T02:03:30.706Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T02:03:30.706Z"
             },
             {
               "$type": "Document",
