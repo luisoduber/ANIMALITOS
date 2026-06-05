@@ -2426,11 +2426,8 @@ namespace ventas_loteria
                         if (dr.HasRows) { rsDat = dr["statTck"].ToString(); }
                         else { rsDat = ""; }
                         dr.Close();
-                        Console.WriteLine("busProcRsLot dr:" + dr.IsClosed.ToString());
                     }
                 }
-               // MessageBox.Show(prmIdDetJug + " " + prmIdLot + " " + prmIdSort + " " + prmRstLot);
-
             }
             catch (MySqlException ex) { rsDat = ex.Message;  }
             catch (Exception ex) { rsDat = ex.Message;  }
