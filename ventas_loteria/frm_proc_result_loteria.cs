@@ -82,6 +82,7 @@ namespace ventas_loteria
         int contRegGan = 0;
         string rsDat = "";
         string msjInf = "";
+        string msjErr = "";
         int rsVerfJugCer = 0;
         List<UserAg> _listUserAg = new List<UserAg>();
         private void frm_proc_result_loteria_Load(object sender, EventArgs e)
@@ -352,10 +353,10 @@ namespace ventas_loteria
                         idUsu=Convert.ToInt32(dtDgvJug.Rows[contRs][15].ToString().Trim());
                         idStatTck = Convert.ToInt32(dtDgvJug.Rows[contRs][16].ToString().Trim());
 
-                            //if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, codRsLot); }
-                            //else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, codRsLot); }
+                        //if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, codRsLot); }
+                        //else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, codRsLot); }
 
-                            if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, idUsu, idStatTck, 
+                        if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, idUsu, idStatTck, 
                                                                         nroTck, mTck, cod_jug, codRsLot); }
 
                         else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, idUsu, idStatTck, 
@@ -420,89 +421,6 @@ namespace ventas_loteria
             fechLot = "";
         }
 
-        private void wkProcRsMan_DoWork(object sender, DoWorkEventArgs e)
-        {
-            this.wkProcRsMan.ReportProgress(0, "");
-            try
-            {
-                cont = 0;
-                contRegPed = 0;
-                contRegGan = 0;
-
-                while (cont <= cantRsCarg)
-                {
-                    idDetJug = Convert.ToInt32(dtDgvJug.Rows[cont][0].ToString().Trim());
-                    idLot = Convert.ToInt32(dtDgvJug.Rows[cont][1].ToString().Trim());
-                    idSort = Convert.ToInt32(dtDgvJug.Rows[cont][2].ToString().Trim());
-                    idTipTck = Convert.ToInt32(dtDgvJug.Rows[cont][3].ToString().Trim());
-                    nroTck = dtDgvJug.Rows[cont][4].ToString().Trim();
-                    cod_jug = dtDgvJug.Rows[cont][9].ToString().Trim();
-                    mTck = dtDgvJug.Rows[cont][11].ToString().Trim().Replace(".", "").Replace(",", ".");
-                    codRsLot = dtDgvJug.Rows[cont][14].ToString().Trim();
-                    idUsu = Convert.ToInt32(dtDgvJug.Rows[cont][15].ToString().Trim());
-                    idStatTck = Convert.ToInt32(dtDgvJug.Rows[cont][15].ToString().Trim());
-              
-                    if (rsVerfJugCer == 0)
-                    {
-                        //if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, txtCod.Text); }
-                        //else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, txtCod.Text); }
-
-                        if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, idUsu, idStatTck, 
-                                                                        nroTck, mTck, cod_jug, txtCod.Text); }
-                        else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, idUsu, idStatTck,
-                                                                                  nroTck, mTck, cod_jug, txtCod.Text); }
-
-                        wkProcRsMan.ReportProgress(cont);
-                        cont++;
-                        if (rsDat == "0") { contRegPed++; }
-                        else if (rsDat == "1") { contRegGan++; }
-                        msjProcRs = "Jug:" + dgvJug.RowCount;
-                        msjProcRs += ". Gan: " + contRegGan;
-                        msjProcRs += ". Perd: " + contRegPed + "...";
-                    }
-                }
-
-                idProc = 1;
-            }
-            catch (Exception ex)
-            {
-                string msjErr = "";
-                msjErr = "Ha ocurrido un Error En la Linea: " + dgvJug.RowCount + "---" + ex.Message;
-                idProc = 0;
-            }
-            finally { wkProcRsMan.CancelAsync(); e.Cancel = wkProcRsMan.CancellationPending; }
-        }
-        private void wkProcRsMan_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            //SELECCIONA LA BARRA COMPLETA
-            dgvJug.CurrentCell = dgvJug.Rows[e.ProgressPercentage].Cells[4];
-            //MUEVE LA BARRA PARA DEPLAZAR LOS REGISTROS
-            dgvJug.FirstDisplayedScrollingRowIndex = e.ProgressPercentage;
-            this.pbInfProcRs.Value = e.ProgressPercentage;
-            gbInfProcRs.Text = msjProcRs;
-        }
-        private void wkProcRsMan_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-
-            if (idProc == 1)
-            {
-                lblMsjInf.Text += " Ticket procesados ...";
-                gbInfProcRs.Text = msjProcRs;
-                fechLot = Convert.ToDateTime(dtpFecha.Text).ToString("yyyy-MM-dd");
-
-                dtDgvJug = objMet.busJugProcRs(idLot, idSort, fechLot);
-                dgvJug.DataSource = dtDgvJug;
-                cboTipProc.SelectedValue = 2;
-                timer1.Enabled = true;
-
-                txtCod.Text = "";
-                txtCod.Enabled = false;
-            }
-            else if (idProc == 0)
-            {
-                lblMsjErr.Text = msjInf;
-            }
-        }
         private void dgvSort_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvSort.RowCount > 0)
@@ -612,8 +530,7 @@ namespace ventas_loteria
                     if (MessageBox.Show(msjInf, "Verifique 3.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         fechLot = Convert.ToDateTime(dtpFecha.Text).ToString("yyyy-MM-dd");
-                        rsGrdRsLot = objMet.grdActRstLot(idLot, idSort,
-                                                          txtCod.Text, fechLot);
+                        rsGrdRsLot = objMet.grdActRstLot(idLot, idSort,txtCod.Text, fechLot);
 
                         if (rsGrdRsLot == "1")
                         {
@@ -632,6 +549,90 @@ namespace ventas_loteria
 
                     }
                 }
+            }
+        }
+        private void wkProcRsMan_DoWork(object sender, DoWorkEventArgs e)
+        {
+            this.wkProcRsMan.ReportProgress(0, "");
+            try
+            {
+                cont = 0;
+                contRegPed = 0;
+                contRegGan = 0;
+
+                while (cont <= cantRsCarg)
+                {
+                    idDetJug = Convert.ToInt32(dtDgvJug.Rows[cont][0].ToString().Trim());
+                    idLot = Convert.ToInt32(dtDgvJug.Rows[cont][1].ToString().Trim());
+                    idSort = Convert.ToInt32(dtDgvJug.Rows[cont][2].ToString().Trim());
+                    idTipTck = Convert.ToInt32(dtDgvJug.Rows[cont][3].ToString().Trim());
+                    nroTck = dtDgvJug.Rows[cont][4].ToString().Trim();
+                    cod_jug = dtDgvJug.Rows[cont][9].ToString().Trim();
+                    mTck = dtDgvJug.Rows[cont][11].ToString().Trim().Replace(".", "").Replace(",", ".");
+                    codRsLot = dtDgvJug.Rows[cont][14].ToString().Trim();
+                    idUsu = Convert.ToInt32(dtDgvJug.Rows[cont][15].ToString().Trim());
+                    idStatTck = Convert.ToInt32(dtDgvJug.Rows[cont][16].ToString().Trim());
+
+                    //if (idTipTck == 1) { rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, txtCod.Text); }
+                    //else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, txtCod.Text); }
+
+                    if (idTipTck == 1) {  rsDat = objMet.busProcRsLot(idDetJug, idLot, idSort, idUsu, idStatTck,
+                                                                           nroTck, mTck, cod_jug, txtCod.Text);
+                    }
+
+                    else if (idTipTck == 2) { rsDat = objMet.busProcRsLotTrip(idDetJug, idLot, idUsu, idStatTck,
+                                                                          nroTck, mTck, cod_jug, txtCod.Text);
+                    }
+
+                    wkProcRsMan.ReportProgress(cont);
+                    cont++;
+                    if (rsDat == "0") { contRegPed++; }
+                    else if (rsDat == "1") { contRegGan++; }
+                    msjProcRs = "Jug:" + dgvJug.RowCount;
+                    msjProcRs += ". Gan: " + contRegGan;
+                    msjProcRs += ". Perd: " + contRegPed + "...";
+                }
+
+                idProc = 1;
+            }
+            catch (Exception ex)
+            {
+                msjErr = "Ha ocurrido un Error En la Linea: " + dgvJug.RowCount + " - " + ex.Message;
+                idProc = 0;
+
+            }
+            finally { wkProcRsMan.CancelAsync(); e.Cancel = wkProcRsMan.CancellationPending; }
+        }
+        private void wkProcRsMan_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            //SELECCIONA LA BARRA COMPLETA
+            dgvJug.CurrentCell = dgvJug.Rows[e.ProgressPercentage].Cells[4];
+            //MUEVE LA BARRA PARA DEPLAZAR LOS REGISTROS
+            dgvJug.FirstDisplayedScrollingRowIndex = e.ProgressPercentage;
+            this.pbInfProcRs.Value = e.ProgressPercentage;
+            gbInfProcRs.Text = msjProcRs;
+            lblMsjErr.Text = msjErr;
+        }
+        private void wkProcRsMan_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+            if (idProc == 1)
+            {
+                lblMsjInf.Text += " Ticket procesados ...";
+                gbInfProcRs.Text = msjProcRs;
+                fechLot = Convert.ToDateTime(dtpFecha.Text).ToString("yyyy-MM-dd");
+
+                dtDgvJug = objMet.busJugProcRs(idLot, idSort, fechLot);
+                dgvJug.DataSource = dtDgvJug;
+                cboTipProc.SelectedValue = 2;
+                timer1.Enabled = true;
+
+                txtCod.Text = "";
+                txtCod.Enabled = false;
+            }
+            else if (idProc == 0)
+            {
+                lblMsjErr.Text = msjInf;
             }
         }
 
