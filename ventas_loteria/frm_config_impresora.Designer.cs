@@ -169,7 +169,7 @@
             // btn_probar_imp
             // 
             this.btn_probar_imp.BackColor = System.Drawing.Color.Transparent;
-            this.btn_probar_imp.BackgroundImage = global::ventas_loteria.Properties.Resources.impresora;
+            this.btn_probar_imp.BackgroundImage = global::VentLot.Properties.Resources.impresora;
             this.btn_probar_imp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_probar_imp.FlatAppearance.BorderSize = 0;
             this.btn_probar_imp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;

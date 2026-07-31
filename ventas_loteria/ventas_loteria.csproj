@@ -8,8 +8,8 @@
     <ProjectGuid>{06C1EB62-6E7C-47DF-BDAB-43023C281EBD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ventas_loteria</RootNamespace>
-    <AssemblyName>ventas_loteria</AssemblyName>
+    <RootNamespace>VentLot</RootNamespace>
+    <AssemblyName>VentLot</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -28,7 +28,7 @@
     <InstallUrl>http://app.grupodabreu.com/animalitos/</InstallUrl>
     <ProductName>Animal Like</ProductName>
     <WebPage>prueba.html</WebPage>
-    <ApplicationRevision>250</ApplicationRevision>
+    <ApplicationRevision>256</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -118,9 +118,11 @@
     </Reference>
     <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.9.0.0\lib\net48\MySql.Data.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MySqlConnector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
       <HintPath>..\packages\MySqlConnector.2.3.7\lib\net48\MySqlConnector.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">

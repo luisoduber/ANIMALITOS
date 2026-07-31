@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Configuration;
-using ventas_loteria.Properties;
-using System.Net;
+using VentLot.Properties;
 using System.Net.NetworkInformation;
-using System.Text.RegularExpressions;
-using System.Reflection;
-using System.Deployment.Application;
 
 namespace ventas_loteria
 {

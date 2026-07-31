@@ -2368,7 +2368,7 @@ namespace ventas_loteria
             return rsDat;
         }
         public string grdActRstLot(int prmIdLot, int prmIdSort,
-        string prmResultLot, string prmFechLot)
+        string prmResultLot, string prmFechLot, string prmAbPwLot)
         {
             string rsDat = "";
             try
@@ -2381,11 +2381,12 @@ namespace ventas_loteria
                     {
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "SP_grd_act_result_lot";
-                        cmd.Parameters.AddWithValue("prm_id_loteria", prmIdLot);
-                        cmd.Parameters.AddWithValue("prm_id_sorteos", prmIdSort);
-                        cmd.Parameters.AddWithValue("prm_result_lot", prmResultLot);
-                        cmd.Parameters.AddWithValue("prm_fecha_loteria", prmFechLot);
+                        cmd.CommandText = "SPGrdActRsLot";
+                        cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                        cmd.Parameters.AddWithValue("prmIdSort", prmIdSort);
+                        cmd.Parameters.AddWithValue("prmRsLot", prmResultLot);
+                        cmd.Parameters.AddWithValue("prmFechLot", prmFechLot);
+                        cmd.Parameters.AddWithValue("prmAbPwLot", prmAbPwLot);
                         rsDat = Convert.ToString(cmd.ExecuteNonQuery());
                     }
                 }
@@ -3688,6 +3689,42 @@ namespace ventas_loteria
                             rsDat[0] = "true";
                             rsDat[1] = "";
                             rsDat[2] = dr["idStat"].ToString();
+                        }
+                        dr.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                rsDat[0] = "false";
+                rsDat[1] = ex.Message;
+                rsDat[2] = "";
+            }
+            return rsDat;
+        }
+
+        public string[] tmpProcRs()
+        {
+            string[] rsDat = new string[3];
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spTmpProcRs";
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        dr.Read();
+
+                        if (dr.HasRows)
+                        {
+                            rsDat[0] = "true";
+                            rsDat[1] = dr["tmpMin"].ToString();
+                            rsDat[2] = dr["tmpMax"].ToString();
                         }
                         dr.Close();
                     }

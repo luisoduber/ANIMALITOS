@@ -292,7 +292,7 @@
             // btnImpTck
             // 
             this.btnImpTck.BackColor = System.Drawing.Color.Transparent;
-            this.btnImpTck.BackgroundImage = global::ventas_loteria.Properties.Resources.impresora;
+            this.btnImpTck.BackgroundImage = global::VentLot.Properties.Resources.impresora;
             this.btnImpTck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnImpTck.FlatAppearance.BorderSize = 0;
             this.btnImpTck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;

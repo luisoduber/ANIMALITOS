@@ -426,7 +426,7 @@
             // btn_imprimir_cuadre
             // 
             this.btn_imprimir_cuadre.BackColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir_cuadre.BackgroundImage = global::ventas_loteria.Properties.Resources.impresora;
+            this.btn_imprimir_cuadre.BackgroundImage = global::VentLot.Properties.Resources.impresora;
             this.btn_imprimir_cuadre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_imprimir_cuadre.FlatAppearance.BorderSize = 0;
             this.btn_imprimir_cuadre.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;

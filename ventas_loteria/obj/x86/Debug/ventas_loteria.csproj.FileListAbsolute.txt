@@ -857,11 +857,6 @@ D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.cs
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.Designer.cs
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.cs
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.Designer.cs
-D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.exe.config
-D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.exe.manifest
-D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.application
-D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.exe
-D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\ventas_loteria.pdb
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\BouncyCastle.Crypto.dll
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\BouncyCastle.Cryptography.dll
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Google.Protobuf.dll
@@ -907,7 +902,6 @@ D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Numerics.Vectors.xml
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.AssemblyReference.cache
-D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.config
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmContLot.resources
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmContSort.resources
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmLimTaq.resources
@@ -930,19 +924,13 @@ D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_result_lot.
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_totales_venta_taq.resources
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_status_ticket.resources
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_verf_ticket.resources
-D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.Properties.Resources.resources
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frmTckTrip.resources
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_imp_prueba.resources
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_cuadre_diario.resources
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.frm_rpt_ticket_venta.resources
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.GenerateResource.cache
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.csproj.CoreCompileInputs.cache
-D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.TrustInfo.xml
-D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
-D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.application
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_l.94258B2D.Up2Date
-D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.exe
-D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.pdb
 F:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.config
 E:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\RPT\frm_rpt_imp_prueba.resx
 E:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\RPT\frm_rpt_cuadre_diario.resx
@@ -1135,3 +1123,15 @@ C:\Users\usuario\Desktop\Nueva carpeta (2)\ANIMALITOS\ventas_loteria\obj\x86\Deb
 C:\Users\usuario\Desktop\Nueva carpeta (2)\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.exe.manifest
 C:\Users\usuario\Desktop\Nueva carpeta (2)\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_loteria.application
 C:\Users\usuario\Desktop\Nueva carpeta (2)\ANIMALITOS\ventas_loteria\obj\x86\Debug\ventas_l.94258B2D.Up2Date
+D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\VentLot.Properties.Resources.resources
+D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\VentLot.exe.config
+D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\VentLot.exe.manifest
+D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\VentLot.application
+D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\VentLot.exe
+D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\VentLot.pdb
+D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\VentLot.TrustInfo.xml
+D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\VentLot.exe.manifest
+D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\VentLot.application
+D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\VentLot.exe
+D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\VentLot.pdb
+D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\VentLot.exe.config

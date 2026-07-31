@@ -82,7 +82,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::ventas_loteria.Properties.Resources.impresora;
+            this.pictureBox1.BackgroundImage = global::VentLot.Properties.Resources.impresora;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(30, 3);
             this.pictureBox1.Name = "pictureBox1";
