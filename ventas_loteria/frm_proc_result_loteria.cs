@@ -210,8 +210,9 @@ namespace ventas_loteria
 
                 string htmlTaz = "", htmlTazF = "", htmlLotRs = "";
                 string idLotBus = "", idSortBus = "";
-                string rsGan = "", rsLot = "";
-               
+                string rsGan = "", rsLot = ""; string horServ = "";
+
+
                 using (MySqlConnection cnBd = new MySqlConnection())
                 {
                     cnBd.ConnectionString = clsMet.cn; cnBd.Open();
@@ -243,11 +244,20 @@ namespace ventas_loteria
                                         idSortBus = dtInfSort.Rows[c][1].ToString();
                                         horaSortBus = Convert.ToDateTime(dtInfSort.Rows[c][2].ToString()).ToString("hh:mm");
                                         nombLotBus = dtInfSort.Rows[c][3].ToString().ToLower();
+                                        horServ = dtInfSort.Rows[c][6].ToString().ToLower();
+
+                                        TimeSpan horAct = TimeSpan.Parse(horServ); 
+                                        TimeSpan horaIni = TimeSpan.Parse("09:00");
 
                                         rsLot = rsTuAz(urlTuAzar, idLotBus, idSortBus, nombLotBus, horaSortBus, htmlTaz,1);
                                         if (string.IsNullOrEmpty(rsLot)) { rsLot = rsTuAz(urlTuAzFr, idLotBus, idSortBus, nombLotBus, horaSortBus, htmlTazF,2); }
                                         if (string.IsNullOrEmpty(rsLot)) { rsLot = rsIndLotHoy(idLotBus, idSortBus, nombLotBus, horaSortBus); }
-                                        if (string.IsNullOrEmpty(rsLot)) { rsLot = LottResult(idLotBus, idSortBus, nombLotBus, horaSortBus, htmlLotRs); }
+
+                                        if (horAct > horaIni)
+                                        {
+                                            if (string.IsNullOrEmpty(rsLot)) { rsLot = LottResult(idLotBus, idSortBus, nombLotBus, horaSortBus, htmlLotRs); }
+                                            //Debug.WriteLine("hora actual mayor horra inicio lotto result");
+                                        }
 
                                         if (!string.IsNullOrEmpty(rsLot))
                                         {
@@ -259,16 +269,8 @@ namespace ventas_loteria
 
                                         else if ((idLotBus == "8"))
                                         {
-                                            if (string.IsNullOrEmpty(rsGan))
-                                            {
-                                                rsGan += result_grupo2(urlRA, idLotBus, idSortBus,
-                                                                           horaSortBus, nombLotBus);
-                                            }
-                                            else
-                                            {
-                                                rsGan += "/" + result_grupo2(urlRA, idLotBus, idSortBus,
-                                                                              horaSortBus, nombLotBus);
-                                            }
+                                            if (string.IsNullOrEmpty(rsGan)){ rsGan += result_grupo2(urlRA, idLotBus, idSortBus,horaSortBus, nombLotBus);}
+                                            else { rsGan += "/" + result_grupo2(urlRA, idLotBus, idSortBus,horaSortBus, nombLotBus);}
                                         }
                                     }
                                 }
@@ -329,7 +331,7 @@ namespace ventas_loteria
             {
                 if (string.IsNullOrEmpty(rsGan)) { lblMsjInf.Text = msjInf.ToUpper(); }
                 lblMsjErr.Text = "";
-               wkProcJugAut.RunWorkerAsync();
+                wkProcJugAut.RunWorkerAsync();
             }
             else if (idProc == 0) { lblMsjErr.Text = "wkProcRsAut: " + msjInf; }
         }
