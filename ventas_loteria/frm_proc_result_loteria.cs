@@ -181,7 +181,7 @@ namespace ventas_loteria
 
                 cboTipProc.SelectedValue = 2;
                 timer1.Enabled = true;
-                timer1.Interval = 300000;
+                timer1.Interval = 60000;
             }
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -959,11 +959,15 @@ namespace ventas_loteria
             string result = "";
             try
             {
-                if (Convert.ToInt16(prmIdLot) == 1  || Convert.ToInt16(prmIdLot) == 5  ||
-                    Convert.ToInt16(prmIdLot) == 12 || Convert.ToInt16(prmIdLot) == 15 ||
+                if (Convert.ToInt16(prmIdLot) == 1  || Convert.ToInt16(prmIdLot) == 5  || 
+                    Convert.ToInt16(prmIdLot) == 11 || Convert.ToInt16(prmIdLot) == 12 || 
+                    Convert.ToInt16(prmIdLot) == 13 || Convert.ToInt16(prmIdLot) == 15 || 
                     Convert.ToInt16(prmIdLot) == 19 || Convert.ToInt16(prmIdLot) == 21 || 
-                    Convert.ToInt16(prmIdLot) == 22 || Convert.ToInt16(prmIdLot) == 27 || 
-                    Convert.ToInt16(prmIdLot) == 28)
+                    Convert.ToInt16(prmIdLot) == 22 || Convert.ToInt16(prmIdLot) == 23 || 
+                    Convert.ToInt16(prmIdLot) == 24 || Convert.ToInt16(prmIdLot) == 25 || 
+                    Convert.ToInt16(prmIdLot) == 27 || Convert.ToInt16(prmIdLot) == 28 || 
+                    Convert.ToInt16(prmIdLot) == 29 || Convert.ToInt16(prmIdLot) == 30)
+
                 {
                     htmlDoc.LoadHtml(prmHtml);
                     var nodes = htmlDoc.DocumentNode.SelectNodes("//div[starts-with(@id,'resultados-')]");
@@ -1038,7 +1042,14 @@ namespace ventas_loteria
                                 msjPru = "Loteria:" + prmNombLotPw;
                                 msjPru += " - Resultado:" + rsAni + " - " + rsNombAni;
                                 msjPru += " - Hora:" + horaLotPw;
-                         
+
+                                if (Convert.ToInt16(prmIdLot) == 27)
+                                {
+                                    
+                                 //   MessageBox.Show(prmNombLotPw.ToLower().Trim() + " | " + prmNombLotPw.Length + " | " +
+                                   // prmNombLot.ToLower().Trim() + " | " +  prmNombLot.ToLower().Length + " | " + horaLotPw + " | " + prmHoraSortBus);
+                                }
+
                                 if (Convert.ToInt16(prmIdLot) == 19) 
                                 {
                                     prmNombLot = prmNombLot.Replace("el", "");
