@@ -295,14 +295,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VentLot.exe" size="530952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VentLot.exe" size="533512">
       <assemblyIdentity name="VentLot" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Fj+7xCHteHmnswh50eTvZtky/uEWFBlddhDNnli1QoE=</dsig:DigestValue>
+        <dsig:DigestValue>jAxJYNq0kS0s+xEH55PYMqDqtMNVk1mfLBQ3o7I8dEc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

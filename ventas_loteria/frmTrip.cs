@@ -1,10 +1,11 @@
 ﻿
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.Tsp;
 using Org.BouncyCastle.Crypto.Macs;
 using System;
-using System.Linq;
 using System.ComponentModel;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 namespace ventas_loteria
 {
@@ -199,6 +200,9 @@ namespace ventas_loteria
                 Boolean rsValidJug = false;
                 rsValidJug = valJug();
                 if (rsValidJug == false) { return; }
+                string cod1 = "", cod2 = "", cod3 = "";
+                int idLotGrid = 0;
+                double verfMont = 0;
 
                 Boolean valid = true; Boolean selSort = false;
                 foreach (DataGridViewRow row in dgvLot.Rows)
@@ -268,6 +272,54 @@ namespace ventas_loteria
                                     valid = false;
                                 }
                                 else { valid = true; }
+                            }
+                            else if (dgvJug.RowCount > 0)
+                            {
+
+                                for (int c = 0; c < dgvJug.RowCount; c++)
+                                {
+                                    idLotGrid = Convert.ToInt32(dgvJug.Rows[c].Cells[0].Value.ToString());
+                                    cod1 = dgvJug.Rows[c].Cells[3].Value.ToString();
+                                    cod2 = dgvJug.Rows[c].Cells[6].Value.ToString();
+                                    cod3 = dgvJug.Rows[c].Cells[9].Value.ToString();
+                                    string nombLotGrid= dgvJug.Rows[c].Cells[1].Value.ToString();
+
+                                    if (
+                                        (cod1 == txtCod1.Text) && (cod2 == txtCod2.Text) && 
+                                        (cod3 == txtCod3.Text)&& (idLotGrid == idLot)
+                                       )
+                                     {
+                                        verfMont = Convert.ToDouble(txtMJug.Text) + Convert.ToDouble(txtMont.Text);
+                                        if (Convert.ToDouble(clsMet.mMaxTrip) < Convert.ToDouble(verfMont))
+                                        {
+                                            this.dgvJug.Rows[c].Cells[12].Value = Convert.ToDouble(clsMet.mMaxTrip).ToString("N2");
+                                            msjInf = "El monto maximo por tripleta es de: ";
+                                            msjInf += clsMet.mMaxTrip.ToString("N2");
+                                            msjInf += " para la loteria: \"" + nombLotGrid.ToUpper() + "\"";
+                                            MessageBox.Show(msjInf, "Verifique.");
+                                            txtMont.Focus();
+
+                                            mTotJug = 0;
+                                            valid = false;
+                                            busMontTotJug();
+                                            break;
+                                        }
+
+                                        mTotJug = Convert.ToDouble(txtMont.Text) +
+                                        Convert.ToDouble(this.dgvJug.Rows[c].Cells[12].Value.ToString());
+
+                                        if (mTotJug > Convert.ToDouble(clsMet.monto_max_jug))
+                                        { mTotJug = Convert.ToDouble(clsMet.monto_max_jug); }
+                                        this.dgvJug.Rows[c].Cells[12].Value = Convert.ToDouble(mTotJug).ToString("N2");
+
+                                        mTotJug = 0;
+                                        valid = false;
+                                        busMontTotJug();
+                                        break;
+
+                                     }
+                                    else { mTotJug = 0; valid = true; }
+                                }
                             }
                         }
                         else if (Convert.ToInt32(txtCod1.Text) > codMaxProd)
@@ -490,9 +542,11 @@ namespace ventas_loteria
             double mJugBd = 0;
             DateTime fechaHoraVerf, horaSortJug;
             string[] rsDat = new string[7];
+            string[] rsDatDetTrip = new string[4];
             int rsVerfJug, rsVerfTiempo;
             int cont = 0, idTck = 0;
-            Boolean sortAb = false;
+            Boolean actMont = false;
+            int valTrip = 0;
 
             MySqlTransaction myTrans = null;
 
@@ -533,7 +587,7 @@ namespace ventas_loteria
                             nroSerial = rsDat[2].ToString();
                             fTck = Convert.ToDateTime(rsDat[3]).ToString("dd/MM/yyyy");
                             hTck = rsDat[4].ToString();
-                            // idTck = rsDat[5].ToString();
+                            idTck = Convert.ToInt16(rsDat[5].ToString());
                         }
                         dr.Close();
                     }
@@ -572,8 +626,8 @@ namespace ventas_loteria
                         filDgv["prmHast"] = "";
 
                         string rsDat3 = "";
-
                         if (codJug.Length == 1) { if (codJug != "0") { codJug = codJug.PadLeft(2, '0'); } }
+                    
 
                         using (MySqlCommand cmd2 = new MySqlCommand())
                         {
@@ -591,93 +645,154 @@ namespace ventas_loteria
                             cmd2.Parameters.AddWithValue("prmCodJug3", codJug3);
                             cmd2.Parameters.AddWithValue("prmNombProd3", nombProd3.ToUpper());
                             cmd2.Parameters.AddWithValue("prmMont", Convert.ToString(mJug).Replace(".", "").Replace(",", "."));
-                            MySqlDataReader dr2 = cmd2.ExecuteReader();
-                            dr2.Read();
+                            MySqlDataReader drDetTckTrip = cmd2.ExecuteReader();
+                            drDetTckTrip.Read();
+
                             cmd2.Parameters.Clear();
-                            dgvJug.Rows[c].Cells[13].Value = dr2["prmFechSortIni"].ToString();
-                            dgvJug.Rows[c].Cells[14].Value = dr2["prmFechSortFin"].ToString();
-                            dr2.Close();
+                            dgvJug.Rows[c].Cells[13].Value = drDetTckTrip["prmFechSortIni"].ToString();
+                            dgvJug.Rows[c].Cells[14].Value = drDetTckTrip["prmFechSortFin"].ToString();
+                            valTrip=Convert.ToInt16(drDetTckTrip["prmValTrip"].ToString());
+                            mJugBd = Convert.ToDouble(drDetTckTrip["prmMont"].ToString().Replace(".", ","));
+                            drDetTckTrip.Close();
+
+                            if (valTrip == 2)
+                            {
+                                msjInf = "Cupo agotado para la tripleta ";
+                                msjInf += "cod1:\"" + codJug1 + " - " + nombProd1 + "\"";
+                                msjInf += " - cod2:\"" + codJug2 + " - " + nombProd2 + "\"";
+                                msjInf += " - cod3:\"" + codJug3 + " - " + nombProd3 + "\"";
+                                msjInf += " loteria:\"" + nombLot + "\"";
+                                MessageBox.Show(msjInf.ToUpper(), "¡ Cupo Agotado !");
+                                dgvJug.Rows.RemoveAt(c); c--;
+                                busMontTotJug();
+                                actMont = true;
+
+                            }
+                            if (valTrip == 3)
+                            {
+                                if (mJug != mJugBd)
+                                {
+                                    dgvJug.Rows[c].Cells[12].Value = mJugBd.ToString("N2"); ;
+                                    msjInf = "El cupo disponible para la tripleta ";
+                                    msjInf += "cod1:\"" + codJug1 + " - " + nombProd1 + "\"";
+                                    msjInf += " - cod2:\"" + codJug2 + " - " + nombProd2 + "\"";
+                                    msjInf += " - cod3:\"" + codJug3 + " - " + nombProd3 + "\"";
+                                    msjInf += " es de:" + mJugBd+" - ";
+                                    msjInf += " loteria:\"" + nombLot + "\"";
+                                    MessageBox.Show(msjInf, "¡ Cupo Disponible !");
+                                    actMont = true; 
+                                }
+                                cont++;
+                            }
                         }
                         c++;
                     }
 
-                    myTrans.Commit();
-                }
-
-                ////////////////////////////////////////////////////////////////////////////////////
-                /////////////////////////////IMPRIMIR TICKET////////////////////////////////////////
-
-                string monto = "", cadResult = "";
-                int idLotAnt = 0, idLotSig = 0;
-                string tripIni = "", tripFin = "";
-
-                int cont_jud = 0;
-                for (int d = 0; d < dgvJug.RowCount; d++)
-                {
-                    cont_jud++;
-                    idLotSig = Convert.ToInt32(dgvJug.Rows[d].Cells[0].Value.ToString());
-                    nombLot = dgvJug.Rows[d].Cells[1].Value.ToString();
-                    codJug1 = dgvJug.Rows[d].Cells[3].Value.ToString();
-                    nombProd1 = dgvJug.Rows[d].Cells[5].Value.ToString();
-                    codJug2 = dgvJug.Rows[d].Cells[6].Value.ToString();
-                    nombProd2 = dgvJug.Rows[d].Cells[8].Value.ToString();
-                    codJug3 = dgvJug.Rows[d].Cells[9].Value.ToString();
-                    nombProd3 = dgvJug.Rows[d].Cells[11].Value.ToString();
-                    monto = dgvJug.Rows[d].Cells[12].Value.ToString();
-                    tripIni = dgvJug.Rows[d].Cells[13].Value.ToString();
-                    tripFin = dgvJug.Rows[d].Cells[14].Value.ToString();
-
-                    if (codJug1.Length == 1) { codJug1.PadRight(1, ' '); }
-                    if (codJug2.Length == 1) { codJug2.PadRight(1, ' '); }
-                    if (codJug3.Length == 1) { codJug3.PadRight(1, ' '); }
-
-                    if (idLotAnt != idLotSig)
+                    ////////////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////IMPRIMIR TICKET////////////////////////////////////////
+                    if (cont == 0)
                     {
-                        if (cadResult.Length > 0) { cadResult += "?"; cont_jud = 1; }
-                        // cadResult += busTit(nombLot, "");
+                        if (clsMet.cn_bd.State == ConnectionState.Open)
+                        { myTrans.Rollback(); clsMet.Desconectar(); }
+
+                        dtDgvJug.Clear();
+                        dgvJug.DataSource = dtDgvJug;
+
+                        mTotJug = 0;
+                        txtMJug.Text = "0";
+                    }
+                    else if (cont >= 1)
+                    {
+                        if (actMont == true)
+                        {
+                            using (MySqlCommand cmdMontTckTrip = new MySqlCommand())
+                            {
+                                busMontTotJug();
+                                cmdMontTckTrip.Connection = cnBd;
+                                cmdMontTckTrip.CommandType = CommandType.StoredProcedure;
+                                cmdMontTckTrip.CommandText = "spActMontTck";
+                                cmdMontTckTrip.Parameters.AddWithValue("prmIdTck", idTck);
+                                cmdMontTckTrip.Parameters.AddWithValue("prmMont", Convert.ToString(txtMJug.Text).Replace(",", "."));
+                                int rsDat10 = Convert.ToInt16(cmdMontTckTrip.ExecuteNonQuery().ToString());
+                            }
+                        }
+                        string monto = "", cadResult = "";
+                        int idLotAnt = 0, idLotSig = 0;
+                        string tripIni = "", tripFin = "";
+
+                        int contJud = 0;
+                        for (int d = 0; d < dgvJug.RowCount; d++)
+                        {
+                            contJud++;
+                            idLotSig = Convert.ToInt32(dgvJug.Rows[d].Cells[0].Value.ToString());
+                            nombLot = dgvJug.Rows[d].Cells[1].Value.ToString();
+                            codJug1 = dgvJug.Rows[d].Cells[3].Value.ToString();
+                            nombProd1 = dgvJug.Rows[d].Cells[5].Value.ToString();
+                            codJug2 = dgvJug.Rows[d].Cells[6].Value.ToString();
+                            nombProd2 = dgvJug.Rows[d].Cells[8].Value.ToString();
+                            codJug3 = dgvJug.Rows[d].Cells[9].Value.ToString();
+                            nombProd3 = dgvJug.Rows[d].Cells[11].Value.ToString();
+                            monto = dgvJug.Rows[d].Cells[12].Value.ToString();
+                            tripIni = dgvJug.Rows[d].Cells[13].Value.ToString();
+                            tripFin = dgvJug.Rows[d].Cells[14].Value.ToString();
+
+                            if (codJug1.Length == 1) { codJug1.PadRight(1, ' '); }
+                            if (codJug2.Length == 1) { codJug2.PadRight(1, ' '); }
+                            if (codJug3.Length == 1) { codJug3.PadRight(1, ' '); }
+
+                            if (idLotAnt != idLotSig)
+                            {
+                                if (cadResult.Length > 0) { cadResult += "?"; contJud = 1; }
+                                // cadResult += busTit(nombLot, "");
+                            }
+
+                            int dtIdlot = 0;
+                            int cant = 0;
+
+                            cadResult += "Tripleta: ";
+                            cadResult += nombLot.ToUpper() + "?";
+                            cadResult += tripIni + "?";
+                            cadResult += tripFin + "?";
+                            cadResult += nombProd1.ToUpper() + " ";
+                            cadResult += nombProd2.ToUpper() + " ";
+                            cadResult += nombProd3.ToUpper() + "?"; ;
+
+                            cadResult += "Monto jugando:";
+                            cadResult += Convert.ToDouble(monto).ToString("N2");
+                            cadResult += " " + clsMet.NombDivisa.ToUpper() + "?";
+                            cadResult = cadResult.ToUpper();
+                            idLotAnt = Convert.ToInt32(dgvJug.Rows[d].Cells[0].Value.ToString());
+                        }
+
+                        dtDgvJug.Clear();
+                        dgvJug.DataSource = dtDgvJug;
+                        frmTckTrip objRpt = new frmTckTrip();
+                        objRpt.nombTaq = clsMet.nombUsu;
+                        objRpt.fecha = fTck;
+                        objRpt.hora = hTck;
+                        objRpt.nroTicket = nroTck.ToString();
+                        objRpt.nroSerial = nroSerial;
+                        objRpt.detJug = cadResult;
+                        objRpt.totVenta = Convert.ToDouble(txtMJug.Text);
+                        objRpt.nroDiaCad = clsMet.cantDiaCadTck;
+                        objRpt.ShowDialog();
+                        clsMet.verfAct = true;
+
+                        foreach (DataGridViewRow row in dgvLot.Rows)
+                        {
+                            DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
+                            if (Convert.ToBoolean(cell.Value) == true) { cell.Value = false; }
+                        }
+
+                        if (Convert.ToInt16(clsMet.idUsu) == 36) { txtMont.Text = "0,00"; cMont = ""; }
+                        limpJug();
+                        txtCod1.Focus();
+                        myTrans.Commit();
                     }
 
-                    int dtIdlot = 0;
-                    int cant = 0;
-                    
-                    cadResult += "Tripleta: ";
-                    cadResult += nombLot.ToUpper() + "?";
-                    cadResult += tripIni + "?";
-                    cadResult += tripFin + "?";
-                    cadResult += nombProd1.ToUpper() + " ";
-                    cadResult += nombProd2.ToUpper() + " ";
-                    cadResult += nombProd3.ToUpper() + "?"; ;
-
-                    cadResult += "Monto jugando:";
-                    cadResult += Convert.ToDouble(monto).ToString("N2");
-                    cadResult += " " + clsMet.NombDivisa.ToUpper() + "?";
-                    cadResult = cadResult.ToUpper();
-                    idLotAnt = Convert.ToInt32(dgvJug.Rows[d].Cells[0].Value.ToString());
                 }
 
-                dtDgvJug.Clear();
-                dgvJug.DataSource = dtDgvJug;
-                frmTckTrip objRpt = new frmTckTrip();
-                objRpt.nombTaq = clsMet.nombUsu;
-                objRpt.fecha = fTck;
-                objRpt.hora = hTck;
-                objRpt.nroTicket = nroTck.ToString();
-                objRpt.nroSerial = nroSerial;
-                objRpt.detJug = cadResult;
-                objRpt.totVenta = Convert.ToDouble(txtMJug.Text);
-                objRpt.nroDiaCad = clsMet.cantDiaCadTck;
-                objRpt.ShowDialog();
-                clsMet.verfAct = true;
-
-                foreach (DataGridViewRow row in dgvLot.Rows)
-                {
-                    DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
-                    if (Convert.ToBoolean(cell.Value) == true) { cell.Value = false; }
-                }
-
-                if (Convert.ToInt16(clsMet.idUsu) == 36) { txtMont.Text = "0,00"; cMont = ""; }
-                limpJug();
-                txtCod1.Focus();
+                
 
             }
             catch (Exception ex)

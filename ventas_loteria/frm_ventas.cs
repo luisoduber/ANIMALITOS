@@ -117,7 +117,6 @@ namespace ventas_loteria
         {
             try
             {
-                MessageBox.Show(idUsu.ToString());
                 dtCboLot = objMet.listLotTod(idUsu);
                 dtDgvSort = objMet.busLot(idUsu);
                 dtNombProd = objMet.busNombProd();
