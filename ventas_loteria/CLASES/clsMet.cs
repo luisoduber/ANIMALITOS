@@ -3502,7 +3502,7 @@ namespace ventas_loteria
             return dt;
         }
         public string actStatLot(int prmIdBloqLot, int prmIdStat, 
-                               string prmMontBs, string prmMontUsd)
+                               string prmMontBs, string prmMontTrip)
         {
             string rsDat = "";
             try
@@ -3519,7 +3519,7 @@ namespace ventas_loteria
                         cmd.Parameters.AddWithValue("prmIdBloqLot", prmIdBloqLot);
                         cmd.Parameters.AddWithValue("prmIdStat", prmIdStat);
                         cmd.Parameters.AddWithValue("prmMontBs", prmMontBs);
-                        cmd.Parameters.AddWithValue("prmMontUsd", prmMontUsd);
+                        cmd.Parameters.AddWithValue("prmMontTrip", prmMontTrip);
                         rsDat = cmd.ExecuteNonQuery() > 0 ? "true" : "false";
                     }
                 }

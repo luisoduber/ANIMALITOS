@@ -32,9 +32,9 @@ namespace ventas_loteria
         int idBloqLot = 0, idStat = 0;
         int idGrup = 0; string msjInf = "";
         string nombLot = "", montoBs="";
-        string montoUsd="";
+        string montoTrip="";
         string cMontBs = "", rsFormat = "";
-        string cMontUsd = "";
+        string cMontTrip = "";
         int dig=0; Boolean proc = true;
         int idTaq = 0;
 
@@ -160,7 +160,7 @@ namespace ventas_loteria
                     idStat = Convert.ToInt16(cboStat.SelectedValue.ToString());
                     rsDat = objMet.actStatLot(idBloqLot, idStat,
                             txtMontBs.Text.Replace(".", "").Replace(",", "."),
-                            txtMontUsd.Text.Replace(".", "").Replace(",", ".")
+                            txtMontTrip.Text.Replace(".", "").Replace(",", ".")
                             );
 
                     idTaq = Convert.ToInt16(cboTaq.SelectedValue);
@@ -173,9 +173,9 @@ namespace ventas_loteria
         public void limpFrm()
         {
             txtMontBs.Text = "0,00";
-            txtMontUsd.Text = "0,00";
+            txtMontTrip.Text = "0,00";
             cMontBs = "";
-            cMontUsd = "";
+            cMontTrip = "";
         }
 
         private void cboTaq_SelectionChangeCommitted(object sender, EventArgs e)
@@ -189,7 +189,7 @@ namespace ventas_loteria
             dgvBloqLot.DataSource = dtDgvBloqLot;
         }
 
-        private void txtMontUsd_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtMontTrip_KeyPress(object sender, KeyPressEventArgs e)
         {
              try
             {
@@ -198,13 +198,13 @@ namespace ventas_loteria
 
                 if (dig == 8)
                 {
-                    if (string.IsNullOrEmpty(cMontUsd)) { rsFormat = "0,00"; }
-                    if (cMontUsd.Length == 0) { rsFormat = "0,00"; }
-                    else if (cMontUsd.Length >= 1)
+                    if (string.IsNullOrEmpty(cMontTrip)) { rsFormat = "0,00"; }
+                    if (cMontTrip.Length == 0) { rsFormat = "0,00"; }
+                    else if (cMontTrip.Length >= 1)
                     {
-                        cMontUsd = cMontUsd.Substring(0, cMontUsd.Length - 1);
+                        cMontTrip = cMontTrip.Substring(0, cMontTrip.Length - 1);
 
-                        if (cMontUsd.Length == 0) { rsFormat = "0,00"; proc = false; }
+                        if (cMontTrip.Length == 0) { rsFormat = "0,00"; proc = false; }
                         else { proc = true; }
                     }
                 }
@@ -212,11 +212,11 @@ namespace ventas_loteria
                 else if (dig == 45) { proc = true; }
                 else if ((dig >= 48) && (dig <= 57))
                 {
-                    cMontUsd += e.KeyChar.ToString();
+                    cMontTrip += e.KeyChar.ToString();
 
-                    if (Convert.ToDouble(cMontUsd) == 0)
+                    if (Convert.ToDouble(cMontTrip) == 0)
                     {
-                        cMontUsd = cMontUsd.Substring(0, cMontUsd.Length - 1);
+                        cMontTrip = cMontTrip.Substring(0, cMontTrip.Length - 1);
                         proc = false;
                     }
                     else { proc = true; }
@@ -225,10 +225,10 @@ namespace ventas_loteria
                 /*#################################################################################################################
                  * ###############################################################################################################*/
                
-                if (proc == true) { rsFormat = objMet.formatMonto(cMontUsd); }
-                txtMontUsd.Text = rsFormat;
-                txtMontUsd.SelectionStart = txtMontBs.Text.Length;
-                txtMontUsd.SelectionLength = 0;
+                if (proc == true) { rsFormat = objMet.formatMonto(cMontTrip); }
+                txtMontTrip.Text = rsFormat;
+                txtMontTrip.SelectionStart = txtMontBs.Text.Length;
+                txtMontTrip.SelectionLength = 0;
 
             }
             catch (Exception ex) { MessageBox.Show("Ha ocurrido el siguiente error:" + ex.Message, "Verifique..."); }
@@ -245,7 +245,7 @@ namespace ventas_loteria
                     idStat = Convert.ToInt16(cboStat.SelectedValue.ToString());
                     rsDat = objMet.actStatLot(idBloqLot, idStat, 
                             txtMontBs.Text.Replace(".", "").Replace(",", "."),
-                            txtMontUsd.Text.Replace(".", "").Replace(",", ".")
+                            txtMontTrip.Text.Replace(".", "").Replace(",", ".")
                             );
 
                     idTaq = Convert.ToInt16(cboTaq.SelectedValue);
@@ -254,6 +254,11 @@ namespace ventas_loteria
                     limpFrm();
                 }
             }
+        }
+
+        private void dgvBloqLot_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         public Boolean validFrm()
@@ -309,13 +314,13 @@ namespace ventas_loteria
                 idStat = Convert.ToInt16(dgvBloqLot.CurrentRow.Cells[1].Value.ToString());
                 nombLot = dgvBloqLot.CurrentRow.Cells[2].Value.ToString();
                 montoBs = dgvBloqLot.CurrentRow.Cells[3].Value.ToString();
-                montoUsd= dgvBloqLot.CurrentRow.Cells[4].Value.ToString();
+                montoTrip= dgvBloqLot.CurrentRow.Cells[4].Value.ToString();
                 cMontBs = objMet.limpMonto(Convert.ToDouble(montoBs).ToString("N2"));
-                cMontUsd = objMet.limpMonto(Convert.ToDouble(montoUsd).ToString("N2"));
+                cMontTrip = objMet.limpMonto(Convert.ToDouble(montoTrip).ToString("N2"));
 
                 cboStat.SelectedValue = idStat;
                 txtMontBs.Text = Convert.ToDouble(montoBs).ToString("N2");
-                txtMontUsd.Text = Convert.ToDouble(montoUsd).ToString("N2");
+                txtMontTrip.Text = Convert.ToDouble(montoTrip).ToString("N2");
                 txtMontBs.Focus();
                 txtMontBs.SelectionStart = txtMontBs.Text.Length;
                 txtMontBs.SelectionLength = 0;

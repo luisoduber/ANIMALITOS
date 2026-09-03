@@ -64,7 +64,7 @@ namespace ventas_loteria
                 idLot = Convert.ToInt16(dtCboLot.Rows[0][0]);
                 dtDgvSort = objMet.listSortContVentTod(idLot);
                 dtDgvProd = objMet.busContVentTaq(idLot);
-
+              
                 idProc = 1;
                 work_inicia_frm.CancelAsync();
             }
@@ -79,29 +79,6 @@ namespace ventas_loteria
 
         private void work_inicia_frm_OnProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-        }
-
-        private void cboTaq_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            idGrup= Convert.ToInt16(cboGrup.SelectedValue);
-            idTaq = Convert.ToInt16(cboTaq.SelectedValue);
-            dtCboLot = objMet.listLotContVent(idTaq);
-
-            this.cboLot.DisplayMember = "nombLot";
-            this.cboLot.ValueMember = "idLot";
-            this.cboLot.DataSource = dtCboLot;
-
-            idLot = Convert.ToInt16(cboLot.SelectedValue.ToString());
-            dtDgvSort = objMet.listSortContVentTod(idLot);
-            dtDgvProd = objMet.busContVentTaq(idLot);
-
-            idSort = Convert.ToInt32(dgvSort.CurrentRow.Cells[0].Value.ToString());
-            dtDgvProdBloq = objMet.listProdBloqFilt(idGrup, idLot, idSort);
-
-            dgvSort.DataSource = dtDgvSort;
-            dgvProd.DataSource = dtDgvProd;
-            dgvProdBloq.DataSource = dtDgvProdBloq;
-
         }
 
         private void work_inicia_frm_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -136,6 +113,30 @@ namespace ventas_loteria
                 dgvProdBloq.DataSource = dtDgvProdBloq;
             }
         }
+        private void cboTaq_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            /*
+            idGrup= Convert.ToInt16(cboGrup.SelectedValue);
+            idTaq = Convert.ToInt16(cboTaq.SelectedValue);
+            dtCboLot = objMet.listLotContVent(idTaq);
+
+            this.cboLot.DisplayMember = "nombLot";
+            this.cboLot.ValueMember = "idLot";
+            this.cboLot.DataSource = dtCboLot;
+
+            idLot = Convert.ToInt16(cboLot.SelectedValue.ToString());
+            dtDgvSort = objMet.listSortContVentTod(idLot);
+            dtDgvProd = objMet.busContVentTaq(idLot);
+
+            idSort = Convert.ToInt32(dgvSort.CurrentRow.Cells[0].Value.ToString());
+            dtDgvProdBloq = objMet.listProdBloqFilt(idGrup, idLot, idSort);
+
+            dgvSort.DataSource = dtDgvSort;
+            dgvProd.DataSource = dtDgvProd;
+            dgvProdBloq.DataSource = dtDgvProdBloq;
+            */
+
+        }
         private void cboGrup_SelectionChangeCommitted(object sender, EventArgs e)
         {
             idGrup = Convert.ToInt16(cboGrup.SelectedValue);
@@ -143,7 +144,7 @@ namespace ventas_loteria
             this.cboTaq.DisplayMember = "nick";
             this.cboTaq.ValueMember = "id_usuario";
             this.cboTaq.DataSource = dtCboTaq;
-
+           
             idTaq = Convert.ToInt16(cboTaq.SelectedValue);
             dtCboLot = objMet.listLotContVent(idTaq);
             this.cboLot.DisplayMember = "nombLot";
@@ -233,19 +234,45 @@ namespace ventas_loteria
                 msjInf = "Realmente desea bloquear el producto: ";
                 msjInf += "\"" + codProd + " - " + nombProd + "\"";
                 msjInf += " Para el sorteo: \"" + nombLot.ToUpper() + "\"";
-                msjInf += " esta usted seguro?";
+                msjInf += " Presione: \"YES\" Para bloquear ";
+                msjInf += " el producto para todas las taquillas, ";
+                msjInf += " Presione: \"NO\" Para bloquear el producto para ";
+                msjInf += " la taquilla selecionada, esta usted seguro?";
 
-                if (MessageBox.Show(msjInf.ToUpper(), "Verifique.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                DialogResult respuesta = MessageBox.Show(msjInf,
+                "Confirmación",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Question
+                );
+
+
+                switch (respuesta)
                 {
-                    if ((idUsu == 0) && (idSort == 0)){ rsDat = objMet.actStatProdTod(idGrup,idLot,codProd,1); }
-                    else { rsDat = objMet.actStatProd(idGrup, idUsu, idLot, idSort, codProd, 1); }
-                    if (rsDat == "true")
-                    {
-                        dtDgvProdBloq = objMet.listProdBloq(idGrup, idLot);
-                        dgvProdBloq.DataSource = dtDgvProdBloq;
-                    }
-                    else { MessageBox.Show("Ha ocurrido el siguiente error:" + rsDat, "Verifique."); }
+                    case DialogResult.Yes:
+
+                        rsDat = objMet.actStatProdTod(idGrup, idLot, codProd, 1);
+                        if (rsDat == "true")
+                        {
+                            dtDgvProdBloq = objMet.listProdBloq(idGrup, idLot);
+                            dgvProdBloq.DataSource = dtDgvProdBloq;
+                        }
+                        else { MessageBox.Show("Ha ocurrido el siguiente error:" + rsDat, "Verifique."); }
+                        break;
+
+                    case DialogResult.No:
+                        rsDat = objMet.actStatProd(idGrup, idUsu, idLot, idSort, codProd, 1);
+                        if (rsDat == "true")
+                        {
+                            dtDgvProdBloq = objMet.listProdBloq(idGrup, idLot);
+                            dgvProdBloq.DataSource = dtDgvProdBloq;
+                        }
+                        else { MessageBox.Show("Ha ocurrido el siguiente error:" + rsDat, "Verifique."); }
+                        break;
+
+                    case DialogResult.Cancel:
+                        break;
                 }
+
             }
         }
         private void frmContVent_KeyPress(object sender, KeyPressEventArgs e)

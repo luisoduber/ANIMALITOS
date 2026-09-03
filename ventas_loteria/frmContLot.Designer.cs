@@ -29,29 +29,30 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dgvBloqLot = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.cboTaq = new System.Windows.Forms.ComboBox();
             this.cboGrup = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.wkIniFrm = new System.ComponentModel.BackgroundWorker();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.txtMontUsd = new System.Windows.Forms.TextBox();
+            this.txtMontTrip = new System.Windows.Forms.TextBox();
             this.txtMontBs = new System.Windows.Forms.TextBox();
             this.cboStat = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBloqLot)).BeginInit();
             this.groupPanel4.SuspendLayout();
@@ -122,77 +123,30 @@
             this.Column3,
             this.Column4,
             this.dataGridViewTextBoxColumn1});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBloqLot.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvBloqLot.Location = new System.Drawing.Point(8, -5);
-            this.dgvBloqLot.Name = "dgvBloqLot";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBloqLot.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBloqLot.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvBloqLot.Location = new System.Drawing.Point(8, 2);
+            this.dgvBloqLot.Name = "dgvBloqLot";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBloqLot.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvBloqLot.RowTemplate.Height = 35;
             this.dgvBloqLot.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBloqLot.Size = new System.Drawing.Size(498, 427);
+            this.dgvBloqLot.Size = new System.Drawing.Size(498, 420);
             this.dgvBloqLot.TabIndex = 194;
             this.dgvBloqLot.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBloqLot_CellClick);
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "idBloqLot";
-            this.Column2.HeaderText = "idBloqLot";
-            this.Column2.Name = "Column2";
-            this.Column2.Visible = false;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "idStat";
-            this.Column6.HeaderText = "idStat";
-            this.Column6.Name = "Column6";
-            this.Column6.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "nombCortLot";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column1.HeaderText = "Loteria";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 215;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "mMaxAn";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column3.HeaderText = "BS";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 90;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "mMaxAnUs";
-            this.Column4.HeaderText = "USD";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "nombStat";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dgvBloqLot.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBloqLot_CellContentClick);
             // 
             // groupPanel4
             // 
@@ -281,7 +235,7 @@
             // 
             this.groupPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel2.Controls.Add(this.txtMontUsd);
+            this.groupPanel2.Controls.Add(this.txtMontTrip);
             this.groupPanel2.Controls.Add(this.txtMontBs);
             this.groupPanel2.Controls.Add(this.cboStat);
             this.groupPanel2.Controls.Add(this.label1);
@@ -323,18 +277,18 @@
             this.groupPanel2.TabIndex = 215;
             this.groupPanel2.Text = "Actualizar";
             // 
-            // txtMontUsd
+            // txtMontTrip
             // 
-            this.txtMontUsd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMontUsd.Location = new System.Drawing.Point(109, 39);
-            this.txtMontUsd.Margin = new System.Windows.Forms.Padding(5);
-            this.txtMontUsd.MaxLength = 3300;
-            this.txtMontUsd.Name = "txtMontUsd";
-            this.txtMontUsd.Size = new System.Drawing.Size(95, 26);
-            this.txtMontUsd.TabIndex = 267;
-            this.txtMontUsd.Text = "0,00";
-            this.txtMontUsd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtMontUsd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontUsd_KeyPress);
+            this.txtMontTrip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMontTrip.Location = new System.Drawing.Point(109, 39);
+            this.txtMontTrip.Margin = new System.Windows.Forms.Padding(5);
+            this.txtMontTrip.MaxLength = 3300;
+            this.txtMontTrip.Name = "txtMontTrip";
+            this.txtMontTrip.Size = new System.Drawing.Size(95, 26);
+            this.txtMontTrip.TabIndex = 267;
+            this.txtMontTrip.Text = "0,00";
+            this.txtMontTrip.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMontTrip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontTrip_KeyPress);
             // 
             // txtMontBs
             // 
@@ -368,6 +322,57 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 21);
             this.label1.TabIndex = 1;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "idBloqLot";
+            this.Column2.HeaderText = "idBloqLot";
+            this.Column2.Name = "Column2";
+            this.Column2.Visible = false;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "idStat";
+            this.Column6.HeaderText = "idStat";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "nombCortLot";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column1.HeaderText = "Loteria";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 215;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "mMaxAn";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N2";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column3.HeaderText = "Animalito";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 90;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "mMaxTrip";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column4.HeaderText = "Tripleta";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "nombStat";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // frmContLot
             // 
@@ -408,12 +413,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMontBs;
         private System.Windows.Forms.ComboBox cboTaq;
+        private System.Windows.Forms.TextBox txtMontTrip;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.TextBox txtMontUsd;
     }
 }
