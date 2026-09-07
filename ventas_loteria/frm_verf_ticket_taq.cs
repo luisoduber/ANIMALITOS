@@ -9,9 +9,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml;
-using HtmlAgilityPack;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace ventas_loteria
 {

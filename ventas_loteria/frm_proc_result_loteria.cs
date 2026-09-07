@@ -1,19 +1,12 @@
 ﻿using HtmlAgilityPack;
-using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI;
-using Org.BouncyCastle.Crypto;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Net.NetworkInformation;
-using System.Security.Policy;
-using System.Threading.Tasks;
-using System.Web.Services.Description;
 using System.Windows.Forms;
 
 

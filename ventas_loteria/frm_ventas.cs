@@ -1,6 +1,6 @@
 ﻿using DevComponents.AdvTree;
 using DevComponents.DotNetBar.Controls;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using Org.BouncyCastle.Asn1.Tsp;
 using System;
 using System.Collections.Generic;
@@ -912,16 +912,18 @@ namespace ventas_loteria
             string msjInf = "", nroTck = "";
             string nroSerial = "", fechaAct = "";
             string fTck = "", hTck = "";
-            Boolean rsProces;
             string codJug = "", nombProd = "";
             string nombLot = "", nombSort = "";
-            double mJugBd = 0;
-            DateTime fechaHoraVerf, horaSortJug;
-            string[] rsDat = new string[7];
-            int rsVerfJug, rsVerfTiempo;
-            int cont = 0;
-            Boolean sortAb = false;
 
+            DateTime fechaHoraVerf = DateTime.MinValue;
+            DateTime horaSortJug = DateTime.MinValue;
+            string[] rsDat = new string[7];
+            int rsVerfJug = 0, rsVerfTiempo = 0;
+            double mJugBd = 0; int cont = 0;
+            Boolean rsProces = false, sortAb = false;
+
+            # region codigo ticket viejo;
+            /*
             clsMet.conectar();
             MySqlCommand cmdGrdTck = new MySqlCommand();
             MySqlCommand cmdDetTck = new MySqlCommand();
@@ -1176,6 +1178,268 @@ namespace ventas_loteria
                 MessageBox.Show(msjInfo, "Transacción Fallida...");
             }
             finally { clsMet.Desconectar(); }
+            */
+
+            #endregion;
+            const short COD_SORT_BLOQUEADO = 0;
+            const short COD_PROD_BLOQUEADO = 1;
+            const short COD_CUPO_AGOTADO = 2;
+            const short COD_CUPO_PARCIAL = 3;
+
+            using (MySqlConnection cnBd = new MySqlConnection())
+            {
+                cnBd.ConnectionString =clsMet.cn;
+                cnBd.Open();
+
+                using (MySqlTransaction myTrans = cnBd.BeginTransaction())
+                {
+                    try
+                    {
+                        ////////////////////////////////////////////////////////////////////////////////////
+                        /////////////////REGISTRA TICKET ///////////////////////////////////////////////////
+                        using (MySqlCommand cmdGrdTck = new MySqlCommand("SPgrdTck", cnBd, myTrans))
+                        {
+                            cmdGrdTck.CommandType = CommandType.StoredProcedure;
+                            cmdGrdTck.Parameters.AddWithValue("prmIdGrup", idGrup);
+                            cmdGrdTck.Parameters.AddWithValue("prmIdUsu", idUsu);
+                            cmdGrdTck.Parameters.AddWithValue("prmIdTipTck", 1);
+
+                            using (MySqlDataReader dr = cmdGrdTck.ExecuteReader())
+                            {
+                                if (dr.HasRows)
+                                {
+                                    dr.Read();
+                                    rsProces = true;
+                                    rsDat[0] = rsProces.ToString();
+                                    rsDat[1] = dr["prmContTck"].ToString();
+                                    rsDat[2] = dr["prmNroSer"].ToString();
+                                    rsDat[3] = dr["fecha_ticket"].ToString();
+                                    rsDat[4] = dr["hora_ticket"].ToString();
+                                    rsDat[5] = dr["fechaHoraVerf"].ToString();
+                                    rsDat[6] = dr["prmIdTck"].ToString();
+                                }
+                            }
+                        } 
+
+                        rsProces = Convert.ToBoolean(rsDat[0]);
+                        nroTck = rsDat[1];
+                        nroSerial = rsDat[2];
+                        fTck = Convert.ToDateTime(rsDat[3]).ToString("dd/MM/yyyy");
+                        hTck = rsDat[4];
+                        fechaHoraVerf = Convert.ToDateTime(rsDat[5]);
+                        idTck = rsDat[6];
+
+                        rsVerfTiempo = DateTime.Compare(fechaHoraVerf, horaServ);
+                        if (rsVerfTiempo > 0) { horaServ = fechaHoraVerf; }
+
+                        ////////////////////////////////////////////////////////////////////////////////////
+                        ////////////////////////REGISTRA DETALLE TICKET ////////////////////////////////////
+                        for (int c = 0; c < dgvJug.RowCount; c++)
+                        {
+                            fechaAct = "";
+                            fechaAct = Convert.ToDateTime(fechaHoraVerf).ToString("yyy-MM-dd");
+                            fechaAct += " " + dgvJug.Rows[c].Cells[1].Value.ToString();
+                            horaSortJug = Convert.ToDateTime(fechaAct);
+                            nombSort = dgvJug.Rows[c].Cells[1].Value.ToString();
+                            codJug = dgvJug.Rows[c].Cells[2].Value.ToString();
+                            nombProd = dgvJug.Rows[c].Cells[3].Value.ToString();
+                            mJug = Convert.ToDouble(dgvJug.Rows[c].Cells[4].Value.ToString());
+                            idLot = Convert.ToInt32(dgvJug.Rows[c].Cells[5].Value.ToString());
+                            idSort = Convert.ToInt32(dgvJug.Rows[c].Cells[6].Value.ToString());
+                            nombLot = dgvJug.Rows[c].Cells[7].Value.ToString();
+                            rsVerfJug = DateTime.Compare(fechaHoraVerf, horaSortJug);
+
+                            string rsDat3 = "";
+                            if (codJug.Length == 1) { if (codJug != "0") { codJug = codJug.PadLeft(2, '0'); } }
+
+                            if (rsVerfJug < 0)
+                            {
+                                using (MySqlCommand cmdDetTck = new MySqlCommand("SP_det_ticket", cnBd, myTrans))
+                                {
+                                    cmdDetTck.CommandType = CommandType.StoredProcedure;
+                                    cmdDetTck.Parameters.AddWithValue("prmNroTck", nroTck);
+                                    cmdDetTck.Parameters.AddWithValue("prmIdGrup", Convert.ToInt32(clsMet.idGrup));
+                                    cmdDetTck.Parameters.AddWithValue("prmIdUsu", Convert.ToInt32(clsMet.idUsu));
+                                    cmdDetTck.Parameters.AddWithValue("prmIdLot", idLot);
+                                    cmdDetTck.Parameters.AddWithValue("prmIdSort", idSort);
+                                    cmdDetTck.Parameters.AddWithValue("prmCodJug", codJug);
+                                    cmdDetTck.Parameters.AddWithValue("prmMonto", Convert.ToString(mJug).Replace(".", "").Replace(",", "."));
+
+                                    using (MySqlDataReader drDetTck = cmdDetTck.ExecuteReader())
+                                    {
+                                        drDetTck.Read();
+                                        rsDat3 = drDetTck["prmGrd"].ToString();
+                                        mJugBd = Convert.ToDouble(drDetTck["prmMonto"].ToString().Replace(".", ","));
+                                    }
+                                } // cmdDetTck disposed
+
+                                short codRespDet = Convert.ToInt16(rsDat3);
+                                if (codRespDet == COD_SORT_BLOQUEADO)
+                                {
+                                    msjInf = "El sorteo:\"" + nombLot + "\"";
+                                    msjInf += " se encuentra bloqueado.";
+                                    MessageBox.Show(msjInf.ToUpper(), " ¡ Bloqueado !");
+                                    dgvJug.Rows.RemoveAt(c); c--;
+                                }
+                                else if (codRespDet == COD_PROD_BLOQUEADO)
+                                {
+                                    msjInf = "El producto:\"" + codJug + " - " + nombProd + "\"";
+                                    msjInf += " se encuentra bloqueado.";
+                                    msjInf += " para la loteria:\"" + nombLot + "\"";
+                                    MessageBox.Show(msjInf.ToUpper(), " ¡ Bloqueado !");
+                                    dgvJug.Rows.RemoveAt(c); c--;
+                                }
+                                else if (codRespDet == COD_CUPO_AGOTADO)
+                                {
+                                    msjInf = "El cupo para el ";
+                                    msjInf += "producto:\"" + codJug + " - " + nombProd + "\"";
+                                    msjInf += " se encuentra agotado.";
+                                    msjInf += " para la loteria:\"" + nombLot + "\"";
+                                    MessageBox.Show(msjInf.ToUpper(), "¡ Cupo Agotado !");
+                                    dgvJug.Rows.RemoveAt(c); c--;
+                                }
+                                else if (codRespDet == COD_CUPO_PARCIAL)
+                                {
+                                    if (mJug != mJugBd)
+                                    {
+                                        dgvJug.Rows[c].Cells[4].Value = mJugBd.ToString("N2");
+                                        msjInf = "El cupo disponible para el ";
+                                        msjInf += "producto:\"" + codJug + " - " + nombProd + "\"";
+                                        msjInf += " es de:" + mJugBd;
+                                        msjInf += " para la loteria:\"" + nombLot + "\"";
+                                        MessageBox.Show(msjInf, "¡ Cupo Disponible !");
+                                    }
+                                    cont++;
+                                }
+                            }
+                            else if (rsVerfJug >= 0)
+                            {
+                                sortAb = true;
+                                dgvJug.Rows.RemoveAt(c); c--;
+                            }
+
+                            codJug = ""; mJug = 0;
+                            idLot = 0; idSort = 0;
+                        }
+
+                        ////////////////////////////////////////////////////////////////////////////////////
+                        /////////////////////////////IMPRIMIR TICKET////////////////////////////////////////
+                        if (cont == 0)
+                        {
+                            myTrans.Rollback();
+                            dtDgvJug.Clear();
+                            dgvJug.DataSource = dtDgvJug;
+                            mTotalJug = 0;
+                            txt_monto_jug.Text = "0";
+                            lblMontJug.Text = "0.00";
+
+                            if (sortAb == true)
+                            {
+                                msjInf = "Sorteos cerrados, jugadas no procesadas.";
+                                MessageBox.Show(msjInf.ToUpper(), "Verifique.");
+                                refresc();
+                            }
+                        }
+                        else if (cont >= 1)
+                        {
+                            busMontTotJug();
+
+                            using (MySqlCommand cmdMontTck = new MySqlCommand("spActMontTck", cnBd, myTrans))
+                            {
+                                cmdMontTck.CommandType = CommandType.StoredProcedure;
+                                cmdMontTck.Parameters.AddWithValue("prmIdTck", idTck);
+                                cmdMontTck.Parameters.AddWithValue("prmMont", Convert.ToString(txt_monto_jug.Text).Replace(",", "."));
+                                cmdMontTck.ExecuteNonQuery();
+                            } // cmdMontTck disposed
+
+                            string monto = "", cadResult = "";
+                            int idLotAnt = 0, idLotSig = 0;
+                            int idSortAnt = 0, idSortSig = 0;
+                            int cont_jud = 0;
+
+                            for (int d = 0; d < dgvJug.RowCount; d++)
+                            {
+                                cont_jud++;
+                                nombSort = dgvJug.Rows[d].Cells[1].Value.ToString();
+                                codJug = dgvJug.Rows[d].Cells[2].Value.ToString();
+                                nombProd = dgvJug.Rows[d].Cells[3].Value.ToString();
+                                monto = dgvJug.Rows[d].Cells[4].Value.ToString();
+                                idLotSig = Convert.ToInt32(dgvJug.Rows[d].Cells[5].Value.ToString());
+                                idSortSig = Convert.ToInt32(dgvJug.Rows[d].Cells[6].Value.ToString());
+                                nombLot = dgvJug.Rows[d].Cells[7].Value.ToString();
+
+                                if (codJug.Length == 1) { codJug = codJug.PadRight(1, ' '); }
+
+                                if ((idLotAnt != idLotSig || idSortAnt != idSortSig))
+                                {
+                                    if (cadResult.Length > 0) { cadResult += "/"; cont_jud = 1; }
+                                    cadResult += busTit(nombLot, "");
+                                }
+
+                                cadResult += codJug.PadRight(3, ' ');
+                                cadResult += nombProd.ToUpper().PadRight(4, ' ');
+                                cadResult += Convert.ToDouble(monto).ToString("N2") + "  ";
+
+                                if (cont_jud == 2) { cadResult += "/"; cont_jud = 0; }
+
+                                idLotAnt = Convert.ToInt32(dgvJug.Rows[d].Cells[5].Value.ToString());
+                                idSortAnt = Convert.ToInt32(dgvJug.Rows[d].Cells[6].Value.ToString());
+                            }
+
+                            dtDgvJug.Clear();
+                            dgvJug.DataSource = dtDgvJug;
+
+                            frm_rpt_ticket_venta objRpt = new frm_rpt_ticket_venta();
+                            objRpt.nombTaq = clsMet.nombUsu;
+                            objRpt.fecha = fTck;
+                            objRpt.hora = hTck;
+                            objRpt.nroTicket = nroTck.ToString();
+                            objRpt.nroSerial = nroSerial;
+                            objRpt.detJug = cadResult;
+                            objRpt.totVenta = Convert.ToDouble(txt_monto_jug.Text);
+                            objRpt.nroDiaCad = clsMet.cantDiaCadTck;
+                            objRpt.ShowDialog();
+
+                            lblUltTick.Text = nroTck.ToString();
+                            mTotalJug = 0;
+                            txt_monto_jug.Text = "0";
+                            lblMontJug.Text = "0.00";
+
+                            if (Convert.ToInt16(clsMet.idUsu) == 36) { txtMonto.Text = "0.00"; cMont = ""; }
+
+                            txtCodigo.Focus();
+                            myTrans.Commit();
+                            busCuadCaj();
+
+                            foreach (DataGridViewRow row in dgvSort.Rows)
+                            {
+                                DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
+                                if (Convert.ToBoolean(cell.Value) == true) { cell.Value = false; }
+                            }
+
+                            if (sortAb == true) { refresc(); }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        try { myTrans.Rollback(); }
+                        catch (MySqlException error)
+                        {
+                            if (myTrans.Connection != null)
+                            {
+                                msjInfo = "Una excepción de tipo \"" + error.GetType() + " \"";
+                                msjInfo += " se encontró al intentar revertir la transacción.";
+                                MessageBox.Show(msjInfo, "Transacción Fallida...");
+                            }
+                        }
+
+                        msjInfo = "Una excepción de tipo: \"" + ex.GetType() + "\"";
+                        msjInfo += "\n se encontró al insertar los datos. \n Tome nota del";
+                        msjInfo += " siguiente error: \"" + ex.Message + "\"";
+                        MessageBox.Show(msjInfo, "Transacción Fallida...");
+                    }
+                } // myTrans disposed
+            }  
         }
 
         private void btn_result_lot_Click(object sender, EventArgs e)
@@ -1197,16 +1461,18 @@ namespace ventas_loteria
                 string msjInf = "", nroTck = "";
                 string nroSerial = "", fechaAct = "";
                 string fTck = "", hTck = "";
-                Boolean rsProces;
                 string codJug = "", nombProd = "";
                 string nombLot = "", nombSort = "";
-                double mJugBd = 0;
-                DateTime fechaHoraVerf, horaSortJug;
-                string[] rsDat = new string[7];
-                int rsVerfJug, rsVerfTiempo;
-                int cont = 0;
-                Boolean sortAb = false;
 
+                DateTime fechaHoraVerf = DateTime.MinValue;
+                DateTime horaSortJug = DateTime.MinValue;
+                string[] rsDat = new string[7];
+                int rsVerfJug=0, rsVerfTiempo=0;
+                double mJugBd = 0; int cont = 0;
+                Boolean rsProces=false, sortAb = false;
+
+                #region codigo ticket viejo;
+                /*
                 clsMet.conectar();
                 MySqlCommand cmdGrdTck = new MySqlCommand();
                 MySqlCommand cmdDetTck = new MySqlCommand();
@@ -1460,6 +1726,269 @@ namespace ventas_loteria
                     MessageBox.Show(msjInfo, "Transacción Fallida...");
                 }
                 finally { clsMet.Desconectar(); }
+                */
+                #endregion
+
+                const short COD_SORT_BLOQUEADO = 0;
+                const short COD_PROD_BLOQUEADO = 1;
+                const short COD_CUPO_AGOTADO = 2;
+                const short COD_CUPO_PARCIAL = 3;
+
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = clsMet.cn;
+                    cnBd.Open();
+
+                    using (MySqlTransaction myTrans = cnBd.BeginTransaction())
+                    {
+                        try
+                        {
+                            ////////////////////////////////////////////////////////////////////////////////////
+                            /////////////////REGISTRA TICKET ///////////////////////////////////////////////////
+                            using (MySqlCommand cmdGrdTck = new MySqlCommand("SPgrdTck", cnBd, myTrans))
+                            {
+                                cmdGrdTck.CommandType = CommandType.StoredProcedure;
+                                cmdGrdTck.Parameters.AddWithValue("prmIdGrup", idGrup);
+                                cmdGrdTck.Parameters.AddWithValue("prmIdUsu", idUsu);
+                                cmdGrdTck.Parameters.AddWithValue("prmIdTipTck", 1);
+
+                                using (MySqlDataReader dr = cmdGrdTck.ExecuteReader())
+                                {
+
+                                    if (dr.HasRows)
+                                    {
+                                        dr.Read();
+                                        rsProces = true;
+                                        rsDat[0] = rsProces.ToString();
+                                        rsDat[1] = dr["prmContTck"].ToString();
+                                        rsDat[2] = dr["prmNroSer"].ToString();
+                                        rsDat[3] = dr["fecha_ticket"].ToString();
+                                        rsDat[4] = dr["hora_ticket"].ToString();
+                                        rsDat[5] = dr["fechaHoraVerf"].ToString();
+                                        rsDat[6] = dr["prmIdTck"].ToString();
+                                    }
+                                }
+                            }
+
+                            rsProces = Convert.ToBoolean(rsDat[0]);
+                            nroTck = rsDat[1];
+                            nroSerial = rsDat[2];
+                            fTck = Convert.ToDateTime(rsDat[3]).ToString("dd/MM/yyyy");
+                            hTck = rsDat[4];
+                            fechaHoraVerf = Convert.ToDateTime(rsDat[5]);
+                            idTck = rsDat[6];
+
+                            rsVerfTiempo = DateTime.Compare(fechaHoraVerf, horaServ);
+                            if (rsVerfTiempo > 0) { horaServ = fechaHoraVerf; }
+
+                            ////////////////////////////////////////////////////////////////////////////////////
+                            ////////////////////////REGISTRA DETALLE TICKET ////////////////////////////////////
+                            for (int c = 0; c < dgvJug.RowCount; c++)
+                            {
+                                fechaAct = "";
+                                fechaAct = Convert.ToDateTime(fechaHoraVerf).ToString("yyy-MM-dd");
+                                fechaAct += " " + dgvJug.Rows[c].Cells[1].Value.ToString();
+                                horaSortJug = Convert.ToDateTime(fechaAct);
+                                nombSort = dgvJug.Rows[c].Cells[1].Value.ToString();
+                                codJug = dgvJug.Rows[c].Cells[2].Value.ToString();
+                                nombProd = dgvJug.Rows[c].Cells[3].Value.ToString();
+                                mJug = Convert.ToDouble(dgvJug.Rows[c].Cells[4].Value.ToString());
+                                idLot = Convert.ToInt32(dgvJug.Rows[c].Cells[5].Value.ToString());
+                                idSort = Convert.ToInt32(dgvJug.Rows[c].Cells[6].Value.ToString());
+                                nombLot = dgvJug.Rows[c].Cells[7].Value.ToString();
+                                rsVerfJug = DateTime.Compare(fechaHoraVerf, horaSortJug);
+
+                                string rsDat3 = "";
+                                if (codJug.Length == 1) { if (codJug != "0") { codJug = codJug.PadLeft(2, '0'); } }
+
+                                if (rsVerfJug < 0)
+                                {
+                                    using (MySqlCommand cmdDetTck = new MySqlCommand("SP_det_ticket", cnBd, myTrans))
+                                    {
+                                        cmdDetTck.CommandType = CommandType.StoredProcedure;
+                                        cmdDetTck.Parameters.AddWithValue("prmNroTck", nroTck);
+                                        cmdDetTck.Parameters.AddWithValue("prmIdGrup", Convert.ToInt32(clsMet.idGrup));
+                                        cmdDetTck.Parameters.AddWithValue("prmIdUsu", Convert.ToInt32(clsMet.idUsu));
+                                        cmdDetTck.Parameters.AddWithValue("prmIdLot", idLot);
+                                        cmdDetTck.Parameters.AddWithValue("prmIdSort", idSort);
+                                        cmdDetTck.Parameters.AddWithValue("prmCodJug", codJug);
+                                        cmdDetTck.Parameters.AddWithValue("prmMonto", Convert.ToString(mJug).Replace(".", "").Replace(",", "."));
+
+                                        using (MySqlDataReader drDetTck = cmdDetTck.ExecuteReader())
+                                        {
+                                            drDetTck.Read();
+                                            rsDat3 = drDetTck["prmGrd"].ToString();
+                                            mJugBd = Convert.ToDouble(drDetTck["prmMonto"].ToString().Replace(".", ","));
+                                        }
+                                    } // cmdDetTck disposed
+
+                                    short codRespDet = Convert.ToInt16(rsDat3);
+                                    if (codRespDet == COD_SORT_BLOQUEADO)
+                                    {
+                                        msjInf = "El sorteo:\"" + nombLot + "\"";
+                                        msjInf += " se encuentra bloqueado.";
+                                        MessageBox.Show(msjInf.ToUpper(), " ¡ Bloqueado !");
+                                        dgvJug.Rows.RemoveAt(c); c--;
+                                    }
+                                    else if (codRespDet == COD_PROD_BLOQUEADO)
+                                    {
+                                        msjInf = "El producto:\"" + codJug + " - " + nombProd + "\"";
+                                        msjInf += " se encuentra bloqueado.";
+                                        msjInf += " para la loteria:\"" + nombLot + "\"";
+                                        MessageBox.Show(msjInf.ToUpper(), " ¡ Bloqueado !");
+                                        dgvJug.Rows.RemoveAt(c); c--;
+                                    }
+                                    else if (codRespDet == COD_CUPO_AGOTADO)
+                                    {
+                                        msjInf = "El cupo para el ";
+                                        msjInf += "producto:\"" + codJug + " - " + nombProd + "\"";
+                                        msjInf += " se encuentra agotado.";
+                                        msjInf += " para la loteria:\"" + nombLot + "\"";
+                                        MessageBox.Show(msjInf.ToUpper(), "¡ Cupo Agotado !");
+                                        dgvJug.Rows.RemoveAt(c); c--;
+                                    }
+                                    else if (codRespDet == COD_CUPO_PARCIAL)
+                                    {
+                                        if (mJug != mJugBd)
+                                        {
+                                            dgvJug.Rows[c].Cells[4].Value = mJugBd.ToString("N2");
+                                            msjInf = "El cupo disponible para el ";
+                                            msjInf += "producto:\"" + codJug + " - " + nombProd + "\"";
+                                            msjInf += " es de:" + mJugBd;
+                                            msjInf += " para la loteria:\"" + nombLot + "\"";
+                                            MessageBox.Show(msjInf, "¡ Cupo Disponible !");
+                                        }
+                                        cont++;
+                                    }
+                                }
+                                else if (rsVerfJug >= 0)
+                                {
+                                    sortAb = true;
+                                    dgvJug.Rows.RemoveAt(c); c--;
+                                }
+
+                                codJug = ""; mJug = 0;
+                                idLot = 0; idSort = 0;
+                            }
+
+                            ////////////////////////////////////////////////////////////////////////////////////
+                            /////////////////////////////IMPRIMIR TICKET////////////////////////////////////////
+                            if (cont == 0)
+                            {
+                                myTrans.Rollback();
+                                dtDgvJug.Clear();
+                                dgvJug.DataSource = dtDgvJug;
+                                mTotalJug = 0;
+                                txt_monto_jug.Text = "0";
+                                lblMontJug.Text = "0.00";
+
+                                if (sortAb == true)
+                                {
+                                    msjInf = "Sorteos cerrados, jugadas no procesadas.";
+                                    MessageBox.Show(msjInf.ToUpper(), "Verifique.");
+                                    refresc();
+                                }
+                            }
+                            else if (cont >= 1)
+                            {
+                                busMontTotJug();
+
+                                using (MySqlCommand cmdMontTck = new MySqlCommand("spActMontTck", cnBd, myTrans))
+                                {
+                                    cmdMontTck.CommandType = CommandType.StoredProcedure;
+                                    cmdMontTck.Parameters.AddWithValue("prmIdTck", idTck);
+                                    cmdMontTck.Parameters.AddWithValue("prmMont", Convert.ToString(txt_monto_jug.Text).Replace(",", "."));
+                                    cmdMontTck.ExecuteNonQuery();
+                                } // cmdMontTck disposed
+
+                                string monto = "", cadResult = "";
+                                int idLotAnt = 0, idLotSig = 0;
+                                int idSortAnt = 0, idSortSig = 0;
+                                int cont_jud = 0;
+
+                                for (int d = 0; d < dgvJug.RowCount; d++)
+                                {
+                                    cont_jud++;
+                                    nombSort = dgvJug.Rows[d].Cells[1].Value.ToString();
+                                    codJug = dgvJug.Rows[d].Cells[2].Value.ToString();
+                                    nombProd = dgvJug.Rows[d].Cells[3].Value.ToString();
+                                    monto = dgvJug.Rows[d].Cells[4].Value.ToString();
+                                    idLotSig = Convert.ToInt32(dgvJug.Rows[d].Cells[5].Value.ToString());
+                                    idSortSig = Convert.ToInt32(dgvJug.Rows[d].Cells[6].Value.ToString());
+                                    nombLot = dgvJug.Rows[d].Cells[7].Value.ToString();
+
+                                    if (codJug.Length == 1) { codJug = codJug.PadRight(1, ' '); }
+
+                                    if ((idLotAnt != idLotSig || idSortAnt != idSortSig))
+                                    {
+                                        if (cadResult.Length > 0) { cadResult += "/"; cont_jud = 1; }
+                                        cadResult += busTit(nombLot, "");
+                                    }
+
+                                    cadResult += codJug.PadRight(3, ' ');
+                                    cadResult += nombProd.ToUpper().PadRight(4, ' ');
+                                    cadResult += Convert.ToDouble(monto).ToString("N2") + "  ";
+
+                                    if (cont_jud == 2) { cadResult += "/"; cont_jud = 0; }
+
+                                    idLotAnt = Convert.ToInt32(dgvJug.Rows[d].Cells[5].Value.ToString());
+                                    idSortAnt = Convert.ToInt32(dgvJug.Rows[d].Cells[6].Value.ToString());
+                                }
+
+                                dtDgvJug.Clear();
+                                dgvJug.DataSource = dtDgvJug;
+
+                                frm_rpt_ticket_venta objRpt = new frm_rpt_ticket_venta();
+                                objRpt.nombTaq = clsMet.nombUsu;
+                                objRpt.fecha = fTck;
+                                objRpt.hora = hTck;
+                                objRpt.nroTicket = nroTck.ToString();
+                                objRpt.nroSerial = nroSerial;
+                                objRpt.detJug = cadResult;
+                                objRpt.totVenta = Convert.ToDouble(txt_monto_jug.Text);
+                                objRpt.nroDiaCad = clsMet.cantDiaCadTck;
+                                objRpt.ShowDialog();
+
+                                lblUltTick.Text = nroTck.ToString();
+                                mTotalJug = 0;
+                                txt_monto_jug.Text = "0";
+                                lblMontJug.Text = "0.00";
+
+                                if (Convert.ToInt16(clsMet.idUsu) == 36) { txtMonto.Text = "0.00"; cMont = ""; }
+
+                                txtCodigo.Focus();
+                                myTrans.Commit();
+                                busCuadCaj();
+
+                                foreach (DataGridViewRow row in dgvSort.Rows)
+                                {
+                                    DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
+                                    if (Convert.ToBoolean(cell.Value) == true) { cell.Value = false; }
+                                }
+
+                                if (sortAb == true) { refresc(); }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            try { myTrans.Rollback(); }
+                            catch (MySqlException error)
+                            {
+                                if (myTrans.Connection != null)
+                                {
+                                    msjInfo = "Una excepción de tipo \"" + error.GetType() + " \"";
+                                    msjInfo += " se encontró al intentar revertir la transacción.";
+                                    MessageBox.Show(msjInfo, "Transacción Fallida...");
+                                }
+                            }
+
+                            msjInfo = "Una excepción de tipo: \"" + ex.GetType() + "\"";
+                            msjInfo += "\n se encontró al insertar los datos. \n Tome nota del";
+                            msjInfo += " siguiente error: \"" + ex.Message + "\"";
+                            MessageBox.Show(msjInfo, "Transacción Fallida...");
+                        }
+                    } // myTrans disposed
+                }
 
             }
         }

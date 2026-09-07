@@ -1,7 +1,4 @@
-﻿
-using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Asn1.Tsp;
-using Org.BouncyCastle.Crypto.Macs;
+﻿using MySqlConnector;
 using System;
 using System.ComponentModel;
 using System.Data;

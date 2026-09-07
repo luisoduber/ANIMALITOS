@@ -867,7 +867,6 @@ D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\K4os.Hash.xxHash.dll
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.CSharp.dll
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
-D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\MySql.Data.dll
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\MySqlConnector.dll
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Buffers.dll
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Configuration.ConfigurationManager.dll
@@ -891,7 +890,6 @@ D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\K4os.Compression.LZ4.Streams.xml
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\K4os.Hash.xxHash.xml
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
-D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\MySql.Data.xml
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\MySqlConnector.xml
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Buffers.xml
 D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\System.Configuration.ConfigurationManager.xml
@@ -1135,3 +1133,5 @@ D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\VentLot.application
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\VentLot.exe
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\VentLot.pdb
 D:\GITHUB\ANIMALITOS\ventas_loteria\obj\x86\Debug\VentLot.exe.config
+D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\GITHUB\ANIMALITOS\ventas_loteria\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml

@@ -1,23 +1,10 @@
-﻿using DevComponents.DotNetBar;
-using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Asn1.Ocsp;
-using Org.BouncyCastle.Crypto;
-using Org.BouncyCastle.Math;
+﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Net.Mime;
-using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace ventas_loteria
