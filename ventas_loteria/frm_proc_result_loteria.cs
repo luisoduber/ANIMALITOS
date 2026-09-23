@@ -174,7 +174,7 @@ namespace ventas_loteria
 
                 cboTipProc.SelectedValue = 2;
                 timer1.Enabled = true;
-                timer1.Interval = 60000;
+                timer1.Interval = 1000;
             }
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -955,11 +955,12 @@ namespace ventas_loteria
                 if (Convert.ToInt16(prmIdLot) == 1  || Convert.ToInt16(prmIdLot) == 5  || 
                     Convert.ToInt16(prmIdLot) == 11 || Convert.ToInt16(prmIdLot) == 12 || 
                     Convert.ToInt16(prmIdLot) == 13 || Convert.ToInt16(prmIdLot) == 15 || 
-                    Convert.ToInt16(prmIdLot) == 19 || Convert.ToInt16(prmIdLot) == 21 || 
-                    Convert.ToInt16(prmIdLot) == 22 || Convert.ToInt16(prmIdLot) == 23 || 
-                    Convert.ToInt16(prmIdLot) == 24 || Convert.ToInt16(prmIdLot) == 25 || 
-                    Convert.ToInt16(prmIdLot) == 27 || Convert.ToInt16(prmIdLot) == 28 || 
-                    Convert.ToInt16(prmIdLot) == 29 || Convert.ToInt16(prmIdLot) == 30)
+                    Convert.ToInt16(prmIdLot) == 17 || Convert.ToInt16(prmIdLot) == 19 || 
+                    Convert.ToInt16(prmIdLot) == 21 || Convert.ToInt16(prmIdLot) == 22 || 
+                    Convert.ToInt16(prmIdLot) == 23 || Convert.ToInt16(prmIdLot) == 24 || 
+                    Convert.ToInt16(prmIdLot) == 25 || Convert.ToInt16(prmIdLot) == 27 || 
+                    Convert.ToInt16(prmIdLot) == 28 || Convert.ToInt16(prmIdLot) == 29 || 
+                    Convert.ToInt16(prmIdLot) == 30)
 
                 {
                     htmlDoc.LoadHtml(prmHtml);
@@ -1017,31 +1018,32 @@ namespace ventas_loteria
                                 }
                                 else { rsAni = ""; }
 
-  
-                                string[] rsDat = null;
 
-                                
+
+
+                                string[] rsDat = null;
                                 if (Convert.ToInt16(prmIdLot) == 28)
                                 {
-                                    // nombLotLimpiado  = nombLotLimpiado.ToLower().Trim();
                                     nombLotLimpiado = nombLotLimpiado.Replace(" ", "|");
                                     rsDat = nombLotLimpiado.Split('|');
                                     prmNombLotPw = rsDat[0].ToString() + " " + rsDat[1].ToString();
 
                                 }
                                 else { prmNombLotPw = nombLotLimpiado.ToLower().Trim(); }
-                                //Console.WriteLine("prmNombLotPw: " + prmNombLotPw.ToLower().Trim() + " -- sistema: " + prmNombLot.ToLower().Trim());
 
                                 msjPru = "Loteria:" + prmNombLotPw;
                                 msjPru += " - Resultado:" + rsAni + " - " + rsNombAni;
                                 msjPru += " - Hora:" + horaLotPw;
 
-                                if (Convert.ToInt16(prmIdLot) == 27)
+                                /*
+                                if ((Convert.ToInt16(prmIdLot) == 17) && (prmNombLotPw.ToLower().Trim() == prmNombLot.ToLower().Trim()))
                                 {
                                     
-                                 //   MessageBox.Show(prmNombLotPw.ToLower().Trim() + " | " + prmNombLotPw.Length + " | " +
-                                   // prmNombLot.ToLower().Trim() + " | " +  prmNombLot.ToLower().Length + " | " + horaLotPw + " | " + prmHoraSortBus);
+                                    MessageBox.Show(prmNombLotPw.ToLower().Trim() + " | " + prmNombLotPw.Length + " | " +
+                                    prmNombLot.ToLower().Trim() + " | " +  prmNombLot.ToLower().Length + " | " + horaLotPw + " | " + prmHoraSortBus + " | " + 
+                                    rsAni + " - " + rsNombAni + " | " + resultadoTexto);
                                 }
+                                */
 
                                 if (Convert.ToInt16(prmIdLot) == 19) 
                                 {
