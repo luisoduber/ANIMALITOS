@@ -250,7 +250,9 @@ namespace ventas_loteria
                 {
                     case DialogResult.Yes:
 
-                        rsDat = objMet.actStatProdTod(idGrup, idLot, codProd, 1);
+                        if (idSort == 0) { rsDat = objMet.actStatProdTod(idGrup, idLot, idSort, codProd, 1); }
+                        if (idSort > 0) { rsDat = objMet.actStatProdTod(idGrup, idLot, idSort, codProd, 1); }
+
                         if (rsDat == "true")
                         {
                             dtDgvProdBloq = objMet.listProdBloq(idGrup, idLot);

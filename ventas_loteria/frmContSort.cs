@@ -188,19 +188,47 @@ namespace ventas_loteria
 
                 string rsDat = "";
                 msjInf = "Realmente desea bloquear el sorteo: ";
-                msjInf += "\"" + nombSort + "\"";
+                msjInf += "\"" + nombSort.ToUpper() + "\"";
+                msjInf += " Presione: \"SI\" Para bloquear ";
+                msjInf += " para todas las taquillas, ";
+                msjInf += " Presione: \"NO\" Para bloquear ";
+                msjInf += " solo el sorteo seleccionado";
                 msjInf += " esta usted seguro?";
 
-                if (MessageBox.Show(msjInf.ToUpper(), "Verifique.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                DialogResult respuesta = MessageBox.Show(msjInf,
+                "Confirmación",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Question
+                );
+
+                switch (respuesta)
                 {
-                    if ((idUsu == 0) && (idSort == 0)) { /*rsDat = objMet.actStatProdTod(idGrup, idLot, codProd, 1);*/ }
-                    else { rsDat = objMet.actStatSort(idGrup,idUsu,idLot,idSort,1); }
-                    if (rsDat == "true")
-                    {
-                        dtdgvSortBloqII = objMet.listSortBloq(idGrup,idLot);
-                        dgvSortBloqII.DataSource = dtdgvSortBloqII;
-                    }
-                    else { MessageBox.Show("Ha ocurrido el siguiente error:" + rsDat, "Verifique."); }
+                    case DialogResult.Yes:
+
+                        if (idSort == 0) { rsDat = objMet.actStatSortTod(idGrup, idLot, idSort, 1); }
+                        if (idSort > 0) {  rsDat = objMet.actStatSortTod(idGrup, idLot, idSort, 1); }
+
+                       
+                        if (rsDat == "true")
+                        {
+                            dtdgvSortBloqII = objMet.listSortBloq(idGrup, idLot);
+                            dgvSortBloqII.DataSource = dtdgvSortBloqII;
+                        }
+                        else { MessageBox.Show("Ha ocurrido el siguiente error:" + rsDat, "Verifique."); }
+                        break;
+
+                    case DialogResult.No:
+                        rsDat = objMet.actStatSort(idGrup, idUsu, idLot, idSort, 1);
+                        if (rsDat == "true")
+                        {
+                            dtdgvSortBloqII = objMet.listSortBloq(idGrup, idLot);
+                            dgvSortBloqII.DataSource = dtdgvSortBloqII;
+                        }
+                        else { MessageBox.Show("Ha ocurrido el siguiente error:" + rsDat, "Verifique."); }
+                        break;
+
+                    case DialogResult.Cancel:
+                        break;
                 }
             }
         }

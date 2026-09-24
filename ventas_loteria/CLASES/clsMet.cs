@@ -2329,7 +2329,8 @@ namespace ventas_loteria
             return rsDat;
         }
         public string actStatProdTod(int prmIdGrup, int prmIdLot,
-                                   string prmCodProd, int prmIdStat)
+                                   int prmIdSort, string prmCodProd, 
+                                   int prmIdStat)
         {
             string rsDat = "";
             try
@@ -2345,9 +2346,10 @@ namespace ventas_loteria
                         cmd.CommandText = "spActStatProdTod";
                         cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
                         cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                        cmd.Parameters.AddWithValue("prmIdSort", prmIdSort);
                         cmd.Parameters.AddWithValue("prmCodProd", prmCodProd);
                         cmd.Parameters.AddWithValue("prmIdStat", prmIdStat);
-                        rsDat = cmd.ExecuteNonQuery() > 0 ? "true" : "false";
+                        rsDat = cmd.ExecuteNonQuery() > 0 ? "true":"false";
                     }
                 }
             }
@@ -3358,6 +3360,32 @@ namespace ventas_loteria
             }
             catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
             return dt;
+        }
+        public string actStatSortTod(int prmIdGrup, int prmIdLot, 
+                                    int prmIdSort, int prmIdStat)
+        {
+            string rsDat = "";
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spActStatSortTod";
+                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                        cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
+                        cmd.Parameters.AddWithValue("prmIdSort", prmIdSort);
+                        cmd.Parameters.AddWithValue("prmIdStat", prmIdStat);
+                        rsDat = cmd.ExecuteNonQuery() > 0 ? "true" : "false";
+                    }
+                }
+            }
+            catch (Exception ex) { rsDat = ex.Message; }
+            return rsDat;
         }
 
         public string actStatSort(int prmIdGrup, int prmIdUsu,
