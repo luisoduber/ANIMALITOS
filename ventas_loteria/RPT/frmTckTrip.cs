@@ -114,7 +114,6 @@ namespace ventas_loteria
             grafico.DrawString(head4, fuente, new SolidBrush(Color.Black), ini_x, ini_y + offset);
             offset = offset + interlineado;
             grafico.DrawString(separador, fuente, new SolidBrush(Color.Black), ini_x, ini_y + offset);
-            offset = offset + interlineado;
 
             int d = 0;
             for (int c = 0; c < rsDetJug.Length; c++)
@@ -122,15 +121,16 @@ namespace ventas_loteria
                 
                 if (!string.IsNullOrEmpty(rsDetJug[c].ToString()))
                 {
-                    d++;
+
                     offset = offset + interlineado;
                     grafico.DrawString(rsDetJug[c].ToString(), fuente, new SolidBrush(Color.Black),
                                                                              ini_x, ini_y + offset);
+                    d++;
+                    if ((d == 5) && (c != rsDetJug.Length - 2)) 
+                    { d = 0; offset = offset + interlineado;  }
 
-                    if (d == 5) { offset = offset + interlineado; d = 0; }
                 }
             }
-            offset = offset + interlineado;
             offset = offset + interlineado;
             grafico.DrawString(separador, fuente, new SolidBrush(Color.Black), ini_x, ini_y + offset);
 

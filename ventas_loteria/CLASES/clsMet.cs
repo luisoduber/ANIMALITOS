@@ -1311,7 +1311,8 @@ namespace ventas_loteria
                                 dr["prmNroSer"].ToString() + "?" + 
                                 dr["prmFech"].ToString() + "?" +
                                 dr["prmHor"].ToString() + "?" + 
-                                dr["prmMtck"].ToString();
+                                dr["prmMtck"].ToString() + "?" +
+                                dr["prmIdTipTck"].ToString();  
                         }
 
                         else { rsDat = ""; }

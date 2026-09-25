@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Printing;
+using System.Diagnostics;
 //using CrystalDecisions.CrystalReports.Engine;
 
 namespace ventas_loteria
@@ -22,10 +23,10 @@ namespace ventas_loteria
         public string nombTaq;
         public string fecha, hora;
         public string nroTicket, nroSerial;
-        public int nroDiaCad;
+        public int nroDiaCad, idTipTck;
         public string detJug;
-        public double totVenta;
-        int id_proceso = 0;
+        public double totVent;
+        int idProc = 0;
 
         private void frm_rpt_ticket_venta_Load(object sender, EventArgs e)
         {
@@ -53,12 +54,12 @@ namespace ventas_loteria
                 pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
                 pd.Print();
 
-                id_proceso = 1;
+                idProc = 1;
                 work_inicia_frm.CancelAsync();
             }
             catch (Exception ex)
             {
-                id_proceso = 0;
+                idProc = 0;
                 MessageBox.Show("Ha ocurrido el siguiente error: "+ex.Message, "Verifique");
             }
         }
@@ -69,11 +70,11 @@ namespace ventas_loteria
         private void work_inicia_frm_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
           
-            if (id_proceso == 1)
+            if (idProc == 1)
             {
                 this.Close();      
             }
-            else if (id_proceso == 0)
+            else if (idProc == 0)
             {
                 MessageBox.Show("Error imprimiendo...", "Verifique.");
                 this.Close();      
@@ -86,9 +87,12 @@ namespace ventas_loteria
             Font fuente = new Font("arial", Convert.ToInt32(clsMet.num_letra));
         
             int interlineado = Font.Height;
+           
             if (Convert.ToInt32(clsMet.num_letra) == 6) { interlineado = 8; }
             else if (Convert.ToInt32(clsMet.num_letra) == 7) { interlineado = 9; }
             else if (Convert.ToInt32(clsMet.num_letra) == 8) { interlineado = 13; }
+
+            int interlTrip = 20;
 
             int ini_x = 0;
             int ini_y = 0;
@@ -98,16 +102,16 @@ namespace ventas_loteria
             string header3 , header4;
             string separador;
             string footer1, footer2;
-
-           string[] rs_det_jug= detJug.Split('/');
-           //MessageBox.Show(rs_det_jug.Length.ToString());
+            string[] rsDetJug = null;
+            if (idTipTck==1) { rsDetJug  = detJug.Split('/'); }
+            else if (idTipTck == 2) {  rsDetJug  = detJug.Split('?'); }
 
             header1 = "Taquilla:" + nombTaq.ToUpper();
             header2 = "Divisa:" + clsMet.NombDivisa.ToUpper();
             header3 = "Fecha:" + fecha + "  Hora:" + hora;
             header4 = "Ticket:" + nroTicket + "  Serial:" + nroSerial;
-            separador = "==============================";
-            footer1 = "Total venta:"  +totVenta.ToString("N2");
+            separador = "================================";
+            footer1 = "Total venta:"  +totVent.ToString("N2");
             footer2 = "REVISE TICKET. CADUCA:"+ nroDiaCad + " DIAS.";
 
             grafico.DrawString(header1, fuente, new SolidBrush(Color.Black), ini_x, ini_y + offset);
@@ -123,16 +127,35 @@ namespace ventas_loteria
             offset = offset + interlineado;
             grafico.DrawString(separador, fuente, new SolidBrush(Color.Black), ini_x, ini_y + offset);
 
-            for (int c = 0; c < rs_det_jug.Length; c++)
-            {   
-                if (!string.IsNullOrEmpty(rs_det_jug[c].ToString()))
+            int contTrip = 0;
+            for (int c = 0; c < rsDetJug.Length; c++)
+            {
+                if (idTipTck == 1) 
+                { 
+               
+                    if (!string.IsNullOrEmpty(rsDetJug [c].ToString()))
+                    {
+                        offset = offset + interlineado;
+                        grafico.DrawString(rsDetJug [c].ToString(), fuente, new SolidBrush(Color.Black), 
+                                                                                 ini_x, ini_y + offset);
+                    }
+                }
+
+                else if (idTipTck == 2) 
                 {
-                    //MessageBox.Show(rs_det_jug[c].ToString());
-                    offset = offset + interlineado;
-                    grafico.DrawString(rs_det_jug[c].ToString(), fuente, new SolidBrush(Color.Black), 
-                                                                             ini_x, ini_y + offset);
+                    if (!string.IsNullOrEmpty(rsDetJug[c].ToString()))
+                    {
+                        offset = offset + interlineado;
+                        grafico.DrawString(rsDetJug[c].ToString(), fuente, new SolidBrush(Color.Black),
+                                                                                 ini_x, ini_y + offset);
+
+                        contTrip++;
+                        if ((contTrip == 5) && (c != rsDetJug.Length - 2)) 
+                        { contTrip = 0; offset = offset + interlineado; }
+                    }
                 }
             }
+
             offset = offset + interlineado;
             grafico.DrawString(separador, fuente, new SolidBrush(Color.Black), ini_x, ini_y + offset);
 

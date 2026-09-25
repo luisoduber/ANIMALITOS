@@ -732,10 +732,7 @@ namespace ventas_loteria
                                     if (codJug2.Length == 1) { codJug2 = codJug2.PadRight(1, ' '); }
                                     if (codJug3.Length == 1) { codJug3 = codJug3.PadRight(1, ' '); }
 
-                                    if (idLotAnt != idLotSig)
-                                    {
-                                        if (cadResult.Length > 0) { cadResult += "?"; contJud = 1; }
-                                    }
+                              
 
                                     int dtIdlot = 0;
                                     int cant = 0;
