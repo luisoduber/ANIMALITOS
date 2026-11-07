@@ -122,7 +122,6 @@ namespace ventas_loteria
         private void dgvStatTck_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string nroTck = "", nroSerial = "";
-
             if (dgvStatTck.RowCount > 0)
 
             nroTck = dgvStatTck.CurrentRow.Cells[2].Value.ToString();

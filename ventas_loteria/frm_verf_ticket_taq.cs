@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevComponents.DotNetBar.Controls;
+using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +11,6 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
-using MySqlConnector;
 
 namespace ventas_loteria
 {
@@ -21,7 +22,7 @@ namespace ventas_loteria
         }
 
         clsMet objMet = new clsMet();
-        DataTable dtDgvSort = new DataTable();
+        DataTable dtCboGrup = new DataTable();
         DataTable dtCboLot = new DataTable();
         DataTable dtCboTaq = new DataTable();
         DataTable dtDgvDetJug = new DataTable();
@@ -29,20 +30,16 @@ namespace ventas_loteria
         int idLot = 0, idSort= 0;
         int idTaq = 0, idGrup=0;
         string fechLot = "";
-        int idProc = 0;
+        int idPerf=0, idProc = 0;
         private void frm_verf_ticket_taq_Load(object sender, EventArgs e)
         {
             this.Text = "Verifica Ticket Taquilla.";
-            this.dgvSort.AllowUserToAddRows = false;
-            this.dgvSort.RowHeadersVisible = false;
-
             this.dgvDetJug.AllowUserToAddRows = false;
             this.dgvDetJug.RowHeadersVisible = false;
             this.dgvDetJug.ColumnHeadersVisible = false;
+            idPerf = Convert.ToInt16(clsMet.idPerf);
 
-            gp_cant_jug.Text = "cantidad jugadas: 0";
-            idGrup= Convert.ToInt16(clsMet.idGrup);
-
+            gp_cant_jug.Text = "Ticket Ganadores: 0";
             this.dtp_fecha.Value = Convert.ToDateTime(clsMet.FechaActual);
             this.dtp_fecha.Format = DateTimePickerFormat.Custom;
             this.dtp_fecha.CustomFormat = "dd-MM-yyyy";
@@ -56,12 +53,14 @@ namespace ventas_loteria
         {
             try
             {
-                dtCboLot = objMet.listLotTod(idGrup);
-                dtDgvSort = objMet.busLotProcRs();
-                dtCboTaq = objMet.busGrupTaq
-                            (Convert.ToInt32(clsMet.idGrup));
+                dtCboGrup = objMet.BusGrup();
+                if (idPerf == 1 || idPerf == 2) { idGrup = Convert.ToInt32(clsMet.idGrup); }
+                else if (idPerf == 3) { idGrup = Convert.ToInt16(dtCboGrup.Rows[0][0].ToString()); }
 
-                idProc= 1;
+                dtDgvDetJug = objMet.busJugTaq(idGrup);
+                dtCboTaq = objMet.busGrupTaq(idGrup);
+
+                idProc = 1;
                 work_inicia_frm.CancelAsync();
            }
             catch (Exception ex)
@@ -77,30 +76,29 @@ namespace ventas_loteria
         {
             if (idProc == 1)
             {
-                dgvSort.DataSource = dtDgvSort;
+
+                this.cboGrup.DisplayMember = "nombGrup";
+                this.cboGrup.ValueMember = "idGrup";
+                this.cboGrup.DataSource = dtCboGrup;
+
                 this.cboTaq.DisplayMember = "nick";
                 this.cboTaq.ValueMember = "id_usuario";
                 this.cboTaq.DataSource = dtCboTaq;
 
-                this.cboLot.DisplayMember = "nombLot";
-                this.cboLot.ValueMember = "idLot";
-                this.cboLot.DataSource = dtCboLot;
-            }
-        }
-        private void dgvSort_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvSort.RowCount > 0)
-            {
-                idTaq = Convert.ToInt32(cboTaq.SelectedValue.ToString());
-                fechLot = Convert.ToDateTime(dtp_fecha.Text).ToString("yyyy-MM-dd");
+                if (idPerf == 2)
+                {
+                    idGrup = Convert.ToInt32(clsMet.idGrup);
+                    cboGrup.Enabled = false;
+                    cboGrup.SelectedValue = idGrup;
+                }
+                else if (idPerf == 3)
+                {
+                    cboGrup.Enabled = true;
+                    cboGrup.SelectedIndex = 0;
+                }
 
-                idLot = Convert.ToInt32(dgvSort.CurrentRow.Cells[0].Value.ToString());
-                idSort= Convert.ToInt32(dgvSort.CurrentRow.Cells[3].Value.ToString());
-
-                dtDgvDetJug = objMet.busJugTaq(idLot,idSort,idTaq,fechLot);
                 dgvDetJug.DataSource = dtDgvDetJug;
-
-                gp_cant_jug.Text = "Cantidad jugadas: " + dgvDetJug.RowCount;
+                gp_cant_jug.Text = "Ticket Ganadores: " + dgvDetJug.RowCount;
                 dtp_fecha.Enabled = true;
             }
         }
@@ -118,11 +116,45 @@ namespace ventas_loteria
             if (codigo == 27) { this.Close(); }
         }
 
-        private void cboLot_SelectionChangeCommitted(object sender, EventArgs e)
+        private void dgvDetJug_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            idLot = Convert.ToInt16(cboLot.SelectedValue);
-            dtDgvSort = objMet.listSortTod(idLot);
-            dgvSort.DataSource = dtDgvSort;
+            if (dgvDetJug.Rows.Count > 0)
+            {
+                string nroTck = "", nroSerial = "";
+
+                nroTck = dgvDetJug.CurrentRow.Cells[0].Value.ToString();
+                nroSerial = dgvDetJug.CurrentRow.Cells[1].Value.ToString();
+
+                frm_verf_ticket objVerfTck = new frm_verf_ticket();
+                objVerfTck.prmNroTck = nroTck;
+                objVerfTck.prmNroSerial = nroSerial;
+                objVerfTck.ShowDialog();
+            }
+        }
+
+        private void cboGrup_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idGrup = Convert.ToInt16(cboGrup.SelectedValue.ToString());
+            dtDgvDetJug = objMet.busJugTaq(idGrup);
+            dgvDetJug.DataSource = dtDgvDetJug;
+
+            dtCboTaq = objMet.busGrupTaq(idGrup);
+            this.cboTaq.DisplayMember = "nick";
+            this.cboTaq.ValueMember = "id_usuario";
+            this.cboTaq.DataSource = dtCboTaq;
+        }
+
+        private void cboTaq_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+            idTaq = Convert.ToInt32(cboTaq.SelectedValue.ToString());
+            fechLot = Convert.ToDateTime(dtp_fecha.Text).ToString("yyyy-MM-dd");
+
+            dtDgvDetJug = objMet.busJugTaqFilt(idGrup, idTaq, fechLot);
+            dgvDetJug.DataSource = dtDgvDetJug;
+
+            gp_cant_jug.Text = "Ticket Ganadores: " + dgvDetJug.RowCount;
+            dtp_fecha.Enabled = true;
         }
 
         private void btnRs_Click(object sender, EventArgs e)

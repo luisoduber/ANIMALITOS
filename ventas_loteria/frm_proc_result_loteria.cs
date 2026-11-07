@@ -5,9 +5,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Globalization;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Security.Policy;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 
 namespace ventas_loteria
@@ -200,8 +207,10 @@ namespace ventas_loteria
                 var urlRA = @"https://www.ruletactiva.com.ve/";
                 var urlLotVen = @"https://lotoven.com/animalitos/";
                 var urlLotRs = @"https://www.lottoresultados.com/resultados/animalitos";
+                var urlRs365 = @"https://resultados365.com/";
 
-                string htmlTaz = "", htmlTazF = "", htmlLotRs = "";
+                string htmlTaz = "", htmlTazF = "";
+                string htmlLotRs = "", htmlRs365 = "";
                 string idLotBus = "", idSortBus = "";
                 string rsGan = "", rsLot = ""; string horServ = "";
 
@@ -251,6 +260,8 @@ namespace ventas_loteria
                                             if (string.IsNullOrEmpty(rsLot)) { rsLot = LottResult(idLotBus, idSortBus, nombLotBus, horaSortBus, htmlLotRs); }
                                             //Debug.WriteLine("hora actual mayor horra inicio lotto result");
                                         }
+                                        if (string.IsNullOrEmpty(rsLot)) { rsLot = Rs365(idLotBus, idSortBus, nombLotBus, horaSortBus, urlRs365); }
+
 
                                         if (!string.IsNullOrEmpty(rsLot))
                                         {
@@ -334,6 +345,11 @@ namespace ventas_loteria
         {
             try
             {
+
+
+                string verfTckErr = objMet.VerfTckErr();
+                if (verfTckErr == "true") { msjErr = "se reversaron tickets..."; }
+
                 dtDgvJug = objMet.busJugProcRs(idPerf, idGrup, fechLot);
                 if (dtDgvJug.Rows.Count > 0)
                 {
@@ -397,6 +413,7 @@ namespace ventas_loteria
             dgvJug.FirstDisplayedScrollingRowIndex = e.ProgressPercentage;
             this.pbInfProcRs.Value = e.ProgressPercentage;
             gbInfProcRs.Text = msjProcRs;
+            lblMsjErr.Text = msjErr;
 
         }
         private void wkProcJugAut_OnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -1270,6 +1287,192 @@ namespace ventas_loteria
                 }
             }
             catch (Exception ex) { msjInf = ex.Message; Console.WriteLine("exception: " + msjInf); }
+            return result;
+        }
+
+
+        private static HtmlNode BuscarTarjeta(HtmlNode img)
+        {
+            HtmlNode nodo = img.ParentNode;
+            for (int i = 0; i < 5 && nodo != null; i++, nodo = nodo.ParentNode)
+            {
+                HtmlNodeCollection imgs = nodo.SelectNodes(".//img[@alt]");
+                int imagenesDeResultado = imgs == null ? 0 : imgs.Count(x => AltRegex.IsMatch(Alt(x)));
+                if (imagenesDeResultado > 1) return null;
+                if (HoraRegex.IsMatch(Texto(nodo))) return nodo;
+            }
+            return null;
+        }
+        private static string Alt(HtmlNode img)
+        {
+            return WebUtility.HtmlDecode(img.GetAttributeValue("alt", ""));
+        }
+
+        private static string Texto(HtmlNode n)
+        {
+            return Regex.Replace(WebUtility.HtmlDecode(n.InnerText), @"\s+", " ").Trim();
+        }
+
+        private static string ExtraerAnimalDelTexto(HtmlNode tarjeta, string numero, string hora)
+        {
+            IEnumerable<string> partes = Texto(tarjeta)
+                .Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries)
+                .Where(p => p != numero && !p.Equals(hora, StringComparison.OrdinalIgnoreCase));
+            return string.Join(" ", partes).Trim();
+        }
+
+        public static string Normalizar(string texto)
+        {
+            if (string.IsNullOrWhiteSpace(texto)) return "";
+
+            texto = WebUtility.UrlDecode(texto.Trim());
+
+            // Si es una URL, quedarse con el último segmento (el slug)
+            if (texto.Contains("/"))
+                texto = texto.TrimEnd('/').Split('/').Last();
+
+            // Quitar acentos (Triñapa -> Trinapa)
+            string descompuesto = texto.Normalize(NormalizationForm.FormD);
+            var sb = new StringBuilder();
+            foreach (char c in descompuesto)
+            {
+                if (CharUnicodeInfo.GetUnicodeCategory(c) == UnicodeCategory.NonSpacingMark) continue;
+                if (char.IsLetterOrDigit(c)) sb.Append(char.ToLowerInvariant(c));
+            }
+            return sb.ToString();
+        }
+
+        private static readonly Regex AltRegex = new Regex(
+            @"^\s*(?<animal>.*?)\s*-\s*(?<num>\d{1,3})\s*-\s*(?<loteria>.+?)\s*$",
+            RegexOptions.Compiled);
+
+        // 9Am, 12Pm, 8:30Pm, 08:30Am ...
+        private static readonly Regex HoraRegex = new Regex(
+            @"\b(?<h>\d{1,2})(?::(?<m>\d{2}))?\s*(?<ampm>Am|Pm)\b",
+            RegexOptions.IgnoreCase | RegexOptions.Compiled);
+
+        public string Rs365(string prmIdLot, string prmIdSort,
+                           string prmNombLot, string prmHoraSortBus, string prmUrl)
+        {
+            string result = "";
+            try
+            {
+                if (
+                     Convert.ToInt16(prmIdLot) == 1  || Convert.ToInt16(prmIdLot) == 5  || 
+                     Convert.ToInt16(prmIdLot) == 12 || Convert.ToInt16(prmIdLot) == 14 || 
+                     Convert.ToInt16(prmIdLot) == 17 || Convert.ToInt16(prmIdLot) == 19 ||
+                     Convert.ToInt16(prmIdLot) == 22 || Convert.ToInt16(prmIdLot) == 23 ||
+                     Convert.ToInt16(prmIdLot) == 24 || Convert.ToInt16(prmIdLot) == 26 || 
+                     Convert.ToInt16(prmIdLot) == 27 || Convert.ToInt16(prmIdLot) == 28 || 
+                     Convert.ToInt16(prmIdLot) == 31 || Convert.ToInt16(prmIdLot) == 32 )
+
+                {
+                    using (var client = new HttpClient())
+                    {
+                        prmUrl = @"https://resultados365.com/resultados/";
+
+                       
+                        if (Convert.ToInt16(prmIdLot) == 12 || Convert.ToInt16(prmIdLot) == 17 || 
+                            Convert.ToInt16(prmIdLot) == 23 || Convert.ToInt16(prmIdLot) == 24) 
+                        { 
+                            prmUrl += prmNombLot.Replace(" ", "").ToLower(); 
+                            prmNombLot= prmNombLot.Replace(" ", "").ToLower();
+                        }
+                        else if (Convert.ToInt16(prmIdLot) == 14) { prmUrl += prmNombLot.Replace(" ", "-").ToLower(); }
+                        else if (Convert.ToInt16(prmIdLot) == 19) { prmUrl +="guacharito".ToLower();  }
+                        else if (Convert.ToInt16(prmIdLot) == 22) { prmUrl += "ricachona".ToLower(); }
+                        else if (Convert.ToInt16(prmIdLot) == 26 || Convert.ToInt16(prmIdLot) == 27 || 
+                                 Convert.ToInt16(prmIdLot) == 28 || Convert.ToInt16(prmIdLot) == 32) 
+                        { prmUrl += prmNombLot.Replace(" ", "-").Replace("tt", "t").ToLower();   }
+                        else { prmUrl += prmNombLot.ToLower(); }
+
+                        Random rand = new Random();
+                        int indAl = rand.Next(_listUserAg.Count);
+                        client.BaseAddress = new Uri(prmUrl);
+                        client.DefaultRequestHeaders.Accept.Clear();
+                        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/html"));
+                        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xhtml+xml"));
+                        client.DefaultRequestHeaders.Add("User-Agent", _listUserAg[indAl].cdUserAg.ToString());
+         
+                        using (var res = client.GetAsync(prmUrl).Result)
+                        {
+                            if (res.IsSuccessStatusCode)
+                            {
+                                string html = res.Content.ReadAsStringAsync().Result;
+                                htmlDoc.LoadHtml(html);
+                            }
+                        }
+                    }
+
+                    string msjPru = "";
+                    string rsAni = "", rsNombAni = "";
+                    string prmNombLotPw = "", horaLotPw = "";
+
+                    HtmlNodeCollection imagenes = htmlDoc.DocumentNode.SelectNodes("//img[@alt]");
+    
+                    if (imagenes == null) { Debug.WriteLine(" imagenes == null - Rs365"); return "";  }
+                        foreach (HtmlNode img in imagenes)
+                    {
+                        Match m = AltRegex.Match(Alt(img));
+                        if (!m.Success) continue;
+
+                        string nombreLoteria = m.Groups["loteria"].Value.Trim();
+                        string numero = m.Groups["num"].Value;
+                        string animal = Regex.Replace(m.Groups["animal"].Value, @"\s+", " ").Trim();
+
+    
+                        HtmlNode tarjeta = BuscarTarjeta(img);
+                        string hora = tarjeta != null ? HoraRegex.Match(Texto(tarjeta)).Value : "";
+
+                        if (string.IsNullOrEmpty(animal) && tarjeta != null)
+                            animal = ExtraerAnimalDelTexto(tarjeta, numero, hora);
+
+                        string clave = Normalizar(nombreLoteria);
+                        prmNombLotPw = nombreLoteria;
+
+                        hora = hora.ToLower().Replace("am", "").Replace("pm", "");
+                        if (Convert.ToInt16(prmIdLot) == 1  || Convert.ToInt16(prmIdLot) == 5  || 
+                            Convert.ToInt16(prmIdLot) == 12 || Convert.ToInt16(prmIdLot) == 14 || 
+                            Convert.ToInt16(prmIdLot) == 17 || Convert.ToInt16(prmIdLot) == 19 ||
+                            Convert.ToInt16(prmIdLot) == 22 || Convert.ToInt16(prmIdLot) == 23 ||
+                            Convert.ToInt16(prmIdLot) == 24 || Convert.ToInt16(prmIdLot) == 27 || 
+                            Convert.ToInt16(prmIdLot) == 31) {
+                            if(hora.Length==1) { hora = "0" + hora; }
+                            hora += ":00";
+                        }
+
+                        hora = Convert.ToDateTime(hora).ToString("hh:mm");
+                        prmHoraLot = hora;
+                        rsNombAni = animal;
+                        rsAni = numero;
+
+                        if (Convert.ToInt16(prmIdLot) == 19 || Convert.ToInt16(prmIdLot) == 22 || 
+                            Convert.ToInt16(prmIdLot) == 26) 
+                        { prmNombLotPw = prmNombLot;}
+
+                        Debug.WriteLine($"Loteria: {nombreLoteria}, Hora: {hora}, Numero: {numero}, Animal: {animal}");
+                        Debug.WriteLine(prmNombLotPw.ToLower() + "-" + prmNombLot + "|" + prmHoraLot + "-" + prmHoraSortBus);
+
+                        if ((prmNombLotPw.ToLower() == prmNombLot) && (prmHoraLot == prmHoraSortBus))
+                        {
+                            if (!string.IsNullOrEmpty(rsAni))
+                            {
+                                Debug.WriteLine(msjPru + " - Rs365");
+                                result += prmIdLot + "-";
+                                result += prmIdSort + "-";
+                                result += rsAni + "-";
+                                result += rsNombAni + "-";
+                                result += prmNombLotPw + " ";
+                                result += prmHoraSortBus + "-";
+                                result += "Rs365";
+                                break;
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex) { msjInf = ex.Message; Debug.WriteLine("exception Rs365: " + msjInf); }
             return result;
         }
         public string rsIndLotHoy( string prmIdLot, string prmIdSort, 

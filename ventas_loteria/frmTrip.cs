@@ -541,9 +541,10 @@ namespace ventas_loteria
             string[] rsDat = new string[7];
             string[] rsDatDetTrip = new string[4];
             int rsVerfJug, rsVerfTiempo;
-            int cont = 0, idTck = 0;
+            int cont = 0, valTrip = 0; 
+            string idTck ="";
             Boolean actMont = false;
-            int valTrip = 0;
+       
 
             const short VAL_TRIP_CUPO_AGOTADO = 2;
             const short VAL_TRIP_CUPO_PARCIAL = 3;
@@ -587,7 +588,7 @@ namespace ventas_loteria
                                         nroSerial = rsDat[2];
                                         fTck = Convert.ToDateTime(rsDat[3]).ToString("dd/MM/yyyy");
                                         hTck = rsDat[4];
-                                        idTck = Convert.ToInt16(rsDat[5]);
+                                        idTck = rsDat[5];
                                     }
                                 }
                             } // cmd disposed
@@ -788,14 +789,14 @@ namespace ventas_loteria
                                 {
                                     msjInf = "Una excepción de tipo \"" + error.GetType() + " \"";
                                     msjInf += " se encontró al intentar revertir la transacción.";
-                                    MessageBox.Show(msjInf, "Transacción Fallida...");
+                                    MessageBox.Show(msjInf, "Transacción Fallida...55");
                                 }
                             }
 
                             msjInf = "Una excepción de tipo: \"" + ex.GetType() + "\"";
                             msjInf += "\n se encontró al insertar los datos. \n Tome nota del";
                             msjInf += " siguiente error: \"" + ex.Message + "\"";
-                            MessageBox.Show(msjInf, "Transacción Fallida...");
+                            MessageBox.Show(msjInf, "Transacción Fallida...23");
                         }
                     } // myTrans disposed
                 }     // cnBd cerrada y disposed

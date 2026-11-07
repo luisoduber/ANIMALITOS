@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -1644,7 +1645,8 @@ namespace ventas_loteria
                         if (dr.HasRows)
                         {
                             rsDat = dr["idTipTck"].ToString() + "?" +
-                                dr["nick"].ToString() + "?" + 
+                                dr["nick"].ToString() + "?" +
+                                dr["nombDivisa"].ToString() + "?" +
                                 dr["nombStatTck"].ToString() + "?" + 
                                 dr["mTck"].ToString() + "?" +
                                 dr["mPag"].ToString() + "?" + 
@@ -1732,22 +1734,28 @@ namespace ventas_loteria
                                 || idSort != Convert.ToInt32(dr["idSort"].ToString()))
                             {
 
+                                if (contDetJug == 1) { rsDat += Environment.NewLine; }
                                 nombLot = dr["nombLot"].ToString();
                                 horaSort = dr["horaSort"].ToString();
-                                rsDat += "-------------------------------------------\n";
-                                rsDat += nombLot + "  ";
-                                rsDat += Convert.ToDateTime(horaSort).ToString("hh:mm tt").ToUpper();
-                                rsDat += "\n\n";
+                                rsDat += "".PadRight(39 , '-');
+                                rsDat += Environment.NewLine;
+                                rsDat += nombLot.PadLeft(nombLot.Length + 1);
+                                rsDat += Convert.ToDateTime(horaSort).ToString("hh:mm tt", CultureInfo.InvariantCulture).ToUpper().PadLeft(10, ' ');
+                                rsDat += Environment.NewLine;
+                                rsDat += Environment.NewLine;
                                 contDetJug = 0;
                             }
                             contDetJug++;
-                            rsDat += codJug + " " + nombProd.Substring(0, 3);
-                            rsDat += " " + mJug.ToString("N2") + "   ";
-
-                            if (contDetJug == 2) { rsDat += "\n"; contDetJug = 0; }
+                            if (codJug=="0") { codJug = codJug.PadLeft(2); }
+                            rsDat += mJug.ToString("N2").PadLeft(mJug.ToString("N2").Length + 1).PadRight(mJug.ToString("N2").Length + 3);
+                            rsDat += codJug.PadRight(4);
+                            rsDat += nombProd.PadRight(6);
+                       
+                            if (contDetJug == 2) { rsDat += Environment.NewLine; contDetJug = 0; }
                             idLot = Convert.ToInt32(dr["idLot"].ToString());
                             idSort = Convert.ToInt32(dr["idSort"].ToString());
                         }
+                        rsDat += "".PadRight(39, '-');
                         dr.Close();
                     }
                 }
@@ -1781,39 +1789,35 @@ namespace ventas_loteria
 
                         while (dr.Read())
                         {
-                            nombLot = dr["nombLot"].ToString().Trim();
+                            nombLot = "TRIPLETA: " + dr["nombLot"].ToString().Trim();
                             fechaIni = dr["fechaIni"].ToString().Trim();
                             fechaFin = dr["fechaFin"].ToString().Trim();
                             nombProd = dr["nombProd"].ToString().Trim();
                             mont = dr["mont"].ToString().Trim();
 
-                            //MessageBox.Show(nombLot+" "+ fechaIni + " " + nombProd + " " + mont);
+                            rsDat += "".PadRight(39, '-');
+                            rsDat += Environment.NewLine;
 
-                            //if (idLot != Convert.ToInt32(dr["idLot"].ToString()))
-                           // {
-
-                                nombLot ="TRIPLETA: " + dr["nombLot"].ToString();
-                                rsDat += "------------------------------------------\n";
-                                rsDat += nombLot;
-                                rsDat += "\n";
-                                rsDat += fechaIni;
-                                rsDat += "\n";
-                                rsDat += fechaFin;
-                                rsDat += "\n";
-                                rsDat += nombProd;
-                                rsDat += "\n";
-                                rsDat += "Monto jugando: ";
-                                rsDat += Convert.ToDouble(mont).ToString("N2");
-                                rsDat += " "+ clsMet.NombDivisa;
-                                rsDat += "\n";
-                                rsDat = rsDat.ToUpper();
-                               contDetJug = 0;
-                            //}
+                            rsDat += Convert.ToString(nombLot).PadLeft(nombLot.Length + 1);
+                            rsDat += Environment.NewLine;
+                            rsDat += fechaIni.PadLeft(fechaIni.Length + 1);
+                            rsDat += Environment.NewLine;
+                            rsDat += fechaFin.PadLeft(fechaFin.Length + 1);
+                            rsDat += Environment.NewLine;
+                            rsDat += nombProd.PadLeft(nombProd.Length + 1);
+                            rsDat += Environment.NewLine;
+                            rsDat += Convert.ToString("Monto jugando:").PadLeft(15);
+                            rsDat += Convert.ToDouble(mont).ToString("N2");
+                            rsDat += " "+ clsMet.NombDivisa;
+                            rsDat += Environment.NewLine;
+                            rsDat = rsDat.ToUpper();
+                            contDetJug = 0;
                             contDetJug++;
 
-                            if (contDetJug == 2) { rsDat += "\n"; contDetJug = 0; }
+                            if (contDetJug == 2) { rsDat += Environment.NewLine; contDetJug = 0; }
                             idLot = Convert.ToInt32(dr["idLot"].ToString());
                         }
+                        rsDat += "".PadRight(39, '-');
                         dr.Close();
                     }
                 }
@@ -2300,6 +2304,28 @@ namespace ventas_loteria
             return dt;
         }
 
+        public string VerfTckErr()
+        {
+            string rsDat = "";
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spArrErrorCantJugProcRut";
+                        rsDat = cmd.ExecuteNonQuery() > 0 ? "true" : "false";
+                    }
+                }
+            }
+            catch (Exception ex) { rsDat = ex.Message; }
+            return rsDat;
+        }
+
         public string actStatProd(int prmIdGrup, int prmIdUsu,
                                     int prmIdLot, int prmIdSort,
                                     string prmCodProd, int prmIdStat)
@@ -2381,7 +2407,7 @@ namespace ventas_loteria
                     }
                 }
             }
-            catch (MySqlException ex) { rsDat = ex.Message; MessageBox.Show(rsDat, "grdActRstLot"); }
+            catch (MySqlException ex) { rsDat = ex.Message; }
             return rsDat;
         }
         public string busProcRsLot(int prmIdDetJug, int prmIdLot,
@@ -2990,8 +3016,7 @@ namespace ventas_loteria
             catch (Exception ex) { rsDat = ex.Message; }
             return rsDat;
         }
-        public DataTable busJugTaq(int prmIdLot, int prmIdSort,
-                                    int prmIdTaq, string prmFech)
+        public DataTable busJugTaq(int prmIdGrup)
         {
             DataTable dt = new DataTable("busJugTaq");
             MySqlDataAdapter da;
@@ -3006,10 +3031,34 @@ namespace ventas_loteria
                         cmd.Connection = cnBd;
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "SPBusJugTaq";
-                        cmd.Parameters.AddWithValue("prmIdGrup", clsMet.idGrup);
-                        cmd.Parameters.AddWithValue("prmIdLot", prmIdLot);
-                        cmd.Parameters.AddWithValue("prmIdSort", prmIdSort);
-                        cmd.Parameters.AddWithValue("prmIdTaq", prmIdTaq);
+                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                        da = new MySqlDataAdapter(cmd);
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex) { dt = null; MessageBox.Show(ex.Message); }
+            return dt;
+        }
+
+        public DataTable busJugTaqFilt(int prmIdGrup, int prmIdUsu,
+                                       string prmFech)
+        {
+            DataTable dt = new DataTable("busJugTaqFilt");
+            MySqlDataAdapter da;
+            try
+            {
+                using (MySqlConnection cnBd = new MySqlConnection())
+                {
+                    cnBd.ConnectionString = cn; cnBd.Open();
+                    idCn = 1;
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = cnBd;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "SPBusJugTaqFilt";
+                        cmd.Parameters.AddWithValue("prmIdGrup", prmIdGrup);
+                        cmd.Parameters.AddWithValue("prmIdUsu", prmIdUsu);
                         cmd.Parameters.AddWithValue("prmFech", prmFech);
                         da = new MySqlDataAdapter(cmd);
                         da.Fill(dt);
